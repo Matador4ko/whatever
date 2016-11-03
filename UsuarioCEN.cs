@@ -1,0 +1,70 @@
+
+
+using System;
+using System.Text;
+
+using NHibernate;
+using NHibernate.Cfg;
+using NHibernate.Criterion;
+using NHibernate.Exceptions;
+using WhateverGenNHibernate.Exceptions;
+
+using WhateverGenNHibernate.EN.Whatever;
+using WhateverGenNHibernate.CAD.Whatever;
+
+
+namespace WhateverGenNHibernate.CEN.Whatever
+{
+/*
+ *      Definition of the class UsuarioCEN
+ *
+ */
+public partial class UsuarioCEN
+{
+private IUsuarioCAD _IUsuarioCAD;
+
+public UsuarioCEN()
+{
+        this._IUsuarioCAD = new UsuarioCAD ();
+}
+
+public UsuarioCEN(IUsuarioCAD _IUsuarioCAD)
+{
+        this._IUsuarioCAD = _IUsuarioCAD;
+}
+
+public IUsuarioCAD get_IUsuarioCAD ()
+{
+        return this._IUsuarioCAD;
+}
+
+public int CrearUsuario (int p_ID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial)
+{
+        UsuarioEN usuarioEN = null;
+        int oid;
+
+        //Initialized UsuarioEN
+        usuarioEN = new UsuarioEN ();
+        usuarioEN.ID = p_ID;
+
+        usuarioEN.Nombre = p_nombre;
+
+        usuarioEN.Seguidores = p_seguidores;
+
+        usuarioEN.Edad = p_edad;
+
+        usuarioEN.Sexo = p_sexo;
+
+        usuarioEN.Facebook = p_Facebook;
+
+        usuarioEN.Instagram = p_Instagram;
+
+        usuarioEN.Historial = p_Historial;
+
+        //Call to UsuarioCAD
+
+        oid = _IUsuarioCAD.CrearUsuario (usuarioEN);
+        return oid;
+}
+}
+}
