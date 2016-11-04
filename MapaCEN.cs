@@ -38,7 +38,7 @@ public IMapaCAD get_IMapaCAD ()
         return this._IMapaCAD;
 }
 
-public int CrearMapa (int p_reto_mapa, int p_evento_mapa2, int p_id)
+public int New_ (int p_reto_mapa, int p_evento_mapa2, int p_id)
 {
         MapaEN mapaEN = null;
         int oid;
@@ -65,7 +65,7 @@ public int CrearMapa (int p_reto_mapa, int p_evento_mapa2, int p_id)
 
         //Call to MapaCAD
 
-        oid = _IMapaCAD.CrearMapa (mapaEN);
+        oid = _IMapaCAD.New_ (mapaEN);
         return oid;
 }
 }

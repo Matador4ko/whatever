@@ -38,7 +38,7 @@ public IGymkanaCAD get_IGymkanaCAD ()
         return this._IGymkanaCAD;
 }
 
-public int CrearGymkana (string p_Titulo, string p_descripcion, Nullable<DateTime> p_fecha, string p_localizacion, int p_precio, string p_creador, int p_ID, int p_usuario_evento, int p_numPasos)
+public int New_ (string p_Titulo, string p_descripcion, Nullable<DateTime> p_fecha, string p_localizacion, int p_precio, string p_creador, int p_ID, int p_usuario_evento, int p_numPasos)
 {
         GymkanaEN gymkanaEN = null;
         int oid;
@@ -71,7 +71,7 @@ public int CrearGymkana (string p_Titulo, string p_descripcion, Nullable<DateTim
 
         //Call to GymkanaCAD
 
-        oid = _IGymkanaCAD.CrearGymkana (gymkanaEN);
+        oid = _IGymkanaCAD.New_ (gymkanaEN);
         return oid;
 }
 }

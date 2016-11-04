@@ -38,7 +38,7 @@ public IAdminCAD get_IAdminCAD ()
         return this._IAdminCAD;
 }
 
-public int CrearAdmin (int p_ID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, string p_borrarRetos, string p_borrarEvento)
+public int New_ (int p_ID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, string p_borrarRetos, string p_borrarEvento)
 {
         AdminEN adminEN = null;
         int oid;
@@ -67,8 +67,35 @@ public int CrearAdmin (int p_ID, string p_nombre, int p_seguidores, int p_edad, 
 
         //Call to AdminCAD
 
-        oid = _IAdminCAD.CrearAdmin (adminEN);
+        oid = _IAdminCAD.New_ (adminEN);
         return oid;
+}
+
+public void Modify (int p_Admin_OID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, string p_borrarRetos, string p_borrarEvento)
+{
+        AdminEN adminEN = null;
+
+        //Initialized AdminEN
+        adminEN = new AdminEN ();
+        adminEN.ID = p_Admin_OID;
+        adminEN.Nombre = p_nombre;
+        adminEN.Seguidores = p_seguidores;
+        adminEN.Edad = p_edad;
+        adminEN.Sexo = p_sexo;
+        adminEN.Facebook = p_Facebook;
+        adminEN.Instagram = p_Instagram;
+        adminEN.Historial = p_Historial;
+        adminEN.BorrarRetos = p_borrarRetos;
+        adminEN.BorrarEvento = p_borrarEvento;
+        //Call to AdminCAD
+
+        _IAdminCAD.Modify (adminEN);
+}
+
+public void Destroy (int ID
+                     )
+{
+        _IAdminCAD.Destroy (ID);
 }
 }
 }

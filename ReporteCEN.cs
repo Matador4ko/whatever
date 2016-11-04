@@ -38,7 +38,7 @@ public IReporteCAD get_IReporteCAD ()
         return this._IReporteCAD;
 }
 
-public int CrearReporte (string p_motivo, int p_ID, int p_usuario_reporte, System.Collections.Generic.IList<int> p_admin_reporte)
+public int New_ (string p_motivo, int p_ID, int p_usuario_reporte, System.Collections.Generic.IList<int> p_admin_reporte)
 {
         ReporteEN reporteEN = null;
         int oid;
@@ -73,8 +73,14 @@ public int CrearReporte (string p_motivo, int p_ID, int p_usuario_reporte, Syste
 
         //Call to ReporteCAD
 
-        oid = _IReporteCAD.CrearReporte (reporteEN);
+        oid = _IReporteCAD.New_ (reporteEN);
         return oid;
+}
+
+public void Destroy (int ID
+                     )
+{
+        _IReporteCAD.Destroy (ID);
 }
 }
 }

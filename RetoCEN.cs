@@ -38,23 +38,7 @@ public IRetoCAD get_IRetoCAD ()
         return this._IRetoCAD;
 }
 
-public RetoEN ReadOID (int ID
-                       )
-{
-        RetoEN retoEN = null;
-
-        retoEN = _IRetoCAD.ReadOID (ID);
-        return retoEN;
-}
-
-public System.Collections.Generic.IList<RetoEN> ReadAll (int first, int size)
-{
-        System.Collections.Generic.IList<RetoEN> list = null;
-
-        list = _IRetoCAD.ReadAll (first, size);
-        return list;
-}
-public int CrearReto (string p_titulo, string p_descripcion, string p_tipo, string p_imagen, int p_precio, string p_creador, int p_ID, int p_usuario_reto2)
+public int New_ (string p_titulo, string p_descripcion, string p_tipo, int p_precio, string p_imagen, string p_creador, int p_ID, int p_usuario_reto2)
 {
         RetoEN retoEN = null;
         int oid;
@@ -85,8 +69,32 @@ public int CrearReto (string p_titulo, string p_descripcion, string p_tipo, stri
 
         //Call to RetoCAD
 
-        oid = _IRetoCAD.CrearReto (retoEN);
+        oid = _IRetoCAD.New_ (retoEN);
         return oid;
+}
+
+public void Modify (int p_Reto_OID, string p_titulo, string p_descripcion, string p_tipo, int p_precio, string p_imagen, string p_creador)
+{
+        RetoEN retoEN = null;
+
+        //Initialized RetoEN
+        retoEN = new RetoEN ();
+        retoEN.ID = p_Reto_OID;
+        retoEN.Titulo = p_titulo;
+        retoEN.Descripcion = p_descripcion;
+        retoEN.Tipo = p_tipo;
+        retoEN.Precio = p_precio;
+        retoEN.Imagen = p_imagen;
+        retoEN.Creador = p_creador;
+        //Call to RetoCAD
+
+        _IRetoCAD.Modify (retoEN);
+}
+
+public void Destroy (int ID
+                     )
+{
+        _IRetoCAD.Destroy (ID);
 }
 }
 }

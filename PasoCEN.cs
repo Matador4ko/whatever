@@ -38,7 +38,7 @@ public IPasoCAD get_IPasoCAD ()
         return this._IPasoCAD;
 }
 
-public int CrearPaso (string p_descripcion, string p_localizacion, int p_ID, int p_gymkana_paso2)
+public int New_ (string p_descripcion, string p_localizacion, int p_ID, int p_gymkana_paso2)
 {
         PasoEN pasoEN = null;
         int oid;
@@ -61,8 +61,28 @@ public int CrearPaso (string p_descripcion, string p_localizacion, int p_ID, int
 
         //Call to PasoCAD
 
-        oid = _IPasoCAD.CrearPaso (pasoEN);
+        oid = _IPasoCAD.New_ (pasoEN);
         return oid;
+}
+
+public void Modify (int p_Paso_OID, string p_descripcion, string p_localizacion)
+{
+        PasoEN pasoEN = null;
+
+        //Initialized PasoEN
+        pasoEN = new PasoEN ();
+        pasoEN.ID = p_Paso_OID;
+        pasoEN.Descripcion = p_descripcion;
+        pasoEN.Localizacion = p_localizacion;
+        //Call to PasoCAD
+
+        _IPasoCAD.Modify (pasoEN);
+}
+
+public void Destroy (int ID
+                     )
+{
+        _IPasoCAD.Destroy (ID);
 }
 }
 }

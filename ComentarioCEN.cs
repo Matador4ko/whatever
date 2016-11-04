@@ -38,7 +38,7 @@ public IComentarioCAD get_IComentarioCAD ()
         return this._IComentarioCAD;
 }
 
-public int CrearComentario (string p_texto, string p_creador, int p_ID, int p_comentario_usuario, int p_comentario_reto, int p_comentario_evento2)
+public int New_ (string p_texto, string p_creador, int p_ID, int p_comentario_usuario, int p_comentario_reto, int p_comentario_evento2)
 {
         ComentarioEN comentarioEN = null;
         int oid;
@@ -77,8 +77,14 @@ public int CrearComentario (string p_texto, string p_creador, int p_ID, int p_co
 
         //Call to ComentarioCAD
 
-        oid = _IComentarioCAD.CrearComentario (comentarioEN);
+        oid = _IComentarioCAD.New_ (comentarioEN);
         return oid;
+}
+
+public void Destroy (int ID
+                     )
+{
+        _IComentarioCAD.Destroy (ID);
 }
 }
 }
