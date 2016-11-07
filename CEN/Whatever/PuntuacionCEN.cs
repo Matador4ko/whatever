@@ -76,5 +76,21 @@ public int New_ (int p_usuario_puntuacion2, int p_reto_puntuacion, int p_evento_
         oid = _IPuntuacionCAD.New_ (puntuacionEN);
         return oid;
 }
+
+public System.Collections.Generic.IList<PuntuacionEN> GetPuntuaciones (int first, int size)
+{
+        System.Collections.Generic.IList<PuntuacionEN> list = null;
+
+        list = _IPuntuacionCAD.GetPuntuaciones (first, size);
+        return list;
+}
+public PuntuacionEN GetID (int id
+                           )
+{
+        PuntuacionEN puntuacionEN = null;
+
+        puntuacionEN = _IPuntuacionCAD.GetID (id);
+        return puntuacionEN;
+}
 }
 }

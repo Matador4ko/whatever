@@ -97,5 +97,21 @@ public void Destroy (int ID
 {
         _IAdminCAD.Destroy (ID);
 }
+
+public System.Collections.Generic.IList<AdminEN> GetAll (int first, int size)
+{
+        System.Collections.Generic.IList<AdminEN> list = null;
+
+        list = _IAdminCAD.GetAll (first, size);
+        return list;
+}
+public AdminEN GetID (int ID
+                      )
+{
+        AdminEN adminEN = null;
+
+        adminEN = _IAdminCAD.GetID (ID);
+        return adminEN;
+}
 }
 }

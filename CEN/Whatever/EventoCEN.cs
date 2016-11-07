@@ -96,5 +96,21 @@ public void Destroy (int ID
 {
         _IEventoCAD.Destroy (ID);
 }
+
+public System.Collections.Generic.IList<EventoEN> GetAll (int first, int size)
+{
+        System.Collections.Generic.IList<EventoEN> list = null;
+
+        list = _IEventoCAD.GetAll (first, size);
+        return list;
+}
+public EventoEN GetID (int ID
+                       )
+{
+        EventoEN eventoEN = null;
+
+        eventoEN = _IEventoCAD.GetID (ID);
+        return eventoEN;
+}
 }
 }

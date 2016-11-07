@@ -86,5 +86,21 @@ public void Destroy (int ID
 {
         _IComentarioCAD.Destroy (ID);
 }
+
+public System.Collections.Generic.IList<ComentarioEN> GetAll (int first, int size)
+{
+        System.Collections.Generic.IList<ComentarioEN> list = null;
+
+        list = _IComentarioCAD.GetAll (first, size);
+        return list;
+}
+public ComentarioEN GetID (int ID
+                           )
+{
+        ComentarioEN comentarioEN = null;
+
+        comentarioEN = _IComentarioCAD.GetID (ID);
+        return comentarioEN;
+}
 }
 }

@@ -38,7 +38,7 @@ public IMapaCAD get_IMapaCAD ()
         return this._IMapaCAD;
 }
 
-public int New_ (int p_reto_mapa, int p_evento_mapa2, int p_id)
+public int New_ (int p_reto_mapa, int p_evento_mapa2, int p_id, int p_paso_0)
 {
         MapaEN mapaEN = null;
         int oid;
@@ -63,10 +63,34 @@ public int New_ (int p_reto_mapa, int p_evento_mapa2, int p_id)
 
         mapaEN.Id = p_id;
 
+
+        if (p_paso_0 != -1) {
+                // El argumento p_paso_0 -> Property paso_0 es oid = false
+                // Lista de oids id
+                mapaEN.Paso_0 = new WhateverGenNHibernate.EN.Whatever.PasoEN ();
+                mapaEN.Paso_0.ID = p_paso_0;
+        }
+
         //Call to MapaCAD
 
         oid = _IMapaCAD.New_ (mapaEN);
         return oid;
+}
+
+public System.Collections.Generic.IList<MapaEN> GetAll (int first, int size)
+{
+        System.Collections.Generic.IList<MapaEN> list = null;
+
+        list = _IMapaCAD.GetAll (first, size);
+        return list;
+}
+public MapaEN GetID (int id
+                     )
+{
+        MapaEN mapaEN = null;
+
+        mapaEN = _IMapaCAD.GetID (id);
+        return mapaEN;
 }
 }
 }

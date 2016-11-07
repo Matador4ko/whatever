@@ -38,7 +38,7 @@ public IPasoCAD get_IPasoCAD ()
         return this._IPasoCAD;
 }
 
-public int New_ (string p_descripcion, string p_localizacion, int p_ID, int p_gymkana_paso2)
+public int New_ (string p_descripcion, string p_localizacion, int p_ID, int p_gymkana_paso2, int p_id_mapa)
 {
         PasoEN pasoEN = null;
         int oid;
@@ -59,13 +59,15 @@ public int New_ (string p_descripcion, string p_localizacion, int p_ID, int p_gy
                 pasoEN.Gymkana_paso2.ID = p_gymkana_paso2;
         }
 
+        pasoEN.Id_mapa = p_id_mapa;
+
         //Call to PasoCAD
 
         oid = _IPasoCAD.New_ (pasoEN);
         return oid;
 }
 
-public void Modify (int p_Paso_OID, string p_descripcion, string p_localizacion)
+public void Modify (int p_Paso_OID, string p_descripcion, string p_localizacion, int p_id_mapa)
 {
         PasoEN pasoEN = null;
 
@@ -74,6 +76,7 @@ public void Modify (int p_Paso_OID, string p_descripcion, string p_localizacion)
         pasoEN.ID = p_Paso_OID;
         pasoEN.Descripcion = p_descripcion;
         pasoEN.Localizacion = p_localizacion;
+        pasoEN.Id_mapa = p_id_mapa;
         //Call to PasoCAD
 
         _IPasoCAD.Modify (pasoEN);
@@ -83,6 +86,22 @@ public void Destroy (int ID
                      )
 {
         _IPasoCAD.Destroy (ID);
+}
+
+public System.Collections.Generic.IList<PasoEN> GetAll (int first, int size)
+{
+        System.Collections.Generic.IList<PasoEN> list = null;
+
+        list = _IPasoCAD.GetAll (first, size);
+        return list;
+}
+public PasoEN GetID (int ID
+                     )
+{
+        PasoEN pasoEN = null;
+
+        pasoEN = _IPasoCAD.GetID (ID);
+        return pasoEN;
 }
 }
 }

@@ -96,5 +96,21 @@ public void Destroy (int ID
 {
         _IRetoCAD.Destroy (ID);
 }
+
+public System.Collections.Generic.IList<RetoEN> GetAll (int first, int size)
+{
+        System.Collections.Generic.IList<RetoEN> list = null;
+
+        list = _IRetoCAD.GetAll (first, size);
+        return list;
+}
+public RetoEN GetID (int ID
+                     )
+{
+        RetoEN retoEN = null;
+
+        retoEN = _IRetoCAD.GetID (ID);
+        return retoEN;
+}
 }
 }

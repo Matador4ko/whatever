@@ -23,10 +23,16 @@ public void VerMedia (int p_oid)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Puntuacion_verMedia) ENABLED START*/
 
-        // Write here your custom code...
+    int puntuaciones;
+    int media=0;
+    PuntuacionCEN puntuacions=new PuntuacionCEN ();
+  var lista =  puntuacions.GetListaPuntuaciones();
 
-        throw new NotImplementedException ("Method VerMedia() not yet implemented.");
-
+    for(int i=0;i<lista.Count ;i++){
+        puntuaciones = _IPuntuacionCAD.
+        media = media + puntuaciones;
+    }
+        
         /*PROTECTED REGION END*/
 }
 }

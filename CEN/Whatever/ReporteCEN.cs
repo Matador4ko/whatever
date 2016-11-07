@@ -82,5 +82,21 @@ public void Destroy (int ID
 {
         _IReporteCAD.Destroy (ID);
 }
+
+public System.Collections.Generic.IList<ReporteEN> GetAll (int first, int size)
+{
+        System.Collections.Generic.IList<ReporteEN> list = null;
+
+        list = _IReporteCAD.GetAll (first, size);
+        return list;
+}
+public ReporteEN GetID (int ID
+                        )
+{
+        ReporteEN reporteEN = null;
+
+        reporteEN = _IReporteCAD.GetID (ID);
+        return reporteEN;
+}
 }
 }

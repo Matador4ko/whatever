@@ -91,5 +91,21 @@ public void Destroy (int ID
 {
         _IUsuarioCAD.Destroy (ID);
 }
+
+public System.Collections.Generic.IList<UsuarioEN> GetAll (int first, int size)
+{
+        System.Collections.Generic.IList<UsuarioEN> list = null;
+
+        list = _IUsuarioCAD.GetAll (first, size);
+        return list;
+}
+public UsuarioEN GetID (int ID
+                        )
+{
+        UsuarioEN usuarioEN = null;
+
+        usuarioEN = _IUsuarioCAD.GetID (ID);
+        return usuarioEN;
+}
 }
 }
