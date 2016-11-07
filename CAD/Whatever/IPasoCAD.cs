@@ -28,5 +28,8 @@ System.Collections.Generic.IList<PasoEN> GetAll (int first, int size);
 
 PasoEN GetID (int ID
               );
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> Filtro ();
 }
 }

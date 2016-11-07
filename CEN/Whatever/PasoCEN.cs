@@ -88,12 +88,20 @@ public void Destroy (int ID
         _IPasoCAD.Destroy (ID);
 }
 
-public System.Collections.Generic.IList<PasoEN> GetAll (int first, int size)
+public System.Collections.Generic.IList<PasoEN> GetAll (int id_gym)
 {
         System.Collections.Generic.IList<PasoEN> list = null;
+        System.Collections.Generic.IList<PasoEN> aux = null;
 
-        list = _IPasoCAD.GetAll (first, size);
-        return list;
+        list = _IPasoCAD.GetAll (0, 0);
+        foreach (PasoEN element in list)
+        {
+            if (element.Gymkana_paso2.ID == id_gym)
+            {
+                aux.Add(element);
+            }
+        }
+        return aux;
 }
 public PasoEN GetID (int ID
                      )
@@ -102,6 +110,11 @@ public PasoEN GetID (int ID
 
         pasoEN = _IPasoCAD.GetID (ID);
         return pasoEN;
+}
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> Filtro ()
+{
+        return _IPasoCAD.Filtro ();
 }
 }
 }
