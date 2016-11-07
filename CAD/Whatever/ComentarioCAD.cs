@@ -130,18 +130,18 @@ public int New_ (ComentarioEN comentario)
                         comentario.Comentario_usuario.Comentario_usuario2
                         .Add (comentario);
                 }
-                if (comentario.Comentario_reto != null) {
-                        // Argumento OID y no colección.
-                        comentario.Comentario_reto = (WhateverGenNHibernate.EN.Whatever.RetoEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.RetoEN), comentario.Comentario_reto.ID);
-
-                        comentario.Comentario_reto.Comentario_reto2
-                        .Add (comentario);
-                }
                 if (comentario.Comentario_evento2 != null) {
                         // Argumento OID y no colección.
                         comentario.Comentario_evento2 = (WhateverGenNHibernate.EN.Whatever.EventoEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.EventoEN), comentario.Comentario_evento2.ID);
 
                         comentario.Comentario_evento2.Comentario_evento
+                        .Add (comentario);
+                }
+                if (comentario.Comentario_reto != null) {
+                        // Argumento OID y no colección.
+                        comentario.Comentario_reto = (WhateverGenNHibernate.EN.Whatever.RetoEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.RetoEN), comentario.Comentario_reto.ID);
+
+                        comentario.Comentario_reto.Comentario_reto2
                         .Add (comentario);
                 }
 

@@ -170,6 +170,12 @@ public void Modify (AdminEN admin)
                 adminEN.Historial = admin.Historial;
 
 
+                adminEN.Contrasena = admin.Contrasena;
+
+
+                adminEN.Email = admin.Email;
+
+
                 adminEN.BorrarRetos = admin.BorrarRetos;
 
 

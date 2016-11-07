@@ -23,16 +23,16 @@ public void VerMedia (int p_oid)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Puntuacion_verMedia) ENABLED START*/
 
-    int puntuaciones;
-    int media=0;
-    PuntuacionCEN puntuacions=new PuntuacionCEN ();
-  var lista =  puntuacions.GetListaPuntuaciones();
+        int puntuaciones;
+        int media = 0;
+        PuntuacionCEN puntuacions = new PuntuacionCEN ();
+        var lista = puntuacions.GetListaPuntuaciones ();
 
-    for(int i=0;i<lista.Count ;i++){
-        puntuaciones = _IPuntuacionCAD.
-        media = media + puntuaciones;
-    }
-        
+        for (int i = 0; i < lista.Count; i++) {
+                puntuaciones = _IPuntuacionCAD.
+                               media = media + puntuaciones;
+        }
+
         /*PROTECTED REGION END*/
 }
 }

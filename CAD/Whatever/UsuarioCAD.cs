@@ -118,6 +118,12 @@ public void ModifyDefault (UsuarioEN usuario)
 
 
 
+
+                usuarioEN.Contrasena = usuario.Contrasena;
+
+
+                usuarioEN.Email = usuario.Email;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -189,6 +195,12 @@ public void Modify (UsuarioEN usuario)
 
 
                 usuarioEN.Historial = usuario.Historial;
+
+
+                usuarioEN.Contrasena = usuario.Contrasena;
+
+
+                usuarioEN.Email = usuario.Email;
 
                 session.Update (usuarioEN);
                 SessionCommit ();
