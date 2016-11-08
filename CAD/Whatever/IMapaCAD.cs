@@ -21,5 +21,12 @@ System.Collections.Generic.IList<MapaEN> GetAll (int first, int size);
 
 MapaEN GetID (int id
               );
+
+
+void Modify (MapaEN mapa);
+
+
+void Destroy (int id
+              );
 }
 }

@@ -19,12 +19,14 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class GymkanaCEN
 {
-public IList<PasoEN> VerPasos (int id_gym)
+public void VerPasos (int p_oid)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Gymkana_verPasos) ENABLED START*/
 
-        PasoCEN paso = new PasoCEN ();
-        return paso.VerPasos(id_gym);
+        // Write here your custom code...
+
+        throw new NotImplementedException ("Method VerPasos() not yet implemented.");
+
         /*PROTECTED REGION END*/
 }
 }

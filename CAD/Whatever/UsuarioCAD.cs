@@ -124,6 +124,9 @@ public void ModifyDefault (UsuarioEN usuario)
 
                 usuarioEN.Email = usuario.Email;
 
+
+                usuarioEN.Foto = usuario.Foto;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -201,6 +204,9 @@ public void Modify (UsuarioEN usuario)
 
 
                 usuarioEN.Email = usuario.Email;
+
+
+                usuarioEN.Foto = usuario.Foto;
 
                 session.Update (usuarioEN);
                 SessionCommit ();

@@ -95,6 +95,8 @@ public void ModifyDefault (ReporteEN reporte)
 
 
 
+
+
                 session.Update (reporteEN);
                 SessionCommit ();
         }
@@ -131,6 +133,13 @@ public int New_ (ReporteEN reporte)
                                 reporte.Admin_reporte [i] = (WhateverGenNHibernate.EN.Whatever.AdminEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.AdminEN), reporte.Admin_reporte [i].ID);
                                 reporte.Admin_reporte [i].Admin_reporte2.Add (reporte);
                         }
+                }
+                if (reporte.Reporte != null) {
+                        // Argumento OID y no colección.
+                        reporte.Reporte = (WhateverGenNHibernate.EN.Whatever.EventoEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.EventoEN), reporte.Reporte.ID);
+
+                        reporte.Reporte.Reporte_evento2
+                        .Add (reporte);
                 }
 
                 session.Save (reporte);

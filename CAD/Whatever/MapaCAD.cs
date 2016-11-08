@@ -93,6 +93,15 @@ public void ModifyDefault (MapaEN mapa)
 
 
 
+
+                mapaEN.Latitud = mapa.Latitud;
+
+
+                mapaEN.Longitud = mapa.Longitud;
+
+
+                mapaEN.Zoom = mapa.Zoom;
+
                 session.Update (mapaEN);
                 SessionCommit ();
         }
@@ -217,6 +226,63 @@ public MapaEN GetID (int id
         }
 
         return mapaEN;
+}
+
+public void Modify (MapaEN mapa)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                MapaEN mapaEN = (MapaEN)session.Load (typeof(MapaEN), mapa.Id);
+
+                mapaEN.Latitud = mapa.Latitud;
+
+
+                mapaEN.Longitud = mapa.Longitud;
+
+
+                mapaEN.Zoom = mapa.Zoom;
+
+                session.Update (mapaEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in MapaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void Destroy (int id
+                     )
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                MapaEN mapaEN = (MapaEN)session.Load (typeof(MapaEN), id);
+                session.Delete (mapaEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in MapaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }

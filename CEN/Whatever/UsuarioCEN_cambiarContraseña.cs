@@ -19,7 +19,7 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class UsuarioCEN
 {
-public void CambiarContraseña (int p_oid)
+public void CambiarContraseña (int p_oid, String contra)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_cambiarContraseña) ENABLED START*/
 

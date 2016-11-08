@@ -19,16 +19,13 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class AdminCEN
 {
-public void BorrarRetos (int id_reto)
+public void BorrarRetos (int p_oid)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Admin_borrarRetos) ENABLED START*/
 
         // Write here your custom code...
 
-
-    EventoCEN evento = new EventoCEN();
-    evento.Destroy(id_reto);
-
+        throw new NotImplementedException ("Method BorrarRetos() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

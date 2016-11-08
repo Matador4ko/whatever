@@ -100,13 +100,11 @@ public void ModifyDefault (EventoEN evento)
                 eventoEN.Fecha = evento.Fecha;
 
 
-                eventoEN.Localizacion = evento.Localizacion;
-
-
                 eventoEN.Precio = evento.Precio;
 
 
                 eventoEN.Creador = evento.Creador;
+
 
 
 
@@ -178,9 +176,6 @@ public void Modify (EventoEN evento)
 
 
                 eventoEN.Fecha = evento.Fecha;
-
-
-                eventoEN.Localizacion = evento.Localizacion;
 
 
                 eventoEN.Precio = evento.Precio;

@@ -38,7 +38,7 @@ public IReporteCAD get_IReporteCAD ()
         return this._IReporteCAD;
 }
 
-public int New_ (string p_motivo, int p_ID, int p_usuario_reporte, System.Collections.Generic.IList<int> p_admin_reporte)
+public int New_ (string p_motivo, int p_ID, int p_usuario_reporte, System.Collections.Generic.IList<int> p_admin_reporte, int p_reporte)
 {
         ReporteEN reporteEN = null;
         int oid;
@@ -69,6 +69,14 @@ public int New_ (string p_motivo, int p_ID, int p_usuario_reporte, System.Collec
 
         else{
                 reporteEN.Admin_reporte = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.AdminEN>();
+        }
+
+
+        if (p_reporte != -1) {
+                // El argumento p_reporte -> Property reporte es oid = false
+                // Lista de oids ID
+                reporteEN.Reporte = new WhateverGenNHibernate.EN.Whatever.EventoEN ();
+                reporteEN.Reporte.ID = p_reporte;
         }
 
         //Call to ReporteCAD

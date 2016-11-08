@@ -115,6 +115,7 @@ public void ModifyDefault (RetoEN reto)
 
 
 
+
                 session.Update (retoEN);
                 SessionCommit ();
         }
@@ -144,6 +145,13 @@ public int New_ (RetoEN reto)
                         reto.Usuario_reto2 = (WhateverGenNHibernate.EN.Whatever.UsuarioEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.UsuarioEN), reto.Usuario_reto2.ID);
 
                         reto.Usuario_reto2.Usuario_reto
+                        .Add (reto);
+                }
+                if (reto.Reporte != null) {
+                        // Argumento OID y no colección.
+                        reto.Reporte = (WhateverGenNHibernate.EN.Whatever.ReporteEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.ReporteEN), reto.Reporte.ID);
+
+                        reto.Reporte.Reporte_reto2
                         .Add (reto);
                 }
 

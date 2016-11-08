@@ -94,12 +94,6 @@ public void ModifyDefault (PasoEN paso)
                 pasoEN.Descripcion = paso.Descripcion;
 
 
-                pasoEN.Localizacion = paso.Localizacion;
-
-
-
-                pasoEN.Id_mapa = paso.Id_mapa;
-
 
                 session.Update (pasoEN);
                 SessionCommit ();
@@ -161,12 +155,6 @@ public void Modify (PasoEN paso)
                 PasoEN pasoEN = (PasoEN)session.Load (typeof(PasoEN), paso.ID);
 
                 pasoEN.Descripcion = paso.Descripcion;
-
-
-                pasoEN.Localizacion = paso.Localizacion;
-
-
-                pasoEN.Id_mapa = paso.Id_mapa;
 
                 session.Update (pasoEN);
                 SessionCommit ();

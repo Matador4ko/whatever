@@ -11,21 +11,21 @@ using WhateverGenNHibernate.EN.Whatever;
 using WhateverGenNHibernate.CAD.Whatever;
 
 
-/*PROTECTED REGION ID(usingWhateverGenNHibernate.CEN.Whatever_Gymkana_añadirPaso) ENABLED START*/
+/*PROTECTED REGION ID(usingWhateverGenNHibernate.CEN.Whatever_Reporte_Reportar) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
 namespace WhateverGenNHibernate.CEN.Whatever
 {
-public partial class GymkanaCEN
+public partial class ReporteCEN
 {
-public void AñadirPaso (int p_oid)
+public void Reportar (int id_usuario, int id_gym, int id_reto)
 {
-        /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Gymkana_añadirPaso) ENABLED START*/
+        /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Reporte_Reportar) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method AñadirPaso() not yet implemented.");
+        throw new NotImplementedException ("Method Reportar() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

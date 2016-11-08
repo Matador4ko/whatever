@@ -19,7 +19,7 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class UsuarioCEN
 {
-public void CambiarCorreo (int p_oid)
+public void CambiarCorreo (int p_oid, string correo)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_cambiarCorreo) ENABLED START*/
 

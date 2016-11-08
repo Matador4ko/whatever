@@ -19,7 +19,7 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class MapaCEN
 {
-public void FiltrarMapa (int p_oid)
+public void FiltrarMapa (int latitud, int longitud, int radio)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Mapa_filtrarMapa) ENABLED START*/
 

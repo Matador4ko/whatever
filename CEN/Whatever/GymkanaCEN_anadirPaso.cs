@@ -19,7 +19,7 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class GymkanaCEN
 {
-public void AnadirPaso (int p_oid)
+public void AnadirPaso (int id_gym, string descripcion, int id_paso)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Gymkana_anadirPaso) ENABLED START*/
 

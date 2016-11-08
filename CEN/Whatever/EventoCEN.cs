@@ -38,7 +38,7 @@ public IEventoCAD get_IEventoCAD ()
         return this._IEventoCAD;
 }
 
-public int New_ (string p_Titulo, string p_descripcion, Nullable<DateTime> p_fecha, string p_localizacion, int p_precio, string p_creador, int p_ID, int p_usuario_evento)
+public int New_ (string p_Titulo, string p_descripcion, Nullable<DateTime> p_fecha, int p_precio, string p_creador, int p_ID, int p_usuario_evento)
 {
         EventoEN eventoEN = null;
         int oid;
@@ -50,8 +50,6 @@ public int New_ (string p_Titulo, string p_descripcion, Nullable<DateTime> p_fec
         eventoEN.Descripcion = p_descripcion;
 
         eventoEN.Fecha = p_fecha;
-
-        eventoEN.Localizacion = p_localizacion;
 
         eventoEN.Precio = p_precio;
 
@@ -73,7 +71,7 @@ public int New_ (string p_Titulo, string p_descripcion, Nullable<DateTime> p_fec
         return oid;
 }
 
-public void Modify (int p_Evento_OID, string p_Titulo, string p_descripcion, Nullable<DateTime> p_fecha, string p_localizacion, int p_precio, string p_creador)
+public void Modify (int p_Evento_OID, string p_Titulo, string p_descripcion, Nullable<DateTime> p_fecha, int p_precio, string p_creador)
 {
         EventoEN eventoEN = null;
 
@@ -83,7 +81,6 @@ public void Modify (int p_Evento_OID, string p_Titulo, string p_descripcion, Nul
         eventoEN.Titulo = p_Titulo;
         eventoEN.Descripcion = p_descripcion;
         eventoEN.Fecha = p_fecha;
-        eventoEN.Localizacion = p_localizacion;
         eventoEN.Precio = p_precio;
         eventoEN.Creador = p_creador;
         //Call to EventoCAD

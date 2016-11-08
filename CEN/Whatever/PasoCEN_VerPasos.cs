@@ -19,27 +19,14 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class PasoCEN
 {
-public IList<PasoEN> VerPasos (int id_gym)
+public void VerPasos (int p_oid)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Paso_verPasos) ENABLED START*/
 
         // Write here your custom code...
 
+        throw new NotImplementedException ("Method VerPasos() not yet implemented.");
 
-    PasoCEN paso = new PasoCEN();
-    System.Collections.Generic.IList<PasoEN> list = null;
-    System.Collections.Generic.IList<PasoEN> aux = null;
-
-
-    list = paso.GetAll(0, 0);
-    foreach (PasoEN element in list)
-    {
-        if (element.Gymkana_paso2.ID == id_gym)
-        {
-            aux.Add(element);
-        }
-    }
-    return aux;
         /*PROTECTED REGION END*/
 }
 }

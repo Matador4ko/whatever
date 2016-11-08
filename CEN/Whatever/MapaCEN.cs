@@ -38,7 +38,7 @@ public IMapaCAD get_IMapaCAD ()
         return this._IMapaCAD;
 }
 
-public int New_ (int p_reto_mapa, int p_evento_mapa2, int p_id, int p_paso_0)
+public int New_ (int p_reto_mapa, int p_evento_mapa2, int p_id, int p_paso_0, int p_latitud, int p_longitud, int p_zoom)
 {
         MapaEN mapaEN = null;
         int oid;
@@ -71,6 +71,12 @@ public int New_ (int p_reto_mapa, int p_evento_mapa2, int p_id, int p_paso_0)
                 mapaEN.Paso_0.ID = p_paso_0;
         }
 
+        mapaEN.Latitud = p_latitud;
+
+        mapaEN.Longitud = p_longitud;
+
+        mapaEN.Zoom = p_zoom;
+
         //Call to MapaCAD
 
         oid = _IMapaCAD.New_ (mapaEN);
@@ -91,6 +97,27 @@ public MapaEN GetID (int id
 
         mapaEN = _IMapaCAD.GetID (id);
         return mapaEN;
+}
+
+public void Modify (int p_Mapa_OID, int p_latitud, int p_longitud, int p_zoom)
+{
+        MapaEN mapaEN = null;
+
+        //Initialized MapaEN
+        mapaEN = new MapaEN ();
+        mapaEN.Id = p_Mapa_OID;
+        mapaEN.Latitud = p_latitud;
+        mapaEN.Longitud = p_longitud;
+        mapaEN.Zoom = p_zoom;
+        //Call to MapaCAD
+
+        _IMapaCAD.Modify (mapaEN);
+}
+
+public void Destroy (int id
+                     )
+{
+        _IMapaCAD.Destroy (id);
 }
 }
 }

@@ -38,7 +38,7 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public int New_ (int p_ID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, string p_contrasena, string p_email)
+public int New_ (int p_ID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, String p_contrasena, string p_email, string p_foto)
 {
         UsuarioEN usuarioEN = null;
         int oid;
@@ -61,9 +61,11 @@ public int New_ (int p_ID, string p_nombre, int p_seguidores, int p_edad, string
 
         usuarioEN.Historial = p_Historial;
 
-        usuarioEN.Contrasena = p_contrasena;
+        usuarioEN.Contrasena = Utils.Util.GetEncondeMD5 (p_contrasena);
 
         usuarioEN.Email = p_email;
+
+        usuarioEN.Foto = p_foto;
 
         //Call to UsuarioCAD
 
@@ -71,7 +73,7 @@ public int New_ (int p_ID, string p_nombre, int p_seguidores, int p_edad, string
         return oid;
 }
 
-public void Modify (int p_Usuario_OID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, string p_contrasena, string p_email)
+public void Modify (int p_Usuario_OID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, String p_contrasena, string p_email, string p_foto)
 {
         UsuarioEN usuarioEN = null;
 
@@ -85,8 +87,9 @@ public void Modify (int p_Usuario_OID, string p_nombre, int p_seguidores, int p_
         usuarioEN.Facebook = p_Facebook;
         usuarioEN.Instagram = p_Instagram;
         usuarioEN.Historial = p_Historial;
-        usuarioEN.Contrasena = p_contrasena;
+        usuarioEN.Contrasena = Utils.Util.GetEncondeMD5 (p_contrasena);
         usuarioEN.Email = p_email;
+        usuarioEN.Foto = p_foto;
         //Call to UsuarioCAD
 
         _IUsuarioCAD.Modify (usuarioEN);

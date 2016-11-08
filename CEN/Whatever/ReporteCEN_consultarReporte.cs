@@ -19,7 +19,7 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class ReporteCEN
 {
-public void ConsultarReporte (int p_oid)
+public void ConsultarReporte (int id_usuario, int id_reto, int id_gym)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Reporte_consultarReporte) ENABLED START*/
 

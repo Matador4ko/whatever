@@ -19,19 +19,13 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class PuntuacionCEN
 {
-public void VerMedia (int p_oid)
+public void VerMedia (int id_gym, int id_reto)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Puntuacion_verMedia) ENABLED START*/
 
-        int puntuaciones;
-        int media = 0;
-        PuntuacionCEN puntuacions = new PuntuacionCEN ();
-        var lista = puntuacions.GetListaPuntuaciones ();
+        // Write here your custom code...
 
-        for (int i = 0; i < lista.Count; i++) {
-                puntuaciones = _IPuntuacionCAD.
-                               media = media + puntuaciones;
-        }
+        throw new NotImplementedException ("Method VerMedia() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

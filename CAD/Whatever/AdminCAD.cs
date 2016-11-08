@@ -176,6 +176,9 @@ public void Modify (AdminEN admin)
                 adminEN.Email = admin.Email;
 
 
+                adminEN.Foto = admin.Foto;
+
+
                 adminEN.BorrarRetos = admin.BorrarRetos;
 
 
