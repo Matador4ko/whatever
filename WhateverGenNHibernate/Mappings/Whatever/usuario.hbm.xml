@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="WhateverGenNHibernate"
+		                   namespace="WhateverGenNHibernate.EN.Whatever">
+		    
+		    
+			
+				<class name="UsuarioEN" table="Usuario"> 
+						<id name="ID" column="ID"/> 
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Seguidores" type="integer"> 
+						<column name="seguidores"  not-null="true"/>
+					</property>
+					<property name="Edad" type="integer"> 
+						<column name="edad"  not-null="true"/>
+					</property>
+					<property name="Sexo" type="string"> 
+						<column name="sexo"  not-null="true"/>
+					</property>
+					<property name="Facebook" type="string"> 
+						<column name="Facebook"  not-null="true"/>
+					</property>
+					<property name="Instagram" type="string"> 
+						<column name="Instagram"  not-null="true"/>
+					</property>
+					<property name="Historial" type="string"> 
+						<column name="Historial"  not-null="true"/>
+					</property>
+					<property name="Contrasena" type="string"> 
+						<column name="contrasena"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="email"  not-null="true"/>
+					</property>
+					<property name="Foto" type="string"> 
+						<column name="foto"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Usuario_reto" >
+							<key>
+							
+								
+								<column name="FK_ID_idUsuario_reto2"/>
+					      	</key>
+							<one-to-many class="WhateverGenNHibernate.EN.Whatever.RetoEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Usuario_usuario" table="[usuario_usuario_0]" inverse="true" >
+							<key>
+								
+									<column name="FK_ID_idUsuario_usuario"/> 
+							</key>
+      						<many-to-many class="WhateverGenNHibernate.EN.Whatever.UsuarioEN">
+									<column name="FK_ID_idUsuario_usuario2"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Usuario_usuario2" table="[usuario_usuario_0]"  >
+							<key>
+								
+									<column name="FK_ID_idUsuario_usuario2"/> 
+							</key>
+      						<many-to-many class="WhateverGenNHibernate.EN.Whatever.UsuarioEN">
+									<column name="FK_ID_idUsuario_usuario"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Usuario_reporte2" >
+							<key>
+							
+								
+								<column name="FK_ID_idUsuario_reporte"/>
+					      	</key>
+							<one-to-many class="WhateverGenNHibernate.EN.Whatever.ReporteEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Usuario_puntuacion" >
+							<key>
+							
+								
+								<column name="FK_ID_idUsuario_puntuacion2"/>
+					      	</key>
+							<one-to-many class="WhateverGenNHibernate.EN.Whatever.PuntuacionEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Comentario_usuario2" >
+							<key>
+							
+								
+								<column name="FK_ID_idUsuario"/>
+					      	</key>
+							<one-to-many class="WhateverGenNHibernate.EN.Whatever.ComentarioEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Usuario_evento2" >
+							<key>
+							
+								
+								<column name="FK_ID_idUsuario_evento"/>
+					      	</key>
+							<one-to-many class="WhateverGenNHibernate.EN.Whatever.EventoEN"/>
+					    </bag>
+					
+			
+			
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		</hibernate-mapping>
+	

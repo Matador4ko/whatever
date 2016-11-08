@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="WhateverGenNHibernate"
+		                   namespace="WhateverGenNHibernate.EN.Whatever">
+		    
+		    
+			
+				
+<joined-subclass name="AdminEN" extends="WhateverGenNHibernate.EN.Whatever.UsuarioEN" table="Admin"> 
+	<key>
+    	
+				<column name="ID"/>
+		
+    	
+   	</key>
+
+			
+					
+					<property name="BorrarRetos" type="string"> 
+						<column name="borrarRetos"  not-null="true"/>
+					</property>
+					<property name="BorrarEvento" type="string"> 
+						<column name="borrarEvento"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<bag name="Admin_reporte2" table="[admin_admin_0]" inverse="true" >
+							<key>
+								
+									<column name="FK_ID_idAdmin_reporte"/> 
+							</key>
+      						<many-to-many class="WhateverGenNHibernate.EN.Whatever.ReporteEN">
+									<column name="FK_ID_idAdmin_reporte2"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="AdminENReadAllHQL">from AdminEN</query>
+		</hibernate-mapping>
+	

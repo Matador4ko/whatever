@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="WhateverGenNHibernate"
+		                   namespace="WhateverGenNHibernate.EN.Whatever">
+		    
+		    
+			
+				
+<joined-subclass name="GymkanaEN" extends="WhateverGenNHibernate.EN.Whatever.EventoEN" table="Gymkana"> 
+	<key>
+    	
+				<column name="ID"/>
+		
+    	
+   	</key>
+
+			
+					
+					<property name="NumPasos" type="integer"> 
+						<column name="numPasos"  not-null="true"/>
+					</property>
+			
+			
+			
+		  			
+						<bag name="Gymkana_paso" >
+							<key>
+							
+								
+								<column name="FK_ID_idGymkana_paso2"/>
+					      	</key>
+							<one-to-many class="WhateverGenNHibernate.EN.Whatever.PasoEN"/>
+					    </bag>
+					
+					
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="GymkanaENReadAllHQL">from GymkanaEN</query>
+		</hibernate-mapping>
+	
