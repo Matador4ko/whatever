@@ -23,9 +23,8 @@ public void CambiarContrasena (int p_oid, String contra)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_cambiarContrasena) ENABLED START*/
 
-        // Write here your custom code...
-
-        throw new NotImplementedException ("Method CambiarContrasena() not yet implemented.");
+        UsuarioEN user = GetID (p_oid);
+        Modify (user.ID, user.Nombre, user.Seguidores, user.Edad, user.Sexo, user.Facebook, user.Instagram, user.Historial, user.Contrasena, user.Email, user.Foto);
 
         /*PROTECTED REGION END*/
 }

@@ -23,9 +23,8 @@ public void ConsultarUsuario (int p_oid)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_consultarUsuario) ENABLED START*/
 
-        // Write here your custom code...
-
-        throw new NotImplementedException ("Method ConsultarUsuario() not yet implemented.");
+        UsuarioEN user = new UsuarioEN();
+        //return user.getID();
 
         /*PROTECTED REGION END*/
 }

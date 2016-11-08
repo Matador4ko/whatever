@@ -19,13 +19,16 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class UsuarioCEN
 {
-public void RecuperarContasena (int p_oid, string correo)
+public void RecuperarContasena (String nombre, string correo)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_recuperarContasena) ENABLED START*/
 
-        // Write here your custom code...
-
-        throw new NotImplementedException ("Method RecuperarContasena() not yet implemented.");
+        UsuarioEN[] list = GetAll (0,0);
+        foreach(UsuarioEN element in list){
+                if (user.Email.equals(correo) && users.Nombre.equals(correo)){
+                        return user.ID;
+                }
+        }
 
         /*PROTECTED REGION END*/
 }
