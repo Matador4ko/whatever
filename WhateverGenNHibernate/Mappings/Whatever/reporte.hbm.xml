@@ -34,15 +34,10 @@
     					</bag>
 			
 		  			
-						<bag name="Reporte_reto2" >
-							<key>
-							
-								
-								<column name="FK_ID_idReporte"/>
-					      	</key>
-							<one-to-many class="WhateverGenNHibernate.EN.Whatever.RetoEN"/>
-					    </bag>
-					
+						<many-to-one name="Reporte_reto2" class="WhateverGenNHibernate.EN.Whatever.RetoEN" >	
+								<column name="FK_id_idReporte_0"/> 
+						</many-to-one>
+											 					
 			
 		  			
 						<many-to-one name="Reporte" class="WhateverGenNHibernate.EN.Whatever.EventoEN" >	

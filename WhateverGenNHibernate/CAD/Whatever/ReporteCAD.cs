@@ -134,6 +134,13 @@ public int New_ (ReporteEN reporte)
                                 reporte.Admin_reporte [i].Admin_reporte2.Add (reporte);
                         }
                 }
+                if (reporte.Reporte_reto2 != null) {
+                        // Argumento OID y no colección.
+                        reporte.Reporte_reto2 = (WhateverGenNHibernate.EN.Whatever.RetoEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.RetoEN), reporte.Reporte_reto2.ID);
+
+                        reporte.Reporte_reto2.Reporte
+                        .Add (reporte);
+                }
                 if (reporte.Reporte != null) {
                         // Argumento OID y no colección.
                         reporte.Reporte = (WhateverGenNHibernate.EN.Whatever.EventoEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.EventoEN), reporte.Reporte.ID);

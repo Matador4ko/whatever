@@ -38,7 +38,7 @@ public IPuntuacionCAD get_IPuntuacionCAD ()
         return this._IPuntuacionCAD;
 }
 
-public int New_ (int p_usuario_puntuacion2, int p_reto_puntuacion, int p_evento_puntuacion, int p_id)
+public int New_ (int p_usuario_puntuacion2, int p_reto_puntuacion, int p_evento_puntuacion, int p_id, int p_puntuacion)
 {
         PuntuacionEN puntuacionEN = null;
         int oid;
@@ -70,6 +70,8 @@ public int New_ (int p_usuario_puntuacion2, int p_reto_puntuacion, int p_evento_
         }
 
         puntuacionEN.Id = p_id;
+
+        puntuacionEN.Puntuacion = p_puntuacion;
 
         //Call to PuntuacionCAD
 

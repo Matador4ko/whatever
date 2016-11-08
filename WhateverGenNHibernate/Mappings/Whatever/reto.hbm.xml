@@ -82,10 +82,15 @@
 					
 			
 		  			
-						<many-to-one name="Reporte" class="WhateverGenNHibernate.EN.Whatever.ReporteEN" >	
-								<column name="FK_ID_idReporte"/> 
-						</many-to-one>
-											 					
+						<bag name="Reporte" >
+							<key>
+							
+								
+								<column name="FK_id_idReporte_0"/>
+					      	</key>
+							<one-to-many class="WhateverGenNHibernate.EN.Whatever.ReporteEN"/>
+					    </bag>
+					
 					
 					
 					

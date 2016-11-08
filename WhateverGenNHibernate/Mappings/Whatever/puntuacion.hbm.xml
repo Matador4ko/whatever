@@ -9,6 +9,9 @@
 						<id name="Id" column="idPuntuacion"/> 
 			
 					
+					<property name="Puntuacion" type="integer"> 
+						<column name="puntuacion"  not-null="true"/>
+					</property>
 			
 			
 		  			
@@ -29,6 +32,8 @@
 						</many-to-one>
 											 					
 			
+			
+					
 					
 					
 					

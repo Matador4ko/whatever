@@ -25,7 +25,7 @@ public void VerEvento (int p_oid)
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method VerEvento() not yet implemented.");
+        EventoCEN
 
         /*PROTECTED REGION END*/
 }

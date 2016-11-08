@@ -25,7 +25,7 @@ public void VerPasos (int p_oid)
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method VerPasos() not yet implemented.");
+
 
         /*PROTECTED REGION END*/
 }
