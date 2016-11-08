@@ -38,7 +38,7 @@ public IRetoCAD get_IRetoCAD ()
         return this._IRetoCAD;
 }
 
-public int New_ (string p_titulo, string p_descripcion, string p_tipo, int p_precio, string p_imagen, string p_creador, int p_ID, int p_usuario_reto2, int p_reporte)
+public int New_ (string p_titulo, string p_descripcion, string p_tipo, int p_precio, string p_imagen, string p_creador, int p_ID, int p_usuario_reto2)
 {
         RetoEN retoEN = null;
         int oid;
@@ -65,14 +65,6 @@ public int New_ (string p_titulo, string p_descripcion, string p_tipo, int p_pre
                 // Lista de oids ID
                 retoEN.Usuario_reto2 = new WhateverGenNHibernate.EN.Whatever.UsuarioEN ();
                 retoEN.Usuario_reto2.ID = p_usuario_reto2;
-        }
-
-
-        if (p_reporte != -1) {
-                // El argumento p_reporte -> Property reporte es oid = false
-                // Lista de oids ID
-                retoEN.Reporte = new WhateverGenNHibernate.EN.Whatever.ReporteEN ();
-                retoEN.Reporte.ID = p_reporte;
         }
 
         //Call to RetoCAD

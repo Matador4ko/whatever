@@ -92,7 +92,7 @@ private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Comen
 /**
  *	Atributo reporte
  */
-private WhateverGenNHibernate.EN.Whatever.ReporteEN reporte;
+private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte;
 
 
 
@@ -171,7 +171,7 @@ public virtual System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whateve
 
 
 
-public virtual WhateverGenNHibernate.EN.Whatever.ReporteEN Reporte {
+public virtual System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> Reporte {
         get { return reporte; } set { reporte = value;  }
 }
 
@@ -184,11 +184,12 @@ public RetoEN()
         reto_mapa2 = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.MapaEN>();
         reto_puntuacion2 = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.PuntuacionEN>();
         comentario_reto2 = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.ComentarioEN>();
+        reporte = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.ReporteEN>();
 }
 
 
 
-public RetoEN(int iD, string titulo, string descripcion, string tipo, int precio, string imagen, string creador, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario_reto2, System.Collections.Generic.IList<int> id_mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> reto_mapa2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> reto_puntuacion2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_reto2, WhateverGenNHibernate.EN.Whatever.ReporteEN reporte
+public RetoEN(int iD, string titulo, string descripcion, string tipo, int precio, string imagen, string creador, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario_reto2, System.Collections.Generic.IList<int> id_mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> reto_mapa2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> reto_puntuacion2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_reto2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte
               )
 {
         this.init (ID, titulo, descripcion, tipo, precio, imagen, creador, usuario_reto2, id_mapa, reto_mapa2, reto_puntuacion2, comentario_reto2, reporte);
@@ -201,7 +202,7 @@ public RetoEN(RetoEN reto)
 }
 
 private void init (int ID
-                   , string titulo, string descripcion, string tipo, int precio, string imagen, string creador, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario_reto2, System.Collections.Generic.IList<int> id_mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> reto_mapa2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> reto_puntuacion2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_reto2, WhateverGenNHibernate.EN.Whatever.ReporteEN reporte)
+                   , string titulo, string descripcion, string tipo, int precio, string imagen, string creador, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario_reto2, System.Collections.Generic.IList<int> id_mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> reto_mapa2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> reto_puntuacion2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_reto2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte)
 {
         this.ID = ID;
 

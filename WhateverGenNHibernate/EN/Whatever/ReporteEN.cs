@@ -36,7 +36,7 @@ private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Admin
 /**
  *	Atributo reporte_reto2
  */
-private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> reporte_reto2;
+private WhateverGenNHibernate.EN.Whatever.RetoEN reporte_reto2;
 
 
 
@@ -74,7 +74,7 @@ public virtual System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whateve
 
 
 
-public virtual System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> Reporte_reto2 {
+public virtual WhateverGenNHibernate.EN.Whatever.RetoEN Reporte_reto2 {
         get { return reporte_reto2; } set { reporte_reto2 = value;  }
 }
 
@@ -91,12 +91,11 @@ public virtual WhateverGenNHibernate.EN.Whatever.EventoEN Reporte {
 public ReporteEN()
 {
         admin_reporte = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.AdminEN>();
-        reporte_reto2 = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.RetoEN>();
 }
 
 
 
-public ReporteEN(int iD, string motivo, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario_reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> admin_reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> reporte_reto2, WhateverGenNHibernate.EN.Whatever.EventoEN reporte
+public ReporteEN(int iD, string motivo, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario_reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> admin_reporte, WhateverGenNHibernate.EN.Whatever.RetoEN reporte_reto2, WhateverGenNHibernate.EN.Whatever.EventoEN reporte
                  )
 {
         this.init (ID, motivo, usuario_reporte, admin_reporte, reporte_reto2, reporte);
@@ -109,7 +108,7 @@ public ReporteEN(ReporteEN reporte)
 }
 
 private void init (int ID
-                   , string motivo, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario_reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> admin_reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> reporte_reto2, WhateverGenNHibernate.EN.Whatever.EventoEN reporte)
+                   , string motivo, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario_reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> admin_reporte, WhateverGenNHibernate.EN.Whatever.RetoEN reporte_reto2, WhateverGenNHibernate.EN.Whatever.EventoEN reporte)
 {
         this.ID = ID;
 

@@ -147,13 +147,6 @@ public int New_ (RetoEN reto)
                         reto.Usuario_reto2.Usuario_reto
                         .Add (reto);
                 }
-                if (reto.Reporte != null) {
-                        // Argumento OID y no colección.
-                        reto.Reporte = (WhateverGenNHibernate.EN.Whatever.ReporteEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.ReporteEN), reto.Reporte.ID);
-
-                        reto.Reporte.Reporte_reto2
-                        .Add (reto);
-                }
 
                 session.Save (reto);
                 SessionCommit ();

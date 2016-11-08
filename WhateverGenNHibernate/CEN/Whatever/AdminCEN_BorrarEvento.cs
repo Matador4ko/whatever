@@ -24,8 +24,23 @@ public void BorrarEvento (int p_oid)
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Admin_borrarEvento) ENABLED START*/
 
         // Write here your custom code...
+        EventoCEN evento = new EventoCEN ();
+        MapaCEN mapa = new MapaCEN ();
 
-        throw new NotImplementedException ("Method BorrarEvento() not yet implemented.");
+        System.Collections.Generic.IList<MapaEN> aux;
+        aux = mapa.GetAll (0, 0);
+        int id_mapa = -1;
+
+        foreach (MapaEN element in aux) {
+                if (element.Evento_mapa2.ID == p_oid) {
+                        id_mapa = element.Id;
+                }
+        }
+
+        mapa.Destroy (id_mapa);
+        evento.Destroy (p_oid);
+
+
 
         /*PROTECTED REGION END*/
 }

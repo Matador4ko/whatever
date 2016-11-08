@@ -93,6 +93,9 @@ public void ModifyDefault (PuntuacionEN puntuacion)
 
 
 
+
+                puntuacionEN.Puntuacion = puntuacion.Puntuacion;
+
                 session.Update (puntuacionEN);
                 SessionCommit ();
         }

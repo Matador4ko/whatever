@@ -19,7 +19,7 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class UsuarioCEN
 {
-public void RecuperarContasena (String nombre, string correo)
+public void RecuperarContasena (string correo, string nombre)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_recuperarContasena) ENABLED START*/
 
