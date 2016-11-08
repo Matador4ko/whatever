@@ -24,7 +24,7 @@ public void CambiarContrasena (int p_oid, String contra)
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_cambiarContrasena) ENABLED START*/
 
         UsuarioEN user = GetID (p_oid);
-        Modify (user.ID, user.Nombre, user.Seguidores, user.Edad, user.Sexo, user.Facebook, user.Instagram, user.Historial, user.Contrasena, user.Email, user.Foto);
+        Modify (user.ID, user.Nombre, user.Seguidores, user.Edad, user.Sexo, user.Facebook, user.Instagram, user.Historial, contra, user.Email, user.Foto);
 
         /*PROTECTED REGION END*/
 }
