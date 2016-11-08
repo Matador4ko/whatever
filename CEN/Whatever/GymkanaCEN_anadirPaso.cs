@@ -11,24 +11,21 @@ using WhateverGenNHibernate.EN.Whatever;
 using WhateverGenNHibernate.CAD.Whatever;
 
 
-/*PROTECTED REGION ID(usingWhateverGenNHibernate.CEN.Whatever_Admin_borrarRetos) ENABLED START*/
+/*PROTECTED REGION ID(usingWhateverGenNHibernate.CEN.Whatever_Gymkana_anadirPaso) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
 namespace WhateverGenNHibernate.CEN.Whatever
 {
-public partial class AdminCEN
+public partial class GymkanaCEN
 {
-public void BorrarRetos (int id_reto)
+public void AnadirPaso (int p_oid)
 {
-        /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Admin_borrarRetos) ENABLED START*/
+        /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Gymkana_anadirPaso) ENABLED START*/
 
         // Write here your custom code...
 
-
-    EventoCEN evento = new EventoCEN();
-    evento.Destroy(id_reto);
-
+        throw new NotImplementedException ("Method AnadirPaso() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

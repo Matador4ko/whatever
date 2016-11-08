@@ -11,24 +11,21 @@ using WhateverGenNHibernate.EN.Whatever;
 using WhateverGenNHibernate.CAD.Whatever;
 
 
-/*PROTECTED REGION ID(usingWhateverGenNHibernate.CEN.Whatever_Admin_borrarRetos) ENABLED START*/
+/*PROTECTED REGION ID(usingWhateverGenNHibernate.CEN.Whatever_Usuario_recordarContasena) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
 namespace WhateverGenNHibernate.CEN.Whatever
 {
-public partial class AdminCEN
+public partial class UsuarioCEN
 {
-public void BorrarRetos (int id_reto)
+public void RecordarContasena (int p_oid)
 {
-        /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Admin_borrarRetos) ENABLED START*/
+        /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_recordarContasena) ENABLED START*/
 
         // Write here your custom code...
 
-
-    EventoCEN evento = new EventoCEN();
-    evento.Destroy(id_reto);
-
+        throw new NotImplementedException ("Method RecordarContasena() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }
