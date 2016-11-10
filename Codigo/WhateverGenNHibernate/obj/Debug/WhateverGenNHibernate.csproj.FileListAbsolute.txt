@@ -1,0 +1,15 @@
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\bin\Debug\hibernate.cfg.xml
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\bin\Debug\WhateverGenNHibernate.dll.config
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\bin\Debug\WhateverGenNHibernate.dll
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\bin\Debug\WhateverGenNHibernate.pdb
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\bin\Debug\NHibernate.dll
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\bin\Debug\Iesi.Collections.dll
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\bin\Debug\log4net.dll
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\obj\Debug\WhateverGenNHibernate.csprojResolveAssemblyReference.cache
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\obj\Debug\WhateverGenNHibernate.dll
+C:\OOH4RIA\workspace\WhateverGen\WhateverGenNHibernate\obj\Debug\WhateverGenNHibernate.pdb
