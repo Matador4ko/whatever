@@ -19,12 +19,12 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class UsuarioCEN
 {
-public void ConsultarUsuario (int p_oid)
+public UsuarioEn ConsultarUsuario (int p_oid)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_consultarUsuario) ENABLED START*/
 
         UsuarioEN user = new UsuarioEN();
-        //return user.getID();
+        return user.getID();
 
         /*PROTECTED REGION END*/
 }
