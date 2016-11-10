@@ -47,5 +47,6 @@
 		 </class>	
 		  
 		  <query name="ComentarioENReadAllHQL">from ComentarioEN</query>
+		  <query name="ComentarioENreadFilterHQL"><![CDATA[FROM ComentarioEN]]></query>
 		</hibernate-mapping>
 	

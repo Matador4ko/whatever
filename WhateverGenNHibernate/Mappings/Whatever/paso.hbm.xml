@@ -38,5 +38,6 @@
 		  
 		  <query name="PasoENReadAllHQL">from PasoEN</query>
 		  <query name="PasoENfiltroHQL"><![CDATA[FROM PasoEN]]></query>
+		  <query name="PasoENreadFilterHQL"><![CDATA[FROM PasoEN]]></query>
 		</hibernate-mapping>
 	

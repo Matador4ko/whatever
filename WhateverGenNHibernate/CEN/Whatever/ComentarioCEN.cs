@@ -102,5 +102,10 @@ public ComentarioEN GetID (int ID
         comentarioEN = _IComentarioCAD.GetID (ID);
         return comentarioEN;
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> ReadFilter ()
+{
+        return _IComentarioCAD.ReadFilter ();
+}
 }
 }

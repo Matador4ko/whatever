@@ -39,5 +39,6 @@
 		 </joined-subclass>
 		  
 		  <query name="GymkanaENReadAllHQL">from GymkanaEN</query>
+		  <query name="GymkanaENreadFilterHQL"><![CDATA[FROM GymkanaEN]]></query>
 		</hibernate-mapping>
 	

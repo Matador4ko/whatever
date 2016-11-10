@@ -42,5 +42,6 @@
 		 </class>	
 		  
 		  <query name="PuntuacionENReadAllHQL">from PuntuacionEN</query>
+		  <query name="PuntuacionENreadFilterHQL"><![CDATA[FROM PuntuacionEN]]></query>
 		</hibernate-mapping>
 	

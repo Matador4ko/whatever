@@ -108,5 +108,6 @@
 		 </class>	
 		  
 		  <query name="RetoENReadAllHQL">from RetoEN</query>
+		  <query name="RetoENreadFilterHQL"><![CDATA[FROM RetoEN]]></query>
 		</hibernate-mapping>
 	

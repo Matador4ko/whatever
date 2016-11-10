@@ -25,5 +25,9 @@ System.Collections.Generic.IList<ReporteEN> GetAll (int first, int size);
 
 ReporteEN GetID (int ID
                  );
+
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> ReadFilter ();
 }
 }

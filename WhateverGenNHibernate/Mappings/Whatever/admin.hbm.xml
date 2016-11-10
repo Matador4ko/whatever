@@ -44,5 +44,6 @@
 		 </joined-subclass>
 		  
 		  <query name="AdminENReadAllHQL">from AdminEN</query>
+		  <query name="AdminENreadFilterHQL"><![CDATA[FROM AdminEN]]></query>
 		</hibernate-mapping>
 	

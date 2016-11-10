@@ -28,5 +28,8 @@ void Modify (MapaEN mapa);
 
 void Destroy (int id
               );
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> ReadFilter ();
 }
 }

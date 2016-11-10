@@ -29,5 +29,8 @@ System.Collections.Generic.IList<AdminEN> GetAll (int first, int size);
 
 AdminEN GetID (int ID
                );
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> ReadFilter ();
 }
 }

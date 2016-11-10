@@ -19,7 +19,7 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class PuntuacionCEN
 {
-public void VerVoto (int id_usuario, int id_gym, int id_reto)
+public int VerVoto (int id_usuario, int id_gym, int id_reto)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Puntuacion_verVoto) ENABLED START*/
 

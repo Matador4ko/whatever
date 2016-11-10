@@ -24,5 +24,8 @@ System.Collections.Generic.IList<ComentarioEN> GetAll (int first, int size);
 
 ComentarioEN GetID (int ID
                     );
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> ReadFilter ();
 }
 }

@@ -285,5 +285,35 @@ public AdminEN GetID (int ID
 
         return adminEN;
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> ReadFilter ()
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM AdminEN self where FROM AdminEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("AdminENreadFilterHQL");
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.AdminEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in AdminCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

@@ -122,5 +122,10 @@ public AdminEN GetID (int ID
         adminEN = _IAdminCAD.GetID (ID);
         return adminEN;
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> ReadFilter ()
+{
+        return _IAdminCAD.ReadFilter ();
+}
 }
 }

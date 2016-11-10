@@ -293,5 +293,35 @@ public RetoEN GetID (int ID
 
         return retoEN;
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> ReadFilter ()
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM RetoEN self where FROM RetoEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("RetoENreadFilterHQL");
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.RetoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in RetoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

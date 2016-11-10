@@ -284,5 +284,35 @@ public EventoEN GetID (int ID
 
         return eventoEN;
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> ReadFilter ()
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM EventoEN self where FROM EventoEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("EventoENreadFilterHQL");
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.EventoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in EventoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

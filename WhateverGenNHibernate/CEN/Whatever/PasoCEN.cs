@@ -102,5 +102,9 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN
 {
         return _IPasoCAD.Filtro ();
 }
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> ReadFilter ()
+{
+        return _IPasoCAD.ReadFilter ();
+}
 }
 }

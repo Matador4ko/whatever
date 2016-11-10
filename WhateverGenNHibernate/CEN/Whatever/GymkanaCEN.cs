@@ -72,5 +72,10 @@ public int New_ (string p_Titulo, string p_descripcion, Nullable<DateTime> p_fec
         oid = _IGymkanaCAD.New_ (gymkanaEN);
         return oid;
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.GymkanaEN> ReadFilter ()
+{
+        return _IGymkanaCAD.ReadFilter ();
+}
 }
 }

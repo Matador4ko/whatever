@@ -119,5 +119,10 @@ public void Destroy (int id
 {
         _IMapaCAD.Destroy (id);
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> ReadFilter ()
+{
+        return _IMapaCAD.ReadFilter ();
+}
 }
 }

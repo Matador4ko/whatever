@@ -31,5 +31,10 @@ System.Collections.Generic.IList<UsuarioEN> GetAll (int first, int size);
 
 UsuarioEN GetID (int ID
                  );
+
+
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.UsuarioEN> ReadFilter ();
 }
 }

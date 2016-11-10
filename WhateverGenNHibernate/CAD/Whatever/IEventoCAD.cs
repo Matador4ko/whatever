@@ -28,5 +28,8 @@ System.Collections.Generic.IList<EventoEN> GetAll (int first, int size);
 
 EventoEN GetID (int ID
                 );
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> ReadFilter ();
 }
 }

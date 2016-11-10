@@ -14,7 +14,6 @@ void ModifyDefault (RetoEN reto);
 
 
 
-
 int New_ (RetoEN reto);
 
 void Modify (RetoEN reto);
@@ -29,5 +28,8 @@ System.Collections.Generic.IList<RetoEN> GetAll (int first, int size);
 
 RetoEN GetID (int ID
               );
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> ReadFilter ();
 }
 }

@@ -116,5 +116,10 @@ public UsuarioEN GetID (int ID
         usuarioEN = _IUsuarioCAD.GetID (ID);
         return usuarioEN;
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.UsuarioEN> ReadFilter ()
+{
+        return _IUsuarioCAD.ReadFilter ();
+}
 }
 }

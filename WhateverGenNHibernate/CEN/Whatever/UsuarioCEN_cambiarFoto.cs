@@ -19,7 +19,7 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class UsuarioCEN
 {
-public void CambiarFoto (int p_oid, string foto)
+public bool CambiarFoto (int p_oid, string foto)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_cambiarFoto) ENABLED START*/
 

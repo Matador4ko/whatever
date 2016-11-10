@@ -109,5 +109,10 @@ public EventoEN GetID (int ID
         eventoEN = _IEventoCAD.GetID (ID);
         return eventoEN;
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> ReadFilter ()
+{
+        return _IEventoCAD.ReadFilter ();
+}
 }
 }

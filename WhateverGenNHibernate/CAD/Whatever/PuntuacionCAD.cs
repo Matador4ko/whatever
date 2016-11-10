@@ -221,5 +221,35 @@ public PuntuacionEN GetID (int id
 
         return puntuacionEN;
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> ReadFilter ()
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PuntuacionEN self where FROM PuntuacionEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PuntuacionENreadFilterHQL");
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.PuntuacionEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in PuntuacionCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

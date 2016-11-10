@@ -22,5 +22,8 @@ System.Collections.Generic.IList<PuntuacionEN> GetPuntuaciones (int first, int s
 
 PuntuacionEN GetID (int id
                     );
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> ReadFilter ();
 }
 }

@@ -94,5 +94,10 @@ public PuntuacionEN GetID (int id
         puntuacionEN = _IPuntuacionCAD.GetID (id);
         return puntuacionEN;
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> ReadFilter ()
+{
+        return _IPuntuacionCAD.ReadFilter ();
+}
 }
 }

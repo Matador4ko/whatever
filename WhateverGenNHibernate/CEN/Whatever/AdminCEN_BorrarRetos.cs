@@ -25,21 +25,8 @@ public void BorrarRetos (int p_oid)
 
         // Write here your custom code...
 
-        RetoCEN reto = new RetoCEN ();
-        MapaCEN mapa = new MapaCEN ();
+        throw new NotImplementedException ("Method BorrarRetos() not yet implemented.");
 
-        System.Collections.Generic.IList<MapaEN> aux;
-        aux = mapa.GetAll (0, 0);
-        int id_mapa = -1;
-
-        foreach (MapaEN element in aux) {
-                if (element.Reto_mapa.ID == p_oid) {
-                        id_mapa = element.Id;
-                }
-        }
-
-        mapa.Destroy (id_mapa);
-        reto.Destroy (p_oid);
         /*PROTECTED REGION END*/
 }
 }

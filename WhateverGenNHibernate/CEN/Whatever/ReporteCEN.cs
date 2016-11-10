@@ -114,5 +114,10 @@ public ReporteEN GetID (int ID
         reporteEN = _IReporteCAD.GetID (ID);
         return reporteEN;
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> ReadFilter ()
+{
+        return _IReporteCAD.ReadFilter ();
+}
 }
 }

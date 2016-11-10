@@ -145,5 +145,35 @@ public int New_ (GymkanaEN gymkana)
 
         return gymkana.ID;
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.GymkanaEN> ReadFilter ()
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.GymkanaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM GymkanaEN self where FROM GymkanaEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("GymkanaENreadFilterHQL");
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.GymkanaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in GymkanaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

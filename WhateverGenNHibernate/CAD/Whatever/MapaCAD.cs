@@ -284,5 +284,35 @@ public void Destroy (int id
                 SessionClose ();
         }
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> ReadFilter ()
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MapaEN self where FROM MapaEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MapaENreadFilterHQL");
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.MapaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in MapaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

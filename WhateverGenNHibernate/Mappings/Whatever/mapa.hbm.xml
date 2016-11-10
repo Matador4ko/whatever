@@ -52,5 +52,6 @@
 		 </class>	
 		  
 		  <query name="MapaENReadAllHQL">from MapaEN</query>
+		  <query name="MapaENreadFilterHQL"><![CDATA[FROM MapaEN]]></query>
 		</hibernate-mapping>
 	

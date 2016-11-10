@@ -112,5 +112,10 @@ public RetoEN GetID (int ID
         retoEN = _IRetoCAD.GetID (ID);
         return retoEN;
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> ReadFilter ()
+{
+        return _IRetoCAD.ReadFilter ();
+}
 }
 }

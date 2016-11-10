@@ -96,5 +96,6 @@
 		 </class>	
 		  
 		  <query name="EventoENReadAllHQL">from EventoEN</query>
+		  <query name="EventoENreadFilterHQL"><![CDATA[FROM EventoEN]]></query>
 		</hibernate-mapping>
 	
