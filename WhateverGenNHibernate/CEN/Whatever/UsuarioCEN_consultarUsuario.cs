@@ -19,7 +19,7 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class UsuarioCEN
 {
-public UsuarioEn ConsultarUsuario (int p_oid)
+public UsuarioEN ConsultarUsuario (int p_oid)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_consultarUsuario) ENABLED START*/
 
