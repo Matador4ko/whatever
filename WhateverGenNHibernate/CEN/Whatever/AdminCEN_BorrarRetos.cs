@@ -25,7 +25,8 @@ public void BorrarRetos (int p_oid)
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method BorrarRetos() not yet implemented.");
+        RetoCEN reto = new RetoCEN ();
+        reto.Destroy (p_oid);
 
         /*PROTECTED REGION END*/
 }

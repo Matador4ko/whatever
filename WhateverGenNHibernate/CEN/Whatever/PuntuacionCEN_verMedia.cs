@@ -25,8 +25,40 @@ public float VerMedia (int id_gym, int id_reto)
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method VerMedia() not yet implemented.");
+        float media = 0;
+        int cont = 0;
 
+        if (id_gym == -1) {
+                PuntuacionCEN puntuacion = new PuntuacionCEN ();
+                RetoCEN reto = new RetoCEN ();
+                System.Collections.Generic.IList<PuntuacionEN> puntuaciones;
+                System.Collections.Generic.IList<RetoEN> retos;
+                puntuaciones = puntuacion.GetPuntuaciones (0, 0);
+                retos = reto.GetAll (0, 0);
+                foreach (PuntuacionEN element in puntuaciones) {
+                        if (element.Reto_puntuacion.ID == id_reto) {
+                                media = media + element.Puntuacion;
+                                cont++;
+                        }
+                }
+                return media = media / cont;
+        }
+        else if (id_reto == -1) {
+                PuntuacionCEN puntuacion = new PuntuacionCEN ();
+                EventoCEN evento = new EventoCEN ();
+                System.Collections.Generic.IList<PuntuacionEN> puntuaciones;
+                System.Collections.Generic.IList<EventoEN> eventos;
+                puntuaciones = puntuacion.GetPuntuaciones (0, 0);
+                eventos = evento.GetAll (0, 0);
+                foreach (PuntuacionEN element in puntuaciones) {
+                        if (element.Evento_puntuacion.ID == id_gym) {
+                                media = media + element.Puntuacion;
+                                cont++;
+                        }
+                }
+                return media = media / cont;
+        }
+        return -1;
         /*PROTECTED REGION END*/
 }
 }

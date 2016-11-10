@@ -19,14 +19,18 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class PasoCEN
 {
-public void VerPaso (int p_oid)
+public WhateverGenNHibernate.EN.Whatever.PasoEN VerPaso (int p_oid)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Paso_verPaso) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method VerPaso() not yet implemented.");
 
+        PasoCEN paso = new PasoCEN ();
+        PasoEN salida = new PasoEN ();
+
+        salida = paso.GetID (p_oid);
+        return salida;
         /*PROTECTED REGION END*/
 }
 }

@@ -18,5 +18,12 @@ int New_ (GymkanaEN gymkana);
 
 
 System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.GymkanaEN> ReadFilter ();
+
+
+void Modify (GymkanaEN gymkana);
+
+
+void Destroy (int ID
+              );
 }
 }

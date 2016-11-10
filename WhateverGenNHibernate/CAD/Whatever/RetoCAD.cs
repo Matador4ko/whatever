@@ -106,12 +106,8 @@ public void ModifyDefault (RetoEN reto)
                 retoEN.Imagen = reto.Imagen;
 
 
-                retoEN.Creador = reto.Creador;
-
-
 
                 retoEN.Id_mapa = reto.Id_mapa;
-
 
 
 
@@ -188,9 +184,6 @@ public void Modify (RetoEN reto)
 
 
                 retoEN.Imagen = reto.Imagen;
-
-
-                retoEN.Creador = reto.Creador;
 
                 session.Update (retoEN);
                 SessionCommit ();

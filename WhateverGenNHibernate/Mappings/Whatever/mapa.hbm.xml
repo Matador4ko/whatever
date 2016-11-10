@@ -21,12 +21,6 @@
 			
 			
 		  			
-						<many-to-one name="Reto_mapa" class="WhateverGenNHibernate.EN.Whatever.RetoEN" >	
-								<column name="FK_id_idReto"/> 
-						</many-to-one>
-											 					
-			
-		  			
 						<many-to-one name="Evento_mapa2" class="WhateverGenNHibernate.EN.Whatever.EventoEN" >	
 								<column name="FK_ID_idEvento_mapa2"/> 
 						</many-to-one>
@@ -41,7 +35,6 @@
 			
 			
 			
-					
 					
 					
 					

@@ -38,7 +38,7 @@ public IAdminCAD get_IAdminCAD ()
         return this._IAdminCAD;
 }
 
-public int New_ (int p_ID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, String p_contrasena, string p_email, string p_foto, string p_borrarRetos, string p_borrarEvento)
+public int New_ (int p_ID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, String p_contrasena, string p_email, string p_foto)
 {
         AdminEN adminEN = null;
         int oid;
@@ -67,17 +67,13 @@ public int New_ (int p_ID, string p_nombre, int p_seguidores, int p_edad, string
 
         adminEN.Foto = p_foto;
 
-        adminEN.BorrarRetos = p_borrarRetos;
-
-        adminEN.BorrarEvento = p_borrarEvento;
-
         //Call to AdminCAD
 
         oid = _IAdminCAD.New_ (adminEN);
         return oid;
 }
 
-public void Modify (int p_Admin_OID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, String p_contrasena, string p_email, string p_foto, string p_borrarRetos, string p_borrarEvento)
+public void Modify (int p_Admin_OID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, String p_contrasena, string p_email, string p_foto)
 {
         AdminEN adminEN = null;
 
@@ -94,8 +90,6 @@ public void Modify (int p_Admin_OID, string p_nombre, int p_seguidores, int p_ed
         adminEN.Contrasena = Utils.Util.GetEncondeMD5 (p_contrasena);
         adminEN.Email = p_email;
         adminEN.Foto = p_foto;
-        adminEN.BorrarRetos = p_borrarRetos;
-        adminEN.BorrarEvento = p_borrarEvento;
         //Call to AdminCAD
 
         _IAdminCAD.Modify (adminEN);

@@ -30,9 +30,6 @@ PasoEN GetID (int ID
               );
 
 
-System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> Filtro ();
-
-
 
 System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> ReadFilter ();
 }

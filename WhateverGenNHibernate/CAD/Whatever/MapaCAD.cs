@@ -93,7 +93,6 @@ public void ModifyDefault (MapaEN mapa)
 
 
 
-
                 mapaEN.Latitud = mapa.Latitud;
 
 
@@ -126,13 +125,6 @@ public int New_ (MapaEN mapa)
         try
         {
                 SessionInitializeTransaction ();
-                if (mapa.Reto_mapa != null) {
-                        // Argumento OID y no colección.
-                        mapa.Reto_mapa = (WhateverGenNHibernate.EN.Whatever.RetoEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.RetoEN), mapa.Reto_mapa.ID);
-
-                        mapa.Reto_mapa.Reto_mapa2
-                        .Add (mapa);
-                }
                 if (mapa.Evento_mapa2 != null) {
                         // Argumento OID y no colección.
                         mapa.Evento_mapa2 = (WhateverGenNHibernate.EN.Whatever.EventoEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.EventoEN), mapa.Evento_mapa2.ID);

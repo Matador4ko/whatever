@@ -25,8 +25,15 @@ public bool CambiarCorreo (int p_oid, string correo)
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method CambiarCorreo() not yet implemented.");
+         UsuarioEN user = GetID(p_oid);
+         String aux = user.Email;
+         Modify (p_oid, user.Nombre, user.Seguidores, user.Edad, user.Sexo, user.Facebook, user.Instagram, user.Historial, user.Contrasena, correo, user.Foto);
 
+         if (!aux.Equals(user.Email))
+         {
+             return true;
+         }
+         return false;
         /*PROTECTED REGION END*/
 }
 }

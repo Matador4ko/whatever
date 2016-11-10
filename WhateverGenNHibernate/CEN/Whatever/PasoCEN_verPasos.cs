@@ -25,8 +25,20 @@ public void VerPasos (int p_oid)
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method VerPasos() not yet implemented.");
 
+        PasoCEN paso = new PasoCEN ();
+
+        System.Collections.Generic.IList<PasoEN> pasos;
+        System.Collections.Generic.IList<PasoEN> salida = null;
+
+
+        pasos = paso.GetAll (0, 0);
+
+        foreach (PasoEN element in pasos) {
+                if (element.Gymkana_paso2.ID == p_oid) {
+                        salida.Add (element); //HAY QUE HACER RETURN DE SALIDA O ALGUNA COSA??????????
+                }
+        }
         /*PROTECTED REGION END*/
 }
 }

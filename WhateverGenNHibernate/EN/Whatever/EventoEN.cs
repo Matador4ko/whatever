@@ -34,13 +34,6 @@ private int precio;
 
 
 /**
- *	Atributo creador
- */
-private string creador;
-
-
-
-/**
  *	Atributo iD
  */
 private int iD;
@@ -109,12 +102,6 @@ public virtual int Precio {
 
 
 
-public virtual string Creador {
-        get { return creador; } set { creador = value;  }
-}
-
-
-
 public virtual int ID {
         get { return iD; } set { iD = value;  }
 }
@@ -163,20 +150,20 @@ public EventoEN()
 
 
 
-public EventoEN(int iD, string titulo, string descripcion, Nullable<DateTime> fecha, int precio, string creador, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario_evento, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion_evento2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> evento_mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_evento, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte_evento2
+public EventoEN(int iD, string titulo, string descripcion, Nullable<DateTime> fecha, int precio, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario_evento, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion_evento2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> evento_mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_evento, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte_evento2
                 )
 {
-        this.init (ID, titulo, descripcion, fecha, precio, creador, usuario_evento, puntuacion_evento2, evento_mapa, comentario_evento, reporte_evento2);
+        this.init (ID, titulo, descripcion, fecha, precio, usuario_evento, puntuacion_evento2, evento_mapa, comentario_evento, reporte_evento2);
 }
 
 
 public EventoEN(EventoEN evento)
 {
-        this.init (ID, evento.Titulo, evento.Descripcion, evento.Fecha, evento.Precio, evento.Creador, evento.Usuario_evento, evento.Puntuacion_evento2, evento.Evento_mapa, evento.Comentario_evento, evento.Reporte_evento2);
+        this.init (ID, evento.Titulo, evento.Descripcion, evento.Fecha, evento.Precio, evento.Usuario_evento, evento.Puntuacion_evento2, evento.Evento_mapa, evento.Comentario_evento, evento.Reporte_evento2);
 }
 
 private void init (int ID
-                   , string titulo, string descripcion, Nullable<DateTime> fecha, int precio, string creador, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario_evento, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion_evento2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> evento_mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_evento, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte_evento2)
+                   , string titulo, string descripcion, Nullable<DateTime> fecha, int precio, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario_evento, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion_evento2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> evento_mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_evento, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte_evento2)
 {
         this.ID = ID;
 
@@ -188,8 +175,6 @@ private void init (int ID
         this.Fecha = fecha;
 
         this.Precio = precio;
-
-        this.Creador = creador;
 
         this.Usuario_evento = usuario_evento;
 

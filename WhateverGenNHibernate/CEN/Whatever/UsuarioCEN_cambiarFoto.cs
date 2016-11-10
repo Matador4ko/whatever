@@ -25,8 +25,16 @@ public bool CambiarFoto (int p_oid, string foto)
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method CambiarFoto() not yet implemented.");
+    UsuarioEN user = GetID(p_oid);
+    String anteriorFoto = user.Foto;
 
+    Modify(user.ID, user.Nombre, user.Seguidores, user.Edad, user.Sexo, user.Facebook, user.Instagram, user.Historial, user.Contrasena, user.Email, foto);
+
+    if (!anteriorFoto.Equals(user.Foto))
+    {
+        return true;
+    }
+    return false;
         /*PROTECTED REGION END*/
 }
 }

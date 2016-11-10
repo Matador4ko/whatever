@@ -19,14 +19,24 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class RetoCEN
 {
-public void VerReto (int p_oid)
+public WhateverGenNHibernate.EN.Whatever.RetoEN VerReto (int p_oid)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Reto_verReto) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method VerReto() not yet implemented.");
+        RetoCEN reto = new RetoCEN ();
 
+        System.Collections.Generic.IList<RetoEN> retos;
+        RetoEN salida = new RetoEN ();
+
+        retos = reto.GetAll (0, 0);
+        foreach (RetoEN element in retos) {
+                if (element.ID == p_oid) {
+                        salida = element;
+                }
+        }
+        return salida;
         /*PROTECTED REGION END*/
 }
 }

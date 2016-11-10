@@ -19,13 +19,31 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class ReporteCEN
 {
-public void Reportar (int id_usuario, int id_gym, int id_reto)
+public void Reportar (int id_usuario, int id_gym, int id_reto, string motivo)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Reporte_Reportar) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method Reportar() not yet implemented.");
+        ReporteEN repor = new ReporteEN ();
+        ReporteCEN reporcen = new ReporteCEN ();
+        AdminCEN admincen = new AdminCEN ();
+
+        System.Collections.Generic.IList<AdminEN> admin = null;
+        System.Collections.Generic.IList<int> numadmins = null;
+        System.Collections.Generic.IList<ReporteEN> listareporte;
+        listareporte = reporcen.GetAll (0, 0);
+        int aux = 0;
+
+        foreach (AdminEN element in admin) {
+                numadmins.Add (element.ID);
+        }
+        foreach (ReporteEN element in listareporte) {
+                aux = element.ID;
+        }
+        admin = admincen.GetAll (0, 0);
+
+        reporcen.New_ (motivo, aux + 1, id_usuario, numadmins, id_reto, id_gym);
 
         /*PROTECTED REGION END*/
 }

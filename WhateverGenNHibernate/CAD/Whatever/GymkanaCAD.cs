@@ -175,5 +175,67 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Gymkan
 
         return result;
 }
+public void Modify (GymkanaEN gymkana)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                GymkanaEN gymkanaEN = (GymkanaEN)session.Load (typeof(GymkanaEN), gymkana.ID);
+
+                gymkanaEN.Titulo = gymkana.Titulo;
+
+
+                gymkanaEN.Descripcion = gymkana.Descripcion;
+
+
+                gymkanaEN.Fecha = gymkana.Fecha;
+
+
+                gymkanaEN.Precio = gymkana.Precio;
+
+
+                gymkanaEN.NumPasos = gymkana.NumPasos;
+
+                session.Update (gymkanaEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in GymkanaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void Destroy (int ID
+                     )
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                GymkanaEN gymkanaEN = (GymkanaEN)session.Load (typeof(GymkanaEN), ID);
+                session.Delete (gymkanaEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in GymkanaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 }
 }

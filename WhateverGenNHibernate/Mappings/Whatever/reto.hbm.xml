@@ -24,15 +24,11 @@
 					<property name="Imagen" type="string"> 
 						<column name="imagen"  not-null="true"/>
 					</property>
-					<property name="Creador" type="string"> 
-						<column name="creador"  not-null="true"/>
-					</property>
 					<bag name="Id_mapa" table="idMapa"> 
 						<key>
 						</key>
 						<element column="Id_mapa" type="integer"/> 
     				</bag>
-			
 			
 			
 			
@@ -47,17 +43,6 @@
 						</many-to-one>
 											 					
 			
-			
-		  			
-						<bag name="Reto_mapa2" >
-							<key>
-							
-								
-								<column name="FK_id_idReto"/>
-					      	</key>
-							<one-to-many class="WhateverGenNHibernate.EN.Whatever.MapaEN"/>
-					    </bag>
-					
 			
 		  			
 						<bag name="Reto_puntuacion2" >
@@ -90,8 +75,6 @@
 					      	</key>
 							<one-to-many class="WhateverGenNHibernate.EN.Whatever.ReporteEN"/>
 					    </bag>
-					
-					
 					
 					
 					

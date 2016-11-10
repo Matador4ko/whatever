@@ -38,7 +38,7 @@ public IRetoCAD get_IRetoCAD ()
         return this._IRetoCAD;
 }
 
-public int New_ (string p_titulo, string p_descripcion, string p_tipo, int p_precio, string p_imagen, string p_creador, int p_ID, int p_usuario_reto2)
+public int New_ (string p_titulo, string p_descripcion, string p_tipo, int p_precio, string p_imagen, int p_ID, int p_usuario_reto2)
 {
         RetoEN retoEN = null;
         int oid;
@@ -54,8 +54,6 @@ public int New_ (string p_titulo, string p_descripcion, string p_tipo, int p_pre
         retoEN.Precio = p_precio;
 
         retoEN.Imagen = p_imagen;
-
-        retoEN.Creador = p_creador;
 
         retoEN.ID = p_ID;
 
@@ -73,7 +71,7 @@ public int New_ (string p_titulo, string p_descripcion, string p_tipo, int p_pre
         return oid;
 }
 
-public void Modify (int p_Reto_OID, string p_titulo, string p_descripcion, string p_tipo, int p_precio, string p_imagen, string p_creador)
+public void Modify (int p_Reto_OID, string p_titulo, string p_descripcion, string p_tipo, int p_precio, string p_imagen)
 {
         RetoEN retoEN = null;
 
@@ -85,7 +83,6 @@ public void Modify (int p_Reto_OID, string p_titulo, string p_descripcion, strin
         retoEN.Tipo = p_tipo;
         retoEN.Precio = p_precio;
         retoEN.Imagen = p_imagen;
-        retoEN.Creador = p_creador;
         //Call to RetoCAD
 
         _IRetoCAD.Modify (retoEN);

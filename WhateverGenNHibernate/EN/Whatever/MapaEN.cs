@@ -6,13 +6,6 @@ namespace WhateverGenNHibernate.EN.Whatever
 public partial class MapaEN
 {
 /**
- *	Atributo reto_mapa
- */
-private WhateverGenNHibernate.EN.Whatever.RetoEN reto_mapa;
-
-
-
-/**
  *	Atributo evento_mapa2
  */
 private WhateverGenNHibernate.EN.Whatever.EventoEN evento_mapa2;
@@ -54,12 +47,6 @@ private int zoom;
 
 
 
-
-
-
-public virtual WhateverGenNHibernate.EN.Whatever.RetoEN Reto_mapa {
-        get { return reto_mapa; } set { reto_mapa = value;  }
-}
 
 
 
@@ -107,25 +94,23 @@ public MapaEN()
 
 
 
-public MapaEN(int id, WhateverGenNHibernate.EN.Whatever.RetoEN reto_mapa, WhateverGenNHibernate.EN.Whatever.EventoEN evento_mapa2, WhateverGenNHibernate.EN.Whatever.PasoEN paso_0, int latitud, int longitud, int zoom
+public MapaEN(int id, WhateverGenNHibernate.EN.Whatever.EventoEN evento_mapa2, WhateverGenNHibernate.EN.Whatever.PasoEN paso_0, int latitud, int longitud, int zoom
               )
 {
-        this.init (Id, reto_mapa, evento_mapa2, paso_0, latitud, longitud, zoom);
+        this.init (Id, evento_mapa2, paso_0, latitud, longitud, zoom);
 }
 
 
 public MapaEN(MapaEN mapa)
 {
-        this.init (Id, mapa.Reto_mapa, mapa.Evento_mapa2, mapa.Paso_0, mapa.Latitud, mapa.Longitud, mapa.Zoom);
+        this.init (Id, mapa.Evento_mapa2, mapa.Paso_0, mapa.Latitud, mapa.Longitud, mapa.Zoom);
 }
 
 private void init (int id
-                   , WhateverGenNHibernate.EN.Whatever.RetoEN reto_mapa, WhateverGenNHibernate.EN.Whatever.EventoEN evento_mapa2, WhateverGenNHibernate.EN.Whatever.PasoEN paso_0, int latitud, int longitud, int zoom)
+                   , WhateverGenNHibernate.EN.Whatever.EventoEN evento_mapa2, WhateverGenNHibernate.EN.Whatever.PasoEN paso_0, int latitud, int longitud, int zoom)
 {
         this.Id = id;
 
-
-        this.Reto_mapa = reto_mapa;
 
         this.Evento_mapa2 = evento_mapa2;
 

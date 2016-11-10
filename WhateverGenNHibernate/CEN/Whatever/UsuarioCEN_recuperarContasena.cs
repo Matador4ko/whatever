@@ -23,13 +23,18 @@ public int RecuperarContasena (string correo, string nombre)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_recuperarContasena) ENABLED START*/
 
-        UsuarioEN[] list = GetAll (0,0);
-        foreach(UsuarioEN element in list){
-                if (user.Email.equals(correo) && users.Nombre.equals(correo)){
-                        return user.ID;
-                }
-        }
+        // Write here your custom code...
 
+    System.Collections.Generic.IList<UsuarioEN> list;
+    list = GetAll(0, 0);
+    foreach (UsuarioEN element in list)
+    {
+        if (element.Email.Equals(correo) && element.Nombre.Equals(correo))
+        {
+            return element.ID;
+        }
+    }
+    return -1;
         /*PROTECTED REGION END*/
 }
 }

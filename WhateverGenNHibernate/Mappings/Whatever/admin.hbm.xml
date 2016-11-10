@@ -16,14 +16,6 @@
 
 			
 					
-					<property name="BorrarRetos" type="string"> 
-						<column name="borrarRetos"  not-null="true"/>
-					</property>
-					<property name="BorrarEvento" type="string"> 
-						<column name="borrarEvento"  not-null="true"/>
-					</property>
-			
-			
 			
 			
 		  			
@@ -36,8 +28,6 @@
 									<column name="FK_ID_idAdmin_reporte2"/> 
       						</many-to-many>
     					</bag>
-					
-					
 					
 		
  	  

@@ -91,12 +91,6 @@ public void ModifyDefault (AdminEN admin)
                 SessionInitializeTransaction ();
                 AdminEN adminEN = (AdminEN)session.Load (typeof(AdminEN), admin.ID);
 
-                adminEN.BorrarRetos = admin.BorrarRetos;
-
-
-                adminEN.BorrarEvento = admin.BorrarEvento;
-
-
                 session.Update (adminEN);
                 SessionCommit ();
         }
@@ -177,12 +171,6 @@ public void Modify (AdminEN admin)
 
 
                 adminEN.Foto = admin.Foto;
-
-
-                adminEN.BorrarRetos = admin.BorrarRetos;
-
-
-                adminEN.BorrarEvento = admin.BorrarEvento;
 
                 session.Update (adminEN);
                 SessionCommit ();

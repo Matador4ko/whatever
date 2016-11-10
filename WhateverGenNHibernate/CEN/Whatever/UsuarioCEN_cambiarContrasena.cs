@@ -23,8 +23,21 @@ public bool CambiarContrasena (int p_oid, String contra)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_cambiarContrasena) ENABLED START*/
 
+        // Write here your custom code...
+
+
         UsuarioEN user = GetID (p_oid);
+        String aux = user.Contrasena;
+        UsuarioCEN usucen = new UsuarioCEN();
+        usucen.GetID(p_oid);
+
         Modify (user.ID, user.Nombre, user.Seguidores, user.Edad, user.Sexo, user.Facebook, user.Instagram, user.Historial, contra, user.Email, user.Foto);
+
+        if (!aux.Equals(user.Contrasena))
+        {
+            return true;
+        }
+        return false;
 
         /*PROTECTED REGION END*/
 }

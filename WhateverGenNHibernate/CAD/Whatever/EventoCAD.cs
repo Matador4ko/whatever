@@ -103,9 +103,6 @@ public void ModifyDefault (EventoEN evento)
                 eventoEN.Precio = evento.Precio;
 
 
-                eventoEN.Creador = evento.Creador;
-
-
 
 
 
@@ -179,9 +176,6 @@ public void Modify (EventoEN evento)
 
 
                 eventoEN.Precio = evento.Precio;
-
-
-                eventoEN.Creador = evento.Creador;
 
                 session.Update (eventoEN);
                 SessionCommit ();

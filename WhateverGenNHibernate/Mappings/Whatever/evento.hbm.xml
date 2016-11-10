@@ -21,10 +21,6 @@
 					<property name="Precio" type="integer"> 
 						<column name="precio"  not-null="true"/>
 					</property>
-					<property name="Creador" type="string"> 
-						<column name="creador"  not-null="true"/>
-					</property>
-			
 			
 			
 			
@@ -80,7 +76,6 @@
 					      	</key>
 							<one-to-many class="WhateverGenNHibernate.EN.Whatever.ReporteEN"/>
 					    </bag>
-					
 					
 					
 					

@@ -258,35 +258,6 @@ public PasoEN GetID (int ID
         return pasoEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> Filtro ()
-{
-        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> result;
-        try
-        {
-                SessionInitializeTransaction ();
-                //String sql = @"FROM PasoEN self where FROM PasoEN";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("PasoENfiltroHQL");
-
-                result = query.List<WhateverGenNHibernate.EN.Whatever.PasoEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in PasoCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
 public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> ReadFilter ()
 {
         System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> result;

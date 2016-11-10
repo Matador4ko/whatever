@@ -38,7 +38,7 @@ public IGymkanaCAD get_IGymkanaCAD ()
         return this._IGymkanaCAD;
 }
 
-public int New_ (string p_Titulo, string p_descripcion, Nullable<DateTime> p_fecha, int p_precio, string p_creador, int p_ID, int p_usuario_evento, int p_numPasos)
+public int New_ (string p_Titulo, string p_descripcion, Nullable<DateTime> p_fecha, int p_precio, int p_ID, int p_usuario_evento, int p_numPasos)
 {
         GymkanaEN gymkanaEN = null;
         int oid;
@@ -52,8 +52,6 @@ public int New_ (string p_Titulo, string p_descripcion, Nullable<DateTime> p_fec
         gymkanaEN.Fecha = p_fecha;
 
         gymkanaEN.Precio = p_precio;
-
-        gymkanaEN.Creador = p_creador;
 
         gymkanaEN.ID = p_ID;
 
@@ -76,6 +74,28 @@ public int New_ (string p_Titulo, string p_descripcion, Nullable<DateTime> p_fec
 public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.GymkanaEN> ReadFilter ()
 {
         return _IGymkanaCAD.ReadFilter ();
+}
+public void Modify (int p_Gymkana_OID, string p_Titulo, string p_descripcion, Nullable<DateTime> p_fecha, int p_precio, int p_numPasos)
+{
+        GymkanaEN gymkanaEN = null;
+
+        //Initialized GymkanaEN
+        gymkanaEN = new GymkanaEN ();
+        gymkanaEN.ID = p_Gymkana_OID;
+        gymkanaEN.Titulo = p_Titulo;
+        gymkanaEN.Descripcion = p_descripcion;
+        gymkanaEN.Fecha = p_fecha;
+        gymkanaEN.Precio = p_precio;
+        gymkanaEN.NumPasos = p_numPasos;
+        //Call to GymkanaCAD
+
+        _IGymkanaCAD.Modify (gymkanaEN);
+}
+
+public void Destroy (int ID
+                     )
+{
+        _IGymkanaCAD.Destroy (ID);
 }
 }
 }

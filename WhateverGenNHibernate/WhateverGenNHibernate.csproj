@@ -150,6 +150,8 @@
 			<Compile Include="CEN\Whatever\GymkanaCEN_VerPasos.cs" />
 			
 			
+			
+			
 	<Compile Include="EN\Whatever\ComentarioEN.cs" />
 	<Compile Include="CEN\Whatever\ComentarioCEN.cs" />
 	<Compile Include="CAD\Whatever\IComentarioCAD.cs" />
@@ -208,7 +210,6 @@
 	<Compile Include="CAD\Whatever\PasoCAD.cs" />
 	<Compile Include="CP\Whatever\PasoCP.cs" />
 			<Compile Include="CEN\Whatever\PasoCEN_VerPasos.cs" />
-			
 			
 			
 			

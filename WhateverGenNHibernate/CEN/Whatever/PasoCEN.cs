@@ -98,10 +98,6 @@ public PasoEN GetID (int ID
         return pasoEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> Filtro ()
-{
-        return _IPasoCAD.Filtro ();
-}
 public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> ReadFilter ()
 {
         return _IPasoCAD.ReadFilter ();

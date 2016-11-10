@@ -19,14 +19,20 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class EventoCEN
 {
-public void VerEvento (int p_oid)
+public WhateverGenNHibernate.EN.Whatever.EventoEN VerEvento (int p_oid)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Evento_verEvento) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method VerEvento() not yet implemented.");
+        EventoCEN evento = new EventoCEN ();
 
+        System.Collections.Generic.IList<EventoEN> eventos;
+        EventoEN salida = new EventoEN ();
+
+        eventos = evento.GetAll (0, 0);
+        salida = evento.GetID (p_oid);
+        return salida;
         /*PROTECTED REGION END*/
 }
 }
