@@ -6,7 +6,10 @@
 		    
 			
 				<class name="ReporteEN" table="Reporte"> 
-						<id name="ID" column="ID"/> 
+				  	
+						<id name="ID" column="ID" type="integer"> 
+							<generator class="hilo"/>
+						</id>
 			
 					
 					<property name="Motivo" type="string"> 
@@ -54,6 +57,7 @@
 		 </class>	
 		  
 		  <query name="ReporteENReadAllHQL">from ReporteEN</query>
-		  <query name="ReporteENreadFilterHQL"><![CDATA[FROM ReporteEN]]></query>
+		  <query name="ReporteENfiltrarEventoHQL"><![CDATA[FROM ReporteEN,UsuarioEN as usu, EventoEN as ev WHERE ev.id=:id_evento and usu.id=:id_usuario]]></query>
+		  <query name="ReporteENfiltrarRetoHQL"><![CDATA[FROM ReporteEN,UsuarioEN as usu, RetoEN as re WHERE re.id=:id_reto and usu.id=:id_usuario]]></query>
 		</hibernate-mapping>
 	

@@ -254,15 +254,48 @@ public ReporteEN GetID (int ID
         return reporteEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> ReadFilter ()
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarEvento (int? id_evento, int ? id_usuario)
 {
         System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ReporteEN self where FROM ReporteEN";
+                //String sql = @"FROM ReporteEN self where FROM ReporteEN,UsuarioEN as usu, EventoEN as ev WHERE ev.id=:id_evento and usu.id=:id_usuario";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("ReporteENreadFilterHQL");
+                IQuery query = (IQuery)session.GetNamedQuery ("ReporteENfiltrarEventoHQL");
+                query.SetParameter ("id_evento", id_evento);
+                query.SetParameter ("id_usuario", id_usuario);
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.ReporteEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in ReporteCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarReto (int? id_reto, int ? id_usuario)
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ReporteEN self where FROM ReporteEN,UsuarioEN as usu, RetoEN as re WHERE re.id=:id_reto and usu.id=:id_usuario";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ReporteENfiltrarRetoHQL");
+                query.SetParameter ("id_reto", id_reto);
+                query.SetParameter ("id_usuario", id_usuario);
 
                 result = query.List<WhateverGenNHibernate.EN.Whatever.ReporteEN>();
                 SessionCommit ();

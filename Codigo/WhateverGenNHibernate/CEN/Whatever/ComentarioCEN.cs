@@ -38,7 +38,7 @@ public IComentarioCAD get_IComentarioCAD ()
         return this._IComentarioCAD;
 }
 
-public int New_ (string p_texto, string p_creador, int p_ID, int p_comentario_usuario, int p_comentario_evento2, int p_comentario_reto)
+public int New_ (string p_texto, string p_creador, int p_comentario_usuario, int p_comentario_evento2, int p_comentario_reto)
 {
         ComentarioEN comentarioEN = null;
         int oid;
@@ -48,8 +48,6 @@ public int New_ (string p_texto, string p_creador, int p_ID, int p_comentario_us
         comentarioEN.Texto = p_texto;
 
         comentarioEN.Creador = p_creador;
-
-        comentarioEN.ID = p_ID;
 
 
         if (p_comentario_usuario != -1) {

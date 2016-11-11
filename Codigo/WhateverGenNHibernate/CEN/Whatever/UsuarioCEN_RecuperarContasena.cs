@@ -26,11 +26,9 @@ public int RecuperarContasena (string correo, string nombre)
         // Write here your custom code...
 
         System.Collections.Generic.IList<UsuarioEN> list;
-        list = GetAll (0, 0);
+        list = ReadFilter (nombre, correo);
         foreach (UsuarioEN element in list) {
-                if (element.Email.Equals (correo) && element.Nombre.Equals (correo)) {
-                        return element.ID;
-                }
+                return element.ID;
         }
         return -1;
         /*PROTECTED REGION END*/

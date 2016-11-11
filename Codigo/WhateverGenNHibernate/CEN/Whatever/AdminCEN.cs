@@ -38,15 +38,13 @@ public IAdminCAD get_IAdminCAD ()
         return this._IAdminCAD;
 }
 
-public int New_ (int p_ID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, String p_contrasena, string p_email, string p_foto)
+public int New_ (string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, String p_contrasena, string p_email, string p_foto)
 {
         AdminEN adminEN = null;
         int oid;
 
         //Initialized AdminEN
         adminEN = new AdminEN ();
-        adminEN.ID = p_ID;
-
         adminEN.Nombre = p_nombre;
 
         adminEN.Seguidores = p_seguidores;
@@ -117,9 +115,9 @@ public AdminEN GetID (int ID
         return adminEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> ReadFilter ()
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> FiltrarMapa ()
 {
-        return _IAdminCAD.ReadFilter ();
+        return _IAdminCAD.FiltrarMapa ();
 }
 }
 }

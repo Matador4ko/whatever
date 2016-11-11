@@ -19,7 +19,7 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class GymkanaCEN
 {
-public void VerPasos (int p_oid)
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> VerPasos (int p_oid)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Gymkana_verPasos) ENABLED START*/
 
@@ -27,8 +27,9 @@ public void VerPasos (int p_oid)
 
         PasoCEN paso = new PasoCEN ();
 
-        paso.VerPasos (p_oid);
-
+        System.Collections.Generic.IList<PasoEN> pasos;
+        pasos = paso.VerPasos (p_oid);
+        return pasos;
         /*PROTECTED REGION END*/
 }
 }

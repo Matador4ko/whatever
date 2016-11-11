@@ -38,7 +38,7 @@ public IPuntuacionCAD get_IPuntuacionCAD ()
         return this._IPuntuacionCAD;
 }
 
-public int New_ (int p_usuario_puntuacion2, int p_reto_puntuacion, int p_evento_puntuacion, int p_id, int p_puntuacion)
+public int New_ (int p_usuario_puntuacion2, int p_reto_puntuacion, int p_evento_puntuacion, int p_puntuacion)
 {
         PuntuacionEN puntuacionEN = null;
         int oid;
@@ -69,8 +69,6 @@ public int New_ (int p_usuario_puntuacion2, int p_reto_puntuacion, int p_evento_
                 puntuacionEN.Evento_puntuacion.ID = p_evento_puntuacion;
         }
 
-        puntuacionEN.Id = p_id;
-
         puntuacionEN.Puntuacion = p_puntuacion;
 
         //Call to PuntuacionCAD
@@ -95,9 +93,21 @@ public PuntuacionEN GetID (int id
         return puntuacionEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> ReadFilter ()
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarReto (int? id_reto, int ? id_usuario)
 {
-        return _IPuntuacionCAD.ReadFilter ();
+        return _IPuntuacionCAD.FiltrarReto (id_reto, id_usuario);
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarEvento (int? id_evento, int ? id_usuario)
+{
+        return _IPuntuacionCAD.FiltrarEvento (id_evento, id_usuario);
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarMediaEvento (int ? id_evento)
+{
+        return _IPuntuacionCAD.FiltrarMediaEvento (id_evento);
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarMediaReto (int ? id_reto)
+{
+        return _IPuntuacionCAD.FiltrarMediaReto (id_reto);
 }
 }
 }

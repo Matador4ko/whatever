@@ -38,15 +38,13 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public int New_ (int p_ID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, String p_contrasena, string p_email, string p_foto)
+public int New_ (string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, String p_contrasena, string p_email, string p_foto)
 {
         UsuarioEN usuarioEN = null;
         int oid;
 
         //Initialized UsuarioEN
         usuarioEN = new UsuarioEN ();
-        usuarioEN.ID = p_ID;
-
         usuarioEN.Nombre = p_nombre;
 
         usuarioEN.Seguidores = p_seguidores;
@@ -117,9 +115,9 @@ public UsuarioEN GetID (int ID
         return usuarioEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.UsuarioEN> ReadFilter ()
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.UsuarioEN> FiltrarNombreCorreo (string nombre, string correo)
 {
-        return _IUsuarioCAD.ReadFilter ();
+        return _IUsuarioCAD.FiltrarNombreCorreo (nombre, correo);
 }
 }
 }

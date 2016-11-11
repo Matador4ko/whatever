@@ -126,6 +126,14 @@
 			
 			
 			
+			<Compile Include="CP\Whatever\UsuarioCP_HacerAdmin.cs" />
+			
+			<Compile Include="CEN\Whatever\UsuarioCEN_Registro.cs" />
+			
+			<Compile Include="CEN\Whatever\UsuarioCEN_ModificarRedesSociales.cs" />
+			
+			<Compile Include="CEN\Whatever\UsuarioCEN_BorrarUsuario.cs" />
+			
 	<Compile Include="EN\Whatever\RetoEN.cs" />
 	<Compile Include="CEN\Whatever\RetoCEN.cs" />
 	<Compile Include="CAD\Whatever\IRetoCAD.cs" />
@@ -139,12 +147,18 @@
 			
 			
 			
+			<Compile Include="CEN\Whatever\RetoCEN_CrearReto.cs" />
+			
+			<Compile Include="CEN\Whatever\RetoCEN_ModificarReto.cs" />
+			
+			<Compile Include="CEN\Whatever\RetoCEN_BorrarReto.cs" />
+			
 	<Compile Include="EN\Whatever\GymkanaEN.cs" />
 	<Compile Include="CEN\Whatever\GymkanaCEN.cs" />
 	<Compile Include="CAD\Whatever\IGymkanaCAD.cs" />
 	<Compile Include="CAD\Whatever\GymkanaCAD.cs" />
 	<Compile Include="CP\Whatever\GymkanaCP.cs" />
-			<Compile Include="CEN\Whatever\GymkanaCEN_AnadirPaso.cs" />
+			<Compile Include="CP\Whatever\GymkanaCP_AnadirPaso.cs" />
 			
 			
 			<Compile Include="CEN\Whatever\GymkanaCEN_VerPasos.cs" />
@@ -153,6 +167,12 @@
 			
 			
 			
+			
+			<Compile Include="CEN\Whatever\GymkanaCEN_CrearGymkana.cs" />
+			
+			<Compile Include="CEN\Whatever\GymkanaCEN_ModificarGymkana.cs" />
+			
+			<Compile Include="CEN\Whatever\GymkanaCEN_BorrarGymkana.cs" />
 			
 	<Compile Include="EN\Whatever\ComentarioEN.cs" />
 	<Compile Include="CEN\Whatever\ComentarioCEN.cs" />
@@ -164,14 +184,20 @@
 			
 			
 			
+			<Compile Include="CEN\Whatever\ComentarioCEN_CrearComentario.cs" />
+			
+			<Compile Include="CEN\Whatever\ComentarioCEN_ModificarComentario.cs" />
+			
+			<Compile Include="CEN\Whatever\ComentarioCEN_BorrarComentario.cs" />
+			
 	<Compile Include="EN\Whatever\AdminEN.cs" />
 	<Compile Include="CEN\Whatever\AdminCEN.cs" />
 	<Compile Include="CAD\Whatever\IAdminCAD.cs" />
 	<Compile Include="CAD\Whatever\AdminCAD.cs" />
 	<Compile Include="CP\Whatever\AdminCP.cs" />
-			<Compile Include="CEN\Whatever\AdminCEN_BorrarRetos.cs" />
+			<Compile Include="CP\Whatever\AdminCP_BorrarRetos.cs" />
 			
-			<Compile Include="CEN\Whatever\AdminCEN_BorrarEvento.cs" />
+			<Compile Include="CP\Whatever\AdminCP_BorrarEvento.cs" />
 			
 			
 			
@@ -190,8 +216,13 @@
 			
 			
 			
-			<Compile Include="CEN\Whatever\ReporteCEN_Reportar.cs" />
+			<Compile Include="CP\Whatever\ReporteCP_Reportar.cs" />
 			
+			
+			
+			<Compile Include="CEN\Whatever\ReporteCEN_ModificarReporte.cs" />
+			
+			<Compile Include="CEN\Whatever\ReporteCEN_BorrarReporte.cs" />
 			
 	<Compile Include="EN\Whatever\EventoEN.cs" />
 	<Compile Include="CEN\Whatever\EventoCEN.cs" />
@@ -205,6 +236,12 @@
 			
 			
 			
+			
+			<Compile Include="CEN\Whatever\EventoCEN_CrearEvento.cs" />
+			
+			<Compile Include="CEN\Whatever\EventoCEN_BorrarEvento.cs" />
+			
+			<Compile Include="CEN\Whatever\EventoCEN_ModificarEvento.cs" />
 			
 	<Compile Include="EN\Whatever\PasoEN.cs" />
 	<Compile Include="CEN\Whatever\PasoCEN.cs" />
@@ -221,6 +258,11 @@
 			<Compile Include="CEN\Whatever\PasoCEN_VerPaso.cs" />
 			
 			
+			
+			<Compile Include="CEN\Whatever\PasoCEN_BorrarPaso.cs" />
+			
+			<Compile Include="CEN\Whatever\PasoCEN_ModificarPaso.cs" />
+			
 	<Compile Include="EN\Whatever\PuntuacionEN.cs" />
 	<Compile Include="CEN\Whatever\PuntuacionCEN.cs" />
 	<Compile Include="CAD\Whatever\IPuntuacionCAD.cs" />
@@ -234,12 +276,21 @@
 			
 			
 			
+			
+			
+			
+			<Compile Include="CEN\Whatever\PuntuacionCEN_CrearPuntuacion.cs" />
+			
+			<Compile Include="CEN\Whatever\PuntuacionCEN_ModificarPuntuacion.cs" />
+			
 	<Compile Include="EN\Whatever\MapaEN.cs" />
 	<Compile Include="CEN\Whatever\MapaCEN.cs" />
 	<Compile Include="CAD\Whatever\IMapaCAD.cs" />
 	<Compile Include="CAD\Whatever\MapaCAD.cs" />
 	<Compile Include="CP\Whatever\MapaCP.cs" />
 			<Compile Include="CEN\Whatever\MapaCEN_FiltrarMapa.cs" />
+			
+			
 			
 			
 			

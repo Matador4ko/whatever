@@ -28,33 +28,24 @@ public string ConsultarReporte (int id_usuario, int id_reto, int id_gym)
                 ReporteCEN report = new ReporteCEN ();
                 //ReporteEN reporteBueno = new ReporteEN();
 
-                System.Collections.Generic.IList<ReporteEN> listaR;
-                listaR = report.GetAll (0, 0);
-                foreach (ReporteEN element in listaR) {
-                        if (element.Reporte.ID == id_gym && id_usuario == element.Usuario_reporte.ID) {
-                                return element.Motivo;
-                        }
-                        else if (element.Reporte.ID == id_gym && id_usuario != element.Usuario_reporte.ID) {
-                                return null;
-                        }
+                System.Collections.Generic.IList<ReporteEN> listaE;
+                listaE = FiltrarEvento (id_gym, id_usuario);
+                foreach (ReporteEN element in listaE) {
+                        return element.Motivo;
                 }
+                return null;
         }
         else{
                 ReporteCEN report = new ReporteCEN ();
                 //ReporteEN reporteBueno = new ReporteEN();
 
                 System.Collections.Generic.IList<ReporteEN> listaR;
-                listaR = report.GetAll (0, 0);
+                listaR = FiltrarReto (id_reto, id_usuario);
                 foreach (ReporteEN element in listaR) {
-                        if (element.Reporte_reto2.ID == id_reto && id_usuario == element.Usuario_reporte.ID) {
-                                return element.Motivo;
-                        }
-                        else if (element.Reporte_reto2.ID == id_reto && id_usuario != element.Usuario_reporte.ID) {
-                                return null;
-                        }
+                        return element.Motivo;
                 }
+                return null;
         }
-        return null;
         /*PROTECTED REGION END*/
 }
 }

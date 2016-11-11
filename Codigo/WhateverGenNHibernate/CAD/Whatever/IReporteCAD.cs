@@ -28,6 +28,9 @@ ReporteEN GetID (int ID
 
 
 
-System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> ReadFilter ();
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarEvento (int? id_evento, int ? id_usuario);
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarReto (int? id_reto, int ? id_usuario);
 }
 }

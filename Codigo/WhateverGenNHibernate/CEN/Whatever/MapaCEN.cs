@@ -38,7 +38,7 @@ public IMapaCAD get_IMapaCAD ()
         return this._IMapaCAD;
 }
 
-public int New_ (int p_evento_mapa2, int p_id, int p_paso_0, double p_latitud, double p_longitud, int p_zoom)
+public int New_ (int p_evento_mapa2, int p_paso_0, double p_latitud, double p_longitud, int p_zoom)
 {
         MapaEN mapaEN = null;
         int oid;
@@ -52,8 +52,6 @@ public int New_ (int p_evento_mapa2, int p_id, int p_paso_0, double p_latitud, d
                 mapaEN.Evento_mapa2 = new WhateverGenNHibernate.EN.Whatever.EventoEN ();
                 mapaEN.Evento_mapa2.ID = p_evento_mapa2;
         }
-
-        mapaEN.Id = p_id;
 
 
         if (p_paso_0 != -1) {
@@ -115,6 +113,14 @@ public void Destroy (int id
 public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> ReadFilter ()
 {
         return _IMapaCAD.ReadFilter ();
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> FiltrarEventos ()
+{
+        return _IMapaCAD.FiltrarEventos ();
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> FiltrarPorEvento (int ? id_evento)
+{
+        return _IMapaCAD.FiltrarPorEvento (id_evento);
 }
 }
 }

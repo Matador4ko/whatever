@@ -6,7 +6,10 @@
 		    
 			
 				<class name="PuntuacionEN" table="Puntuacion"> 
-						<id name="Id" column="idPuntuacion"/> 
+				  	
+						<id name="Id" column="idPuntuacion" type="integer"> 
+							<generator class="hilo"/>
+						</id>
 			
 					
 					<property name="Puntuacion" type="integer"> 
@@ -42,6 +45,9 @@
 		 </class>	
 		  
 		  <query name="PuntuacionENReadAllHQL">from PuntuacionEN</query>
-		  <query name="PuntuacionENreadFilterHQL"><![CDATA[FROM PuntuacionEN]]></query>
+		  <query name="PuntuacionENfiltrarRetoHQL"><![CDATA[FROM PuntuacionEN,UsuarioEN as usu, RetoEN as re WHERE re.id=:id_reto and usu.id=:id_usuario]]></query>
+		  <query name="PuntuacionENfiltrarEventoHQL"><![CDATA[FROM PuntuacionEN,UsuarioEN as usu, EventoEN as ev WHERE ev.id=:id_evento and usu.id=:id_usuario]]></query>
+		  <query name="PuntuacionENfiltrarMediaEventoHQL"><![CDATA[FROM PuntuacionEN, EventoEN as ev WHERE ev.id=:id_evento]]></query>
+		  <query name="PuntuacionENfiltrarMediaRetoHQL"><![CDATA[FROM PuntuacionEN, RetoEN as re WHERE re.id=:id_reto]]></query>
 		</hibernate-mapping>
 	

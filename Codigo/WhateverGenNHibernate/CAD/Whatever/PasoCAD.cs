@@ -287,5 +287,35 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN
 
         return result;
 }
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> FiltrarPasos (int ? id_gym)
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PasoEN self where FROM PasoEN, Gymkana as gym WHERE gym.id=:id_gym";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PasoENfiltrarPasosHQL");
+                query.SetParameter ("id_gym", id_gym);
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.PasoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in PasoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

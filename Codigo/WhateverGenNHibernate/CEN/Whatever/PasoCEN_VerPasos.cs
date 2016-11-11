@@ -19,7 +19,7 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class PasoCEN
 {
-public void VerPasos (int p_oid)
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> VerPasos (int p_oid)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Paso_verPasos) ENABLED START*/
 
@@ -27,18 +27,17 @@ public void VerPasos (int p_oid)
 
 
         PasoCEN paso = new PasoCEN ();
+        GymkanaCEN gym = new GymkanaCEN ();
 
         System.Collections.Generic.IList<PasoEN> pasos;
         System.Collections.Generic.IList<PasoEN> salida = null;
 
-
-        pasos = paso.GetAll (0, 0);
+        pasos = FiltrarPasos (p_oid);
 
         foreach (PasoEN element in pasos) {
-                if (element.Gymkana_paso2.ID == p_oid) {
-                        salida.Add (element); //HAY QUE HACER RETURN DE SALIDA O ALGUNA COSA??????????
-                }
+                salida.Add (element);
         }
+        return salida;
         /*PROTECTED REGION END*/
 }
 }

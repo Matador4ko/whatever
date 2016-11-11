@@ -38,7 +38,7 @@ public IPasoCAD get_IPasoCAD ()
         return this._IPasoCAD;
 }
 
-public int New_ (string p_descripcion, int p_ID, int p_gymkana_paso2)
+public int New_ (string p_descripcion, int p_gymkana_paso2)
 {
         PasoEN pasoEN = null;
         int oid;
@@ -46,8 +46,6 @@ public int New_ (string p_descripcion, int p_ID, int p_gymkana_paso2)
         //Initialized PasoEN
         pasoEN = new PasoEN ();
         pasoEN.Descripcion = p_descripcion;
-
-        pasoEN.ID = p_ID;
 
 
         if (p_gymkana_paso2 != -1) {
@@ -101,6 +99,10 @@ public PasoEN GetID (int ID
 public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> ReadFilter ()
 {
         return _IPasoCAD.ReadFilter ();
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> FiltrarPasos (int ? id_gym)
+{
+        return _IPasoCAD.FiltrarPasos (id_gym);
 }
 }
 }

@@ -274,7 +274,7 @@ public AdminEN GetID (int ID
         return adminEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> ReadFilter ()
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> FiltrarMapa ()
 {
         System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> result;
         try
@@ -282,7 +282,7 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminE
                 SessionInitializeTransaction ();
                 //String sql = @"FROM AdminEN self where FROM AdminEN";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("AdminENreadFilterHQL");
+                IQuery query = (IQuery)session.GetNamedQuery ("AdminENfiltrarMapaHQL");
 
                 result = query.List<WhateverGenNHibernate.EN.Whatever.AdminEN>();
                 SessionCommit ();

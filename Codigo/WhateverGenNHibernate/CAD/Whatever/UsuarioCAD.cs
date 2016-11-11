@@ -310,15 +310,17 @@ public UsuarioEN GetID (int ID
         return usuarioEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.UsuarioEN> ReadFilter ()
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.UsuarioEN> FiltrarNombreCorreo (string nombre, string correo)
 {
         System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.UsuarioEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM UsuarioEN self where FROM UsuarioEN";
+                //String sql = @"FROM UsuarioEN self where FROM UsuarioEN WHERE nombre=:nombre and email=:correo";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENreadFilterHQL");
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENfiltrarNombreCorreoHQL");
+                query.SetParameter ("nombre", nombre);
+                query.SetParameter ("correo", correo);
 
                 result = query.List<WhateverGenNHibernate.EN.Whatever.UsuarioEN>();
                 SessionCommit ();

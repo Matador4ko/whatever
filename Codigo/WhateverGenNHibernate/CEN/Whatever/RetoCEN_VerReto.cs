@@ -25,17 +25,10 @@ public WhateverGenNHibernate.EN.Whatever.RetoEN VerReto (int p_oid)
 
         // Write here your custom code...
 
-        RetoCEN reto = new RetoCEN ();
-
-        System.Collections.Generic.IList<RetoEN> retos;
         RetoEN salida = new RetoEN ();
 
-        retos = reto.GetAll (0, 0);
-        foreach (RetoEN element in retos) {
-                if (element.ID == p_oid) {
-                        salida = element;
-                }
-        }
+        salida = GetID (p_oid);
+
         return salida;
         /*PROTECTED REGION END*/
 }

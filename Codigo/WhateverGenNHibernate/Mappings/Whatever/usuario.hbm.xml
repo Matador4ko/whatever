@@ -6,7 +6,10 @@
 		    
 			
 				<class name="UsuarioEN" table="Usuario"> 
-						<id name="ID" column="ID"/> 
+				  	
+						<id name="ID" column="ID" type="integer"> 
+							<generator class="hilo"/>
+						</id>
 			
 					
 					<property name="Nombre" type="string"> 
@@ -34,7 +37,7 @@
 						<column name="contrasena"  not-null="true"/>
 					</property>
 					<property name="Email" type="string"> 
-						<column name="email"  not-null="true"/>
+						<column name="email"  unique="true" not-null="true"/>
 					</property>
 					<property name="Foto" type="string"> 
 						<column name="foto"  not-null="true"/>
@@ -150,6 +153,6 @@
 		 </class>	
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
-		  <query name="UsuarioENreadFilterHQL"><![CDATA[FROM UsuarioEN]]></query>
+		  <query name="UsuarioENfiltrarNombreCorreoHQL"><![CDATA[FROM UsuarioEN WHERE nombre=:nombre and email=:correo]]></query>
 		</hibernate-mapping>
 	

@@ -31,6 +31,6 @@ AdminEN GetID (int ID
                );
 
 
-System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> ReadFilter ();
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> FiltrarMapa ();
 }
 }

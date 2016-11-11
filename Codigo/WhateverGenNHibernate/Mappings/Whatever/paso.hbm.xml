@@ -6,7 +6,10 @@
 		    
 			
 				<class name="PasoEN" table="Paso"> 
-						<id name="ID" column="IDPaso"/> 
+				  	
+						<id name="ID" column="IDPaso" type="integer"> 
+							<generator class="hilo"/>
+						</id>
 			
 					
 					<property name="Descripcion" type="string"> 
@@ -38,5 +41,6 @@
 		  
 		  <query name="PasoENReadAllHQL">from PasoEN</query>
 		  <query name="PasoENreadFilterHQL"><![CDATA[FROM PasoEN]]></query>
+		  <query name="PasoENfiltrarPasosHQL"><![CDATA[FROM PasoEN, Gymkana as gym WHERE gym.id=:id_gym]]></query>
 		</hibernate-mapping>
 	

@@ -38,7 +38,7 @@ public IGymkanaCAD get_IGymkanaCAD ()
         return this._IGymkanaCAD;
 }
 
-public int New_ (string p_Titulo, string p_descripcion, Nullable<DateTime> p_fecha, int p_precio, int p_ID, int p_usuario_evento, int p_numPasos)
+public int New_ (string p_Titulo, string p_descripcion, Nullable<DateTime> p_fecha, int p_precio, int p_usuario_evento, int p_numPasos)
 {
         GymkanaEN gymkanaEN = null;
         int oid;
@@ -52,8 +52,6 @@ public int New_ (string p_Titulo, string p_descripcion, Nullable<DateTime> p_fec
         gymkanaEN.Fecha = p_fecha;
 
         gymkanaEN.Precio = p_precio;
-
-        gymkanaEN.ID = p_ID;
 
 
         if (p_usuario_evento != -1) {

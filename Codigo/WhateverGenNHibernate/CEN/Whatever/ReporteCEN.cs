@@ -38,7 +38,7 @@ public IReporteCAD get_IReporteCAD ()
         return this._IReporteCAD;
 }
 
-public int New_ (string p_motivo, int p_ID, int p_usuario_reporte, System.Collections.Generic.IList<int> p_admin_reporte, int p_reporte_reto2, int p_reporte)
+public int New_ (string p_motivo, int p_usuario_reporte, System.Collections.Generic.IList<int> p_admin_reporte, int p_reporte_reto2, int p_reporte)
 {
         ReporteEN reporteEN = null;
         int oid;
@@ -46,8 +46,6 @@ public int New_ (string p_motivo, int p_ID, int p_usuario_reporte, System.Collec
         //Initialized ReporteEN
         reporteEN = new ReporteEN ();
         reporteEN.Motivo = p_motivo;
-
-        reporteEN.ID = p_ID;
 
 
         if (p_usuario_reporte != -1) {
@@ -115,9 +113,13 @@ public ReporteEN GetID (int ID
         return reporteEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> ReadFilter ()
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarEvento (int? id_evento, int ? id_usuario)
 {
-        return _IReporteCAD.ReadFilter ();
+        return _IReporteCAD.FiltrarEvento (id_evento, id_usuario);
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarReto (int? id_reto, int ? id_usuario)
+{
+        return _IReporteCAD.FiltrarReto (id_reto, id_usuario);
 }
 }
 }

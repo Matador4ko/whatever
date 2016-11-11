@@ -25,13 +25,12 @@ public WhateverGenNHibernate.EN.Whatever.EventoEN VerEvento (int p_oid)
 
         // Write here your custom code...
 
-        EventoCEN evento = new EventoCEN ();
 
         System.Collections.Generic.IList<EventoEN> eventos;
         EventoEN salida = new EventoEN ();
 
-        eventos = evento.GetAll (0, 0);
-        salida = evento.GetID (p_oid);
+        eventos = GetAll (0, 0);
+        salida = GetID (p_oid);
         return salida;
         /*PROTECTED REGION END*/
 }

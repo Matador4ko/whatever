@@ -35,6 +35,6 @@ UsuarioEN GetID (int ID
 
 
 
-System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.UsuarioEN> ReadFilter ();
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.UsuarioEN> FiltrarNombreCorreo (string nombre, string correo);
 }
 }

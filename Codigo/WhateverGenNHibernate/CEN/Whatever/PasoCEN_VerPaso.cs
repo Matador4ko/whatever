@@ -26,10 +26,10 @@ public WhateverGenNHibernate.EN.Whatever.PasoEN VerPaso (int p_oid)
         // Write here your custom code...
 
 
-        PasoCEN paso = new PasoCEN ();
         PasoEN salida = new PasoEN ();
 
-        salida = paso.GetID (p_oid);
+        salida = GetID (p_oid);
+
         return salida;
         /*PROTECTED REGION END*/
 }

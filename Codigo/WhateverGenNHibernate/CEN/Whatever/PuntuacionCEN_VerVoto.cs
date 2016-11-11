@@ -30,32 +30,23 @@ public int VerVoto (int id_usuario, int id_gym, int id_reto)
                 PuntuacionEN puntuacionBuena = new PuntuacionEN ();
 
                 System.Collections.Generic.IList<PuntuacionEN> listaP;
-                listaP = punt.GetPuntuaciones (0, 0);
+                listaP = FiltrarEvento (id_gym, id_usuario);
                 foreach (PuntuacionEN element in listaP) {
-                        if (element.Evento_puntuacion.ID == id_gym && id_usuario == element.Usuario_puntuacion2.ID) {
-                                return element.Puntuacion;
-                        }
-                        else if (element.Evento_puntuacion.ID == id_gym && id_usuario != element.Usuario_puntuacion2.ID) {
-                                return -1;
-                        }
+                        return element.Puntuacion;
                 }
+                return -1;
         }
         else{
                 PuntuacionCEN punt = new PuntuacionCEN ();
                 PuntuacionEN puntuacionBuena = new PuntuacionEN ();
 
                 System.Collections.Generic.IList<PuntuacionEN> listaP;
-                listaP = punt.GetPuntuaciones (0, 0);
+                listaP = FiltrarReto (id_reto, id_usuario);
                 foreach (PuntuacionEN element in listaP) {
-                        if (element.Reto_puntuacion.ID == id_reto && id_usuario == element.Usuario_puntuacion2.ID) {
-                                return element.Puntuacion;
-                        }
-                        else if (element.Reto_puntuacion.ID == id_reto && id_usuario != element.Usuario_puntuacion2.ID) {
-                                return -1;
-                        }
+                        return element.Puntuacion;
                 }
+                return -1;
         }
-        return -1;
         /*PROTECTED REGION END*/
 }
 }

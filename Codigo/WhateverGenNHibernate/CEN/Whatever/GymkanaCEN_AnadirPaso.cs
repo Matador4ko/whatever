@@ -32,18 +32,13 @@ public void AnadirPaso (int id_gym, string descripcion, int latitud, int longitu
 
         System.Collections.Generic.IList<PasoEN> pasos;
         pasos = paso.GetAll (0, 0);
-
-        foreach (PasoEN element in pasos) {
-                aux = element.ID;
-        }
+        aux = pasos [pasos.Count - 1].ID;
         paso.New_ (descripcion, aux + 1, id_gym);
 
         System.Collections.Generic.IList<MapaEN> mapas;
         mapas = mapa.GetAll (0, 0);
 
-        foreach (MapaEN element in mapas) {
-                aux2 = element.Id;
-        }
+        aux2 = mapas [mapas.Count - 1].Id;
         mapa.New_ (id_gym, aux2 + 1, aux + 1, latitud, longitud, zoom);
         /*PROTECTED REGION END*/
 }

@@ -38,9 +38,8 @@ public void Reportar (int id_usuario, int id_gym, int id_reto, string motivo)
         foreach (AdminEN element in admin) {
                 numadmins.Add (element.ID);
         }
-        foreach (ReporteEN element in listareporte) {
-                aux = element.ID;
-        }
+        aux = listareporte [listareporte.Count - 1].ID;
+
         admin = admincen.GetAll (0, 0);
 
         reporcen.New_ (motivo, aux + 1, id_usuario, numadmins, id_reto, id_gym);

@@ -32,14 +32,10 @@ public float VerMedia (int id_gym, int id_reto)
                 PuntuacionCEN puntuacion = new PuntuacionCEN ();
                 RetoCEN reto = new RetoCEN ();
                 System.Collections.Generic.IList<PuntuacionEN> puntuaciones;
-                System.Collections.Generic.IList<RetoEN> retos;
-                puntuaciones = puntuacion.GetPuntuaciones (0, 0);
-                retos = reto.GetAll (0, 0);
+                puntuaciones = FiltrarMediaReto (id_reto);
                 foreach (PuntuacionEN element in puntuaciones) {
-                        if (element.Reto_puntuacion.ID == id_reto) {
-                                media = media + element.Puntuacion;
-                                cont++;
-                        }
+                        media = media + element.Puntuacion;
+                        cont++;
                 }
                 return media = media / cont;
         }
@@ -47,14 +43,10 @@ public float VerMedia (int id_gym, int id_reto)
                 PuntuacionCEN puntuacion = new PuntuacionCEN ();
                 EventoCEN evento = new EventoCEN ();
                 System.Collections.Generic.IList<PuntuacionEN> puntuaciones;
-                System.Collections.Generic.IList<EventoEN> eventos;
-                puntuaciones = puntuacion.GetPuntuaciones (0, 0);
-                eventos = evento.GetAll (0, 0);
+                puntuaciones = FiltrarMediaEvento (id_gym);
                 foreach (PuntuacionEN element in puntuaciones) {
-                        if (element.Evento_puntuacion.ID == id_gym) {
-                                media = media + element.Puntuacion;
-                                cont++;
-                        }
+                        media = media + element.Puntuacion;
+                        cont++;
                 }
                 return media = media / cont;
         }

@@ -6,7 +6,10 @@
 		    
 			
 				<class name="MapaEN" table="Mapa"> 
-						<id name="Id" column="idMapa"/> 
+				  	
+						<id name="Id" column="idMapa" type="integer"> 
+							<generator class="hilo"/>
+						</id>
 			
 					
 					<property name="Latitud" type="double"> 
@@ -46,5 +49,7 @@
 		  
 		  <query name="MapaENReadAllHQL">from MapaEN</query>
 		  <query name="MapaENreadFilterHQL"><![CDATA[FROM MapaEN]]></query>
+		  <query name="MapaENfiltrarEventosHQL"><![CDATA[FROM MapaEN, Evento as ev WHERE ev.id != -1]]></query>
+		  <query name="MapaENFiltrarPorEventoHQL"><![CDATA[FROM MapaEN, Evento as ev WHERE ev.id=:id_evento]]></query>
 		</hibernate-mapping>
 	
