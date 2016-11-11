@@ -132,7 +132,7 @@
 			
 			<Compile Include="CEN\Whatever\UsuarioCEN_ModificarRedesSociales.cs" />
 			
-			<Compile Include="CEN\Whatever\UsuarioCEN_BorrarUsuario.cs" />
+			<Compile Include="CP\Whatever\UsuarioCP_BorrarUsuario.cs" />
 			
 	<Compile Include="EN\Whatever\RetoEN.cs" />
 	<Compile Include="CEN\Whatever\RetoCEN.cs" />
@@ -150,7 +150,7 @@
 			
 			<Compile Include="CEN\Whatever\RetoCEN_ModificarReto.cs" />
 			
-			<Compile Include="CEN\Whatever\RetoCEN_BorrarReto.cs" />
+			<Compile Include="CP\Whatever\RetoCP_BorrarReto.cs" />
 			
 			
 	<Compile Include="EN\Whatever\GymkanaEN.cs" />
@@ -168,11 +168,11 @@
 			
 			
 			
-			<Compile Include="CEN\Whatever\GymkanaCEN_CrearGymkana.cs" />
+			<Compile Include="CP\Whatever\GymkanaCP_CrearGymkana.cs" />
 			
-			<Compile Include="CEN\Whatever\GymkanaCEN_ModificarGymkana.cs" />
+			<Compile Include="CP\Whatever\GymkanaCP_ModificarGymkana.cs" />
 			
-			<Compile Include="CEN\Whatever\GymkanaCEN_BorrarGymkana.cs" />
+			<Compile Include="CP\Whatever\GymkanaCP_BorrarGymkana.cs" />
 			
 	<Compile Include="EN\Whatever\ComentarioEN.cs" />
 	<Compile Include="CEN\Whatever\ComentarioCEN.cs" />
@@ -240,11 +240,11 @@
 			
 			
 			
-			<Compile Include="CEN\Whatever\EventoCEN_CrearEvento.cs" />
+			<Compile Include="CP\Whatever\EventoCP_CrearEvento.cs" />
 			
-			<Compile Include="CEN\Whatever\EventoCEN_BorrarEvento.cs" />
+			<Compile Include="CP\Whatever\EventoCP_BorrarEvento.cs" />
 			
-			<Compile Include="CEN\Whatever\EventoCEN_ModificarEvento.cs" />
+			<Compile Include="CP\Whatever\EventoCP_ModificarEvento.cs" />
 			
 	<Compile Include="EN\Whatever\PasoEN.cs" />
 	<Compile Include="CEN\Whatever\PasoCEN.cs" />
@@ -261,9 +261,9 @@
 			<Compile Include="CEN\Whatever\PasoCEN_VerPaso.cs" />
 			
 			
-			<Compile Include="CEN\Whatever\PasoCEN_BorrarPaso.cs" />
+			<Compile Include="CP\Whatever\PasoCP_BorrarPaso.cs" />
 			
-			<Compile Include="CEN\Whatever\PasoCEN_ModificarPaso.cs" />
+			<Compile Include="CP\Whatever\PasoCP_ModificarPaso.cs" />
 			
 	<Compile Include="EN\Whatever\PuntuacionEN.cs" />
 	<Compile Include="CEN\Whatever\PuntuacionCEN.cs" />

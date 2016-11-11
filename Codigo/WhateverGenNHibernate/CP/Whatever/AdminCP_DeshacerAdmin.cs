@@ -35,11 +35,11 @@ public void DeshacerAdmin (int p_oid)
                 adminCAD = new AdminCAD (session);
                 adminCEN = new  AdminCEN (adminCAD);
 
-                UsuarioCAD usucad = new UsuarioCAD();
-                UsuarioEN usuen = new UsuarioEN();
-                AdminEN admin = new AdminEN();
-                admin = adminCAD.GetID(p_oid);
-                adminCAD.Destroy(p_oid);
+                UsuarioCAD usucad = new UsuarioCAD ();
+                UsuarioEN usuen = new UsuarioEN ();
+                AdminEN admin = new AdminEN ();
+                admin = adminCAD.GetID (p_oid);
+                adminCAD.Destroy (p_oid);
                 usuen.Contrasena = admin.Contrasena;
                 usuen.Edad = admin.Edad;
                 usuen.Email = admin.Email;
@@ -51,7 +51,7 @@ public void DeshacerAdmin (int p_oid)
                 usuen.Nombre = admin.Nombre;
                 usuen.Sexo = admin.Sexo;
 
-                usucad.New_(usuen);
+                usucad.New_ (usuen);
 
 
 
