@@ -279,15 +279,16 @@ public EventoEN GetID (int ID
         return eventoEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> ReadFilter ()
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> FiltrarPorUsuario (int ? id_usu)
 {
         System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM EventoEN self where FROM EventoEN";
+                //String sql = @"FROM EventoEN self where FROM EventoEN as ev, UsuarioEN as us WHERE us.ID=:id_usu";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("EventoENreadFilterHQL");
+                IQuery query = (IQuery)session.GetNamedQuery ("EventoENfiltrarPorUsuarioHQL");
+                query.SetParameter ("id_usu", id_usu);
 
                 result = query.List<WhateverGenNHibernate.EN.Whatever.EventoEN>();
                 SessionCommit ();

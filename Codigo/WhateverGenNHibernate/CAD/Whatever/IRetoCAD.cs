@@ -30,6 +30,9 @@ RetoEN GetID (int ID
               );
 
 
-System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> ReadFilter ();
+
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> FiltrarPorUsuario (int ? id_usu);
 }
 }

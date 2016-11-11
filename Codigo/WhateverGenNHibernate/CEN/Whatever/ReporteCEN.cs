@@ -121,5 +121,13 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Report
 {
         return _IReporteCAD.FiltrarReto (id_reto, id_usuario);
 }
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarTodosEventos (int ? id_evento)
+{
+        return _IReporteCAD.FiltrarTodosEventos (id_evento);
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarTodosRetos (int ? id_reto)
+{
+        return _IReporteCAD.FiltrarTodosRetos (id_reto);
+}
 }
 }

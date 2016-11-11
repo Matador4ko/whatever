@@ -30,12 +30,12 @@ void Destroy (int id
               );
 
 
-System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> ReadFilter ();
-
-
 System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> FiltrarEventos ();
 
 
 System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> FiltrarPorEvento (int ? id_evento);
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> FiltrarPorPaso (int ? id_paso);
 }
 }

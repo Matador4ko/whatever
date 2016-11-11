@@ -19,13 +19,15 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class ReporteCEN
 {
-public void ModificarReporte (int p_oid)
+public void ModificarReporte (WhateverGenNHibernate.EN.Whatever.ReporteEN reporte)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Reporte_ModificarReporte) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method ModificarReporte() not yet implemented.");
+    ReporteCAD repor = new ReporteCAD();
+
+    repor.mo
 
         /*PROTECTED REGION END*/
 }

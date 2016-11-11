@@ -30,6 +30,6 @@ EventoEN GetID (int ID
                 );
 
 
-System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> ReadFilter ();
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> FiltrarPorUsuario (int ? id_usu);
 }
 }

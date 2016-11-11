@@ -287,15 +287,16 @@ public RetoEN GetID (int ID
         return retoEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> ReadFilter ()
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> FiltrarPorUsuario (int ? id_usu)
 {
         System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM RetoEN self where FROM RetoEN";
+                //String sql = @"FROM RetoEN self where FROM RetoEN, UsuarioEN as us WHERE us.ID=:id_usu";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("RetoENreadFilterHQL");
+                IQuery query = (IQuery)session.GetNamedQuery ("RetoENfiltrarPorUsuarioHQL");
+                query.SetParameter ("id_usu", id_usu);
 
                 result = query.List<WhateverGenNHibernate.EN.Whatever.RetoEN>();
                 SessionCommit ();

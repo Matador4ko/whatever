@@ -105,9 +105,9 @@ public EventoEN GetID (int ID
         return eventoEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> ReadFilter ()
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> FiltrarPorUsuario (int ? id_usu)
 {
-        return _IEventoCAD.ReadFilter ();
+        return _IEventoCAD.FiltrarPorUsuario (id_usu);
 }
 }
 }

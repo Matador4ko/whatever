@@ -32,5 +32,12 @@ System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> Fi
 
 
 System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarReto (int? id_reto, int ? id_usuario);
+
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarTodosEventos (int ? id_evento);
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarTodosRetos (int ? id_reto);
 }
 }

@@ -26,6 +26,9 @@ ComentarioEN GetID (int ID
                     );
 
 
-System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> ReadFilter ();
+
+
+
+void Modify (ComentarioEN comentario);
 }
 }

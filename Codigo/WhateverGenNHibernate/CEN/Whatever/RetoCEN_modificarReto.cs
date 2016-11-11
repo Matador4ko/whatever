@@ -19,13 +19,15 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class RetoCEN
 {
-public void ModificarReto (int p_oid)
+public void ModificarReto (WhateverGenNHibernate.EN.Whatever.RetoEN reto)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Reto_modificarReto) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method ModificarReto() not yet implemented.");
+        RetoCAD ret = new RetoCAD ();
+
+        ret.Modify (reto);
 
         /*PROTECTED REGION END*/
 }

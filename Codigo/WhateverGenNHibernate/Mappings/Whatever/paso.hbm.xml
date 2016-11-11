@@ -41,6 +41,6 @@
 		  
 		  <query name="PasoENReadAllHQL">from PasoEN</query>
 		  <query name="PasoENreadFilterHQL"><![CDATA[FROM PasoEN]]></query>
-		  <query name="PasoENfiltrarPasosHQL"><![CDATA[FROM PasoEN, Gymkana as gym WHERE gym.id=:id_gym]]></query>
+		  <query name="PasoENfiltrarPasosHQL"><![CDATA[FROM PasoEN, Gymkana as gym WHERE gym.ID=:id_gym]]></query>
 		</hibernate-mapping>
 	

@@ -25,8 +25,28 @@ public void BorrarGymkana (int p_oid)
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method BorrarGymkana() not yet implemented.");
+        MapaCAD mapa = new MapaCAD ();
+        PuntuacionCAD punt = new PuntuacionCAD ();
+        ReporteCAD rep = new ReporteCAD ();
 
+        System.Collections.Generic.IList<MapaEN> mapas;
+        System.Collections.Generic.IList<PuntuacionEN> puntos;
+        System.Collections.Generic.IList<ReporteEN> reportes;
+
+        Destroy (p_oid);
+
+        mapas = mapa.FiltrarPorEvento (p_oid);
+        mapa.Destroy (mapas [0].Id);
+
+        puntos = punt.FiltrarTodosEventos (p_oid);
+        foreach (PuntuacionEN element in puntos) {
+                punt.Destroy (element.Id);
+        }
+
+        reportes = rep.FiltrarTodosEventos (p_oid);
+        foreach (ReporteEN element in reportes) {
+                rep.Destroy (element.ID);
+        }
         /*PROTECTED REGION END*/
 }
 }

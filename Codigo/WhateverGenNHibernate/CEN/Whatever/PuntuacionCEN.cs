@@ -109,5 +109,32 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Puntua
 {
         return _IPuntuacionCAD.FiltrarMediaReto (id_reto);
 }
+public void Modify (int p_Puntuacion_OID, int p_puntuacion)
+{
+        PuntuacionEN puntuacionEN = null;
+
+        //Initialized PuntuacionEN
+        puntuacionEN = new PuntuacionEN ();
+        puntuacionEN.Id = p_Puntuacion_OID;
+        puntuacionEN.Puntuacion = p_puntuacion;
+        //Call to PuntuacionCAD
+
+        _IPuntuacionCAD.Modify (puntuacionEN);
+}
+
+public void Destroy (int id
+                     )
+{
+        _IPuntuacionCAD.Destroy (id);
+}
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarTodosEventos (int ? id_evento)
+{
+        return _IPuntuacionCAD.FiltrarTodosEventos (id_evento);
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarTodosRetos (int ? id_reto)
+{
+        return _IPuntuacionCAD.FiltrarTodosRetos (id_reto);
+}
 }
 }

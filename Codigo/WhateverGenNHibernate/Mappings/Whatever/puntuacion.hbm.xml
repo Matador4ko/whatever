@@ -45,9 +45,11 @@
 		 </class>	
 		  
 		  <query name="PuntuacionENReadAllHQL">from PuntuacionEN</query>
-		  <query name="PuntuacionENfiltrarRetoHQL"><![CDATA[FROM PuntuacionEN,UsuarioEN as usu, RetoEN as re WHERE re.id=:id_reto and usu.id=:id_usuario]]></query>
-		  <query name="PuntuacionENfiltrarEventoHQL"><![CDATA[FROM PuntuacionEN,UsuarioEN as usu, EventoEN as ev WHERE ev.id=:id_evento and usu.id=:id_usuario]]></query>
-		  <query name="PuntuacionENfiltrarMediaEventoHQL"><![CDATA[FROM PuntuacionEN, EventoEN as ev WHERE ev.id=:id_evento]]></query>
-		  <query name="PuntuacionENfiltrarMediaRetoHQL"><![CDATA[FROM PuntuacionEN, RetoEN as re WHERE re.id=:id_reto]]></query>
+		  <query name="PuntuacionENfiltrarRetoHQL"><![CDATA[FROM PuntuacionEN,UsuarioEN as usu, RetoEN as re WHERE re.ID=:id_reto and usu.ID=:id_usuario]]></query>
+		  <query name="PuntuacionENfiltrarEventoHQL"><![CDATA[FROM PuntuacionEN,UsuarioEN as usu, EventoEN as ev WHERE ev.ID=:id_evento and usu.ID=:id_usuario]]></query>
+		  <query name="PuntuacionENfiltrarMediaEventoHQL"><![CDATA[FROM PuntuacionEN, EventoEN as ev WHERE ev.ID=:id_evento]]></query>
+		  <query name="PuntuacionENfiltrarMediaRetoHQL"><![CDATA[FROM PuntuacionEN, RetoEN as re WHERE re.ID=:id_reto]]></query>
+		  <query name="PuntuacionENfiltrarTodosEventosHQL"><![CDATA[FROM PuntuacionEN, EventoEN as ev WHERE ev.ID=:id_evento]]></query>
+		  <query name="PuntuacionENfiltrarTodosRetosHQL"><![CDATA[FROM PuntuacionEN, RetoEN as re WHERE re.ID=:id_reto ]]></query>
 		</hibernate-mapping>
 	

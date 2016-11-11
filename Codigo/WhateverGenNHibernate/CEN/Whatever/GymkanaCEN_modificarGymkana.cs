@@ -19,13 +19,15 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class GymkanaCEN
 {
-public void ModificarGymkana (int p_oid)
+public void ModificarGymkana (WhateverGenNHibernate.EN.Whatever.GymkanaEN gym, WhateverGenNHibernate.EN.Whatever.MapaEN mapa)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Gymkana_modificarGymkana) ENABLED START*/
 
-        // Write here your custom code...
+        GymkanaCAD gymk = new GymkanaCAD ();
+        MapaCAD map = new MapaCAD ();
 
-        throw new NotImplementedException ("Method ModificarGymkana() not yet implemented.");
+        gymk.Modify (gym);
+        map.Modify (mapa);
 
         /*PROTECTED REGION END*/
 }

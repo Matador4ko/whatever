@@ -23,9 +23,15 @@ public void BorrarPaso (int p_oid)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Paso_borrarPaso) ENABLED START*/
 
-        // Write here your custom code...
 
-        throw new NotImplementedException ("Method BorrarPaso() not yet implemented.");
+        PasoEN paso = new PasoEN ();
+        MapaCAD mapa = new MapaCAD ();
+
+        System.Collections.Generic.IList<MapaEN> mapas;
+        paso = GetID (p_oid);
+        Destroy (p_oid);
+        mapas = mapa.FiltrarPorPaso (p_oid);
+        mapa.Destroy (mapas [0].Id);
 
         /*PROTECTED REGION END*/
 }

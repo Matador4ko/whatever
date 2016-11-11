@@ -228,7 +228,7 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Puntua
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PuntuacionEN self where FROM PuntuacionEN,UsuarioEN as usu, RetoEN as re WHERE re.id=:id_reto and usu.id=:id_usuario";
+                //String sql = @"FROM PuntuacionEN self where FROM PuntuacionEN,UsuarioEN as usu, RetoEN as re WHERE re.ID=:id_reto and usu.ID=:id_usuario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PuntuacionENfiltrarRetoHQL");
                 query.SetParameter ("id_reto", id_reto);
@@ -259,7 +259,7 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Puntua
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PuntuacionEN self where FROM PuntuacionEN,UsuarioEN as usu, EventoEN as ev WHERE ev.id=:id_evento and usu.id=:id_usuario";
+                //String sql = @"FROM PuntuacionEN self where FROM PuntuacionEN,UsuarioEN as usu, EventoEN as ev WHERE ev.ID=:id_evento and usu.ID=:id_usuario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PuntuacionENfiltrarEventoHQL");
                 query.SetParameter ("id_evento", id_evento);
@@ -290,7 +290,7 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Puntua
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PuntuacionEN self where FROM PuntuacionEN, EventoEN as ev WHERE ev.id=:id_evento";
+                //String sql = @"FROM PuntuacionEN self where FROM PuntuacionEN, EventoEN as ev WHERE ev.ID=:id_evento";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PuntuacionENfiltrarMediaEventoHQL");
                 query.SetParameter ("id_evento", id_evento);
@@ -320,9 +320,120 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Puntua
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PuntuacionEN self where FROM PuntuacionEN, RetoEN as re WHERE re.id=:id_reto";
+                //String sql = @"FROM PuntuacionEN self where FROM PuntuacionEN, RetoEN as re WHERE re.ID=:id_reto";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PuntuacionENfiltrarMediaRetoHQL");
+                query.SetParameter ("id_reto", id_reto);
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.PuntuacionEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in PuntuacionCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public void Modify (PuntuacionEN puntuacion)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                PuntuacionEN puntuacionEN = (PuntuacionEN)session.Load (typeof(PuntuacionEN), puntuacion.Id);
+
+                puntuacionEN.Puntuacion = puntuacion.Puntuacion;
+
+                session.Update (puntuacionEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in PuntuacionCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void Destroy (int id
+                     )
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                PuntuacionEN puntuacionEN = (PuntuacionEN)session.Load (typeof(PuntuacionEN), id);
+                session.Delete (puntuacionEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in PuntuacionCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarTodosEventos (int ? id_evento)
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PuntuacionEN self where FROM PuntuacionEN, EventoEN as ev WHERE ev.ID=:id_evento";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PuntuacionENfiltrarTodosEventosHQL");
+                query.SetParameter ("id_evento", id_evento);
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.PuntuacionEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in PuntuacionCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarTodosRetos (int ? id_reto)
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PuntuacionEN self where FROM PuntuacionEN, RetoEN as re WHERE re.ID=:id_reto ";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PuntuacionENfiltrarTodosRetosHQL");
                 query.SetParameter ("id_reto", id_reto);
 
                 result = query.List<WhateverGenNHibernate.EN.Whatever.PuntuacionEN>();

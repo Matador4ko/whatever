@@ -25,7 +25,31 @@ public void BorrarUsuario (int p_oid)
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method BorrarUsuario() not yet implemented.");
+        UsuarioCAD usu = new UsuarioCAD ();
+        EventoCAD eve = new EventoCAD();
+        EventoCEN evec = new EventoCEN();
+        RetoCAD ret = new RetoCAD();
+        RetoCEN retc = new RetoCEN();
+
+        System.Collections.Generic.IList<EventoEN> eventos;
+        System.Collections.Generic.IList<RetoEN> retos;
+
+        usu.Destroy (p_oid);
+
+        eventos=eve.FiltrarPorUsuario(p_oid);
+        foreach(EventoEN element in eventos){
+            evec.BorrarEvento(element.ID);
+        }
+
+        retos = ret.FiltrarPorUsuario(p_oid);
+        foreach(RetoEN element in retos){
+            retc.BorrarReto(element.ID);
+        }
+        
+        
+
+
+
 
         /*PROTECTED REGION END*/
 }

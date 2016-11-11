@@ -110,10 +110,6 @@ public void Destroy (int id
         _IMapaCAD.Destroy (id);
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> ReadFilter ()
-{
-        return _IMapaCAD.ReadFilter ();
-}
 public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> FiltrarEventos ()
 {
         return _IMapaCAD.FiltrarEventos ();
@@ -121,6 +117,10 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN
 public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> FiltrarPorEvento (int ? id_evento)
 {
         return _IMapaCAD.FiltrarPorEvento (id_evento);
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> FiltrarPorPaso (int ? id_paso)
+{
+        return _IMapaCAD.FiltrarPorPaso (id_paso);
 }
 }
 }

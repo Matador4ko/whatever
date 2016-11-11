@@ -101,9 +101,18 @@ public ComentarioEN GetID (int ID
         return comentarioEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> ReadFilter ()
+public void Modify (int p_Comentario_OID, string p_texto, string p_creador)
 {
-        return _IComentarioCAD.ReadFilter ();
+        ComentarioEN comentarioEN = null;
+
+        //Initialized ComentarioEN
+        comentarioEN = new ComentarioEN ();
+        comentarioEN.ID = p_Comentario_OID;
+        comentarioEN.Texto = p_texto;
+        comentarioEN.Creador = p_creador;
+        //Call to ComentarioCAD
+
+        _IComentarioCAD.Modify (comentarioEN);
 }
 }
 }

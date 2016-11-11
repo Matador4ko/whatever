@@ -11,21 +11,21 @@ using WhateverGenNHibernate.EN.Whatever;
 using WhateverGenNHibernate.CAD.Whatever;
 
 
-/*PROTECTED REGION ID(usingWhateverGenNHibernate.CEN.Whatever_Puntuacion_crearPuntuacion) ENABLED START*/
+/*PROTECTED REGION ID(usingWhateverGenNHibernate.CEN.Whatever_Reporte_operation2) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
 namespace WhateverGenNHibernate.CEN.Whatever
 {
-public partial class PuntuacionCEN
+public partial class ReporteCEN
 {
-public void CrearPuntuacion (WhateverGenNHibernate.EN.Whatever.PuntuacionEN puntuacion)
+public void Operation2 (int p_oid)
 {
-        /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Puntuacion_crearPuntuacion) ENABLED START*/
+        /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Reporte_operation2) ENABLED START*/
 
-        PuntuacionCAD punt = new PuntuacionCAD ();
+        // Write here your custom code...
 
-        punt.New_ (puntuacion);
+        throw new NotImplementedException ("Method Operation2() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

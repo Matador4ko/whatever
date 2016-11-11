@@ -19,14 +19,15 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class PasoCEN
 {
-public void ModificarPaso (int p_oid)
+public void ModificarPaso (WhateverGenNHibernate.EN.Whatever.PasoEN paso, WhateverGenNHibernate.EN.Whatever.MapaEN mapa)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Paso_modificarPaso) ENABLED START*/
 
-        // Write here your custom code...
+        PasoCAD pas = new PasoCAD ();
+        MapaCAD map = new MapaCAD ();
 
-        throw new NotImplementedException ("Method ModificarPaso() not yet implemented.");
-
+        pas.Modify (paso);
+        map.Modify (mapa);
         /*PROTECTED REGION END*/
 }
 }

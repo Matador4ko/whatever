@@ -114,10 +114,5 @@ public AdminEN GetID (int ID
         adminEN = _IAdminCAD.GetID (ID);
         return adminEN;
 }
-
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.AdminEN> FiltrarMapa ()
-{
-        return _IAdminCAD.FiltrarMapa ();
-}
 }
 }

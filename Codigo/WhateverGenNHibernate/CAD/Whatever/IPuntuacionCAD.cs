@@ -34,5 +34,20 @@ System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN>
 
 
 System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarMediaReto (int ? id_reto);
+
+
+
+
+void Modify (PuntuacionEN puntuacion);
+
+
+void Destroy (int id
+              );
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarTodosEventos (int ? id_evento);
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarTodosRetos (int ? id_reto);
 }
 }

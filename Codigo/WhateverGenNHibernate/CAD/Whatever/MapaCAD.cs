@@ -277,42 +277,13 @@ public void Destroy (int id
         }
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> ReadFilter ()
-{
-        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> result;
-        try
-        {
-                SessionInitializeTransaction ();
-                //String sql = @"FROM MapaEN self where FROM MapaEN";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("MapaENreadFilterHQL");
-
-                result = query.List<WhateverGenNHibernate.EN.Whatever.MapaEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in MapaCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
 public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> FiltrarEventos ()
 {
         System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM MapaEN self where FROM MapaEN, Evento as ev WHERE ev.id != -1";
+                //String sql = @"FROM MapaEN self where FROM MapaEN, Evento as ev WHERE ev.ID != -1";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MapaENfiltrarEventosHQL");
 
@@ -341,10 +312,40 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM MapaEN self where FROM MapaEN, Evento as ev WHERE ev.id=:id_evento";
+                //String sql = @"FROM MapaEN self where FROM MapaEN, EventoEN as ev WHERE ev.ID=:id_evento";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MapaENFiltrarPorEventoHQL");
                 query.SetParameter ("id_evento", id_evento);
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.MapaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in MapaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> FiltrarPorPaso (int ? id_paso)
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MapaEN self where FROM MapaEN, PasoEN as pa WHERE pa.ID=:id_paso";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MapaENFiltrarPorPasoHQL");
+                query.SetParameter ("id_paso", id_paso);
 
                 result = query.List<WhateverGenNHibernate.EN.Whatever.MapaEN>();
                 SessionCommit ();

@@ -94,6 +94,6 @@
 		 </class>	
 		  
 		  <query name="EventoENReadAllHQL">from EventoEN</query>
-		  <query name="EventoENreadFilterHQL"><![CDATA[FROM EventoEN]]></query>
+		  <query name="EventoENfiltrarPorUsuarioHQL"><![CDATA[FROM EventoEN as ev, UsuarioEN as us WHERE us.ID=:id_usu]]></query>
 		</hibernate-mapping>
 	

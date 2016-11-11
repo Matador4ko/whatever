@@ -146,12 +146,12 @@
 			
 			
 			
-			
 			<Compile Include="CEN\Whatever\RetoCEN_CrearReto.cs" />
 			
 			<Compile Include="CEN\Whatever\RetoCEN_ModificarReto.cs" />
 			
 			<Compile Include="CEN\Whatever\RetoCEN_BorrarReto.cs" />
+			
 			
 	<Compile Include="EN\Whatever\GymkanaEN.cs" />
 	<Compile Include="CEN\Whatever\GymkanaCEN.cs" />
@@ -183,12 +183,12 @@
 			
 			
 			
-			
 			<Compile Include="CEN\Whatever\ComentarioCEN_CrearComentario.cs" />
 			
 			<Compile Include="CEN\Whatever\ComentarioCEN_ModificarComentario.cs" />
 			
 			<Compile Include="CEN\Whatever\ComentarioCEN_BorrarComentario.cs" />
+			
 			
 	<Compile Include="EN\Whatever\AdminEN.cs" />
 	<Compile Include="CEN\Whatever\AdminCEN.cs" />
@@ -198,7 +198,6 @@
 			<Compile Include="CP\Whatever\AdminCP_BorrarRetos.cs" />
 			
 			<Compile Include="CP\Whatever\AdminCP_BorrarEvento.cs" />
-			
 			
 			
 			
@@ -220,9 +219,9 @@
 			
 			
 			
-			<Compile Include="CEN\Whatever\ReporteCEN_ModificarReporte.cs" />
-			
 			<Compile Include="CEN\Whatever\ReporteCEN_BorrarReporte.cs" />
+			
+			
 			
 	<Compile Include="EN\Whatever\EventoEN.cs" />
 	<Compile Include="CEN\Whatever\EventoCEN.cs" />
@@ -282,6 +281,10 @@
 			<Compile Include="CEN\Whatever\PuntuacionCEN_CrearPuntuacion.cs" />
 			
 			<Compile Include="CEN\Whatever\PuntuacionCEN_ModificarPuntuacion.cs" />
+			
+			
+			
+			
 			
 	<Compile Include="EN\Whatever\MapaEN.cs" />
 	<Compile Include="CEN\Whatever\MapaCEN.cs" />

@@ -31,7 +31,7 @@ public void ModificarComentario (string comentario, int id)
         com = GetID (id);
         com.Texto = comentario;
 
-        comen.ModifyDefault (com);
+        comen.Modify (com);
 
         /*PROTECTED REGION END*/
 }

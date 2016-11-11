@@ -19,16 +19,24 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class EventoCEN
 {
-public void CrearEvento (WhateverGenNHibernate.EN.Whatever.EventoEN evento)
+public void CrearEvento (WhateverGenNHibernate.EN.Whatever.EventoEN evento, double lat, double long_, int zoom)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Evento_crearEvento) ENABLED START*/
 
         // Write here your custom code...
 
-    EventoCAD eve = new EventoCAD();
+        EventoCAD eve = new EventoCAD ();
+        MapaCAD mapa = new MapaCAD ();
+        MapaEN map = new MapaEN ();
 
-    eve.New_(evento);
+        eve.New_ (evento);
+        map.Latitud = lat;
+        map.Longitud = long_;
+        map.Zoom = zoom;
+        map.Evento_mapa2 = evento;
 
+
+        mapa.New_ (map);
         /*PROTECTED REGION END*/
 }
 }

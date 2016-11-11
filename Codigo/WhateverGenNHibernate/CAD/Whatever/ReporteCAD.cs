@@ -260,7 +260,7 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Report
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ReporteEN self where FROM ReporteEN,UsuarioEN as usu, EventoEN as ev WHERE ev.id=:id_evento and usu.id=:id_usuario";
+                //String sql = @"FROM ReporteEN self where FROM ReporteEN,UsuarioEN as usu, EventoEN as ev WHERE ev.ID=:id_evento and usu.ID=:id_usuario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ReporteENfiltrarEventoHQL");
                 query.SetParameter ("id_evento", id_evento);
@@ -291,11 +291,71 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Report
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ReporteEN self where FROM ReporteEN,UsuarioEN as usu, RetoEN as re WHERE re.id=:id_reto and usu.id=:id_usuario";
+                //String sql = @"FROM ReporteEN self where FROM ReporteEN,UsuarioEN as usu, RetoEN as re WHERE re.ID=:id_reto and usu.ID=:id_usuario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ReporteENfiltrarRetoHQL");
                 query.SetParameter ("id_reto", id_reto);
                 query.SetParameter ("id_usuario", id_usuario);
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.ReporteEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in ReporteCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarTodosEventos (int ? id_evento)
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ReporteEN self where FROM ReporteEN, EventoEN as ev WHERE ev.ID=:id_evento";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ReporteENfiltrarTodosEventosHQL");
+                query.SetParameter ("id_evento", id_evento);
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.ReporteEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in ReporteCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarTodosRetos (int ? id_reto)
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ReporteEN self where FROM ReporteEN, RetoEN as re WHERE re.ID=:id_reto";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ReporteENfiltrarTodosRetosHQL");
+                query.SetParameter ("id_reto", id_reto);
 
                 result = query.List<WhateverGenNHibernate.EN.Whatever.ReporteEN>();
                 SessionCommit ();

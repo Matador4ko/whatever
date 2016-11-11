@@ -108,9 +108,9 @@ public RetoEN GetID (int ID
         return retoEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> ReadFilter ()
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> FiltrarPorUsuario (int ? id_usu)
 {
-        return _IRetoCAD.ReadFilter ();
+        return _IRetoCAD.FiltrarPorUsuario (id_usu);
 }
 }
 }

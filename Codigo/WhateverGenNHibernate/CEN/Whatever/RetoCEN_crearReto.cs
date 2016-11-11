@@ -23,9 +23,9 @@ public void CrearReto (WhateverGenNHibernate.EN.Whatever.RetoEN reto)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Reto_crearReto) ENABLED START*/
 
-        // Write here your custom code...
+        RetoCAD ret = new RetoCAD ();
 
-        throw new NotImplementedException ("Method CrearReto() not yet implemented.");
+        ret.New_ (reto);
 
         /*PROTECTED REGION END*/
 }

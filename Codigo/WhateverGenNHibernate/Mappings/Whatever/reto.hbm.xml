@@ -94,6 +94,6 @@
 		 </class>	
 		  
 		  <query name="RetoENReadAllHQL">from RetoEN</query>
-		  <query name="RetoENreadFilterHQL"><![CDATA[FROM RetoEN]]></query>
+		  <query name="RetoENfiltrarPorUsuarioHQL"><![CDATA[FROM RetoEN, UsuarioEN as us WHERE us.ID=:id_usu]]></query>
 		</hibernate-mapping>
 	

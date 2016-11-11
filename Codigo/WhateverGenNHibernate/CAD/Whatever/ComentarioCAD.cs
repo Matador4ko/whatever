@@ -250,17 +250,19 @@ public ComentarioEN GetID (int ID
         return comentarioEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> ReadFilter ()
+public void Modify (ComentarioEN comentario)
 {
-        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ComentarioEN self where FROM ComentarioEN";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("ComentarioENreadFilterHQL");
+                ComentarioEN comentarioEN = (ComentarioEN)session.Load (typeof(ComentarioEN), comentario.ID);
 
-                result = query.List<WhateverGenNHibernate.EN.Whatever.ComentarioEN>();
+                comentarioEN.Texto = comentario.Texto;
+
+
+                comentarioEN.Creador = comentario.Creador;
+
+                session.Update (comentarioEN);
                 SessionCommit ();
         }
 
@@ -276,8 +278,6 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Coment
         {
                 SessionClose ();
         }
-
-        return result;
 }
 }
 }

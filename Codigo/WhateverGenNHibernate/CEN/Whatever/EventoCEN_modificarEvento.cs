@@ -19,14 +19,15 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class EventoCEN
 {
-public void ModificarEvento (int p_oid)
+public void ModificarEvento (WhateverGenNHibernate.EN.Whatever.MapaEN mapa, WhateverGenNHibernate.EN.Whatever.EventoEN evento)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Evento_modificarEvento) ENABLED START*/
 
-        // Write here your custom code...
+        EventoCAD eve = new EventoCAD ();
+        MapaCAD map = new MapaCAD ();
 
-        throw new NotImplementedException ("Method ModificarEvento() not yet implemented.");
-
+        eve.Modify (evento);
+        map.Modify (mapa);
         /*PROTECTED REGION END*/
 }
 }

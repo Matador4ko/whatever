@@ -19,13 +19,13 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class PuntuacionCEN
 {
-public void ModificarPuntuacion (int p_oid)
+public void ModificarPuntuacion (WhateverGenNHibernate.EN.Whatever.PuntuacionEN punto)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Puntuacion_modificarPuntuacion) ENABLED START*/
 
-        // Write here your custom code...
+        PuntuacionCAD punt = new PuntuacionCAD ();
 
-        throw new NotImplementedException ("Method ModificarPuntuacion() not yet implemented.");
+        punt.Modify (punto);
 
         /*PROTECTED REGION END*/
 }
