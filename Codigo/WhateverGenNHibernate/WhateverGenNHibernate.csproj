@@ -190,6 +190,7 @@
 			<Compile Include="CEN\Whatever\ComentarioCEN_BorrarComentario.cs" />
 			
 			
+			
 	<Compile Include="EN\Whatever\AdminEN.cs" />
 	<Compile Include="CEN\Whatever\AdminCEN.cs" />
 	<Compile Include="CAD\Whatever\IAdminCAD.cs" />
@@ -203,6 +204,8 @@
 			
 			
 			
+			
+			<Compile Include="CP\Whatever\AdminCP_DeshacerAdmin.cs" />
 			
 	<Compile Include="EN\Whatever\ReporteEN.cs" />
 	<Compile Include="CEN\Whatever\ReporteCEN.cs" />
@@ -220,6 +223,7 @@
 			
 			
 			<Compile Include="CEN\Whatever\ReporteCEN_BorrarReporte.cs" />
+			
 			
 			
 			
@@ -257,7 +261,6 @@
 			<Compile Include="CEN\Whatever\PasoCEN_VerPaso.cs" />
 			
 			
-			
 			<Compile Include="CEN\Whatever\PasoCEN_BorrarPaso.cs" />
 			
 			<Compile Include="CEN\Whatever\PasoCEN_ModificarPaso.cs" />
@@ -281,6 +284,7 @@
 			<Compile Include="CEN\Whatever\PuntuacionCEN_CrearPuntuacion.cs" />
 			
 			<Compile Include="CEN\Whatever\PuntuacionCEN_ModificarPuntuacion.cs" />
+			
 			
 			
 			

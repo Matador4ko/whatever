@@ -38,7 +38,7 @@ public IAdminCAD get_IAdminCAD ()
         return this._IAdminCAD;
 }
 
-public int New_ (string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, String p_contrasena, string p_email, string p_foto)
+public int New_ (string p_nombre, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Twitter, String p_contrasena, string p_email, string p_foto)
 {
         AdminEN adminEN = null;
         int oid;
@@ -46,8 +46,6 @@ public int New_ (string p_nombre, int p_seguidores, int p_edad, string p_sexo, s
         //Initialized AdminEN
         adminEN = new AdminEN ();
         adminEN.Nombre = p_nombre;
-
-        adminEN.Seguidores = p_seguidores;
 
         adminEN.Edad = p_edad;
 
@@ -57,7 +55,7 @@ public int New_ (string p_nombre, int p_seguidores, int p_edad, string p_sexo, s
 
         adminEN.Instagram = p_Instagram;
 
-        adminEN.Historial = p_Historial;
+        adminEN.Twitter = p_Twitter;
 
         adminEN.Contrasena = Utils.Util.GetEncondeMD5 (p_contrasena);
 
@@ -71,7 +69,7 @@ public int New_ (string p_nombre, int p_seguidores, int p_edad, string p_sexo, s
         return oid;
 }
 
-public void Modify (int p_Admin_OID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, String p_contrasena, string p_email, string p_foto)
+public void Modify (int p_Admin_OID, string p_nombre, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Twitter, String p_contrasena, string p_email, string p_foto)
 {
         AdminEN adminEN = null;
 
@@ -79,12 +77,11 @@ public void Modify (int p_Admin_OID, string p_nombre, int p_seguidores, int p_ed
         adminEN = new AdminEN ();
         adminEN.ID = p_Admin_OID;
         adminEN.Nombre = p_nombre;
-        adminEN.Seguidores = p_seguidores;
         adminEN.Edad = p_edad;
         adminEN.Sexo = p_sexo;
         adminEN.Facebook = p_Facebook;
         adminEN.Instagram = p_Instagram;
-        adminEN.Historial = p_Historial;
+        adminEN.Twitter = p_Twitter;
         adminEN.Contrasena = Utils.Util.GetEncondeMD5 (p_contrasena);
         adminEN.Email = p_email;
         adminEN.Foto = p_foto;

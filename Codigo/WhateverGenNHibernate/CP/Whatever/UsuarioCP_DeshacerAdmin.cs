@@ -12,7 +12,7 @@ using WhateverGenNHibernate.CEN.Whatever;
 
 
 
-/*PROTECTED REGION ID(usingWhateverGenNHibernate.CP.Whatever_Usuario_hacerAdmin) ENABLED START*/
+/*PROTECTED REGION ID(usingWhateverGenNHibernate.CP.Whatever_Usuario_deshacerAdmin) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
@@ -20,9 +20,9 @@ namespace WhateverGenNHibernate.CP.Whatever
 {
 public partial class UsuarioCP : BasicCP
 {
-public void HacerAdmin (int p_oid)
+public void DeshacerAdmin (int p_oid)
 {
-        /*PROTECTED REGION ID(WhateverGenNHibernate.CP.Whatever_Usuario_hacerAdmin) ENABLED START*/
+        /*PROTECTED REGION ID(WhateverGenNHibernate.CP.Whatever_Usuario_deshacerAdmin) ENABLED START*/
 
         IUsuarioCAD usuarioCAD = null;
         UsuarioCEN usuarioCEN = null;
@@ -36,11 +36,11 @@ public void HacerAdmin (int p_oid)
                 usuarioCEN = new  UsuarioCEN (usuarioCAD);
 
 
-                AdminCAD admincad = new AdminCAD ();
-                UsuarioEN usuen = new UsuarioEN ();
-                AdminEN admin = new AdminEN ();
-                usuen = usuarioCAD.GetID (p_oid);
-                usuarioCAD.Destroy (p_oid);
+                AdminCAD admincad = new AdminCAD();
+                UsuarioEN usuen = new UsuarioEN();
+                AdminEN admin = new AdminEN();
+                usuen = usuarioCAD.GetID(p_oid);
+                usuarioCAD.Destroy(p_oid);
                 admin.Contrasena = usuen.Contrasena;
                 admin.Edad = usuen.Edad;
                 admin.Email = usuen.Email;
@@ -52,7 +52,7 @@ public void HacerAdmin (int p_oid)
                 admin.Nombre = usuen.Nombre;
                 admin.Sexo = usuen.Sexo;
 
-                admincad.New_ (admin);
+                admincad.New_(admin);
 
 
                 SessionCommit ();

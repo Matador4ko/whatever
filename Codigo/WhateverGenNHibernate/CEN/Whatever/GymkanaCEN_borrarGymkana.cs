@@ -28,10 +28,12 @@ public void BorrarGymkana (int p_oid)
         MapaCAD mapa = new MapaCAD ();
         PuntuacionCAD punt = new PuntuacionCAD ();
         ReporteCAD rep = new ReporteCAD ();
+        PasoCAD pas = new PasoCAD();
 
         System.Collections.Generic.IList<MapaEN> mapas;
         System.Collections.Generic.IList<PuntuacionEN> puntos;
         System.Collections.Generic.IList<ReporteEN> reportes;
+        System.Collections.Generic.IList<PasoEN> pasos;
 
         Destroy (p_oid);
 
@@ -46,6 +48,11 @@ public void BorrarGymkana (int p_oid)
         reportes = rep.FiltrarTodosEventos (p_oid);
         foreach (ReporteEN element in reportes) {
                 rep.Destroy (element.ID);
+        }
+
+        pasos=VerPasos(p_oid);
+        foreach(PasoEN element in pasos){
+            pas.Destroy(element.ID);
         }
         /*PROTECTED REGION END*/
 }

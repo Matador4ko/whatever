@@ -39,5 +39,8 @@ System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> Fi
 
 
 System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarTodosRetos (int ? id_reto);
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarPorUsuario (int ? id_usuario);
 }
 }

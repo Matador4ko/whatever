@@ -96,10 +96,6 @@ public PasoEN GetID (int ID
         return pasoEN;
 }
 
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> ReadFilter ()
-{
-        return _IPasoCAD.ReadFilter ();
-}
 public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> FiltrarPasos (int ? id_gym)
 {
         return _IPasoCAD.FiltrarPasos (id_gym);

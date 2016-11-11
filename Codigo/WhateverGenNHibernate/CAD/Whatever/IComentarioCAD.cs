@@ -30,5 +30,8 @@ ComentarioEN GetID (int ID
 
 
 void Modify (ComentarioEN comentario);
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> FiltrarPorUsuario (int ? id_usuario);
 }
 }

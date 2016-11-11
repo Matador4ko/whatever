@@ -129,5 +129,9 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Report
 {
         return _IReporteCAD.FiltrarTodosRetos (id_reto);
 }
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarPorUsuario (int ? id_usuario)
+{
+        return _IReporteCAD.FiltrarPorUsuario (id_usuario);
+}
 }
 }

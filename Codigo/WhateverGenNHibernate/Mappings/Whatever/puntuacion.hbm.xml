@@ -51,5 +51,6 @@
 		  <query name="PuntuacionENfiltrarMediaRetoHQL"><![CDATA[FROM PuntuacionEN, RetoEN as re WHERE re.ID=:id_reto]]></query>
 		  <query name="PuntuacionENfiltrarTodosEventosHQL"><![CDATA[FROM PuntuacionEN, EventoEN as ev WHERE ev.ID=:id_evento]]></query>
 		  <query name="PuntuacionENfiltrarTodosRetosHQL"><![CDATA[FROM PuntuacionEN, RetoEN as re WHERE re.ID=:id_reto ]]></query>
+		  <query name="PuntuacionENfiltrarPorUsuarioHQL"><![CDATA[FROM PuntuacionEN, UsuarioEN as us WHERE us.ID=:id_usuario]]></query>
 		</hibernate-mapping>
 	

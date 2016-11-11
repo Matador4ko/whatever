@@ -455,5 +455,35 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Puntua
 
         return result;
 }
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarPorUsuario (int ? id_usuario)
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PuntuacionEN self where FROM PuntuacionEN, UsuarioEN as us WHERE us.ID=:id_usuario";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PuntuacionENfiltrarPorUsuarioHQL");
+                query.SetParameter ("id_usuario", id_usuario);
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.PuntuacionEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in PuntuacionCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

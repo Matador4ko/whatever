@@ -38,7 +38,7 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public int New_ (string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, String p_contrasena, string p_email, string p_foto)
+public int New_ (string p_nombre, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Twitter, String p_contrasena, string p_email, string p_foto)
 {
         UsuarioEN usuarioEN = null;
         int oid;
@@ -46,8 +46,6 @@ public int New_ (string p_nombre, int p_seguidores, int p_edad, string p_sexo, s
         //Initialized UsuarioEN
         usuarioEN = new UsuarioEN ();
         usuarioEN.Nombre = p_nombre;
-
-        usuarioEN.Seguidores = p_seguidores;
 
         usuarioEN.Edad = p_edad;
 
@@ -57,7 +55,7 @@ public int New_ (string p_nombre, int p_seguidores, int p_edad, string p_sexo, s
 
         usuarioEN.Instagram = p_Instagram;
 
-        usuarioEN.Historial = p_Historial;
+        usuarioEN.Twitter = p_Twitter;
 
         usuarioEN.Contrasena = Utils.Util.GetEncondeMD5 (p_contrasena);
 
@@ -71,7 +69,7 @@ public int New_ (string p_nombre, int p_seguidores, int p_edad, string p_sexo, s
         return oid;
 }
 
-public void Modify (int p_Usuario_OID, string p_nombre, int p_seguidores, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Historial, String p_contrasena, string p_email, string p_foto)
+public void Modify (int p_Usuario_OID, string p_nombre, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Twitter, String p_contrasena, string p_email, string p_foto)
 {
         UsuarioEN usuarioEN = null;
 
@@ -79,12 +77,11 @@ public void Modify (int p_Usuario_OID, string p_nombre, int p_seguidores, int p_
         usuarioEN = new UsuarioEN ();
         usuarioEN.ID = p_Usuario_OID;
         usuarioEN.Nombre = p_nombre;
-        usuarioEN.Seguidores = p_seguidores;
         usuarioEN.Edad = p_edad;
         usuarioEN.Sexo = p_sexo;
         usuarioEN.Facebook = p_Facebook;
         usuarioEN.Instagram = p_Instagram;
-        usuarioEN.Historial = p_Historial;
+        usuarioEN.Twitter = p_Twitter;
         usuarioEN.Contrasena = Utils.Util.GetEncondeMD5 (p_contrasena);
         usuarioEN.Email = p_email;
         usuarioEN.Foto = p_foto;

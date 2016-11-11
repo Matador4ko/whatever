@@ -23,9 +23,9 @@ public void Registro (WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_Registro) ENABLED START*/
 
-        // Write here your custom code...
+        UsuarioCAD usucad = new UsuarioCAD ();
 
-        throw new NotImplementedException ("Method Registro() not yet implemented.");
+        usucad.New_ (usuario);
 
         /*PROTECTED REGION END*/
 }

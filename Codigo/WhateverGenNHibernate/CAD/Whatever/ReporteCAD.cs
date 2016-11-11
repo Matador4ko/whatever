@@ -376,5 +376,35 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Report
 
         return result;
 }
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarPorUsuario (int ? id_usuario)
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ReporteEN self where FROM ReporteEN, UsuarioEN as us WHERE us.ID=:id_usuario";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ReporteENfiltrarPorUsuarioHQL");
+                query.SetParameter ("id_usuario", id_usuario);
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.ReporteEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in ReporteCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

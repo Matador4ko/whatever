@@ -49,5 +49,8 @@ System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN>
 
 
 System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarTodosRetos (int ? id_reto);
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarPorUsuario (int ? id_usuario);
 }
 }

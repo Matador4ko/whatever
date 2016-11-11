@@ -26,30 +26,46 @@ public void BorrarUsuario (int p_oid)
         // Write here your custom code...
 
         UsuarioCAD usu = new UsuarioCAD ();
-        EventoCAD eve = new EventoCAD();
-        EventoCEN evec = new EventoCEN();
-        RetoCAD ret = new RetoCAD();
-        RetoCEN retc = new RetoCEN();
+        EventoCAD eve = new EventoCAD ();
+        EventoCEN evec = new EventoCEN ();
+        RetoCAD ret = new RetoCAD ();
+        RetoCEN retc = new RetoCEN ();
+        PuntuacionCAD pun = new PuntuacionCAD ();
+        ReporteCAD rep = new ReporteCAD ();
+        ComentarioCAD com = new ComentarioCAD ();
 
         System.Collections.Generic.IList<EventoEN> eventos;
         System.Collections.Generic.IList<RetoEN> retos;
+        System.Collections.Generic.IList<PuntuacionEN> puntuaciones;
+        System.Collections.Generic.IList<ReporteEN> reportes;
+        System.Collections.Generic.IList<ComentarioEN> comentarios;
 
         usu.Destroy (p_oid);
 
-        eventos=eve.FiltrarPorUsuario(p_oid);
-        foreach(EventoEN element in eventos){
-            evec.BorrarEvento(element.ID);
+        eventos = eve.FiltrarPorUsuario (p_oid);
+        foreach (EventoEN element in eventos) {
+                evec.BorrarEvento (element.ID);
         }
 
-        retos = ret.FiltrarPorUsuario(p_oid);
-        foreach(RetoEN element in retos){
-            retc.BorrarReto(element.ID);
+        retos = ret.FiltrarPorUsuario (p_oid);
+        foreach (RetoEN element in retos) {
+                retc.BorrarReto (element.ID);
         }
-        
-        
 
+        puntuaciones = pun.FiltrarPorUsuario (p_oid);
+        foreach (PuntuacionEN element in puntuaciones) {
+                pun.Destroy (element.Id);
+        }
 
+        reportes = rep.FiltrarPorUsuario (p_oid);
+        foreach (ReporteEN element in reportes) {
+                rep.Destroy (element.ID);
+        }
 
+        comentarios = com.FiltrarPorUsuario (p_oid);
+        foreach (ComentarioEN element in comentarios) {
+                rep.Destroy (element.ID);
+        }
 
         /*PROTECTED REGION END*/
 }

@@ -50,5 +50,6 @@
 		 </class>	
 		  
 		  <query name="ComentarioENReadAllHQL">from ComentarioEN</query>
+		  <query name="ComentarioENfiltrarPorUsuarioHQL"><![CDATA[FROM ComentarioEN, UsuarioEN as us WHERE us.ID=:id_usuario]]></query>
 		</hibernate-mapping>
 	

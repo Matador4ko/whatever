@@ -31,9 +31,6 @@ PasoEN GetID (int ID
 
 
 
-System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> ReadFilter ();
-
-
 System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> FiltrarPasos (int ? id_gym);
 }
 }

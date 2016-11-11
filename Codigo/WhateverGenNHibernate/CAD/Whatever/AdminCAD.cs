@@ -146,9 +146,6 @@ public void Modify (AdminEN admin)
                 adminEN.Nombre = admin.Nombre;
 
 
-                adminEN.Seguidores = admin.Seguidores;
-
-
                 adminEN.Edad = admin.Edad;
 
 
@@ -161,7 +158,7 @@ public void Modify (AdminEN admin)
                 adminEN.Instagram = admin.Instagram;
 
 
-                adminEN.Historial = admin.Historial;
+                adminEN.Twitter = admin.Twitter;
 
 
                 adminEN.Contrasena = admin.Contrasena;

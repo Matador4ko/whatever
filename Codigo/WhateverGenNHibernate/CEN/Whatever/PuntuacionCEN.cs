@@ -136,5 +136,9 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Puntua
 {
         return _IPuntuacionCAD.FiltrarTodosRetos (id_reto);
 }
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarPorUsuario (int ? id_usuario)
+{
+        return _IPuntuacionCAD.FiltrarPorUsuario (id_usuario);
+}
 }
 }

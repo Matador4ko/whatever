@@ -114,5 +114,10 @@ public void Modify (int p_Comentario_OID, string p_texto, string p_creador)
 
         _IComentarioCAD.Modify (comentarioEN);
 }
+
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> FiltrarPorUsuario (int ? id_usuario)
+{
+        return _IComentarioCAD.FiltrarPorUsuario (id_usuario);
+}
 }
 }

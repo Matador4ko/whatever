@@ -15,9 +15,6 @@
 					<property name="Nombre" type="string"> 
 						<column name="nombre"  not-null="true"/>
 					</property>
-					<property name="Seguidores" type="integer"> 
-						<column name="seguidores"  not-null="true"/>
-					</property>
 					<property name="Edad" type="integer"> 
 						<column name="edad"  not-null="true"/>
 					</property>
@@ -30,8 +27,8 @@
 					<property name="Instagram" type="string"> 
 						<column name="Instagram"  not-null="true"/>
 					</property>
-					<property name="Historial" type="string"> 
-						<column name="Historial"  not-null="true"/>
+					<property name="Twitter" type="string"> 
+						<column name="Twitter"  not-null="true"/>
 					</property>
 					<property name="Contrasena" type="string"> 
 						<column name="contrasena"  not-null="true"/>
@@ -51,7 +48,6 @@
 			
 			
 			
-			
 		  			
 						<bag name="Usuario_reto" >
 							<key>
@@ -62,28 +58,6 @@
 							<one-to-many class="WhateverGenNHibernate.EN.Whatever.RetoEN"/>
 					    </bag>
 					
-			
-		  			
-						<bag name="Usuario_usuario" table="[usuario_usuario_0]" inverse="true" >
-							<key>
-								
-									<column name="FK_ID_idUsuario_usuario"/> 
-							</key>
-      						<many-to-many class="WhateverGenNHibernate.EN.Whatever.UsuarioEN">
-									<column name="FK_ID_idUsuario_usuario2"/> 
-      						</many-to-many>
-    					</bag>
-			
-		  			
-						<bag name="Usuario_usuario2" table="[usuario_usuario_0]"  >
-							<key>
-								
-									<column name="FK_ID_idUsuario_usuario2"/> 
-							</key>
-      						<many-to-many class="WhateverGenNHibernate.EN.Whatever.UsuarioEN">
-									<column name="FK_ID_idUsuario_usuario"/> 
-      						</many-to-many>
-    					</bag>
 			
 		  			
 						<bag name="Usuario_reporte2" >
@@ -131,9 +105,6 @@
 			
 			
 			
-					
-					
-					
 					
 					
 					

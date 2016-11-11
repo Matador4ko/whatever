@@ -94,9 +94,6 @@ public void ModifyDefault (UsuarioEN usuario)
                 usuarioEN.Nombre = usuario.Nombre;
 
 
-                usuarioEN.Seguidores = usuario.Seguidores;
-
-
                 usuarioEN.Edad = usuario.Edad;
 
 
@@ -109,9 +106,7 @@ public void ModifyDefault (UsuarioEN usuario)
                 usuarioEN.Instagram = usuario.Instagram;
 
 
-                usuarioEN.Historial = usuario.Historial;
-
-
+                usuarioEN.Twitter = usuario.Twitter;
 
 
 
@@ -182,9 +177,6 @@ public void Modify (UsuarioEN usuario)
                 usuarioEN.Nombre = usuario.Nombre;
 
 
-                usuarioEN.Seguidores = usuario.Seguidores;
-
-
                 usuarioEN.Edad = usuario.Edad;
 
 
@@ -197,7 +189,7 @@ public void Modify (UsuarioEN usuario)
                 usuarioEN.Instagram = usuario.Instagram;
 
 
-                usuarioEN.Historial = usuario.Historial;
+                usuarioEN.Twitter = usuario.Twitter;
 
 
                 usuarioEN.Contrasena = usuario.Contrasena;

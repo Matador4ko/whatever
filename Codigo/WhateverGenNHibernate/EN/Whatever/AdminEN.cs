@@ -33,20 +33,20 @@ public AdminEN() : base ()
 
 
 public AdminEN(int iD, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> admin_reporte2
-               , string nombre, int seguidores, int edad, string sexo, string facebook, string instagram, string historial, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> usuario_reto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.UsuarioEN> usuario_usuario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.UsuarioEN> usuario_usuario2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> usuario_reporte2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> usuario_puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_usuario2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> usuario_evento2, String contrasena, string email, string foto
+               , string nombre, int edad, string sexo, string facebook, string instagram, string twitter, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> usuario_reto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> usuario_reporte2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> usuario_puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_usuario2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> usuario_evento2, String contrasena, string email, string foto
                )
 {
-        this.init (ID, admin_reporte2, nombre, seguidores, edad, sexo, facebook, instagram, historial, usuario_reto, usuario_usuario, usuario_usuario2, usuario_reporte2, usuario_puntuacion, comentario_usuario2, usuario_evento2, contrasena, email, foto);
+        this.init (ID, admin_reporte2, nombre, edad, sexo, facebook, instagram, twitter, usuario_reto, usuario_reporte2, usuario_puntuacion, comentario_usuario2, usuario_evento2, contrasena, email, foto);
 }
 
 
 public AdminEN(AdminEN admin)
 {
-        this.init (ID, admin.Admin_reporte2, admin.Nombre, admin.Seguidores, admin.Edad, admin.Sexo, admin.Facebook, admin.Instagram, admin.Historial, admin.Usuario_reto, admin.Usuario_usuario, admin.Usuario_usuario2, admin.Usuario_reporte2, admin.Usuario_puntuacion, admin.Comentario_usuario2, admin.Usuario_evento2, admin.Contrasena, admin.Email, admin.Foto);
+        this.init (ID, admin.Admin_reporte2, admin.Nombre, admin.Edad, admin.Sexo, admin.Facebook, admin.Instagram, admin.Twitter, admin.Usuario_reto, admin.Usuario_reporte2, admin.Usuario_puntuacion, admin.Comentario_usuario2, admin.Usuario_evento2, admin.Contrasena, admin.Email, admin.Foto);
 }
 
 private void init (int ID
-                   , System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> admin_reporte2, string nombre, int seguidores, int edad, string sexo, string facebook, string instagram, string historial, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> usuario_reto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.UsuarioEN> usuario_usuario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.UsuarioEN> usuario_usuario2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> usuario_reporte2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> usuario_puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_usuario2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> usuario_evento2, String contrasena, string email, string foto)
+                   , System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> admin_reporte2, string nombre, int edad, string sexo, string facebook, string instagram, string twitter, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> usuario_reto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> usuario_reporte2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> usuario_puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_usuario2, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> usuario_evento2, String contrasena, string email, string foto)
 {
         this.ID = ID;
 
@@ -54,8 +54,6 @@ private void init (int ID
         this.Admin_reporte2 = admin_reporte2;
 
         this.Nombre = nombre;
-
-        this.Seguidores = seguidores;
 
         this.Edad = edad;
 
@@ -65,13 +63,9 @@ private void init (int ID
 
         this.Instagram = instagram;
 
-        this.Historial = historial;
+        this.Twitter = twitter;
 
         this.Usuario_reto = usuario_reto;
-
-        this.Usuario_usuario = usuario_usuario;
-
-        this.Usuario_usuario2 = usuario_usuario2;
 
         this.Usuario_reporte2 = usuario_reporte2;
 

@@ -19,13 +19,21 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class UsuarioCEN
 {
-public void ModificarRedesSociales (int p_oid)
+public void ModificarRedesSociales (string insta, string facebook, string twitter, int id_usuario)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_ModificarRedesSociales) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method ModificarRedesSociales() not yet implemented.");
+        UsuarioCAD usu = new UsuarioCAD ();
+        UsuarioEN usuen = new UsuarioEN ();
+
+        usuen = usu.GetID (id_usuario);
+        usuen.Facebook = facebook;
+        usuen.Twitter = twitter;
+        usuen.Instagram = insta;
+
+        usu.Modify (usuen);
 
         /*PROTECTED REGION END*/
 }
