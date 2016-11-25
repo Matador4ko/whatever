@@ -48,7 +48,7 @@
 		 </class>	
 		  
 		  <query name="MapaENReadAllHQL">from MapaEN</query>
-		  <query name="MapaENfiltrarEventosHQL"><![CDATA[FROM MapaEN, Evento as ev WHERE ev.ID != -1]]></query>
+		  <query name="MapaENfiltrarEventosHQL"><![CDATA[FROM MapaEN, EventoEN as ev WHERE ev.ID != -1]]></query>
 		  <query name="MapaENFiltrarPorEventoHQL"><![CDATA[FROM MapaEN, EventoEN as ev WHERE ev.ID=:id_evento]]></query>
 		  <query name="MapaENFiltrarPorPasoHQL"><![CDATA[FROM MapaEN, PasoEN as pa WHERE pa.ID=:id_paso]]></query>
 		</hibernate-mapping>

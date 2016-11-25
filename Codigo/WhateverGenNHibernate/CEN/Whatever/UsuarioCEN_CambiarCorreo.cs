@@ -28,7 +28,7 @@ public bool CambiarCorreo (int p_oid, string correo)
         UsuarioEN user = GetID (p_oid);
         String aux = user.Email;
 
-        Modify (p_oid, user.Nombre, user.Seguidores, user.Edad, user.Sexo, user.Facebook, user.Instagram, user.Historial, user.Contrasena, correo, user.Foto);
+        Modify (p_oid, user.Nombre, user.Edad, user.Sexo, user.Facebook, user.Instagram, user.Twitter, user.Contrasena, correo, user.Foto);
 
         if (!aux.Equals (user.Email)) {
                 return true;

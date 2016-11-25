@@ -20,7 +20,7 @@ namespace WhateverGenNHibernate.CP.Whatever
 {
 public partial class GymkanaCP : BasicCP
 {
-public void AnadirPaso (WhateverGenNHibernate.EN.Whatever.PasoEN paso)
+public void AnadirPaso (WhateverGenNHibernate.EN.Whatever.PasoEN paso, WhateverGenNHibernate.EN.Whatever.MapaEN mapa)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CP.Whatever_Gymkana_anadirPaso) ENABLED START*/
 
@@ -36,18 +36,18 @@ public void AnadirPaso (WhateverGenNHibernate.EN.Whatever.PasoEN paso)
                 gymkanaCEN = new  GymkanaCEN (gymkanaCAD);
 
 
-                PasoCEN paso = new PasoCEN ();
-                MapaCEN mapa = new MapaCEN ();
+                PasoCAD paso2 = new PasoCAD ();
+                MapaCAD mapa2 = new MapaCAD ();
                 int aux = -1;
                 int aux2 = -1;
 
-                paso.New_ (descripcion, id_gym);
+                paso2.New_ (paso);
 
                 System.Collections.Generic.IList<MapaEN> mapas;
-                mapas = mapa.GetAll (0, 0);
+                mapas = mapa2.GetAll (0, 0);
 
                 aux2 = mapas [mapas.Count - 1].Id;
-                mapa.New_ (id_gym, aux + 1, latitud, longitud, zoom);
+                mapa2.New_ (mapa);
 
                 SessionCommit ();
         }

@@ -27,7 +27,7 @@ public void ModificarReporte (WhateverGenNHibernate.EN.Whatever.ReporteEN report
 
     ReporteCAD repor = new ReporteCAD();
 
-    repor.mo
+    repor.
 
         /*PROTECTED REGION END*/
 }

@@ -28,7 +28,7 @@ public bool CambiarFoto (int p_oid, string foto)
         UsuarioEN user = GetID (p_oid);
         String anteriorFoto = user.Foto;
 
-        Modify (user.ID, user.Nombre, user.Seguidores, user.Edad, user.Sexo, user.Facebook, user.Instagram, user.Historial, user.Contrasena, user.Email, foto);
+        Modify (user.ID, user.Nombre, user.Edad, user.Sexo, user.Facebook, user.Instagram, user.Twitter, user.Contrasena, user.Email, foto);
 
         if (!anteriorFoto.Equals (user.Foto)) {
                 return true;

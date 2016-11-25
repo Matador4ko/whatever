@@ -26,7 +26,7 @@ public int RecuperarContasena (string correo, string nombre)
         // Write here your custom code...
 
         System.Collections.Generic.IList<UsuarioEN> list;
-        list = ReadFilter (nombre, correo);
+        list = FiltrarNombreCorreo (nombre, correo);
         foreach (UsuarioEN element in list) {
                 return element.ID;
         }

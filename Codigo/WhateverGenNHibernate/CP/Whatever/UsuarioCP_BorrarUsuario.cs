@@ -9,7 +9,6 @@ using NHibernate.Exceptions;
 using WhateverGenNHibernate.EN.Whatever;
 using WhateverGenNHibernate.CAD.Whatever;
 using WhateverGenNHibernate.CEN.Whatever;
-using WhateverGenNHibernate.CP.Whatever;
 
 
 
@@ -36,48 +35,48 @@ public void BorrarUsuario (int p_oid)
                 usuarioCAD = new UsuarioCAD (session);
                 usuarioCEN = new  UsuarioCEN (usuarioCAD);
 
-            
-        UsuarioCAD usu = new UsuarioCAD ();
-        EventoCAD eve = new EventoCAD ();
-        EventoCP evec = new EventoCP ();
-        RetoCAD ret = new RetoCAD ();
-        RetoCP retc = new RetoCP ();
-        PuntuacionCAD pun = new PuntuacionCAD ();
-        ReporteCAD rep = new ReporteCAD ();
-        ComentarioCAD com = new ComentarioCAD ();
 
-        System.Collections.Generic.IList<EventoEN> eventos;
-        System.Collections.Generic.IList<RetoEN> retos;
-        System.Collections.Generic.IList<PuntuacionEN> puntuaciones;
-        System.Collections.Generic.IList<ReporteEN> reportes;
-        System.Collections.Generic.IList<ComentarioEN> comentarios;
+                UsuarioCAD usu = new UsuarioCAD ();
+                EventoCAD eve = new EventoCAD ();
+                EventoCP evec = new EventoCP ();
+                RetoCAD ret = new RetoCAD ();
+                RetoCP retc = new RetoCP ();
+                PuntuacionCAD pun = new PuntuacionCAD ();
+                ReporteCAD rep = new ReporteCAD ();
+                ComentarioCAD com = new ComentarioCAD ();
 
-        usu.Destroy (p_oid);
+                System.Collections.Generic.IList<EventoEN> eventos;
+                System.Collections.Generic.IList<RetoEN> retos;
+                System.Collections.Generic.IList<PuntuacionEN> puntuaciones;
+                System.Collections.Generic.IList<ReporteEN> reportes;
+                System.Collections.Generic.IList<ComentarioEN> comentarios;
 
-        eventos = eve.FiltrarPorUsuario (p_oid);
-        foreach (EventoEN element in eventos) {
-                evec.BorrarEvento (element.ID);
-        }
+                usu.Destroy (p_oid);
 
-        retos = ret.FiltrarPorUsuario (p_oid);
-        foreach (RetoEN element in retos) {
-                retc.BorrarReto (element.ID);
-        }
+                eventos = eve.FiltrarPorUsuario (p_oid);
+                foreach (EventoEN element in eventos) {
+                        evec.BorrarEvento (element.ID);
+                }
 
-        puntuaciones = pun.FiltrarPorUsuario (p_oid);
-        foreach (PuntuacionEN element in puntuaciones) {
-                pun.Destroy (element.Id);
-        }
+                retos = ret.FiltrarPorUsuario (p_oid);
+                foreach (RetoEN element in retos) {
+                        retc.BorrarReto (element.ID);
+                }
 
-        reportes = rep.FiltrarPorUsuario (p_oid);
-        foreach (ReporteEN element in reportes) {
-                rep.Destroy (element.ID);
-        }
+                puntuaciones = pun.FiltrarPorUsuario (p_oid);
+                foreach (PuntuacionEN element in puntuaciones) {
+                        pun.Destroy (element.Id);
+                }
 
-        comentarios = com.FiltrarPorUsuario (p_oid);
-        foreach (ComentarioEN element in comentarios) {
-                rep.Destroy (element.ID);
-        }
+                reportes = rep.FiltrarPorUsuario (p_oid);
+                foreach (ReporteEN element in reportes) {
+                        rep.Destroy (element.ID);
+                }
+
+                comentarios = com.FiltrarPorUsuario (p_oid);
+                foreach (ComentarioEN element in comentarios) {
+                        rep.Destroy (element.ID);
+                }
 
                 SessionCommit ();
         }

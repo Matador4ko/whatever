@@ -32,7 +32,7 @@ public bool CambiarContrasena (int p_oid, String contra)
 
         usucen.GetID (p_oid);
 
-        Modify (user.ID, user.Nombre, user.Seguidores, user.Edad, user.Sexo, user.Facebook, user.Instagram, user.Historial, contra, user.Email, user.Foto);
+        Modify (user.ID, user.Nombre, user.Edad, user.Sexo, user.Facebook, user.Instagram, user.Twitter, contra, user.Email, user.Foto);
 
         if (!aux.Equals (user.Contrasena)) {
                 return true;

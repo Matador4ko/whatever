@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitializeDB", "InitializeD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhateverGenNHibernate", "WhateverGenNHibernate\WhateverGenNHibernate.csproj", "{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApplication1", "MvcApplication1\MvcApplication1.csproj", "{77CD47CC-D98F-4CB4-9D58-5C9F255A8070}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,16 @@ Global
 		{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}.Release|x86.ActiveCfg = Release|Any CPU
+		{77CD47CC-D98F-4CB4-9D58-5C9F255A8070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77CD47CC-D98F-4CB4-9D58-5C9F255A8070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77CD47CC-D98F-4CB4-9D58-5C9F255A8070}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{77CD47CC-D98F-4CB4-9D58-5C9F255A8070}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{77CD47CC-D98F-4CB4-9D58-5C9F255A8070}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{77CD47CC-D98F-4CB4-9D58-5C9F255A8070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77CD47CC-D98F-4CB4-9D58-5C9F255A8070}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77CD47CC-D98F-4CB4-9D58-5C9F255A8070}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{77CD47CC-D98F-4CB4-9D58-5C9F255A8070}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{77CD47CC-D98F-4CB4-9D58-5C9F255A8070}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

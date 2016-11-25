@@ -283,7 +283,7 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM MapaEN self where FROM MapaEN, Evento as ev WHERE ev.ID != -1";
+                //String sql = @"FROM MapaEN self where FROM MapaEN, EventoEN as ev WHERE ev.ID != -1";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MapaENfiltrarEventosHQL");
 

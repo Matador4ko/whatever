@@ -264,7 +264,7 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PasoEN self where FROM PasoEN, Gymkana as gym WHERE gym.ID=:id_gym";
+                //String sql = @"FROM PasoEN self where FROM PasoEN, GymkanaEN as gym WHERE gym.ID=:id_gym";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PasoENfiltrarPasosHQL");
                 query.SetParameter ("id_gym", id_gym);
