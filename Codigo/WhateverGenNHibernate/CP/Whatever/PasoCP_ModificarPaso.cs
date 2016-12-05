@@ -32,7 +32,7 @@ public void ModificarPaso (WhateverGenNHibernate.EN.Whatever.PasoEN paso, Whatev
         try
         {
                 SessionInitializeTransaction ();
-                pasoCAD = new PasoCAD (session);
+                pasoCAD = new PasoCAD (session.);
                 pasoCEN = new  PasoCEN (pasoCAD);
 
 

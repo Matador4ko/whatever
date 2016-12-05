@@ -27,6 +27,7 @@ public WhateverGenNHibernate.EN.Whatever.UsuarioEN ConsultarUsuario (int p_oid)
 
         UsuarioEN user = GetID (p_oid);
 
+
         return user;
 
         /*PROTECTED REGION END*/
