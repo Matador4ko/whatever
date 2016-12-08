@@ -32,14 +32,19 @@ public void ModificarPaso (WhateverGenNHibernate.EN.Whatever.PasoEN paso, Whatev
         try
         {
                 SessionInitializeTransaction ();
-                pasoCAD = new PasoCAD (session.);
+                pasoCAD = new PasoCAD (session);
                 pasoCEN = new  PasoCEN (pasoCAD);
 
 
                 MapaCAD map = new MapaCAD ();
 
+                MapaEN mapen = paso.Paso;
+                mapen.Latitud = mapa.Latitud;
+                mapen.Longitud = mapa.Longitud;
+                mapen.Zoom = mapa.Zoom;
+
                 pasoCAD.Modify (paso);
-                map.Modify (mapa);
+                map.Modify (mapen);
 
                 SessionCommit ();
         }

@@ -38,7 +38,6 @@ public void AnadirPaso (WhateverGenNHibernate.EN.Whatever.PasoEN paso, WhateverG
 
                 PasoCAD paso2 = new PasoCAD ();
                 MapaCAD mapa2 = new MapaCAD ();
-                int aux = -1;
                 int aux2 = -1;
 
                 paso2.New_ (paso);

@@ -38,8 +38,13 @@ public void ModificarGymkana (WhateverGenNHibernate.EN.Whatever.GymkanaEN gym, W
 
                 MapaCAD map = new MapaCAD ();
 
+                MapaEN mapen = gym.Evento_mapa[0];
+                mapen.Latitud = mapa.Latitud;
+                mapen.Longitud = mapa.Longitud;
+                mapen.Zoom = mapa.Zoom;
+
                 gymkanaCAD.Modify (gym);
-                map.Modify (mapa);
+                map.Modify (mapen);
 
 
                 SessionCommit ();
