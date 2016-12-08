@@ -3,47 +3,41 @@
     <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta charset="utf-8" />
-        <title>@ViewBag.Title - Mi aplicación ASP.NET MVC</title>
+        <title>@ViewBag.Title</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/materializecss")
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("su logotipo aquí", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+        <nav>
+            <div class="nav-wrapper">
+                <div class="class="brand-logo"">@Html.ActionLink("su logotipo aquí", "Index", "Home")</div>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>@Html.ActionLink("Eventos", "Index", "Evento")</li>
+                    <li>@Html.ActionLink("Retos", "Index", "Reto")</li>
+                    <li>@Html.ActionLink("Mapa", "Contact", "Home")</li>
+                </ul>
+            </div> 
         </header>
-        <div id="body">
+        <main class="container">
+            <section id="login">
+                @Html.Partial("_LoginPartial")
+            </section>
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
                 @RenderBody()
             </section>
         </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET MVC</p>
-                </div>
+        <footer class="page-footer">
+             <div class="container">
+                <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET MVC</p>
             </div>
         </footer>
 
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/materializecss")
         @RenderSection("scripts", required: false)
     </body>
 </html>
