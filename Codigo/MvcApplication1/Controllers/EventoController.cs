@@ -3,21 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WhateverGenNHibernate.CAD.Whatever;
+using WhateverGenNHibernate.CEN.Whatever;
+using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Controllers
 {
-    public class RetoController : BasicController
+    public class EventoController : BasicController
     {
         //
-        // GET: /Reto/
+        // GET: /Evento/
 
         public ActionResult Index()
         {
-            return View();
+            SessionInitialize();
+            EventoCAD cad = new EventoCAD();
+            var aux = cad.ReadAllDefault(0, -1).ToList();
+
+            SessionClose();
+
+            return View(aux);
         }
 
         //
-        // GET: /Reto/Details/5
+        // GET: /Evento/Details/5
 
         public ActionResult Details(int id)
         {
@@ -25,15 +34,20 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // GET: /Reto/Create
+        // GET: /Evento/Create
 
         public ActionResult Create()
         {
+            SessionInitialize();
+            RetoCAD cad = new RetoCAD();
+
+            cad.New_(en);
+            SessionClose();
             return View();
         }
 
         //
-        // POST: /Reto/Create
+        // POST: /Evento/Create
 
         [HttpPost]
         public ActionResult Create(FormCollection collection)
@@ -51,7 +65,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // GET: /Reto/Edit/5
+        // GET: /Evento/Edit/5
 
         public ActionResult Edit(int id)
         {
@@ -59,7 +73,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // POST: /Reto/Edit/5
+        // POST: /Evento/Edit/5
 
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
@@ -77,7 +91,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // GET: /Reto/Delete/5
+        // GET: /Evento/Delete/5
 
         public ActionResult Delete(int id)
         {
@@ -85,7 +99,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // POST: /Reto/Delete/5
+        // POST: /Evento/Delete/5
 
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)

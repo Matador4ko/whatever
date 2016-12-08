@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MvcApplication1.Controllers
 {
-    public class UsuarioController : Controller
+    public class UsuarioController : BasicController
     {
         //
         // GET: /Usuario/

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WhateverGenNHibernate.EN.Whatever.ReporteEN>
+﻿@model IEnumerable<WhateverGenNHibernate.EN.Whatever.PasoEN>
 
 @{
     ViewBag.Title = "Index";
@@ -13,7 +13,7 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Motivo)
+            @Html.DisplayNameFor(model => model.Descripcion)
         </th>
         <th></th>
     </tr>
@@ -21,7 +21,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Motivo)
+            @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

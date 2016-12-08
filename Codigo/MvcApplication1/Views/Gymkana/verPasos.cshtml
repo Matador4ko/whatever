@@ -1,11 +1,11 @@
-﻿@model IEnumerable<WhateverGenNHibernate.EN.Whatever.RetoEN>
+﻿@model IEnumerable<WhateverGenNHibernate.EN.Whatever.GymkanaEN>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "verPasos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>verPasos</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,19 +13,19 @@
 <table>
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.NumPasos)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Titulo)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Descripcion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Tipo)
+            @Html.DisplayNameFor(model => model.Fecha)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Precio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Imagen)
         </th>
         <th></th>
     </tr>
@@ -33,19 +33,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.NumPasos)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Titulo)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Tipo)
+            @Html.DisplayFor(modelItem => item.Fecha)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Precio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Imagen)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

@@ -189,47 +189,26 @@ namespace InitializeDB
                 comen.Comentario_reto = reten;
 
 
-
                 var debugPoint1 = usucen.GetAll(0, 0);
 
                 //registramos el nuevo usuario y vamos probando metodos
                 
                 
                 usucen.Registro(usuen);
-                IList <UsuarioEN> listU= usu.FiltrarNombreCorreo("pedro", "p@gmail.com");
-                debugPoint1 = usucen.GetAll(0, 0);
-                usucen.CambiarCorreo(listU[0].ID, "a@gmail.com");
-                debugPoint1 = usucen.GetAll(0, 0);
-                var con= usucen.CambiarContrasena(usuen.ID, "321");
-                debugPoint1 = usucen.GetAll(0, 0);
-                var foto= usucen.CambiarFoto(usuen.ID, "no");
-                debugPoint1 = usucen.GetAll(0, 0);
-                var consul= usucen.ConsultarUsuario(usuen.ID);
-                debugPoint1 = usucen.GetAll(0, 0);
-                usucen.ModificarRedesSociales("sfs", "gdfg", "sdfds", usuen.ID);
-                debugPoint1 = usucen.GetAll(0, 0);
-
-
-                var debugPoint2= evecen.GetAll(0, 0);
+                
 
                 //ADMIN
-                //usucp.HacerAdmin(1);
-                //admen = adm.GetID(1);
-                //var debugAdmin = admcen.GetAll(0, 0); 
+                usucp.HacerAdmin(usuen.ID);
+                admen = adm.GetID(usuen.ID);
+                var debugPoint3 = retcen.GetAll(0, 0);
 
                 //EVENTO
-                /*evecp.CrearEvento(even, mapen.Latitud, mapen.Longitud, mapen.Zoom);
-                
-                debugPoint2 = evecen.GetAll(0, 0);
-                evecen.Modify(1, "Mi muerte", "FUE CULPA DE MULTIMEDIA", new DateTime(2009, 6, 1, 7, 47, 0), 0);
-                debugPoint2 = evecen.GetAll(0, 0);
-                var vereven= evecen.VerEvento(1);
-                debugPoint2 = evecen.GetAll(0, 0);
-                evecen.VerEvento(1);
-                var d3 = evecen.GetID(1);
-                var dedo = evecen.VerEvento(1);*/
+                evecp.CrearEvento(even, mapen.Latitud, mapen.Longitud, mapen.Zoom);
+                debugPoint3 = retcen.GetAll(0, 0);
 
-
+                //NUEVO COMENTARIO
+                comcen.CrearComentario(comen);
+                debugPoint3 = retcen.GetAll(0, 0);
 
                 //NUEVO RETO
                 RetoEN reten2 = new RetoEN();
@@ -241,72 +220,42 @@ namespace InitializeDB
                 reten2.Usuario_reto2 = usuen;
                 //reten2.Id_mapa.Add(mapen2.Id);
 
-                
+                debugPoint3 = retcen.GetAll(0,0);
 
-                var debugPoint3 = retcen.GetAll(0,0);
                 //RETO
                 retcen.CrearReto(reten);
                 debugPoint3 = retcen.GetAll(0, 0); 
-                //retcen.ModificarReto(reten2);
-                debugPoint3 = retcen.GetAll(0, 0);
-                //BORRAR RETO
-                //retcp.BorrarReto(1);
-                debugPoint3 = retcen.GetAll(0, 0);
-                var h4 = retcen.GetID(1);
-                debugPoint3 = retcen.GetAll(0, 0);
-
-
-                //ADMIN BORRAR EVENTO Y RETO
-                //admcp.BorrarEvento(1);
-                var a5 = admcen.GetAll(0, 0);
-                debugPoint3 = retcen.GetAll(0, 0);
-                //admcp.BorrarRetos(1);
-                var b5 = admcen.GetAll(0, 0);
-                debugPoint3 = retcen.GetAll(0, 0);
-
-                var debugPoint4 = gymcen.GetAll(0, 0);
+                
+                       
                 //GYMKANA0.
-                //gymcp.CrearGymkana(gymen, mapen.Latitud, mapen.Longitud, mapen.Zoom);
-                gymcen.Modify (2, "Holanda ya se ve", "Ya se ve, ya se ve", new DateTime (2012, 6, 1, 7, 47, 0), 10, 11);
-                debugPoint4 = gymcen.GetAll(0, 0);
-                gymcen.Destroy (2);
-                debugPoint4 = gymcen.GetAll(0, 0);
-
-                //CREAR GIMKANA
-                var l6 = gymcen.GetID(2);
-                var mm = gymcen.VerPasos (2);
-
+                gymcp.CrearGymkana(gymen, mapen.Latitud, mapen.Longitud, mapen.Zoom);
+                var debugPoint4 = gymcen.GetAll(0, 0);
                 gymcp.AnadirPaso(pasen, mapen);
                 var o6 = gymcen.GetAll(0, 0);
-
-
-                //PASO
-                pascen.VerPaso(pasen.ID);
-                pascen.VerPasos(pasen.ID);
-                pascen.FiltrarPasos(gymen.ID);
-
-
-                //CREAR MAPA
-                mapcen.Modify(1, 1, 37, 12);
-                mapcen.Destroy(1);
-                //falta filtrar mapa
+                
 
                 //CREAR PUNTUACIONES
-                puntcen.VerMedia(2, -1);
-                puntcen.VerVoto(1, 2, -1);
-
-                System.Collections.Generic.IList<int> aux = null;
-                aux.Add(1);
+                puntcen.CrearPuntuacion(punten);
+                var aka = puntcen.GetID(punten.Id);
 
                 //CREAR REPORTE
-                repcp.Reportar(1, 2, -1, "Concha de tu madre");
-                repcp.Reportar(1, -1, 1, "Concha 2");
-                repcen.ConsultarReporte(1, 1, -1);
-                repcen.ConsultarReporte(1, -1, 2);
-                //repcen.Destroy (1);
+                repcp.Reportar(usuen.ID, gymen.ID, reten.ID, "Report");
+                var checkrep = repcen.GetAll(0, 0);
 
 
-                
+                //DESTROY
+                usucp.BorrarUsuario(usuen.ID);
+                admcp.BorrarEvento(admen.ID);
+                admcp.BorrarRetos(admen.ID);
+                admcp.DeshacerAdmin(admen.ID);
+                admcp.BorrarComentario(admen.ID);
+                comcen.BorrarComentario(comen.ID);
+                evecp.BorrarEvento(even.ID);
+                gymcp.BorrarGymkana(gymen.ID);
+                pascp.BorrarPaso(pasen.ID);
+                repcen.BorrarReporte(repen.ID);
+                retcp.BorrarReto(repen.ID);
+                usucp.BorrarUsuario(usuen.ID);
 
                 /*PROTECTED REGION END*/
             }

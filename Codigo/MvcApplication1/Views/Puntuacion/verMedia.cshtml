@@ -1,0 +1,23 @@
+﻿@model WhateverGenNHibernate.EN.Whatever.PuntuacionEN
+
+@{
+    ViewBag.Title = "verMedia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>verMedia</h2>
+
+<fieldset>
+    <legend>PuntuacionEN</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Puntuacion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Puntuacion)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

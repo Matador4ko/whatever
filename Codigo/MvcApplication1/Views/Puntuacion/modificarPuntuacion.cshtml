@@ -1,0 +1,39 @@
+﻿@model WhateverGenNHibernate.EN.Whatever.PuntuacionEN
+
+@{
+    ViewBag.Title = "modificarPuntuacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>modificarPuntuacion</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PuntuacionEN</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Puntuacion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Puntuacion)
+            @Html.ValidationMessageFor(model => model.Puntuacion)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

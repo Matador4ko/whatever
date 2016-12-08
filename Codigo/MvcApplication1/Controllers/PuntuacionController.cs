@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace MvcApplication1.Controllers
 {
-    public class RetoController : BasicController
+    public class PuntuacionController : BasicController
     {
         //
-        // GET: /Reto/
+        // GET: /Puntuacion/
 
         public ActionResult Index()
         {
@@ -17,7 +17,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // GET: /Reto/Details/5
+        // GET: /Puntuacion/Details/5
 
         public ActionResult Details(int id)
         {
@@ -25,7 +25,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // GET: /Reto/Create
+        // GET: /Puntuacion/Create
 
         public ActionResult Create()
         {
@@ -33,7 +33,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // POST: /Reto/Create
+        // POST: /Puntuacion/Create
 
         [HttpPost]
         public ActionResult Create(FormCollection collection)
@@ -51,7 +51,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // GET: /Reto/Edit/5
+        // GET: /Puntuacion/Edit/5
 
         public ActionResult Edit(int id)
         {
@@ -59,7 +59,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // POST: /Reto/Edit/5
+        // POST: /Puntuacion/Edit/5
 
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
@@ -77,7 +77,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // GET: /Reto/Delete/5
+        // GET: /Puntuacion/Delete/5
 
         public ActionResult Delete(int id)
         {
@@ -85,7 +85,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // POST: /Reto/Delete/5
+        // POST: /Puntuacion/Delete/5
 
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)

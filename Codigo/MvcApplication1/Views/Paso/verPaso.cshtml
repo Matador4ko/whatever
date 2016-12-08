@@ -1,0 +1,23 @@
+﻿@model WhateverGenNHibernate.EN.Whatever.PasoEN
+
+@{
+    ViewBag.Title = "verPaso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>verPaso</h2>
+
+<fieldset>
+    <legend>PasoEN</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripcion)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
