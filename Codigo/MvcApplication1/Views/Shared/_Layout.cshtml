@@ -19,8 +19,8 @@
                     <li>@Html.ActionLink("Retos", "Index", "Reto")</li>
                     <li>@Html.ActionLink("Mapa", "Contact", "Home")</li>
                 </ul>
-            </div> 
-        </header>
+            </div>
+        </nav>
         <main class="container">
             <section id="login">
                 @Html.Partial("_LoginPartial")
@@ -29,7 +29,7 @@
             <section class="content-wrapper main-content clear-fix">
                 @RenderBody()
             </section>
-        </div>
+        </main>
         <footer class="page-footer">
              <div class="container">
                 <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET MVC</p>

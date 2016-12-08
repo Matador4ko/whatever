@@ -18,7 +18,7 @@ namespace MvcApplication1
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
                         
-            bundles.Add(new ScriptBundle("~/bundles/materialize").Include(
+            bundles.Add(new ScriptBundle("~/bundles/materializecss").Include(
                         "~/Scripts/materialize.min.js"));
 
             // Utilice la versión de desarrollo de Modernizr para desarrollar y obtener información sobre los formularios. De este modo, estará
