@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WhateverGenNHibernate.CEN.Whatever;
+using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Controllers
 {
@@ -14,17 +16,9 @@ namespace MvcApplication1.Controllers
         public ActionResult Index()
         {
             return View();
+
         }
 
-        //
-        // GET: /Admin/Details/5
-
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        //
         // GET: /Admin/Create
 
         public ActionResult Create()

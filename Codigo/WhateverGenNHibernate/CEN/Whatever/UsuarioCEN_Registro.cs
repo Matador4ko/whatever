@@ -23,9 +23,7 @@ public void Registro (WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_Registro) ENABLED START*/
 
-        UsuarioCAD usucad = new UsuarioCAD ();
-
-        usucad.New_ (usuario);
+        _IUsuarioCAD.New_(usuario);
 
         /*PROTECTED REGION END*/
 }

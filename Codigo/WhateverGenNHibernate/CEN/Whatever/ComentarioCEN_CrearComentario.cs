@@ -25,9 +25,8 @@ public void CrearComentario (WhateverGenNHibernate.EN.Whatever.ComentarioEN even
 
         // Write here your custom code...
 
-        ComentarioCAD comen = new ComentarioCAD ();
+    _IComentarioCAD.New_(evento);
 
-        comen.New_ (evento);
 
         /*PROTECTED REGION END*/
 }

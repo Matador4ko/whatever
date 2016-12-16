@@ -36,7 +36,7 @@ public void HacerAdmin (int p_oid)
                 usuarioCEN = new  UsuarioCEN (usuarioCAD);
 
 
-                AdminCAD admincad = new AdminCAD ();
+                AdminCAD admincad = new AdminCAD (session);
                 UsuarioEN usuen = new UsuarioEN ();
                 AdminEN admin = new AdminEN ();
                 usuen = usuarioCAD.GetID (p_oid);

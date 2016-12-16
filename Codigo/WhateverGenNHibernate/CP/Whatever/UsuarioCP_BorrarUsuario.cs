@@ -36,14 +36,14 @@ public void BorrarUsuario (int p_oid)
                 usuarioCEN = new  UsuarioCEN (usuarioCAD);
 
 
-                UsuarioCAD usu = new UsuarioCAD ();
-                EventoCAD eve = new EventoCAD ();
+                UsuarioCAD usu = new UsuarioCAD (session);
+                EventoCAD eve = new EventoCAD (session);
                 EventoCP evec = new EventoCP ();
-                RetoCAD ret = new RetoCAD ();
+                RetoCAD ret = new RetoCAD (session);
                 RetoCP retc = new RetoCP ();
-                PuntuacionCAD pun = new PuntuacionCAD ();
-                ReporteCAD rep = new ReporteCAD ();
-                ComentarioCAD com = new ComentarioCAD ();
+                PuntuacionCAD pun = new PuntuacionCAD (session);
+                ReporteCAD rep = new ReporteCAD (session);
+                ComentarioCAD com = new ComentarioCAD (session);
 
                 System.Collections.Generic.IList<EventoEN> eventos;
                 System.Collections.Generic.IList<RetoEN> retos;

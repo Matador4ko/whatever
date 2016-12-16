@@ -25,13 +25,11 @@ public void ModificarComentario (string comentario, int id)
 
         // Write here your custom code...
 
-        ComentarioCAD comen = new ComentarioCAD ();
         ComentarioEN com = new ComentarioEN ();
 
         com = GetID (id);
         com.Texto = comentario;
-
-        comen.Modify (com);
+        _IComentarioCAD.Modify(com);
 
         /*PROTECTED REGION END*/
 }

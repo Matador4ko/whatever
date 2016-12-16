@@ -23,9 +23,7 @@ public void CrearPuntuacion (WhateverGenNHibernate.EN.Whatever.PuntuacionEN punt
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Puntuacion_crearPuntuacion) ENABLED START*/
 
-        PuntuacionCAD punt = new PuntuacionCAD ();
-
-        punt.New_ (puntuacion);
+        _IPuntuacionCAD.New_(puntuacion);
 
         /*PROTECTED REGION END*/
 }

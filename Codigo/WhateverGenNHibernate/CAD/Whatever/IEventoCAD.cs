@@ -31,5 +31,13 @@ EventoEN GetID (int ID
 
 
 System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> FiltrarPorUsuario (int ? id_usu);
+
+
+
+
+
+void AnadirMapa (int p_Evento_OID, System.Collections.Generic.IList<int> p_evento_mapa_OIDs);
+
+void EliminarMapa (int p_Evento_OID, System.Collections.Generic.IList<int> p_evento_mapa_OIDs);
 }
 }

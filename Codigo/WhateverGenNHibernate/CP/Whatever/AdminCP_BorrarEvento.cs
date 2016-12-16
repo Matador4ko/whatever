@@ -37,8 +37,8 @@ public void BorrarEvento (int p_oid)
 
 
 
-                EventoCAD evento = new EventoCAD ();
-                MapaCAD mapa = new MapaCAD ();
+                EventoCAD evento = new EventoCAD (session);
+                MapaCAD mapa = new MapaCAD (session);
 
                 System.Collections.Generic.IList<MapaEN> aux;
                 aux = mapa.FiltrarPorEvento (p_oid);

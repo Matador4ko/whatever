@@ -35,9 +35,9 @@ public void ModificarEvento (WhateverGenNHibernate.EN.Whatever.MapaEN mapa, What
                 eventoCAD = new EventoCAD (session);
                 eventoCEN = new  EventoCEN (eventoCAD);
 
-                MapaCAD map = new MapaCAD ();
+                MapaCAD map = new MapaCAD (session);
 
-                MapaEN mapen = evento.Evento_mapa[0];
+                MapaEN mapen = evento.Evento_mapa [0];
                 mapen.Latitud = mapa.Latitud;
                 mapen.Longitud = mapa.Longitud;
                 mapen.Zoom = mapa.Zoom;

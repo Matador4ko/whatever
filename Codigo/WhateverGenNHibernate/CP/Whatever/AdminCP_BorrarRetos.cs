@@ -36,7 +36,7 @@ public void BorrarRetos (int p_oid)
                 adminCEN = new  AdminCEN (adminCAD);
 
 
-                RetoCAD reto = new RetoCAD ();
+                RetoCAD reto = new RetoCAD (session);
                 reto.Destroy (p_oid);
 
 

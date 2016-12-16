@@ -35,7 +35,7 @@ public void DeshacerAdmin (int p_oid)
                 adminCAD = new AdminCAD (session);
                 adminCEN = new  AdminCEN (adminCAD);
 
-                UsuarioCAD usucad = new UsuarioCAD ();
+                UsuarioCAD usucad = new UsuarioCAD (session);
                 UsuarioEN usuen = new UsuarioEN ();
                 AdminEN admin = new AdminEN ();
                 admin = adminCAD.GetID (p_oid);

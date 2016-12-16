@@ -36,7 +36,7 @@ public void ModificarPaso (WhateverGenNHibernate.EN.Whatever.PasoEN paso, Whatev
                 pasoCEN = new  PasoCEN (pasoCAD);
 
 
-                MapaCAD map = new MapaCAD ();
+                MapaCAD map = new MapaCAD (session);
 
                 MapaEN mapen = paso.Paso;
                 mapen.Latitud = mapa.Latitud;

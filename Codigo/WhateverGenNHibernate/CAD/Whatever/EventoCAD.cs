@@ -309,5 +309,82 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Evento
 
         return result;
 }
+public void AnadirMapa (int p_Evento_OID, System.Collections.Generic.IList<int> p_evento_mapa_OIDs)
+{
+        WhateverGenNHibernate.EN.Whatever.EventoEN eventoEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                eventoEN = (EventoEN)session.Load (typeof(EventoEN), p_Evento_OID);
+                WhateverGenNHibernate.EN.Whatever.MapaEN evento_mapaENAux = null;
+                if (eventoEN.Evento_mapa == null) {
+                        eventoEN.Evento_mapa = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.MapaEN>();
+                }
+
+                foreach (int item in p_evento_mapa_OIDs) {
+                        evento_mapaENAux = new WhateverGenNHibernate.EN.Whatever.MapaEN ();
+                        evento_mapaENAux = (WhateverGenNHibernate.EN.Whatever.MapaEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.MapaEN), item);
+                        evento_mapaENAux.Evento_mapa2 = eventoEN;
+
+                        eventoEN.Evento_mapa.Add (evento_mapaENAux);
+                }
+
+
+                session.Update (eventoEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in EventoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void EliminarMapa (int p_Evento_OID, System.Collections.Generic.IList<int> p_evento_mapa_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                WhateverGenNHibernate.EN.Whatever.EventoEN eventoEN = null;
+                eventoEN = (EventoEN)session.Load (typeof(EventoEN), p_Evento_OID);
+
+                WhateverGenNHibernate.EN.Whatever.MapaEN evento_mapaENAux = null;
+                if (eventoEN.Evento_mapa != null) {
+                        foreach (int item in p_evento_mapa_OIDs) {
+                                evento_mapaENAux = (WhateverGenNHibernate.EN.Whatever.MapaEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.MapaEN), item);
+                                if (eventoEN.Evento_mapa.Contains (evento_mapaENAux) == true) {
+                                        eventoEN.Evento_mapa.Remove (evento_mapaENAux);
+                                        evento_mapaENAux.Evento_mapa2 = null;
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_evento_mapa_OIDs you are trying to unrelationer, doesn't exist in EventoEN");
+                        }
+                }
+
+                session.Update (eventoEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in EventoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 }
 }

@@ -25,9 +25,7 @@ public void ModificarReto (WhateverGenNHibernate.EN.Whatever.RetoEN reto)
 
         // Write here your custom code...
 
-        RetoCAD ret = new RetoCAD ();
-
-        ret.Modify (reto);
+        _IRetoCAD.Modify(reto);
 
         /*PROTECTED REGION END*/
 }

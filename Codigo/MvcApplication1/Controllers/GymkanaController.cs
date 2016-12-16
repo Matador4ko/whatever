@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WhateverGenNHibernate.CAD.Whatever;
+using WhateverGenNHibernate.CEN.Whatever;
+using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Controllers
 {
@@ -13,6 +16,11 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Index()
         {
+            SessionInitialize();
+            GymkanaCEN gymcen = new GymkanaCEN();
+            IEnumerable<GymkanaEN> list = gymcen.GetAll(0, -1).ToList();
+            SessionClose();
+
             return View();
         }
 
@@ -29,6 +37,11 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Create()
         {
+            SessionInitialize();
+            GymkanaCAD gym = new GymkanaCAD();
+            GymkanaEN gymen = new GymkanaEN();
+            gym.New_(gymen);
+            SessionClose();
             return View();
         }
 

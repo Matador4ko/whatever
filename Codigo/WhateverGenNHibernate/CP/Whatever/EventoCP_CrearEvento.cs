@@ -37,18 +37,20 @@ public void CrearEvento (WhateverGenNHibernate.EN.Whatever.EventoEN evento, doub
 
 
 
-                MapaCAD mapa = new MapaCAD ();
+                MapaCAD mapa = new MapaCAD (session);
                 MapaEN map = new MapaEN ();
-
-                eventoCAD.New_ (evento);
+                int id = eventoCAD.New_ (evento);
+                //  int id2=eventoCAD.New_ (evento);
+                // id= evento.ID = 1;
                 map.Latitud = lat;
                 map.Longitud = long_;
                 map.Zoom = zoom;
                 map.Evento_mapa2 = evento;
-
-
-                mapa.New_ (map);
-
+                //map.Evento_mapa2.ID = id;
+                int idmapa = mapa.New_ (map);
+                System.Collections.Generic.IList<int> listamapa=new System.Collections.Generic.List<int>();
+                listamapa.Add(idmapa);
+                eventoCAD.AnadirMapa(id,listamapa);
                 SessionCommit ();
         }
         catch (Exception ex)

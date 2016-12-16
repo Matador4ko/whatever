@@ -11,19 +11,21 @@ using WhateverGenNHibernate.EN.Whatever;
 using WhateverGenNHibernate.CAD.Whatever;
 
 
-/*PROTECTED REGION ID(usingWhateverGenNHibernate.CEN.Whatever_Puntuacion_modificarPuntuacion) ENABLED START*/
+/*PROTECTED REGION ID(usingWhateverGenNHibernate.CEN.Whatever_Admin_borrarComentario) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
 namespace WhateverGenNHibernate.CEN.Whatever
 {
-public partial class PuntuacionCEN
+public partial class AdminCEN
 {
-public void ModificarPuntuacion (WhateverGenNHibernate.EN.Whatever.PuntuacionEN punto)
+public void BorrarComentario (int p_oid)
 {
-        /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Puntuacion_modificarPuntuacion) ENABLED START*/
+        /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Admin_borrarComentario) ENABLED START*/
 
-        _IPuntuacionCAD.Modify(punto);
+        // Write here your custom code...
+
+        throw new NotImplementedException ("Method BorrarComentario() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

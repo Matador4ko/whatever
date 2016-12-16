@@ -35,9 +35,9 @@ public void BorrarEvento (int p_oid)
                 eventoCAD = new EventoCAD (session);
                 eventoCEN = new  EventoCEN (eventoCAD);
 
-                MapaCAD mapa = new MapaCAD ();
-                PuntuacionCAD punt = new PuntuacionCAD ();
-                ReporteCAD rep = new ReporteCAD ();
+                MapaCAD mapa = new MapaCAD (session);
+                PuntuacionCAD punt = new PuntuacionCAD (session);
+                ReporteCAD rep = new ReporteCAD (session);
 
                 System.Collections.Generic.IList<MapaEN> mapas;
                 System.Collections.Generic.IList<PuntuacionEN> puntos;

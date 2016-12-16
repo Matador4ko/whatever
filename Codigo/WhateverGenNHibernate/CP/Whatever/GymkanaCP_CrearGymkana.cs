@@ -36,7 +36,7 @@ public void CrearGymkana (WhateverGenNHibernate.EN.Whatever.GymkanaEN gym, doubl
                 gymkanaCEN = new  GymkanaCEN (gymkanaCAD);
 
 
-                MapaCAD mapa = new MapaCAD ();
+                MapaCAD mapa = new MapaCAD (session);
                 MapaEN map = new MapaEN ();
 
                 map.Latitud = lat;

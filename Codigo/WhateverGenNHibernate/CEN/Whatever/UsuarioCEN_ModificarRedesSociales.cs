@@ -25,15 +25,12 @@ public void ModificarRedesSociales (string insta, string facebook, string twitte
 
         // Write here your custom code...
 
-        UsuarioCAD usu = new UsuarioCAD ();
         UsuarioEN usuen = new UsuarioEN ();
-
-        usuen = usu.GetID (id_usuario);
+        _IUsuarioCAD.GetID(id_usuario);
         usuen.Facebook = facebook;
         usuen.Twitter = twitter;
         usuen.Instagram = insta;
-
-        usu.Modify (usuen);
+        _IUsuarioCAD.Modify(usuen);
 
         /*PROTECTED REGION END*/
 }

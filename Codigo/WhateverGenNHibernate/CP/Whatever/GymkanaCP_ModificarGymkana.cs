@@ -36,9 +36,9 @@ public void ModificarGymkana (WhateverGenNHibernate.EN.Whatever.GymkanaEN gym, W
                 gymkanaCEN = new  GymkanaCEN (gymkanaCAD);
 
 
-                MapaCAD map = new MapaCAD ();
+                MapaCAD map = new MapaCAD (session);
 
-                MapaEN mapen = gym.Evento_mapa[0];
+                MapaEN mapen = gym.Evento_mapa [0];
                 mapen.Latitud = mapa.Latitud;
                 mapen.Longitud = mapa.Longitud;
                 mapen.Zoom = mapa.Zoom;

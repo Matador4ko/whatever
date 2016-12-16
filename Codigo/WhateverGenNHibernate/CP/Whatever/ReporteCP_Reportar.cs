@@ -38,8 +38,9 @@ public void Reportar (int id_usuario, int id_gym, int id_reto, string motivo)
 
 
                 ReporteEN repor = new ReporteEN ();
-                ReporteCAD reporcad = new ReporteCAD ();
-                AdminCEN admincen = new AdminCEN ();
+                ReporteCAD reporcad = new ReporteCAD (session);
+                AdminCAD admincad = new AdminCAD(session);
+                AdminCEN admincen = new AdminCEN (admincad);
 
                 System.Collections.Generic.IList<AdminEN> admin = null;
                 System.Collections.Generic.IList<AdminEN> numadmins = null;

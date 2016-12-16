@@ -29,8 +29,16 @@ namespace MvcApplication1.Controllers
         // GET: /Evento/Details/5
 
         public ActionResult Details(int id)
-        {
-            return View();
+        {   
+            SessionInitialize();
+            EventoCEN evcen = new EventoCEN();
+            EventoEN even = new EventoEN();
+            EventoEN even2 = new EventoEN();
+
+            even = new EventoCAD(session).ReadOIDDefault(id);
+            even2 = evcen.VerEvento(even.ID);
+            SessionClose();
+            return View(even2);
         }
 
         //
@@ -39,9 +47,9 @@ namespace MvcApplication1.Controllers
         public ActionResult Create()
         {
             SessionInitialize();
-            RetoCAD cad = new RetoCAD();
-
-            cad.New_(en);
+            EventoCAD eve = new EventoCAD();
+            EventoEN even = new EventoEN();
+            eve.New_(even);
             SessionClose();
             return View();
         }

@@ -36,10 +36,10 @@ public void BorrarGymkana (int p_oid)
                 gymkanaCEN = new  GymkanaCEN (gymkanaCAD);
 
 
-                MapaCAD mapa = new MapaCAD ();
-                PuntuacionCAD punt = new PuntuacionCAD ();
-                ReporteCAD rep = new ReporteCAD ();
-                PasoCAD pas = new PasoCAD ();
+                MapaCAD mapa = new MapaCAD (session);
+                PuntuacionCAD punt = new PuntuacionCAD (session);
+                ReporteCAD rep = new ReporteCAD (session);
+                PasoCAD pas = new PasoCAD (session);
 
                 System.Collections.Generic.IList<MapaEN> mapas;
                 System.Collections.Generic.IList<PuntuacionEN> puntos;

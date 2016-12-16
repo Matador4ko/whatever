@@ -36,8 +36,8 @@ public void BorrarReto (int p_oid)
                 retoCEN = new  RetoCEN (retoCAD);
 
 
-                PuntuacionCAD punt = new PuntuacionCAD ();
-                ReporteCAD rep = new ReporteCAD ();
+                PuntuacionCAD punt = new PuntuacionCAD (session);
+                ReporteCAD rep = new ReporteCAD (session);
 
                 System.Collections.Generic.IList<PuntuacionEN> puntos;
                 System.Collections.Generic.IList<ReporteEN> reportes;

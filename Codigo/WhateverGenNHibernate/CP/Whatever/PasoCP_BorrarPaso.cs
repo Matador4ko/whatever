@@ -35,7 +35,7 @@ public void BorrarPaso (int p_oid)
                 pasoCAD = new PasoCAD (session);
                 pasoCEN = new  PasoCEN (pasoCAD);
 
-                MapaCAD mapa = new MapaCAD ();
+                MapaCAD mapa = new MapaCAD (session);
 
                 System.Collections.Generic.IList<MapaEN> mapas;
                 pasoCAD.Destroy (p_oid);

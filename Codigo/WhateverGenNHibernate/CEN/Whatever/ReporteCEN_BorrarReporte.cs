@@ -25,9 +25,7 @@ public void BorrarReporte (int p_oid)
 
         // Write here your custom code...
 
-        ReporteCAD repor = new ReporteCAD ();
-
-        repor.Destroy (p_oid);
+        Destroy (p_oid);
 
         /*PROTECTED REGION END*/
 }
