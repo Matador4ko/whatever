@@ -14,141 +14,153 @@ using WhateverGenNHibernate.CP.Whatever;
 /*PROTECTED REGION END*/
 namespace InitializeDB
 {
-public class CreateDB
-{
-public static void Create (string databaseArg, string userArg, string passArg)
-{
-        String database = databaseArg;
-        String user = userArg;
-        String pass = passArg;
-
-        // Conex DB
-        SqlConnection cnn = new SqlConnection (@"Server=(local)\sqlexpress; database=master; integrated security=yes");
-
-        // Order T-SQL create user
-        String createUser = @"IF NOT EXISTS(SELECT name FROM master.dbo.syslogins WHERE name = '" + user + @"')
-            BEGIN
-                CREATE LOGIN ["                                                                                                                                     + user + @"] WITH PASSWORD=N'" + pass + @"', DEFAULT_DATABASE=[master], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
-            END"                                                                                                                                                                                                                                                                                    ;
-
-        //Order delete user if exist
-        String deleteDataBase = @"if exists(select * from sys.databases where name = '" + database + "') DROP DATABASE [" + database + "]";
-        //Order create databas
-        string createBD = "CREATE DATABASE " + database;
-        //Order associate user with database
-        String associatedUser = @"USE [" + database + "];CREATE USER [" + user + "] FOR LOGIN [" + user + "];USE [" + database + "];EXEC sp_addrolemember N'db_owner', N'" + user + "'";
-        SqlCommand cmd = null;
-
-        try
+    public class CreateDB
+    {
+        public static void Create(string databaseArg, string userArg, string passArg)
         {
+            String database = databaseArg;
+            String user = userArg;
+            String pass = passArg;
+
+            // Conex DB
+            SqlConnection cnn = new SqlConnection(@"Server=(local)\sqlexpress; database=master; integrated security=yes");
+
+            // Order T-SQL create user
+            String createUser = @"IF NOT EXISTS(SELECT name FROM master.dbo.syslogins WHERE name = '" + user + @"')
+            BEGIN
+                CREATE LOGIN [" + user + @"] WITH PASSWORD=N'" + pass + @"', DEFAULT_DATABASE=[master], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+            END";
+
+            //Order delete user if exist
+            String deleteDataBase = @"if exists(select * from sys.databases where name = '" + database + "') DROP DATABASE [" + database + "]";
+            //Order create databas
+            string createBD = "CREATE DATABASE " + database;
+            //Order associate user with database
+            String associatedUser = @"USE [" + database + "];CREATE USER [" + user + "] FOR LOGIN [" + user + "];USE [" + database + "];EXEC sp_addrolemember N'db_owner', N'" + user + "'";
+            SqlCommand cmd = null;
+
+            try
+            {
                 // Open conex
-                cnn.Open ();
+                cnn.Open();
 
                 //Create user in SQLSERVER
-                cmd = new SqlCommand (createUser, cnn);
-                cmd.ExecuteNonQuery ();
+                cmd = new SqlCommand(createUser, cnn);
+                cmd.ExecuteNonQuery();
 
                 //DELETE database if exist
-                cmd = new SqlCommand (deleteDataBase, cnn);
-                cmd.ExecuteNonQuery ();
+                cmd = new SqlCommand(deleteDataBase, cnn);
+                cmd.ExecuteNonQuery();
 
                 //CREATE DB
-                cmd = new SqlCommand (createBD, cnn);
-                cmd.ExecuteNonQuery ();
+                cmd = new SqlCommand(createBD, cnn);
+                cmd.ExecuteNonQuery();
 
                 //Associate user with db
-                cmd = new SqlCommand (associatedUser, cnn);
-                cmd.ExecuteNonQuery ();
+                cmd = new SqlCommand(associatedUser, cnn);
+                cmd.ExecuteNonQuery();
 
-                System.Console.WriteLine ("DataBase create sucessfully..");
-        }
-        catch (Exception ex)
-        {
+                System.Console.WriteLine("DataBase create sucessfully..");
+            }
+            catch (Exception ex)
+            {
                 throw ex;
-        }
-        finally
-        {
-                if (cnn.State == ConnectionState.Open) {
-                        cnn.Close ();
+            }
+            finally
+            {
+                if (cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
                 }
+            }
         }
-}
 
-public static void InitializeData ()
-{
-        /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
-        try
+        public static void InitializeData()
         {
+            /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
+            try
+            {
                 // Insert the initilizations of entities using the CEN classes
-                UsuarioCAD usu = new UsuarioCAD ();
-                UsuarioCEN usucen = new UsuarioCEN (usu);
-                UsuarioEN usuen = new UsuarioEN ();
-                UsuarioCP usucp = new UsuarioCP ();
+                UsuarioCAD usu = new UsuarioCAD();
+                UsuarioCEN usucen = new UsuarioCEN(usu);
+                UsuarioEN usuen = new UsuarioEN();
+                UsuarioCP usucp = new UsuarioCP();
 
-                AdminCAD adm = new AdminCAD ();
-                AdminCEN admcen = new AdminCEN (adm);
-                AdminEN admen = new AdminEN ();
-                AdminCP admcp = new AdminCP ();
+                UsuarioCAD usu2 = new UsuarioCAD();
+                UsuarioCEN usucen2 = new UsuarioCEN(usu2);
+                UsuarioEN usuen2 = new UsuarioEN();
+                UsuarioCP usucp2 = new UsuarioCP();
 
-                EventoCAD eve = new EventoCAD ();
-                EventoCEN evecen = new EventoCEN (eve);
-                EventoEN even = new EventoEN ();
-                EventoCP evecp = new EventoCP ();
+                AdminCAD adm = new AdminCAD();
+                AdminCEN admcen = new AdminCEN(adm);
+                AdminEN admen = new AdminEN();
+                AdminCP admcp = new AdminCP();
 
-                RetoCAD ret = new RetoCAD ();
-                RetoCEN retcen = new RetoCEN (ret);
-                RetoEN reten = new RetoEN ();
-                RetoCP retcp = new RetoCP ();
+                EventoCAD eve = new EventoCAD();
+                EventoCEN evecen = new EventoCEN(eve);
+                EventoEN even = new EventoEN();
+                EventoCP evecp = new EventoCP();
 
-                ReporteCAD rep = new ReporteCAD ();
-                ReporteCEN repcen = new ReporteCEN (rep);
-                ReporteEN repen = new ReporteEN ();
-                ReporteCP repcp = new ReporteCP ();
+                RetoCAD ret = new RetoCAD();
+                RetoCEN retcen = new RetoCEN(ret);
+                RetoEN reten = new RetoEN();
+                RetoCP retcp = new RetoCP();
 
-                MapaCAD map = new MapaCAD ();
-                MapaCEN mapcen = new MapaCEN (map);
-                MapaEN mapen = new MapaEN ();
-                MapaCP mapcp = new MapaCP ();
+                ReporteCAD rep = new ReporteCAD();
+                ReporteCEN repcen = new ReporteCEN(rep);
+                ReporteEN repen = new ReporteEN();
+                ReporteCP repcp = new ReporteCP();
 
-                MapaCAD map2 = new MapaCAD ();
-                MapaCEN mapcen2 = new MapaCEN (map);
-                MapaEN mapen2 = new MapaEN ();
-                MapaCP mapcp2 = new MapaCP ();
+                MapaCAD map = new MapaCAD();
+                MapaCEN mapcen = new MapaCEN(map);
+                MapaEN mapen = new MapaEN();
+                MapaCP mapcp = new MapaCP();
 
-                MapaCAD map3 = new MapaCAD ();
-                MapaCEN mapcen3 = new MapaCEN (map);
-                MapaEN mapen3 = new MapaEN ();
-                MapaCP mapcp3 = new MapaCP ();
+                MapaCAD map2 = new MapaCAD();
+                MapaCEN mapcen2 = new MapaCEN(map);
+                MapaEN mapen2 = new MapaEN();
+                MapaCP mapcp2 = new MapaCP();
 
-                PuntuacionCAD punt = new PuntuacionCAD ();
-                PuntuacionCEN puntcen = new PuntuacionCEN (punt);
-                PuntuacionEN punten = new PuntuacionEN ();
-                PuntuacionCP puntcp = new PuntuacionCP ();
+                MapaCAD map3 = new MapaCAD();
+                MapaCEN mapcen3 = new MapaCEN(map);
+                MapaEN mapen3 = new MapaEN();
+                MapaCP mapcp3 = new MapaCP();
 
-                PuntuacionCAD punt2 = new PuntuacionCAD ();
-                PuntuacionCEN puntcen2 = new PuntuacionCEN (punt);
-                PuntuacionEN punten2 = new PuntuacionEN ();
-                PuntuacionCP puntcp2 = new PuntuacionCP ();
+                PuntuacionCAD punt = new PuntuacionCAD();
+                PuntuacionCEN puntcen = new PuntuacionCEN(punt);
+                PuntuacionEN punten = new PuntuacionEN();
+                PuntuacionCP puntcp = new PuntuacionCP();
 
-                PasoCAD pas = new PasoCAD ();
-                PasoCEN pascen = new PasoCEN (pas);
-                PasoEN pasen = new PasoEN ();
-                PasoCP pascp = new PasoCP ();
+                PuntuacionCAD punt2 = new PuntuacionCAD();
+                PuntuacionCEN puntcen2 = new PuntuacionCEN(punt);
+                PuntuacionEN punten2 = new PuntuacionEN();
+                PuntuacionCP puntcp2 = new PuntuacionCP();
 
-                ComentarioCAD com = new ComentarioCAD ();
-                ComentarioCEN comcen = new ComentarioCEN (com);
-                ComentarioEN comen = new ComentarioEN ();
-                ComentarioCP comcp = new ComentarioCP ();
+                PasoCAD pas = new PasoCAD();
+                PasoCEN pascen = new PasoCEN(pas);
+                PasoEN pasen = new PasoEN();
+                PasoCP pascp = new PasoCP();
 
-                ComentarioCAD com2 = new ComentarioCAD ();
-                ComentarioCEN comcen2 = new ComentarioCEN (com);
-                ComentarioEN comen2 = new ComentarioEN ();
-                ComentarioCP comcp2 = new ComentarioCP ();
+                ComentarioCAD com = new ComentarioCAD();
+                ComentarioCEN comcen = new ComentarioCEN(com);
+                ComentarioEN comen = new ComentarioEN();
+                ComentarioCP comcp = new ComentarioCP();
 
-                GymkanaCAD gym = new GymkanaCAD ();
-                GymkanaCEN gymcen = new GymkanaCEN (gym);
-                GymkanaEN gymen = new GymkanaEN ();
-                GymkanaCP gymcp = new GymkanaCP ();
+                ComentarioCAD com2 = new ComentarioCAD();
+                ComentarioCEN comcen2 = new ComentarioCEN(com);
+                ComentarioEN comen2 = new ComentarioEN();
+                ComentarioCP comcp2 = new ComentarioCP();
+
+                ComentarioCAD com3 = new ComentarioCAD();
+                ComentarioCEN comcen3 = new ComentarioCEN(com);
+                ComentarioEN comen3 = new ComentarioEN();
+                ComentarioCP comcp3 = new ComentarioCP();
+
+
+                GymkanaCAD gym = new GymkanaCAD();
+                GymkanaCEN gymcen = new GymkanaCEN(gym);
+                GymkanaEN gymen = new GymkanaEN();
+                GymkanaCP gymcp = new GymkanaCP();
 
 
 
@@ -165,24 +177,24 @@ public static void InitializeData ()
 
                 usucen.Registro(usuen);
 
-                //creamos el mapa de un evento
-                mapen.Latitud = 150.38678385887277;
-                mapen.Longitud = -30.5114087462425232;
-                mapen.Zoom = 15;
-                mapen.Evento_mapa2 = even;
 
 
+                //insertamos valores en el usuarioEN
+                usuen2.Nombre = "Javier";
+                usuen2.Edad = 10;
+                usuen2.Sexo = "Hombre";
+                usuen2.Facebook = "face";
+                usuen2.Instagram = "insta";
+                usuen2.Twitter = "twitter";
+                usuen2.Contrasena = "123";
+                usuen2.Email = "ja5@gmail.com";
+                usuen2.Foto = "si";
 
-                //creamos el mapa de un reto
-                mapen2.Latitud = 38.5;
-                mapen2.Longitud = -0.5;
-                mapen2.Zoom = 20;
+                usucen2.Registro(usuen2);
 
 
-                //creamos el mapa de un paso
-                mapen3.Latitud = 39.5;
-                mapen3.Longitud = -1.5;
-                mapen3.Zoom = 16;
+                //creamos admin
+//                usucp2.HacerAdmin(usuen2.ID);
 
 
                 //creamos el evento
@@ -192,21 +204,7 @@ public static void InitializeData ()
                 even.Precio = 0;
                 even.Fecha = new DateTime(2008, 5, 1, 8, 30, 52);
 
-
-            //creamos gymkana
-                gymen.Titulo = "quedada para ruta de la tapa";
-                gymen.Descripcion = "la idea es ir un grupo grande de gente de bar en bar";
-                gymen.Usuario_evento = usuen;
-                gymen.Precio = 0;
-                gymen.Fecha = new DateTime(2008, 5, 1, 8, 30, 52);
-                gymen.NumPasos = 5;
-                gymcp.CrearGymkana(gymen, mapen.Latitud, mapen.Longitud, mapen.Zoom);
-
-            //creamos paso
-                pasen.Descripcion = "paso hola";
-                pasen.Gymkana_paso2 = gymen;
-                pasen.Paso = mapen3;
-                gymcp.AnadirPaso(pasen, mapen, gymen);
+                evecp.CrearEvento(even, 27, 28, 8);
 
 
                 //creamos un reto
@@ -220,16 +218,29 @@ public static void InitializeData ()
                 retcen.CrearReto(reten);
 
 
+                //creamos gymkana
+                gymen.Titulo = "quedada para ruta de la tapa";
+                gymen.Descripcion = "la idea es ir un grupo grande de gente de bar en bar";
+                gymen.Usuario_evento = usuen;
+                gymen.Precio = 0;
+                gymen.Fecha = new DateTime(2008, 5, 1, 8, 30, 52);
+                gymen.NumPasos = 5;
+
+                gymcp.CrearGymkana(gymen, 27, 29, 8);
+
+
                 //creamos los comentarios
                 comen.Creador = usuen.Nombre;
-                comen.Texto = "pos ta wapo el evento";
+                comen.Texto = "pos ta wapo el reto";
                 comen.Comentario_reto = reten;
+                comen.Comentario_usuario = usuen;
 
                 comcen.CrearComentario(comen);
 
                 comen2.Creador = usuen.Nombre;
                 comen2.Texto = "pos ta wapo el evento";
                 comen2.Comentario_evento2 = even;
+                comen2.Comentario_usuario = usuen;
 
                 comcen2.CrearComentario(comen2);
 
@@ -238,218 +249,209 @@ public static void InitializeData ()
                 punten.Evento_puntuacion = even;
                 punten.Puntuacion = 5;
                 punten.Usuario_puntuacion2 = usuen;
-                punten.Evento_puntuacion = even;
-            punten.
+                puntcen.CrearPuntuacion(punten);
 
-                punten2.Evento_puntuacion = even;
-                punten2.Puntuacion = 5;
+                punten2.Reto_puntuacion = reten;
+                punten2.Puntuacion = 6;
                 punten2.Usuario_puntuacion2 = usuen;
+                puntcen2.CrearPuntuacion(punten2);
 
 
-
-                var debugPoint = usucen.GetAll (0, 0);
-                var debugPoint2 = comcen.GetAll (0, 0);
-                var debugPoint3 = comcen2.GetAll (0, 0);
-                var debugPoint4 = evecen.GetAll (0, 0);
-                var debugPoint5 = gymcen.GetAll (0, 0);
-                var debugPoint6 = mapcen.GetAll (0, 0);
-                var debugPoint7 = pascen.GetAll (0, 0);
-                var debugPoint8 = puntcen.GetID (punten.Id);
-                var debugPoint9 = puntcen2.GetID (punten2.Id);
-                var debugPoint10 = retcen.GetAll (0, 0);
-                var debugPoint11 = admcen.GetAll (0, 0);
-
-
-
-                //////////////////////CREATES//////////////////////
-
-                //USUARIO
-
-                //ADMIN
-              /*  usucp.HacerAdmin (usuen.ID);
-                admen = adm.GetID (usuen.ID);
-                debugPoint11 = admcen.GetAll (0, 0);*/
-
-                //EVENTO
-                evecp.CrearEvento (even, mapen.Latitud, mapen.Longitud, mapen.Zoom);
-                debugPoint4 = evecen.GetAll (0, 0);
-
-                //NUEVO COMENTARIO
-            
-                 debugPoint2 = comcen.GetAll (0, 0);
-                 debugPoint3 = comcen.GetAll (0, 0);
-
-                //RETO
-                debugPoint10 = retcen.GetAll (0, 0);
+                //creamos un reporte
+                /*repen.Motivo = "Porque si";
+                repen.Reporte_reto2 = reten;
+                repen.Usuario_reporte = usuen;
+                repen.Admin_reporte=;*/
+                repcp.Reportar(usuen.ID,even.ID,-1,"porque si");
+                /*repen.Motivo = "Porque no";
+                System.Collections.Generic.IList<ReporteEN> listareporte = new System.Collections.Generic.List<ReporteEN>();
+                listareporte.Add(repen);
+                even.Reporte_evento2 = listareporte;
+                repen.Usuario_reporte = usuen;*/
+                repcp.Reportar(usuen.ID, -1, reten.ID, "porque no");
 
 
-                //GYMKANA
-                debugPoint5 = gymcen.GetAll (0, 0);
-                debugPoint7 = pascen.GetAll (0, 0);
+                //creamos el mapa de un paso
+                mapen3.Latitud = 39.5;
+                mapen3.Longitud = -1.5;
+                mapen3.Zoom = 16;
 
 
-                //CREAR PUNTUACIONES
-                puntcen.CrearPuntuacion (punten);
-                var aka = puntcen.GetID (punten.Id);
+                //creamos paso
+                pasen.Descripcion = "paso hola";
+                pasen.Gymkana_paso2 = gymen;
+                pasen.Paso = mapen3;
+                gymcp.AnadirPaso(pasen, mapen3, gymen);
 
-                //CREAR REPORTE
-                repcp.Reportar (usuen.ID, gymen.ID, reten.ID, "Report");
-                var checkrep = repcen.GetAll (0, 0);
+        
 
 
+                var debugPoint = usucen.GetAll(0, 0);
+                var debugPoint2 = comcen.GetAll(0, 0);
+                var debugPoint3 = comcen2.GetAll(0, 0);
+                var debugPoint4 = evecen.GetAll(0, 0);
+                var debugPoint5 = gymcen.GetAll(0, 0);
+                var debugPoint6 = mapcen.GetAll(0, 0);
+                var debugPoint7 = pascen.GetAll(0, 0);
+                var debugPoint8 = puntcen.GetID(punten.Id);
+                var debugPoint9 = puntcen2.GetID(punten2.Id);
+                var debugPoint10 = retcen.GetAll(0, 0);
+                var debugPoint11 = admcen.GetAll(0, 0);
 
                 ///////////////////////CUSTOM//////////////////////
 
                 //USUARIO
-                var debugPoint15 = usucen.RecuperarContasena (usuen.Email, usuen.Nombre);
+                var debugPoint15 = usucen.RecuperarContasena(usuen.Email, usuen.Nombre);
 
                 //EVENTO
-                evecen.VerEvento (even.ID);
-                var debugPoint16 = evecen.GetID (even.ID);
+                evecen.VerEvento(even.ID);
+                var debugPoint16 = evecen.GetID(even.ID);
 
                 //PASO
-                var debugPoint12 = pascen.GetAll (0, 0);
-                for (int i = 0; i < debugPoint12.Count; i++) {
-                        pascen.VerPaso (i);
+                var debugPoint12 = pascen.GetAll(0, 0);
+                for (int i = 0; i < debugPoint12.Count; i++)
+                {
+                    pascen.VerPaso(i);
                 }
-                pascen.VerPasos (gymen.ID);
+                pascen.VerPasos(gymen.ID);
 
 
                 //GYMKANA.
-                var debugPoint13 = gymcen.VerPasos (gymen.ID);
+                var debugPoint13 = gymcen.VerPasos(gymen.ID);
 
                 //PUNTUACIONES
-                puntcen.VerMedia (gymen.ID, -1);
-                puntcen.VerMedia (-1, reten.ID);
-                puntcen.VerVoto (usuen.ID, gymen.ID, -1);
-                puntcen.VerVoto (usuen.ID, -1, reten.ID);
+                puntcen.VerMedia(gymen.ID, -1);
+                puntcen.VerMedia(-1, reten.ID);
+                puntcen.VerVoto(usuen.ID, gymen.ID, -1);
+                puntcen.VerVoto(usuen.ID, -1, reten.ID);
 
                 //REPORTE
-                repcen.ConsultarReporte (usuen.ID, reten.ID, -1);
-                repcen.ConsultarReporte (usuen.ID, -1, gymen.ID);
+                repcen.ConsultarReporte(usuen.ID, reten.ID, -1);
+                repcen.ConsultarReporte(usuen.ID, -1, gymen.ID);
 
 
                 //////////////////////MODIFY//////////////////////
                 //Usuario
-                usucen.CambiarContrasena (usuen.ID, "456");
-                debugPoint = usucen.GetAll (0, 0);
-                usucen.CambiarCorreo (usuen.ID, "hola@gmail.com");
-                debugPoint = usucen.GetAll (0, 0);
-                usucen.CambiarFoto (usuen.ID, "Foto2");
-                debugPoint = usucen.GetAll (0, 0);
-                usucen.ModificarRedesSociales ("insta2", "face2", "twitter2", usuen.ID);
-                debugPoint = usucen.GetAll (0, 0);
+                usucen.CambiarContrasena(usuen.ID, "456");
+                debugPoint = usucen.GetAll(0, 0);
+                usucen.CambiarCorreo(usuen.ID, "hola@gmail.com");
+                debugPoint = usucen.GetAll(0, 0);
+                usucen.CambiarFoto(usuen.ID, "Foto2");
+                debugPoint = usucen.GetAll(0, 0);
+                usucen.ModificarRedesSociales("insta2", "face2", "twitter2", usuen.ID);
+                debugPoint = usucen.GetAll(0, 0);
 
 
                 //COMENTARIO
-                comcen.ModificarComentario ("MOTIVO NUEVO", comen.ID);
-                debugPoint2 = comcen.GetAll (0, 0);
-                comcen2.ModificarComentario ("MOTIVO NUEVO 2", comen.ID);
-                debugPoint3 = comcen2.GetAll (0, 0);
+                comcen.ModificarComentario("MOTIVO NUEVO", comen.ID);
+                debugPoint2 = comcen.GetAll(0, 0);
+                comcen2.ModificarComentario("MOTIVO NUEVO 2", comen.ID);
+                debugPoint3 = comcen2.GetAll(0, 0);
 
 
                 //EVENTO
                 even.Descripcion = "Nueva descripcion evento";
-                evecp.ModificarEvento (mapen, even);
-                debugPoint4 = evecen.GetAll (0, 0);
+                evecp.ModificarEvento(mapen, even);
+                debugPoint4 = evecen.GetAll(0, 0);
 
 
                 //GYMKANA
                 gymen.Descripcion = "Nueva descripcion gymkana";
-                gymcp.ModificarGymkana (gymen, mapen);
-                debugPoint5 = gymcen.GetAll (0, 0);
+                gymcp.ModificarGymkana(gymen, mapen);
+                debugPoint5 = gymcen.GetAll(0, 0);
 
 
                 //MAPA
-                mapcen.FiltrarMapa (40, -1, 10);
-                debugPoint6 = mapcen.GetAll (0, 0);
+                mapcen.FiltrarMapa(40, -1, 10);
+                debugPoint6 = mapcen.GetAll(0, 0);
 
 
                 //PASO
                 pasen.Descripcion = "Nueva Descripcion Paso";
-                pascp.ModificarPaso (pasen, mapen3);
-                debugPoint7 = pascen.GetAll (0, 0);
+                pascp.ModificarPaso(pasen, mapen3);
+                debugPoint7 = pascen.GetAll(0, 0);
 
 
                 //PUNTUACION
                 punten.Puntuacion = 22551;
-                puntcen.ModificarPuntuacion (punten);
-                debugPoint8 = puntcen.GetID (punten.Id);
+                puntcen.ModificarPuntuacion(punten);
+                debugPoint8 = puntcen.GetID(punten.Id);
 
                 punten2.Puntuacion = 985698;
-                puntcen2.ModificarPuntuacion (punten);
-                debugPoint9 = puntcen2.GetID (punten.Id);
+                puntcen2.ModificarPuntuacion(punten);
+                debugPoint9 = puntcen2.GetID(punten.Id);
 
                 //RETO
                 reten.Descripcion = "NUEVA DESCRIPCION RETO";
-                retcen.ModificarReto (reten);
-                debugPoint10 = retcen.GetAll (0, 0);
+                retcen.ModificarReto(reten);
+                debugPoint10 = retcen.GetAll(0, 0);
 
                 ///////////////////////CUSTOM//////////////////////
 
                 //USUARIO
-                debugPoint15 = usucen.RecuperarContasena (usuen.Email, usuen.Nombre);
+                debugPoint15 = usucen.RecuperarContasena(usuen.Email, usuen.Nombre);
 
                 //EVENTO
-                evecen.VerEvento (even.ID);
-                debugPoint16 = evecen.GetID (even.ID);
+                evecen.VerEvento(even.ID);
+                debugPoint16 = evecen.GetID(even.ID);
 
                 //PASO
-                debugPoint12 = pascen.GetAll (0, 0);
-                for (int i = 0; i < debugPoint12.Count; i++) {
-                        pascen.VerPaso (i);
+                debugPoint12 = pascen.GetAll(0, 0);
+                for (int i = 0; i < debugPoint12.Count; i++)
+                {
+                    pascen.VerPaso(i);
                 }
-                pascen.VerPasos (gymen.ID);
+                pascen.VerPasos(gymen.ID);
 
 
                 //GYMKANA.
-                debugPoint13 = gymcen.VerPasos (gymen.ID);
+                debugPoint13 = gymcen.VerPasos(gymen.ID);
 
                 //PUNTUACIONES
-                puntcen.VerMedia (gymen.ID, -1);
-                puntcen.VerMedia (-1, reten.ID);
-                puntcen.VerVoto (usuen.ID, gymen.ID, -1);
-                puntcen.VerVoto (usuen.ID, -1, reten.ID);
+                puntcen.VerMedia(gymen.ID, -1);
+                puntcen.VerMedia(-1, reten.ID);
+                puntcen.VerVoto(usuen.ID, gymen.ID, -1);
+                puntcen.VerVoto(usuen.ID, -1, reten.ID);
 
                 //REPORTE
-                repcen.ConsultarReporte (usuen.ID, reten.ID, -1);
-                repcen.ConsultarReporte (usuen.ID, -1, gymen.ID);
+                repcen.ConsultarReporte(usuen.ID, reten.ID, -1);
+                repcen.ConsultarReporte(usuen.ID, -1, gymen.ID);
 
                 /////////////////////DESTROY/////////////////////
 
-                usucp.BorrarUsuario (usuen.ID);
-                var a = usucen.GetAll (0, 0);
-                admcp.BorrarEvento (admen.ID);
-                var b = evecen.GetAll (0, 0);
-                evecp.CrearEvento (even, 50, 30, 10);
-                b = evecen.GetAll (0, 0);
-                admcp.BorrarRetos (admen.ID);
-                var c = retcen.GetAll (0, 0);
-                retcen.CrearReto (reten);
-                c = retcen.GetAll (0, 0);
-                var d = admcen.GetAll (0, 0);
-                admcp.DeshacerAdmin (admen.ID);
-                d = admcen.GetAll (0, 0);
-                comcen.BorrarComentario (comen.ID);
-                var e = comcen.GetAll (0, 0);
-                evecp.BorrarEvento (even.ID);;
-                b = evecen.GetAll (0, 0);
-                gymcp.BorrarGymkana (gymen.ID);
-                var f = gymcen.GetAll (0, 0);
-                pascp.BorrarPaso (pasen.ID);
-                var g = pascen.GetAll (0, 0);
-                repcen.BorrarReporte (repen.ID);
-                var h = repcen.GetAll (0, 0);
-                retcp.BorrarReto (repen.ID);
-                var k = retcen.GetAll (0, 0);
+                usucp.BorrarUsuario(usuen.ID);
+                var a = usucen.GetAll(0, 0);
+                admcp.BorrarEvento(admen.ID);
+                var b = evecen.GetAll(0, 0);
+                evecp.CrearEvento(even, 50, 30, 10);
+                b = evecen.GetAll(0, 0);
+                admcp.BorrarRetos(admen.ID);
+                var c = retcen.GetAll(0, 0);
+                retcen.CrearReto(reten);
+                c = retcen.GetAll(0, 0);
+                var d = admcen.GetAll(0, 0);
+                admcp.DeshacerAdmin(admen.ID);
+                d = admcen.GetAll(0, 0);
+                comcen.BorrarComentario(comen.ID);
+                var e = comcen.GetAll(0, 0);
+                evecp.BorrarEvento(even.ID); ;
+                b = evecen.GetAll(0, 0);
+                gymcp.BorrarGymkana(gymen.ID);
+                var f = gymcen.GetAll(0, 0);
+                pascp.BorrarPaso(pasen.ID);
+                var g = pascen.GetAll(0, 0);
+                repcen.BorrarReporte(repen.ID);
+                var h = repcen.GetAll(0, 0);
+                retcp.BorrarReto(repen.ID);
+                var k = retcen.GetAll(0, 0);
 
                 /*PROTECTED REGION END*/
-        }
-        catch (Exception ex)
-        {
-                System.Console.WriteLine (ex.InnerException);
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex.InnerException);
                 throw ex;
+            }
         }
-}
-}
+    }
 }

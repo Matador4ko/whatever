@@ -17,9 +17,9 @@ namespace MvcApplication1.Controllers
         public ActionResult Index()
         {
             SessionInitialize();
-            EventoCAD cad = new EventoCAD();
+            EventoCAD cad = new EventoCAD(session);
             var aux = cad.ReadAllDefault(0, -1).ToList();
-
+           
             SessionClose();
 
             return View(aux);
@@ -47,7 +47,7 @@ namespace MvcApplication1.Controllers
         public ActionResult Create()
         {
             SessionInitialize();
-            EventoCAD eve = new EventoCAD();
+            EventoCAD eve = new EventoCAD(session);
             EventoEN even = new EventoEN();
             eve.New_(even);
             SessionClose();

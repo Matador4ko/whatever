@@ -23,7 +23,7 @@ public void CrearReto (WhateverGenNHibernate.EN.Whatever.RetoEN reto)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Reto_crearReto) ENABLED START*/
 
-        _IRetoCAD.Modify(reto);
+    _IRetoCAD.New_(reto);
 
         /*PROTECTED REGION END*/
 }

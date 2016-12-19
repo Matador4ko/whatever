@@ -16,12 +16,14 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Index()
         {
+            
             SessionInitialize();
-            GymkanaCEN gymcen = new GymkanaCEN();
-            IEnumerable<GymkanaEN> list = gymcen.GetAll(0, -1).ToList();
+            GymkanaCAD cad = new GymkanaCAD(session);
+            var aux = cad.ReadAllDefault(0, -1).ToList();
+
             SessionClose();
 
-            return View();
+            return View(aux);
         }
 
         //

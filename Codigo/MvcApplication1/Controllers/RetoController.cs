@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WhateverGenNHibernate.CAD.Whatever;
+using WhateverGenNHibernate.CEN.Whatever;
+using WhateverGenNHibernate.EN.Whatever;
+
 
 namespace MvcApplication1.Controllers
 {
@@ -13,7 +17,14 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            SessionInitialize();
+
+            RetoCAD cad = new RetoCAD(session);
+            var aux = cad.ReadAllDefault(0, -1).ToList();
+
+            SessionClose();
+
+            return View(aux);
         }
 
         //
@@ -29,6 +40,12 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Create()
         {
+            SessionInitialize();
+            RetoEN en = new RetoEN();
+            RetoCAD cad = new RetoCAD(session);
+
+            cad.New_(en);
+            SessionClose();
             return View();
         }
 

@@ -31,7 +31,7 @@ public void HacerAdmin (int p_oid)
 
         try
         {
-                SessionInitializeTransaction ();
+                //SessionInitializeTransaction ();
                 usuarioCAD = new UsuarioCAD (session);
                 usuarioCEN = new  UsuarioCEN (usuarioCAD);
 
@@ -47,14 +47,19 @@ public void HacerAdmin (int p_oid)
                 admin.Facebook = usuen.Facebook;
                 admin.Foto = usuen.Foto;
                 admin.Twitter = usuen.Twitter;
-                admin.ID = usuen.ID;
                 admin.Instagram = usuen.Instagram;
                 admin.Nombre = usuen.Nombre;
                 admin.Sexo = usuen.Sexo;
-
-                admincad.New_ (admin);
-
-
+                admin.ID = usuen.ID;
+                admin.Comentario_usuario2 = usuen.Comentario_usuario2;
+                admin.Usuario_evento2 = usuen.Usuario_evento2;
+                admin.Usuario_puntuacion = usuen.Usuario_puntuacion;
+                admin.Usuario_reporte2 = usuen.Usuario_reporte2;
+                admin.Usuario_reto = usuen.Usuario_reto;
+                int id=admincad.New_ (admin);
+                var debugPoint11 = admincad.GetAll(0, 0);
+                debugPoint11 = admincad.GetAll(0, 0); ;
+                
                 SessionCommit ();
         }
         catch (Exception ex)
