@@ -1,8 +1,12 @@
-﻿using System;
+﻿using MvcApplication1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WhateverGenNHibernate.CAD.Whatever;
+using WhateverGenNHibernate.CEN.Whatever;
+using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Controllers
 {
@@ -13,7 +17,13 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            SessionInitialize();
+            UsuarioCAD cad = new UsuarioCAD(session);
+            var aux = cad.ReadAllDefault(0, -1).ToList();
+
+            SessionClose();
+
+            return View(aux);
         }
 
         //
@@ -27,13 +37,15 @@ namespace MvcApplication1.Controllers
         //
         // GET: /Usuario/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            return View();
+            Usuario usu = new Usuario();
+            usu.id = id;
+            return View(usu);
         }
 
         //
-        // POST: /Usuario/Create
+        // POST: /Usuario/registroUsuario
 
         [HttpPost]
         public ActionResult Create(FormCollection collection)

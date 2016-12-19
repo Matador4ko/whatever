@@ -233,6 +233,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AssemblerUsuario.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -358,7 +360,6 @@
     <Content Include="Views\Usuario\borrarUsuario.cshtml" />
     <Content Include="Views\Usuario\consultarUsuario.cshtml" />
     <Content Include="Views\Usuario\hacerAdmin.cshtml" />
-    <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\modificarUsuario.cshtml" />
     <Content Include="Views\Usuario\recuperarContrasena.cshtml" />
     <Content Include="Views\Usuario\registroUsuario.cshtml" />
@@ -388,6 +389,7 @@
     <Content Include="Views\Puntuacion\modificarPuntuacion.cshtml" />
     <Content Include="Views\Puntuacion\verMedia.cshtml" />
     <Content Include="Views\Puntuacion\verVoto.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

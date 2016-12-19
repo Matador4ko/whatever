@@ -1,13 +1,13 @@
 ﻿@model WhateverGenNHibernate.EN.Whatever.UsuarioEN
 
 @{
-    ViewBag.Title = "registroUsuario";
+    ViewBag.Title = "Registro";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>registroUsuario</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("registroUsuario", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" })) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
