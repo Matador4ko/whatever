@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WhateverGenNHibernate.CAD.Whatever;
+using WhateverGenNHibernate.CEN.Whatever;
+using WhateverGenNHibernate.EN.Whatever;
+using WhateverGenNHibernate.CP.Whatever;
+using MvcApplication1.Models;
+using System.IO;
+
 
 namespace MvcApplication1.Controllers
 {
@@ -13,7 +20,12 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            ReporteCEN cen = new ReporteCEN();
+            IEnumerable<ReporteEN> list = null;
+            SessionInitialize();
+            list = cen.GetAll(0, 0).ToList();
+            SessionClose();
+            return View(list);
         }
 
         //

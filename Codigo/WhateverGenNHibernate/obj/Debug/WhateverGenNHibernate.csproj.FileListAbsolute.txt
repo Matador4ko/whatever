@@ -28,3 +28,18 @@ C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\Entrega DSM\WhateverGenN
 C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\Entrega DSM\WhateverGenNHibernate\obj\Debug\WhateverGenNHibernate.csprojResolveAssemblyReference.cache
 C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\Entrega DSM\WhateverGenNHibernate\obj\Debug\WhateverGenNHibernate.dll
 C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\Entrega DSM\WhateverGenNHibernate\obj\Debug\WhateverGenNHibernate.pdb
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\bin\Debug\hibernate.cfg.xml
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\bin\Debug\WhateverGenNHibernate.dll.config
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\bin\Debug\WhateverGenNHibernate.dll
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\bin\Debug\WhateverGenNHibernate.pdb
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\bin\Debug\NHibernate.dll
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\bin\Debug\Iesi.Collections.dll
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\bin\Debug\log4net.dll
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\obj\Debug\WhateverGenNHibernate.csprojResolveAssemblyReference.cache
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\obj\Debug\WhateverGenNHibernate.dll
+C:\Users\OIDEWin7\Documents\Visual Studio 2013\Projects\whatever\whatever\Codigo\WhateverGenNHibernate\obj\Debug\WhateverGenNHibernate.pdb

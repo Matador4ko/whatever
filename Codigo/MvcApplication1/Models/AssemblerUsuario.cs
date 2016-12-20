@@ -16,7 +16,7 @@ namespace MvcApplication1.Models
             usu.Nombre = en.Nombre;
             usu.Contrasena = en.Contrasena;
             usu.Edad = en.Edad;
-            usu.email = en.Email;
+            usu.Email = en.Email;
 
             return usu;
 

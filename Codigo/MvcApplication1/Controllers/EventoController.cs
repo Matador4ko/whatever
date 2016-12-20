@@ -16,13 +16,12 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Index()
         {
+            EventoCEN cen = new EventoCEN();
+            IEnumerable<EventoEN> list = null;
             SessionInitialize();
-            EventoCAD cad = new EventoCAD(session);
-            var aux = cad.ReadAllDefault(0, -1).ToList();
-           
+            list = cen.GetAll(0, 0).ToList();
             SessionClose();
-
-            return View(aux);
+            return View(list);
         }
 
         //

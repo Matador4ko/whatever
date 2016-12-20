@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using System.Collections.Generic;
 using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Models
@@ -58,7 +57,9 @@ namespace MvcApplication1.Models
         public string Contrasena { get; set; }
 
         //private string email;
-        public string email { get; set; }
+        [Display(Prompt = "Email del usuario", Description = "Email del usuario", Name = "Email ")]
+        [Required(ErrorMessage = "Debe indicar una email para el usuario")]
+        public string Email{ get; set; }
 
         //private string foto;
         [Display(Prompt = "Foto del usuario", Description = "Unidades del usuario", Name = "Foto")]
@@ -81,23 +82,23 @@ namespace MvcApplication1.Models
 
         //private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> usuario_reto;
         [Display(Prompt = "Retos del usuario", Description = "Retos del usuario", Name = "Retos")]
-        public IList<RetoEN> Retos;
+        public IList<RetoEN> Retos { get; set; }
 
         //private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> usuario_evento2;        
         [Display(Prompt = "Eventos del usuario", Description = "Eventos del usuario", Name = "Eventos")]
-        public IList<EventoEN> Eventos;
+        public IList<EventoEN> Eventos { get; set; }
 
         //private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> usuario_reporte2;
         [Display(Prompt = "Reportes del usuario", Description = "Reportes del usuario", Name = "Reportes")]
-        public IList<ReporteEN> Reportes;
+        public IList<ReporteEN> Reportes { get; set; }
 
         //private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> usuario_puntuacion;
         [Display(Prompt = "Puntuaciones del usuario", Description = "Puntuaciones del usuario", Name = "Puntuaciones")]
-        public IList<PuntuacionEN> Puntuaciones;
+        public IList<PuntuacionEN> Puntuaciones { get; set; }
 
         //private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_usuario2;
         [Display(Prompt = "Comentarios del usuario", Description = "Comentarios del usuario", Name = "Comentarios")]
-        public IList<ComentarioEN> Comentarios;
+        public IList<ComentarioEN> Comentarios { get; set; }
         
     }
 }
