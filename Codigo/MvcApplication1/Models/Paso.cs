@@ -10,28 +10,37 @@ namespace MvcApplication1.Models
 {
     public class Paso
     {
-        //private int iD;
-        [ScaffoldColumn(false)]
-        public int id { get; set; }
 
-        [ScaffoldColumn(false)]
-        public int idGymkana { get; set; }
+        /*
+        private string descripcion;
+        private WhateverGenNHibernate.EN.Whatever.GymkanaEN gymkana_paso2;
+        private WhateverGenNHibernate.EN.Whatever.MapaEN paso;
+        private int iD;
+        */
+        
+        //numero del paso
+        [Display(Prompt = "Numero", Description = "Nuemro del paso", Name = "Numero")]
+        public int Numero { get; set; }
         
         //private string descripcion;
-        [Display(Prompt = "Descripción del paso", Description = "Descripción del paso", Name = "Descripción ")]
+        [Display(Prompt = "Descripción del paso", Description = "Descripción del paso", Name = "Descripcion")]
         [Required(ErrorMessage = "Debe indicar una descripción para el paso")]
         [StringLength(maximumLength: 200, ErrorMessage = "El nombre no puede tener más de 200 caracteres")]
         public string Descripcion { get; set; }
 
-        //private WhateverGenNHibernate.EN.Whatever.GymkanaEN gymkana_paso2;
-        [Display(Prompt = "Descripción del paso", Description = "Descripción del paso", Name = "Descripción ")]
-        [Required(ErrorMessage = "Debe indicar una gymkana para el paso")]
-        public GymkanaEN Gymkana { get; set; }
-
         //private WhateverGenNHibernate.EN.Whatever.MapaEN paso;
-        [Display(Prompt = "Descripción del paso", Description = "Descripción del paso", Name = "Descripción ")]
-        [Required(ErrorMessage = "Debe indicar un mapa para el paso")]
-        public MapaEN Mapa{ get; set; }
+        [Display(Prompt = "Mapa del paso", Description = "Mapa del paso", Name = "Mapa ")]
+        public Mapa Mapa{ get; set; }
+
+        //private int iD;
+        [ScaffoldColumn(false)]
+        public int id { get; set; }
+
+        //private WhateverGenNHibernate.EN.Whatever.GymkanaEN gymkana_paso2;
+        [ScaffoldColumn(false)]
+        public GymkanaEN gymkana_paso { get; set; }
+
+
 
     }
 }

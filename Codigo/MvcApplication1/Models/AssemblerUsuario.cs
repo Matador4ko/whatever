@@ -14,8 +14,8 @@ namespace MvcApplication1.Models
             Usuario usu = new Usuario();
             usu.id = en.ID;
             usu.Nombre = en.Nombre;
-            usu.Contrasena = en.Contrasena;
             usu.Edad = en.Edad;
+            usu.Contrasena = en.Contrasena;
             usu.Email = en.Email;
 
             return usu;

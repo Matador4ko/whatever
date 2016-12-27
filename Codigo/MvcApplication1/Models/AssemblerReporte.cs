@@ -11,18 +11,23 @@ namespace MvcApplication1.Models
     {
         public Reporte ConvertENToModelUI(ReporteEN en)
         {
-            Reporte rep = new Reporte();
-            rep.id = en.ID;
-            rep.motivo = en.Motivo;
-            rep.Usuario = en.Usuario_reporte.Nombre;
-            rep.admin_reporte = en.Admin_reporte;
-            rep.reporte = en.Reporte;
-            rep.reporte_reto2 = en.Reporte_reto2;
-            rep.usuario_reporte = en.Usuario_reporte;
+            if (en!=null)
+            {
+                Reporte rep = new Reporte();
+                rep.id = en.ID;
+                rep.Motivo = en.Motivo;
+                rep.Usuario = en.Usuario_reporte.Nombre;
+                rep.admin_reporte = en.Admin_reporte;
+                rep.reporte_evento = en.Reporte;
+                rep.reporte_reto2 = en.Reporte_reto2;
+                rep.usuario_reporte = en.Usuario_reporte;
 
-            return rep;
-
-
+                return rep; 
+            }
+            else
+            {
+                return null;
+            }
         }
         public IList<Reporte> ConvertListENToModel(IList<ReporteEN> ens)
         {

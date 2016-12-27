@@ -9,5 +9,6 @@ namespace MvcApplication1.Models
 {
     public class AssemblerPuntuacion
     {
+
     }
 }

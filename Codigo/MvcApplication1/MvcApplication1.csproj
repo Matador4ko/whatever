@@ -234,7 +234,16 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\AssemblerComentario.cs" />
+    <Compile Include="Models\AssemblerEvento.cs" />
+    <Compile Include="Models\AssemblerGymkana.cs" />
+    <Compile Include="Models\AssemblerMapa.cs" />
+    <Compile Include="Models\AssemblerPaso.cs" />
+    <Compile Include="Models\AssemblerPuntuacion.cs" />
+    <Compile Include="Models\AssemblerReporte.cs" />
     <Compile Include="Models\AssemblerReto.cs" />
+    <Compile Include="Models\AssemblerUsuario.cs" />
+    <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\Evento.cs" />
     <Compile Include="Models\Gymkana.cs" />
     <Compile Include="Models\Mapa.cs" />
