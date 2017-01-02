@@ -1,0 +1,78 @@
+﻿@model WhateverGenNHibernate.EN.Whatever.UsuarioEN
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>UsuarioEN</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Edad)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Edad)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sexo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sexo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Facebook)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Facebook)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Instagram)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Instagram)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Twitter)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Twitter)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Contrasena)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Contrasena)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Foto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Foto)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
