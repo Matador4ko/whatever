@@ -60,15 +60,10 @@ namespace MvcApplication1.Controllers
         {            
             try
             {
-                EventoCP cp = new EventoCP(session);
-                EventoEN even = new EventoEN();
-                even.Descripcion=ev.Descripcion;
-                even.Fecha=ev.Fecha;
-                even.ID=ev.id;
-                even.Precio=ev.Precio;
-                even.Titulo=ev.Titulo;
-                even.Usuario=even.Usuario;
-                cp.CrearEvento(even, ev.Latitud, ev.Longitud, ev.Zoom);
+                EventoCEN cen = new EventoCEN();
+                UsuarioCAD cad = new UsuarioCAD(session);
+           
+                cen.New_(ev.Titulo, ev.Descripcion, ev.Fecha, ev.Precio, cad.FiltrarUsuarioPorNombre(User.Identity.Name).ID);
                 return RedirectToAction("Index");
             }
             catch

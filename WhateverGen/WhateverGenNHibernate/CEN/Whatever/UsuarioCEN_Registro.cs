@@ -23,12 +23,12 @@ public bool Registro (WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Usuario_Registro) ENABLED START*/
 
-    if (FiltrarUsuarioPorNombre(usuario.Nombre) == null)
-    {
-        _IUsuarioCAD.New_(usuario);
-        return true;
-    }
-    return false;
+        if (FiltrarUsuarioPorNombre (usuario.Nombre) == null) {
+                usuario.Contrasena = Utils.Util.GetEncondeMD5 (usuario.Contrasena);
+                _IUsuarioCAD.New_ (usuario);
+                return true;
+        }
+        return false;
         /*PROTECTED REGION END*/
 }
 }

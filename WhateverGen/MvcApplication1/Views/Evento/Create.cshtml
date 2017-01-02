@@ -6,7 +6,8 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Create", "Evento", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -43,14 +44,6 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.Precio)
             @Html.ValidationMessageFor(model => model.Precio)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Creador)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Creador)
-            @Html.ValidationMessageFor(model => model.Creador)
         </div>
 
         <div class="editor-label">

@@ -27,9 +27,7 @@ namespace MvcApplication1.Models
                 evento.Fecha = even.Fecha;
                 evento.Precio = even.Precio;
                 evento.Creador = even.Usuario.Nombre;
-                evento.Latitud = even.Mapa[0].Latitud;
-                evento.Longitud = even.Mapa[0].Longitud;
-                evento.Zoom = even.Mapa[0].Zoom;
+                
 
 
                 //puntuacion
@@ -41,8 +39,12 @@ namespace MvcApplication1.Models
                 }
                 //mapa
                 evento.Mapa = null;
-                if (even.Mapa != null)
-                    evento.Mapa = assM.ConvertENToModelUI(even.Mapa[0]);
+                if (even.Mapa != null) { 
+                    evento.Latitud = even.Mapa[0].Latitud;
+                    evento.Longitud = even.Mapa[0].Longitud;
+                    evento.Zoom = even.Mapa[0].Zoom;
+                    evento.Mapa = assM.ConvertListENToModel(even.Mapa);
+                    }
                 //comentarios
                 evento.Comentarios = null;
                 if (even.Comentario != null)
