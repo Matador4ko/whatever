@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using WebMatrix.WebData;
 using WhateverGenNHibernate.CAD.Whatever;
 using WhateverGenNHibernate.CEN.Whatever;
 using WhateverGenNHibernate.EN.Whatever;
@@ -126,6 +128,8 @@ namespace MvcApplication1.Controllers
             
 
             new UsuarioCEN().Destroy(id);
+            Membership.DeleteUser(User.Identity.Name);
+            WebSecurity.Logout();
             return RedirectToAction("Index");
 
         }

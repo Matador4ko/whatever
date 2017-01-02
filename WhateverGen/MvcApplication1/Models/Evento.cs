@@ -22,6 +22,9 @@ namespace MvcApplication1.Models
         private IList<ComentarioEN> comentario;
         private int iD;
         private IList<ReporteEN> reporte;
+        private double latitud;
+        private double longitud;
+        private int zoom;
         */
         //public void CrearEvento (WhateverGenNHibernate.EN.Whatever.EventoEN evento, double lat, double long_, int zoom)
 
@@ -47,14 +50,35 @@ namespace MvcApplication1.Models
         [Display(Prompt = "Precio del evento", Description = "Precio del evento", Name = "Precio")]
         [Required(ErrorMessage = "Debe indicar un precio para el evento")]
         [DataType(DataType.Currency, ErrorMessage = "El precio debe ser un valor numérico")]
-        [Range(minimum: 0, maximum: 10000, ErrorMessage = "El precio debe ser mayor que cero y menor de 10000")]
+        [Range(minimum: 0.0, maximum: 10000.0, ErrorMessage = "El precio debe ser mayor que cero y menor de 10000")]
         public double Precio { get; set; }
 
         //Creador
         [Display(Prompt = "Creador", Description = "Nombre del creador del evento", Name = "Creador")]
         [Required(ErrorMessage = "Debe indicar el nombre del creador del evento")]
         public string Creador { get; set; }
-        
+
+        //Latitud
+        [Display(Prompt = "Latitud del evento", Description = "Latitud del evento", Name = "Latitud")]
+        [Required(ErrorMessage = "Debe indicar una latitud para el evento")]
+        [DataType(DataType.Currency, ErrorMessage = "La latitud debe ser numerica")]
+        [Range(minimum: -90.0, maximum: 90.0, ErrorMessage = "La latitud debe ser mayor que -90 y menor de 90")]
+        public double Latitud { get; set; }
+
+        //Longitud
+        [Display(Prompt = "Longitud del evento", Description = "Longitud del evento", Name = "Longitud")]
+        [Required(ErrorMessage = "Debe indicar una longitud para el evento")]
+        [DataType(DataType.Currency, ErrorMessage = "La longitud debe ser numerica")]
+        [Range(minimum: -180.0, maximum: 180.0, ErrorMessage = "La longitud debe ser mayor que -180 y menor de 180")]
+        public double Longitud { get; set; }
+
+        //Zoom
+        [Display(Prompt = "Zoom para el mapa", Description = "Zoom para el mapa", Name = "Zoom")]
+        [Required(ErrorMessage = "Debe indicar un zoom para el mapa")]
+        [DataType(DataType.Currency, ErrorMessage = "El zoom debe ser numerico")]
+        [Range(minimum: -180.0, maximum: 180.0, ErrorMessage = "El zoom debe ser mayor que 0 y menor de 20")]
+        public int Zoom { get; set; }
+
         //private IList<PuntuacionEN> puntuacion;
         [Display(Prompt = "Puntuacion", Description = "Puntuacion del evento", Name = "Puntuacion")]
         public IList<Puntuacion> Puntuaciones { get; set; }

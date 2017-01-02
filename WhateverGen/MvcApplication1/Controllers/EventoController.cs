@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using WhateverGenNHibernate.CAD.Whatever;
 using WhateverGenNHibernate.CEN.Whatever;
+using WhateverGenNHibernate.CP.Whatever;
 using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Controllers
@@ -19,18 +20,13 @@ namespace MvcApplication1.Controllers
         {
             SessionInitialize();
             EventoCAD cad = new EventoCAD(session);
-            System.Collections.Generic.IList<EventoEN> eventos = new System.Collections.Generic.List<EventoEN>();
-            var aux = cad.ReadAllDefault(0, -1).ToList();
-            foreach (EventoEN element in aux)
-            {
-                if (element.Usuario.Nombre.Equals (User.Identity.Name))
-                {
-                    eventos.Add(element);
-                }
-            }
+            UsuarioCAD usucad = new UsuarioCAD(session);
+            UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
+            var aux = cad.FiltrarEventoPorUsuario(usuen.ID);
+
             SessionClose();
 
-            return View(eventos);
+            return View(aux);
         }
 
         //
@@ -52,6 +48,7 @@ namespace MvcApplication1.Controllers
         public ActionResult Create()
         {
             Evento ev = new Evento();
+            ev.Creador = User.Identity.Name;
             return View(ev);
         }
 
@@ -63,9 +60,15 @@ namespace MvcApplication1.Controllers
         {            
             try
             {
-                EventoCEN cen = new EventoCEN();
-
-                cen.New_(ev.Titulo,ev.Descripcion,ev.Fecha,ev.Precio,ev.usuario.ID);
+                EventoCP cp = new EventoCP(session);
+                EventoEN even = new EventoEN();
+                even.Descripcion=ev.Descripcion;
+                even.Fecha=ev.Fecha;
+                even.ID=ev.id;
+                even.Precio=ev.Precio;
+                even.Titulo=ev.Titulo;
+                even.Usuario=even.Usuario;
+                cp.CrearEvento(even, ev.Latitud, ev.Longitud, ev.Zoom);
                 return RedirectToAction("Index");
             }
             catch
@@ -119,7 +122,7 @@ namespace MvcApplication1.Controllers
             SessionClose();
 
 
-            new UsuarioCEN().Destroy(id);
+            new EventoCEN().Destroy(id);
             return RedirectToAction("Index");
         }
 

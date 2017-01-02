@@ -22,8 +22,7 @@ namespace MvcApplication1.Models
         private string imagen;
         private int iD;
         private UsuarioEN usuario;
-        private IList<int> id_mapa;
-        private IList<PuntuacionEN> reto_puntuacion2;
+        private IList<PuntuacionEN> puntuacion;
         private IList<ComentarioEN> comentario;
         private IList<ReporteEN> reporte;
         */
@@ -59,12 +58,12 @@ namespace MvcApplication1.Models
         public string Imagen { get; set; }
 
         //Nombre del creador del reto;
-        [Display(Prompt = "Puntuacion", Description = "Puntuacion del reto", Name = "Puntuacion")]
+        [Display(Prompt = "Creador", Description = "Nombre del creador", Name = "Creador")]
         public string Creador{ get; set; }
 
-        //private IList<PuntuacionEN> reto_puntuacion2(LO QUE SE MUESTRA);
-        [Display(Prompt = "Puntuacion", Description = "Puntuacion del reto", Name = "Puntuacion")]
-        public double Puntuacion { get; set; }
+        //private IList<PuntuacionEN> puntuacion(LO QUE SE MUESTRA);
+        [Display(Prompt = "Puntuacion", Description = "Puntuacion del reto", Name = "Puntuaciones")]
+        public IList<Puntuacion> Puntuaciones { get; set; }
 
         //private IList<ComentarioEN> comentario;       
         [Display(Prompt = "Comentarios", Description = "Comentarios del reto", Name = "Comentarios")]
@@ -83,11 +82,8 @@ namespace MvcApplication1.Models
         [ScaffoldColumn(false)]
         public UsuarioEN usuario { get; set; }
         
-        //private IList<int> id_mapa;
-        [ScaffoldColumn(false)]
-        public IList<int> idMapas { get; set; }
+       
 
-        //private IList<PuntuacionEN> reto_puntuacion2(NO HACE FALTA, se saca en el assembler);
 
         
     }

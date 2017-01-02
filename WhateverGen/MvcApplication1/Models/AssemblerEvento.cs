@@ -27,6 +27,10 @@ namespace MvcApplication1.Models
                 evento.Fecha = even.Fecha;
                 evento.Precio = even.Precio;
                 evento.Creador = even.Usuario.Nombre;
+                evento.Latitud = even.Mapa[0].Latitud;
+                evento.Longitud = even.Mapa[0].Longitud;
+                evento.Zoom = even.Mapa[0].Zoom;
+
 
                 //puntuacion
 

@@ -18,6 +18,7 @@ namespace MvcApplication1.Models
             {
 
                 AssemblerReporte assR = new AssemblerReporte();
+                AssemblerPuntuacion assP = new AssemblerPuntuacion();
                 ComentarioCEN c = new ComentarioCEN();
                 PuntuacionCEN p = new PuntuacionCEN();
                 Reto reto = new Reto();
@@ -27,8 +28,14 @@ namespace MvcApplication1.Models
                 reto.Precio = reten.Precio;
                 reto.Imagen = reten.Imagen;
                 reto.Creador = reten.Usuario.Nombre;
+
+
                 //puntuacion
-                reto.Puntuacion = p.VerMediaReto(reten.ID);
+                reto.Puntuaciones = null;
+                if (reten.Puntuacion != null)
+                {
+                    reto.Puntuaciones = assP.ConvertListENToModel(reten.Puntuacion);
+                }
 
                 //comentarios
                 IList<ComentarioEN> listafiltro = new List<ComentarioEN>();
@@ -40,7 +47,6 @@ namespace MvcApplication1.Models
                 //atributos ocultos del model
                 reto.id = reten.ID;
                 reto.usuario = reten.Usuario;
-                reto.idMapas = reten.Id_mapa;
 
                 //reportes
                 IList<Reporte> aux3 = new List<Reporte>();

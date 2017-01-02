@@ -21,17 +21,12 @@
 					<property name="Tipo" type="string"> 
 						<column name="tipo"  not-null="true"/>
 					</property>
-					<property name="Precio" type="integer"> 
+					<property name="Precio" type="double"> 
 						<column name="precio"  not-null="true"/>
 					</property>
 					<property name="Imagen" type="string"> 
 						<column name="imagen"  not-null="true"/>
 					</property>
-					<bag name="Id_mapa" table="idMapa"> 
-						<key>
-						</key>
-						<element column="Id_mapa" type="integer"/> 
-    				</bag>
 			
 			
 			
@@ -45,7 +40,6 @@
 								<column name="FK_ID_idUsuario"/> 
 						</many-to-one>
 											 					
-			
 			
 		  			
 						<bag name="Puntuacion" >
@@ -78,7 +72,6 @@
 					      	</key>
 							<one-to-many class="WhateverGenNHibernate.EN.Whatever.ReporteEN"/>
 					    </bag>
-					
 					
 					
 					

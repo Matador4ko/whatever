@@ -13,6 +13,7 @@ using MvcApplication1.Models;
 using WhateverGenNHibernate.CEN.Whatever;
 using WhateverGenNHibernate.EN.Whatever;
 using WhateverGenNHibernate.CAD.Whatever;
+using System.IO;
 
 namespace MvcApplication1.Controllers
 {
@@ -80,11 +81,24 @@ namespace MvcApplication1.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult Register(RegisterModel model, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
                 // Intento de registrar al usuario
+
+                string fileName = "", path = "";
+                // Verify that the user selected a file
+                if (file != null && file.ContentLength > 0)
+                {
+                    // extract only the fielname
+                    fileName = Path.GetFileName(file.FileName);
+                    // store the file inside ~/App_Data/uploads folder
+                    path = Path.Combine(Server.MapPath("~/Images/Uploads"), fileName);
+                    //string pathDef = path.Replace(@"\\", @"\");
+                    file.SaveAs(path);
+                }
+
                 try
                 {
                     UsuarioCEN usu = new UsuarioCEN();
@@ -93,16 +107,17 @@ namespace MvcApplication1.Controllers
                     usuen.Edad = model.Edad;
                     usuen.Email = model.Email;
                     usuen.Facebook = model.Facebook;
-                    usuen.Foto = model.Foto;
+                    fileName = "/Images/Uploads/" + fileName;
+                    usuen.Foto = fileName;
                     usuen.Instagram = model.Instagram;
                     usuen.Nombre = model.UserName;
                     usuen.Sexo = model.sexo;
                     usuen.Twitter = model.Twitter;
+
                     usu.Registro(usuen);
 
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-
                     
 
                     return RedirectToAction("Index", "Home");

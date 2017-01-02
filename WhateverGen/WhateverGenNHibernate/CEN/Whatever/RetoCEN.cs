@@ -38,7 +38,7 @@ public IRetoCAD get_IRetoCAD ()
         return this._IRetoCAD;
 }
 
-public int New_ (string p_titulo, string p_descripcion, string p_tipo, int p_precio, string p_imagen, int p_usuario)
+public int New_ (string p_titulo, string p_descripcion, string p_tipo, double p_precio, string p_imagen, int p_usuario)
 {
         RetoEN retoEN = null;
         int oid;
@@ -69,7 +69,7 @@ public int New_ (string p_titulo, string p_descripcion, string p_tipo, int p_pre
         return oid;
 }
 
-public void Modify (int p_Reto_OID, string p_titulo, string p_descripcion, string p_tipo, int p_precio, string p_imagen)
+public void Modify (int p_Reto_OID, string p_titulo, string p_descripcion, string p_tipo, double p_precio, string p_imagen)
 {
         RetoEN retoEN = null;
 

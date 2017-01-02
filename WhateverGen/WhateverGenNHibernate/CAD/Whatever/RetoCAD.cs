@@ -107,9 +107,6 @@ public void ModifyDefault (RetoEN reto)
 
 
 
-                retoEN.Id_mapa = reto.Id_mapa;
-
-
 
 
                 session.Update (retoEN);
