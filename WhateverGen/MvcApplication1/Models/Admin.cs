@@ -20,17 +20,13 @@ namespace MvcApplication1.Models
         private string facebook;
         private string instagram;
         private string twitter;
-        private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> usuario_reto;
-        private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> usuario_reporte2;
-        private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> usuario_puntuacion;
-        private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_usuario2;
-        private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> usuario_evento2;
+        private System.Collections.Generic.IList<RetoEN> usuario_reto;
+        private System.Collections.Generic.IList<ReporteEN> usuario_reporte2;
+        private System.Collections.Generic.IList<PuntuacionEN> usuario_puntuacion;
+        private System.Collections.Generic.IList<ComentarioEN> comentario_usuario2;
+        private System.Collections.Generic.IList<EventoEN> usuario_evento2;
         */
-
-        //private int iD;
-        [ScaffoldColumn(false)]
-        public int id { get; set; }
-
+        
         //private string nombre;
         [Display(Prompt = "Nombre del admin", Description = "Nombre del admin", Name = "Nombre")]
         [Required(ErrorMessage = "Debe indicar un nombre para el admin")]
@@ -61,7 +57,7 @@ namespace MvcApplication1.Models
         public string Email { get; set; }
 
         //private string foto;
-        [Display(Prompt = "Foto del admin", Description = "Unidades del admin", Name = "Foto")]
+        [Display(Prompt = "Foto del admin", Description = "Foto del admin", Name = "Foto")]
         public string Foto { get; set; }
 
         //private string facebook;
@@ -79,24 +75,55 @@ namespace MvcApplication1.Models
         [StringLength(maximumLength: 200, ErrorMessage = "Tu cuenta de twitter no puede tener más de 200 caracteres")]
         public string Twitter { get; set; }
 
-        //private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> admin_reto;
+
+
+
+
+        //private System.Collections.Generic.IList<RetoEN> reto;
         [Display(Prompt = "Retos del admin", Description = "Retos del admin", Name = "Retos")]
-        public IList<RetoEN> Retos { get; set; }
+        public IList<Reto> Retos { get; set; }
 
-        //private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> admin_evento2;        
+        //private System.Collections.Generic.IList<Evento> evento2;        
         [Display(Prompt = "Eventos del admin", Description = "Eventos del admin", Name = "Eventos")]
-        public IList<EventoEN> Eventos { get; set; }
+        public IList<Evento> Eventos { get; set; }
 
-        //private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> admin_reporte2;
+        //private System.Collections.Generic.IList<Reporte> reporte2;
         [Display(Prompt = "Reportes del admin", Description = "Reportes del admin", Name = "Reportes")]
-        public IList<ReporteEN> Reportes { get; set; }
+        public IList<Reporte> Reportes { get; set; }
 
-        //private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> admin_puntuacion;
+        //private System.Collections.Generic.IList<Puntuacion> puntuacion;
         [Display(Prompt = "Puntuaciones del admin", Description = "Puntuaciones del admin", Name = "Puntuaciones")]
-        public IList<PuntuacionEN> Puntuaciones { get; set; }
+        public IList<Puntuacion> Puntuaciones { get; set; }
 
-        //private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario_admin2;
+        //private System.Collections.Generic.IList<Comentario> comentario_admin2;
         [Display(Prompt = "Comentarios del admin", Description = "Comentarios del admin", Name = "Comentarios")]
-        public IList<ComentarioEN> Comentarios { get; set; }
+        public IList<Comentario> Comentarios { get; set; }
+
+
+
+
+        //private int iD;
+        [ScaffoldColumn(false)]
+        public int id { get; set; }
+
+        //private IList<RetoEN> reto;
+        [ScaffoldColumn(false)]
+        public IList<RetoEN> reto { get; set; }
+
+        //private IList<EventoEN> evento;        
+        [ScaffoldColumn(false)]
+        public IList<EventoEN> evento { get; set; }
+
+        //private IList<ReporteEN> reporte;
+        [ScaffoldColumn(false)]
+        public IList<ReporteEN> reporte { get; set; }
+
+        //private IList<PuntuacionEN> puntuacion;
+        [ScaffoldColumn(false)]
+        public IList<PuntuacionEN> puntuacion { get; set; }
+
+        //private IList<ComentarioEN> comentario;
+        //[ScaffoldColumn(false)]
+        //public IList<ComentarioEN> comentario { get; set; }
     }
 }

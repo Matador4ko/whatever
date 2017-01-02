@@ -25,9 +25,9 @@ namespace MvcApplication1.Models
          */
 
         //private string creador;
-        [Display(Prompt = "Creador del comentario", Description = "Creador del comentario", Name = "Creador ")]
+        [Display(Prompt = "Creador del comentario", Description = "Creador del comentario", Name = "Creador")]
         [Required(ErrorMessage = "Debe indicar un creador para el comentario")]
-        [StringLength(maximumLength: 40, ErrorMessage = "El texto no puede tener más de 40 caracteres")]
+        [StringLength(maximumLength: 40, ErrorMessage = "El nombre no puede tener más de 40 caracteres")]
         public string Creador { get; set; }
 
         //private string nombre;
