@@ -1,17 +1,17 @@
-﻿@model MvcApplication1.Models.Reto
+﻿@model MvcApplication1.Models.Evento
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar";
 }
 
-<h2>Edit</h2>
+<h2>Editar @Html.DisplayFor(model => model.Titulo)</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Reto</legend>
+        <legend>Evento</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Titulo)
@@ -30,11 +30,11 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Tipo)
+            @Html.LabelFor(model => model.Fecha)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Tipo)
-            @Html.ValidationMessageFor(model => model.Tipo)
+            @Html.EditorFor(model => model.Fecha)
+            @Html.ValidationMessageFor(model => model.Fecha)
         </div>
 
         <div class="editor-label">
@@ -46,19 +46,27 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Imagen)
+            @Html.LabelFor(model => model.Latitud)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Imagen)
-            @Html.ValidationMessageFor(model => model.Imagen)
+            @Html.EditorFor(model => model.Latitud)
+            @Html.ValidationMessageFor(model => model.Latitud)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Creador)
+            @Html.LabelFor(model => model.Longitud)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Creador)
-            @Html.ValidationMessageFor(model => model.Creador)
+            @Html.EditorFor(model => model.Longitud)
+            @Html.ValidationMessageFor(model => model.Longitud)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Zoom)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Zoom)
+            @Html.ValidationMessageFor(model => model.Zoom)
         </div>
 
         <p>
@@ -68,7 +76,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver a Eventos", "Index")
 </div>
 
 @section Scripts {

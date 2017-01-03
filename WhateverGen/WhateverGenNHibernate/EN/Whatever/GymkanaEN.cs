@@ -46,7 +46,7 @@ public GymkanaEN() : base ()
 
 
 public GymkanaEN(int iD, int numPasos, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> paso
-                 , string titulo, string descripcion, Nullable<DateTime> fecha, double precio, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte
+                 , string titulo, string descripcion, Nullable<DateTime> fecha, double precio, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, WhateverGenNHibernate.EN.Whatever.MapaEN mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte
                  )
 {
         this.init (ID, numPasos, paso, titulo, descripcion, fecha, precio, usuario, puntuacion, mapa, comentario, reporte);
@@ -59,7 +59,7 @@ public GymkanaEN(GymkanaEN gymkana)
 }
 
 private void init (int ID
-                   , int numPasos, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> paso, string titulo, string descripcion, Nullable<DateTime> fecha, double precio, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte)
+                   , int numPasos, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PasoEN> paso, string titulo, string descripcion, Nullable<DateTime> fecha, double precio, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, WhateverGenNHibernate.EN.Whatever.MapaEN mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte)
 {
         this.ID = ID;
 

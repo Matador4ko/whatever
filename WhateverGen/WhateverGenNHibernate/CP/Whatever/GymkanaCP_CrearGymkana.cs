@@ -36,10 +36,18 @@ public void CrearGymkana (WhateverGenNHibernate.EN.Whatever.GymkanaEN gym, doubl
                 gymkanaCEN = new  GymkanaCEN (gymkanaCAD);
 
                 MapaCP mapa = new MapaCP (session);
+                PasoEN paso = new PasoEN ();
+                MapaEN mapen = new MapaEN ();
+
+                paso.Descripcion = gym.Descripcion;
+                mapen.Latitud = lat;
+                mapen.Longitud = lon;
+                mapen.Zoom = zoom;
 
                 int id_gym = gymkanaCAD.New_ (gym);
-                mapa.CrearMapaParaEvento (id_gym, lat, lon, zoom);
 
+                mapa.CrearMapaParaEvento (id_gym, lat, lon, zoom);
+                AnadirPaso (paso, mapen, gym);
                 SessionCommit ();
         }
         catch (Exception ex)

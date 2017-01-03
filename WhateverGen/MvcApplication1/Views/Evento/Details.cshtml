@@ -1,4 +1,4 @@
-﻿@model MvcApplication1.Models.Reto
+﻿@model MvcApplication1.Models.Evento
 
 @{
     ViewBag.Title = "Detalles";
@@ -7,7 +7,7 @@
 <h2>Detalles @Html.DisplayFor(model => model.Titulo)</h2>
 
 <fieldset>
-    <legend>Reto</legend>
+    <legend>Evento</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Titulo)
@@ -24,10 +24,10 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Tipo)
+         @Html.DisplayNameFor(model => model.Fecha)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Tipo)
+        @Html.DisplayFor(model => model.Fecha)
     </div>
 
     <div class="display-label">
@@ -38,20 +38,34 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Imagen)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Imagen)
-    </div>
-
-    <div class="display-label">
          @Html.DisplayNameFor(model => model.Creador)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Creador)
     </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Latitud)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Latitud)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Longitud)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Longitud)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Zoom)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Zoom)
+    </div>
 </fieldset>
 <p>
     @Html.ActionLink("Editar", "Edit", new { id=Model.id }) |
-    @Html.ActionLink("Volver a Retos", "Index")
+    @Html.ActionLink("Volver a Eventos", "Index")
 </p>

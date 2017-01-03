@@ -39,7 +39,7 @@ public void BorrarMapaParaEvento (int id_evento)
 
                 // Write here your custom transaction ...
                 MapaEN mapen = new MapaEN ();
-                mapen = mapaCAD.FiltrarMapaPorEvento (id_evento);
+                mapen = mapaCEN.FiltrarMapaPorEvento (id_evento);
                 mapaCAD.UnrelationerMapaEvento (mapen.Id, id_evento);
                 mapaCAD.Destroy (mapen.Id);
 

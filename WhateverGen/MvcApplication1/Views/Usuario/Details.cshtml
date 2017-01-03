@@ -1,4 +1,4 @@
-﻿@model WhateverGenNHibernate.EN.Whatever.UsuarioEN
+﻿@model MvcApplication1.Models.Usuario
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <fieldset>
-    <legend>UsuarioEN</legend>
+    <legend>Usuario</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Nombre)
@@ -24,31 +24,10 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Sexo)
+         @Html.DisplayNameFor(model => model.sexo)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Sexo)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Facebook)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Facebook)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Instagram)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Instagram)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Twitter)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Twitter)
+        @Html.DisplayFor(model => model.sexo)
     </div>
 
     <div class="display-label">
@@ -71,8 +50,28 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Foto)
     </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Facebook)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Facebook)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Instagram)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Instagram)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Twitter)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Twitter)
+    </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id=Model.id }) 
 </p>

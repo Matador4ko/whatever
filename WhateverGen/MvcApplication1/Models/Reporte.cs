@@ -15,7 +15,7 @@ namespace MvcApplication1.Models
 
         //private WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario_reporte;
         [Display(Prompt = "Usuario del reporte", Description = "Usuario del reporte", Name = "Usuario")]
-        public string Usuario { get; set; }
+        public UsuarioEN Usuario { get; set; }
 
         //private string motivo;
         [Display(Prompt = "Motivo del reporte", Description = "Motivo del reporte", Name = "Motivo")]

@@ -1,13 +1,16 @@
 ﻿@model IEnumerable<WhateverGenNHibernate.EN.Whatever.RetoEN>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Retos";
 }
 
-<h2>Index</h2>
+<h2>Retos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo Reto", "Create")
+</p>
+<p>
+    @Html.ActionLink("Mis Retos", "List")
 </p>
 <table>
     <tr>
@@ -47,9 +50,9 @@
             @Html.DisplayFor(modelItem => item.Imagen)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

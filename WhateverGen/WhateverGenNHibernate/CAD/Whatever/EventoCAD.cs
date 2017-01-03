@@ -309,25 +309,18 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Evento
 
         return result;
 }
-public void AnadirMapa (int p_Evento_OID, System.Collections.Generic.IList<int> p_mapa_OIDs)
+public void AnadirMapa (int p_Evento_OID, int p_mapa_OID)
 {
         WhateverGenNHibernate.EN.Whatever.EventoEN eventoEN = null;
         try
         {
                 SessionInitializeTransaction ();
                 eventoEN = (EventoEN)session.Load (typeof(EventoEN), p_Evento_OID);
-                WhateverGenNHibernate.EN.Whatever.MapaEN mapaENAux = null;
-                if (eventoEN.Mapa == null) {
-                        eventoEN.Mapa = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.MapaEN>();
-                }
+                eventoEN.Mapa = (WhateverGenNHibernate.EN.Whatever.MapaEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.MapaEN), p_mapa_OID);
 
-                foreach (int item in p_mapa_OIDs) {
-                        mapaENAux = new WhateverGenNHibernate.EN.Whatever.MapaEN ();
-                        mapaENAux = (WhateverGenNHibernate.EN.Whatever.MapaEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.MapaEN), item);
-                        mapaENAux.Evento = eventoEN;
+                eventoEN.Mapa.Evento = eventoEN;
 
-                        eventoEN.Mapa.Add (mapaENAux);
-                }
+
 
 
                 session.Update (eventoEN);
@@ -348,7 +341,7 @@ public void AnadirMapa (int p_Evento_OID, System.Collections.Generic.IList<int> 
         }
 }
 
-public void EliminarMapa (int p_Evento_OID, System.Collections.Generic.IList<int> p_mapa_OIDs)
+public void EliminarMapa (int p_Evento_OID, int p_mapa_OID)
 {
         try
         {
@@ -356,18 +349,13 @@ public void EliminarMapa (int p_Evento_OID, System.Collections.Generic.IList<int
                 WhateverGenNHibernate.EN.Whatever.EventoEN eventoEN = null;
                 eventoEN = (EventoEN)session.Load (typeof(EventoEN), p_Evento_OID);
 
-                WhateverGenNHibernate.EN.Whatever.MapaEN mapaENAux = null;
-                if (eventoEN.Mapa != null) {
-                        foreach (int item in p_mapa_OIDs) {
-                                mapaENAux = (WhateverGenNHibernate.EN.Whatever.MapaEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.MapaEN), item);
-                                if (eventoEN.Mapa.Contains (mapaENAux) == true) {
-                                        eventoEN.Mapa.Remove (mapaENAux);
-                                        mapaENAux.Evento = null;
-                                }
-                                else
-                                        throw new ModelException ("The identifier " + item + " in p_mapa_OIDs you are trying to unrelationer, doesn't exist in EventoEN");
-                        }
+                if (eventoEN.Mapa.Id == p_mapa_OID) {
+                        eventoEN.Mapa = null;
+                        WhateverGenNHibernate.EN.Whatever.MapaEN mapaEN = (WhateverGenNHibernate.EN.Whatever.MapaEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.MapaEN), p_mapa_OID);
+                        mapaEN.Evento = null;
                 }
+                else
+                        throw new ModelException ("The identifier " + p_mapa_OID + " in p_mapa_OID you are trying to unrelationer, doesn't exist in EventoEN");
 
                 session.Update (eventoEN);
                 SessionCommit ();

@@ -76,7 +76,7 @@ namespace MvcApplication1.Models
         [Display(Prompt = "Zoom para el mapa", Description = "Zoom para el mapa", Name = "Zoom")]
         [Required(ErrorMessage = "Debe indicar un zoom para el mapa")]
         [DataType(DataType.Currency, ErrorMessage = "El zoom debe ser numerico")]
-        [Range(minimum: 2, maximum: 20, ErrorMessage = "El zoom debe ser mayor que 0 y menor de 20")]
+        [Range(minimum: 2, maximum: 20, ErrorMessage = "El zoom debe ser mayor que 2 y menor de 20")]
         public int Zoom { get; set; }
 
         //private IList<PuntuacionEN> puntuacion;
@@ -85,7 +85,7 @@ namespace MvcApplication1.Models
         
         //private IList<MapaEN> mapa;
         [Display(Prompt = "Mapa", Description = "Mapa del evento", Name = "Mapa")]
-        public IList<Mapa> Mapa{ get; set; }
+        public Mapa Mapa{ get; set; }
 
         //private IList<ComentarioEN> comentario;
         [Display(Prompt = "Comentarios", Description = "Comentarios del evento", Name = "Comentario")]

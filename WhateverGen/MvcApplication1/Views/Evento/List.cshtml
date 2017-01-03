@@ -1,17 +1,13 @@
 ﻿@model IEnumerable<WhateverGenNHibernate.EN.Whatever.EventoEN>
 
 @{
-    ViewBag.Title = "Eventos";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Mis Eventos";
 }
 
-<h2>Eventos</h2>
+<h2>Mis Eventos</h2>
 
 <p>
     @Html.ActionLink("Nuevo Evento", "Create")
-</p>
-<p>
-    @Html.ActionLink("Mis Eventos", "List")
 </p>
 <table>
     <tr>
@@ -53,3 +49,6 @@
 }
 
 </table>
+<div>
+    @Html.ActionLink("Volver a Eventos", "Index")
+</div>

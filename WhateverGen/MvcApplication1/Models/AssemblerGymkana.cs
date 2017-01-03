@@ -33,7 +33,7 @@ namespace MvcApplication1.Models
                 //mapa
                 gymkana.Mapa = null;
                 if (gymen.Mapa != null)
-                    gymkana.Mapa = assM.ConvertENToModelUI(gymen.Mapa[0]);
+                    gymkana.Mapa = assM.ConvertENToModelUI(gymen.Mapa);
                 //comentarios
                 gymkana.Comentarios = null;
                 if (gymen.Comentario != null)

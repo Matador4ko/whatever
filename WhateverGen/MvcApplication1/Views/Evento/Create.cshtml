@@ -1,10 +1,10 @@
 ﻿@model MvcApplication1.Models.Evento
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Nuevo Evento";
 }
 
-<h2>Create</h2>
+<h2>Nuevo Reto</h2>
 
 @using (Html.BeginForm("Create", "Evento", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -76,7 +76,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver a Eventos", "Index")
 </div>
 
 @section Scripts {

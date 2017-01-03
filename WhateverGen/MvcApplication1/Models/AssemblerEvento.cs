@@ -39,11 +39,11 @@ namespace MvcApplication1.Models
                 }
                 //mapa
                 evento.Mapa = null;
-                if (even.Mapa != null) { 
-                    evento.Latitud = even.Mapa[0].Latitud;
-                    evento.Longitud = even.Mapa[0].Longitud;
-                    evento.Zoom = even.Mapa[0].Zoom;
-                    evento.Mapa = assM.ConvertListENToModel(even.Mapa);
+                if (even.Mapa != null) {
+                    evento.Latitud = even.Mapa.Latitud;
+                    evento.Longitud = even.Mapa.Longitud;
+                    evento.Zoom = even.Mapa.Zoom;
+                    evento.Mapa = assM.ConvertENToModelUI(even.Mapa);
                     }
                 //comentarios
                 evento.Comentarios = null;

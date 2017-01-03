@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using WhateverGenNHibernate.CAD.Whatever;
 using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Models
@@ -14,9 +15,10 @@ namespace MvcApplication1.Models
             if (en != null)
             {
                 Reporte rep = new Reporte();
+                UsuarioCAD cad = new UsuarioCAD();
                 rep.id = en.ID;
                 rep.Motivo = en.Motivo;
-                rep.Usuario = en.Usuario.Nombre;
+                rep.Usuario = cad.FiltrarUsuarioPorNombre(en.Usuario.Nombre);
                 rep.idUsuario = en.Usuario.ID;
 
                 if (en.Evento != null)

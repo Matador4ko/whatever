@@ -36,8 +36,8 @@ System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> Fil
 
 
 
-void AnadirMapa (int p_Evento_OID, System.Collections.Generic.IList<int> p_mapa_OIDs);
+void AnadirMapa (int p_Evento_OID, int p_mapa_OID);
 
-void EliminarMapa (int p_Evento_OID, System.Collections.Generic.IList<int> p_mapa_OIDs);
+void EliminarMapa (int p_Evento_OID, int p_mapa_OID);
 }
 }

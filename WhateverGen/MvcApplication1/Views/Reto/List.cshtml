@@ -1,17 +1,13 @@
-﻿@model IEnumerable<WhateverGenNHibernate.EN.Whatever.EventoEN>
+﻿@model IEnumerable<WhateverGenNHibernate.EN.Whatever.RetoEN>
 
 @{
-    ViewBag.Title = "Eventos";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Mis Retos";
 }
 
-<h2>Eventos</h2>
+<h2>Mis Retos</h2>
 
 <p>
-    @Html.ActionLink("Nuevo Evento", "Create")
-</p>
-<p>
-    @Html.ActionLink("Mis Eventos", "List")
+    @Html.ActionLink("Nuevo Reto", "Create")
 </p>
 <table>
     <tr>
@@ -22,10 +18,13 @@
             @Html.DisplayNameFor(model => model.Descripcion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Fecha)
+            @Html.DisplayNameFor(model => model.Tipo)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Imagen)
         </th>
         <th></th>
     </tr>
@@ -39,10 +38,13 @@
             @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Fecha)
+            @Html.DisplayFor(modelItem => item.Tipo)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Imagen)
         </td>
         <td>
             @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
@@ -53,3 +55,6 @@
 }
 
 </table>
+<div>
+    @Html.ActionLink("Volver a Retos", "Index")
+</div>

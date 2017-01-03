@@ -49,15 +49,10 @@
 					
 			
 		  			
-						<bag name="Mapa" >
-							<key>
-							
-								
-								<column name="FK_ID_idEvento"/>
-					      	</key>
-							<one-to-many class="WhateverGenNHibernate.EN.Whatever.MapaEN"/>
-					    </bag>
 					
+							   <one-to-one name="Mapa" class="WhateverGenNHibernate.EN.Whatever.MapaEN" property-ref="Evento" />							
+					 
+						
 			
 		  			
 						<bag name="Comentario" >

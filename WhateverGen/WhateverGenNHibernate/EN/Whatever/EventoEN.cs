@@ -57,7 +57,7 @@ private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Puntu
 /**
  *	Atributo mapa
  */
-private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> mapa;
+private WhateverGenNHibernate.EN.Whatever.MapaEN mapa;
 
 
 
@@ -120,7 +120,7 @@ public virtual System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whateve
 
 
 
-public virtual System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> Mapa {
+public virtual WhateverGenNHibernate.EN.Whatever.MapaEN Mapa {
         get { return mapa; } set { mapa = value;  }
 }
 
@@ -143,14 +143,13 @@ public virtual System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whateve
 public EventoEN()
 {
         puntuacion = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.PuntuacionEN>();
-        mapa = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.MapaEN>();
         comentario = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.ComentarioEN>();
         reporte = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.ReporteEN>();
 }
 
 
 
-public EventoEN(int iD, string titulo, string descripcion, Nullable<DateTime> fecha, double precio, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte
+public EventoEN(int iD, string titulo, string descripcion, Nullable<DateTime> fecha, double precio, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, WhateverGenNHibernate.EN.Whatever.MapaEN mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte
                 )
 {
         this.init (ID, titulo, descripcion, fecha, precio, usuario, puntuacion, mapa, comentario, reporte);
@@ -163,7 +162,7 @@ public EventoEN(EventoEN evento)
 }
 
 private void init (int ID
-                   , string titulo, string descripcion, Nullable<DateTime> fecha, double precio, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte)
+                   , string titulo, string descripcion, Nullable<DateTime> fecha, double precio, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, WhateverGenNHibernate.EN.Whatever.MapaEN mapa, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte)
 {
         this.ID = ID;
 

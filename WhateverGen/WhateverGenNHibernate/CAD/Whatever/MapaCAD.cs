@@ -395,7 +395,8 @@ public void RelationerMapaEvento (int p_Mapa_OID, int p_evento_OID)
                 mapaEN = (MapaEN)session.Load (typeof(MapaEN), p_Mapa_OID);
                 mapaEN.Evento = (WhateverGenNHibernate.EN.Whatever.EventoEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.EventoEN), p_evento_OID);
 
-                mapaEN.Evento.Mapa.Add (mapaEN);
+                mapaEN.Evento.Mapa = mapaEN;
+
 
 
 
@@ -460,6 +461,8 @@ public void UnrelationerMapaEvento (int p_Mapa_OID, int p_evento_OID)
 
                 if (mapaEN.Evento.ID == p_evento_OID) {
                         mapaEN.Evento = null;
+                        WhateverGenNHibernate.EN.Whatever.EventoEN eventoEN = (WhateverGenNHibernate.EN.Whatever.EventoEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.EventoEN), p_evento_OID);
+                        eventoEN.Mapa = null;
                 }
                 else
                         throw new ModelException ("The identifier " + p_evento_OID + " in p_evento_OID you are trying to unrelationer, doesn't exist in MapaEN");

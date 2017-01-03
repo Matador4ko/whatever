@@ -20,9 +20,7 @@ namespace MvcApplication1.Controllers
         {
             SessionInitialize();
             EventoCAD cad = new EventoCAD(session);
-            UsuarioCAD usucad = new UsuarioCAD(session);
-            UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
-            var aux = cad.FiltrarEventoPorUsuario(usuen.ID);
+            var aux = cad.GetAll(0, 0);
 
             SessionClose();
 
@@ -60,10 +58,19 @@ namespace MvcApplication1.Controllers
         {            
             try
             {
-                EventoCEN cen = new EventoCEN();
                 UsuarioCAD cad = new UsuarioCAD(session);
-           
-                cen.New_(ev.Titulo, ev.Descripcion, ev.Fecha, ev.Precio, cad.FiltrarUsuarioPorNombre(User.Identity.Name).ID);
+                EventoCP cp = new EventoCP(session);
+                EventoCEN cen = new EventoCEN();
+                EventoEN even = new EventoEN();
+                MapaCP mapa = new MapaCP(session);
+                even.Descripcion = ev.Descripcion;
+                even.Fecha = ev.Fecha;
+                even.Precio = ev.Precio;
+                even.Titulo = ev.Titulo;
+                even.Usuario = cad.FiltrarUsuarioPorNombre(User.Identity.Name);
+                //cp.CrearEvento(even, ev.Latitud,ev.Longitud,ev.Zoom);
+                int id = cen.New_(ev.Titulo, ev.Descripcion, ev.Fecha, ev.Precio, cad.FiltrarUsuarioPorNombre(User.Identity.Name).ID);
+                mapa.CrearMapaParaEvento(id, ev.Latitud, ev.Longitud, ev.Zoom);
                 return RedirectToAction("Index");
             }
             catch
@@ -95,6 +102,7 @@ namespace MvcApplication1.Controllers
             try
             {
                 EventoCEN cen = new EventoCEN();
+
                 cen.Modify(ev.id,ev.Titulo,ev.Descripcion,ev.Fecha,ev.Precio);
                 return RedirectToAction("Index");
             }
@@ -109,27 +117,28 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Delete(int id)
         {
+            Evento ev = null;
             SessionInitialize();
-            EventoCAD evCAD = new EventoCAD(session);
-            EventoCEN cen = new EventoCEN(evCAD);
-            EventoEN evEN = cen.GetID(id);
-            Evento ev = new AssemblerEvento().ConvertENToModelUI(evEN);
+            EventoEN even = new EventoCAD(session).ReadOIDDefault(id);
+            ev = new AssemblerEvento().ConvertENToModelUI(even);
             SessionClose();
-
-
-            new EventoCEN().Destroy(id);
-            return RedirectToAction("Index");
+            return View(ev);
         }
 
         //
         // POST: /Evento/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Evento ev)
         {
             try
             {
-                // TODO: Add delete logic here
+                SessionInitialize();
+                EventoCP cp = new EventoCP(session);
+
+                cp.BorrarEvento(ev.id);
+
+                SessionClose();
 
                 return RedirectToAction("Index");
             }
@@ -137,6 +146,22 @@ namespace MvcApplication1.Controllers
             {
                 return View();
             }
+        }
+
+        //
+        // GET: /Evento/List
+
+        public ActionResult List()
+        {
+            SessionInitialize();
+            EventoCAD cad = new EventoCAD(session);
+            UsuarioCAD usucad = new UsuarioCAD(session);
+            UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
+            var aux = cad.FiltrarEventoPorUsuario(usuen.ID);
+
+            SessionClose();
+
+            return View(aux);
         }
     }
 }

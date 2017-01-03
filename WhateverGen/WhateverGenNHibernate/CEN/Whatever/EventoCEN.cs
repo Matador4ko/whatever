@@ -109,17 +109,17 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Evento
 {
         return _IEventoCAD.FiltrarEventoPorUsuario (id_usu);
 }
-public void AnadirMapa (int p_Evento_OID, System.Collections.Generic.IList<int> p_mapa_OIDs)
+public void AnadirMapa (int p_Evento_OID, int p_mapa_OID)
 {
         //Call to EventoCAD
 
-        _IEventoCAD.AnadirMapa (p_Evento_OID, p_mapa_OIDs);
+        _IEventoCAD.AnadirMapa (p_Evento_OID, p_mapa_OID);
 }
-public void EliminarMapa (int p_Evento_OID, System.Collections.Generic.IList<int> p_mapa_OIDs)
+public void EliminarMapa (int p_Evento_OID, int p_mapa_OID)
 {
         //Call to EventoCAD
 
-        _IEventoCAD.EliminarMapa (p_Evento_OID, p_mapa_OIDs);
+        _IEventoCAD.EliminarMapa (p_Evento_OID, p_mapa_OID);
 }
 }
 }

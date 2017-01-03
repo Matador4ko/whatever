@@ -24,10 +24,12 @@
 			
 			
 		  			
-						<many-to-one name="Evento" class="WhateverGenNHibernate.EN.Whatever.EventoEN" >	
+					
+							<many-to-one name="Evento" class="WhateverGenNHibernate.EN.Whatever.EventoEN" >
 								<column name="FK_ID_idEvento"/> 
-						</many-to-one>
-											 					
+        					</many-to-one>
+					 
+						
 			
 			
 		  			

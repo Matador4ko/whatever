@@ -22,9 +22,7 @@ namespace MvcApplication1.Controllers
         {
             SessionInitialize();
             RetoCAD cad = new RetoCAD(session);
-            UsuarioCAD usucad = new UsuarioCAD(session);
-            UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
-            var aux = cad.FiltrarRetoPorUsuario(usuen.ID);
+            var aux = cad.GetAll(0, 0);
             
 
             return View(aux);
@@ -86,7 +84,8 @@ namespace MvcApplication1.Controllers
                 reten.Tipo = ret.Tipo;
                 reten.Titulo = ret.Titulo;
                 reten.Usuario = cad.FiltrarUsuarioPorNombre(User.Identity.Name);
-                cen.CrearReto(reten);
+                cen.New_(reten.Titulo, reten.Descripcion, reten.Tipo, reten.Precio, reten.Imagen, reten.Usuario.ID);
+                //cen.CrearReto(reten);
 
                 return RedirectToAction("Index");
             }
@@ -113,18 +112,42 @@ namespace MvcApplication1.Controllers
         // POST: /Reto/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Reto ret)
+        public ActionResult Edit(Reto ret, HttpPostedFileBase file)
         {
+            string fileName = "", path = "";
+            // Verify that the user selected a file
+            if (file != null && file.ContentLength > 0)
+            {
+                // extract only the fielname
+                fileName = Path.GetFileName(file.FileName);
+                // store the file inside ~/App_Data/uploads folder
+                path = Path.Combine(Server.MapPath("~/Images/Uploads"), fileName);
+                //string pathDef = path.Replace(@"\\", @"\");
+                file.SaveAs(path);
+            }
+            
             try
             {
                 RetoCEN cen = new RetoCEN();
                 RetoEN reten = new RetoEN();
+                reten.ID = ret.id;
                 reten.Descripcion = ret.Descripcion;
                 reten.Imagen = ret.Imagen;
+                fileName = "/Images/Uploads/" + fileName;
+                if (ret.Imagen != fileName && fileName != "/Images/Uploads/")
+                {
+                    reten.Imagen = fileName;
+                }
+                else
+                {
+                reten.Imagen = ret.Imagen;
+                }
                 reten.Precio = ret.Precio;
                 reten.Tipo = ret.Tipo;
                 reten.Titulo = ret.Titulo;
                 reten.Usuario = ret.usuario;
+                
+                
                 cen.ModificarReto(reten);
 ;               return RedirectToAction("Index");
             }
@@ -139,27 +162,28 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Delete(int id)
         {
+            Reto ret = null;
             SessionInitialize();
-            RetoCAD retCAD = new RetoCAD(session);
-            RetoCEN cen = new RetoCEN(retCAD);
-            RetoEN retEN = cen.GetID(id);
-            Reto ret = new AssemblerReto().ConvertENToModelUI(retEN);
+            RetoEN reten = new RetoCAD(session).ReadOIDDefault(id);
+            ret = new AssemblerReto().ConvertENToModelUI(reten);
             SessionClose();
-
-
-            new RetoCEN().Destroy(id);
-            return RedirectToAction("Index");
+            return View(ret);
         }
 
         //
         // POST: /Reto/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Reto ret)
         {
             try
             {
-                // TODO: Add delete logic here
+                SessionInitialize();
+                RetoCP cp = new RetoCP(session);
+                cp.BorrarReto(ret.id);
+                SessionClose();
+
+
 
                 return RedirectToAction("Index");
             }
@@ -167,6 +191,22 @@ namespace MvcApplication1.Controllers
             {
                 return View();
             }
+        }
+
+        //
+        // GET: /Reto/List
+
+        public ActionResult List()
+        {
+            SessionInitialize();
+            RetoCAD cad = new RetoCAD(session);
+            UsuarioCAD usucad = new UsuarioCAD(session);
+            UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
+            var aux = cad.FiltrarRetoPorUsuario(usuen.ID);
+
+
+            return View(aux);
+
         }
     }
 }
