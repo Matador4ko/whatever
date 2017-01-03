@@ -162,7 +162,7 @@ public static void InitializeData ()
                 GymkanaCP gymcp = new GymkanaCP ();
 
 
-
+            
                 //insertamos valores en el usuarioEN
                 usuen.Nombre = "Pedro";
                 usuen.Edad = 10;
@@ -426,9 +426,7 @@ public static void InitializeData ()
                 retcp.BorrarReto (repen.ID);
                 var k = retcen.GetAll (0, 0);
 
-
-
-                /*PROTECTED REGION END*/
+            /*PROTECTED REGION END*/
         }
         catch (Exception ex)
         {

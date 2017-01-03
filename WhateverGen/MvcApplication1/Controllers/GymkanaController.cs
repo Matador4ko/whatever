@@ -1,10 +1,12 @@
-﻿using System;
+﻿using MvcApplication1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WhateverGenNHibernate.CAD.Whatever;
 using WhateverGenNHibernate.CEN.Whatever;
+using WhateverGenNHibernate.CP.Whatever;
 using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Controllers
@@ -31,7 +33,12 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            Gymkana gym = null;
+            SessionInitialize();
+            GymkanaEN gymen = new GymkanaCAD(session).ReadOIDDefault(id);
+            gym = new AssemblerGymkana().ConvertENToModelUI(gymen);
+            SessionClose();
+            return View(gym);
         }
 
         //
@@ -39,24 +46,35 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Create()
         {
-            SessionInitialize();
-            GymkanaCAD gym = new GymkanaCAD();
-            GymkanaEN gymen = new GymkanaEN();
-            gym.New_(gymen);
-            SessionClose();
-            return View();
+            Gymkana gym = new Gymkana();
+            gym.Creador = User.Identity.Name;
+            return View(gym);
         }
 
         //
         // POST: /Gymkana/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Gymkana gym)
         {
             try
             {
-                // TODO: Add insert logic here
+                GymkanaCP cp = new GymkanaCP();
+                GymkanaEN en = new GymkanaEN();
+                UsuarioCAD cad = new UsuarioCAD(session);
 
+                cad.FiltrarUsuarioPorNombre(User.Identity.Name);
+
+                en.Titulo = gym.Titulo;
+                en.Descripcion = gym.Descripcion;
+                en.Fecha = gym.Fecha;
+                en.Usuario = gym.usuario;
+                en.Precio = gym.Precio;
+
+                //Esto hay que ver como se hace
+                en.NumPasos = gym.Numeropasos;
+
+                cp.CrearGymkana(en, gym.Mapa.Latitud, gym.Mapa.Longitud, gym.Mapa.Zoom);
                 return RedirectToAction("Index");
             }
             catch
@@ -70,19 +88,25 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            Gymkana gym = null;
+            SessionInitialize();
+            GymkanaEN gymen = new GymkanaCAD(session).ReadOIDDefault(id);
+            gym = new AssemblerGymkana().ConvertENToModelUI(gymen);
+            SessionClose();
+            return View(gym);
+
         }
 
         //
         // POST: /Gymkana/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Gymkana gym)
         {
             try
             {
-                // TODO: Add update logic here
-
+                GymkanaCEN cen = new GymkanaCEN();
+                cen.Modify(gym.id, gym.Titulo, gym.Descripcion, gym.Fecha, gym.Precio, gym.Numeropasos);
                 return RedirectToAction("Index");
             }
             catch
@@ -96,7 +120,16 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View();
+            SessionInitialize();
+            GymkanaCAD cad = new GymkanaCAD(session);
+            GymkanaCEN cen = new GymkanaCEN(cad);
+            GymkanaEN en = cen.GetID(id);
+            Gymkana gym = new AssemblerGymkana().ConvertENToModelUI(en);
+            SessionClose();
+
+
+            new GymkanaCEN().Destroy(id);
+            return RedirectToAction("Index");
         }
 
         //
