@@ -83,6 +83,7 @@ namespace MvcApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model, HttpPostedFileBase file)
         {
+            
             if (ModelState.IsValid)
             {
                 // Intento de registrar al usuario

@@ -407,10 +407,10 @@ public static void InitializeData ()
                 //    comcen.BorrarComentario (comen.ID);
                 var e = comcen.GetAll (0, 0);
 
-                //evecp.BorrarEvento (even.ID);;
+                evecp.BorrarEvento (even.ID);;
                 b = evecen.GetAll (0, 0);
 
-                pascp.BorrarPaso (pasen.ID);
+                //pascp.BorrarPaso (pasen.ID);
                 var g = pascen.GetAll (0, 0);
 
                 gymcp.BorrarGymkana (gymen.ID);
@@ -425,7 +425,7 @@ public static void InitializeData ()
 
                 retcp.BorrarReto (repen.ID);
                 var k = retcen.GetAll (0, 0);
-
+            
 
 
                 /*PROTECTED REGION END*/

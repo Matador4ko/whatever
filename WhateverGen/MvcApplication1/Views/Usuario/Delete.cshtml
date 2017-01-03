@@ -1,11 +1,12 @@
 ﻿@model MvcApplication1.Models.Usuario
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Delete";
 }
 
-<h2>Details</h2>
+<h2>Delete</h2>
 
+<h3>Are you sure you want to delete this?</h3>
 <fieldset>
     <legend>Usuario</legend>
 
@@ -20,7 +21,7 @@
          @Html.DisplayNameFor(model => model.Edad)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Edad) años
+        @Html.DisplayFor(model => model.Edad)
     </div>
 
     <div class="display-label">
@@ -72,6 +73,10 @@
         @Html.DisplayFor(model => model.Twitter)
     </div>
 </fieldset>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id= Model.id }) 
-</p>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

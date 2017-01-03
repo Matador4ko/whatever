@@ -87,7 +87,7 @@ namespace MvcApplication1.Controllers
                 cen.New_(reten.Titulo, reten.Descripcion, reten.Tipo, reten.Precio, reten.Imagen, reten.Usuario.ID);
                 //cen.CrearReto(reten);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             catch
             {
@@ -149,7 +149,7 @@ namespace MvcApplication1.Controllers
                 
                 
                 cen.ModificarReto(reten);
-;               return RedirectToAction("Index");
+;               return RedirectToAction("List");
             }
             catch
             {
@@ -178,14 +178,12 @@ namespace MvcApplication1.Controllers
         {
             try
             {
-                SessionInitialize();
                 RetoCP cp = new RetoCP(session);
                 cp.BorrarReto(ret.id);
-                SessionClose();
 
 
 
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             catch
             {

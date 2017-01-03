@@ -45,8 +45,12 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Create()
         {
+            SessionInitialize();
+
             Evento ev = new Evento();
             ev.Creador = User.Identity.Name;
+
+            SessionClose();
             return View(ev);
         }
 
@@ -71,7 +75,8 @@ namespace MvcApplication1.Controllers
                 //cp.CrearEvento(even, ev.Latitud,ev.Longitud,ev.Zoom);
                 int id = cen.New_(ev.Titulo, ev.Descripcion, ev.Fecha, ev.Precio, cad.FiltrarUsuarioPorNombre(User.Identity.Name).ID);
                 mapa.CrearMapaParaEvento(id, ev.Latitud, ev.Longitud, ev.Zoom);
-                return RedirectToAction("Index");
+               
+                return RedirectToAction("List");
             }
             catch
             {
@@ -104,7 +109,7 @@ namespace MvcApplication1.Controllers
                 EventoCEN cen = new EventoCEN();
 
                 cen.Modify(ev.id,ev.Titulo,ev.Descripcion,ev.Fecha,ev.Precio);
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             catch
             {
@@ -133,14 +138,12 @@ namespace MvcApplication1.Controllers
         {
             try
             {
-                SessionInitialize();
-                EventoCP cp = new EventoCP(session);
 
+                EventoCP cp = new EventoCP(session);
                 cp.BorrarEvento(ev.id);
 
-                SessionClose();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             catch
             {

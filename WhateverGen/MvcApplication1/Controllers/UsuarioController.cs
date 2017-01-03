@@ -9,6 +9,7 @@ using System.Web.Security;
 using WebMatrix.WebData;
 using WhateverGenNHibernate.CAD.Whatever;
 using WhateverGenNHibernate.CEN.Whatever;
+using WhateverGenNHibernate.CP.Whatever;
 using WhateverGenNHibernate.EN.Whatever;
 
 
@@ -100,6 +101,7 @@ namespace MvcApplication1.Controllers
             SessionInitialize();
             UsuarioEN usuen = new UsuarioCAD(session).ReadOIDDefault(id);
             usu = new AssemblerUsuario().ConvertENToModelUI(usuen);
+            
             SessionClose();
             return View(usu);
         }
@@ -150,12 +152,9 @@ namespace MvcApplication1.Controllers
             UsuarioEN usuEN = cen.GetID(id);
             Usuario usu = new AssemblerUsuario().ConvertENToModelUI(usuEN);
             SessionClose();
-            
 
-            new UsuarioCEN().Destroy(id);
-            Membership.DeleteUser(User.Identity.Name);
-            WebSecurity.Logout();
-            return RedirectToAction("Index");
+
+            return View(usu);
 
         }
 
@@ -163,12 +162,13 @@ namespace MvcApplication1.Controllers
         // POST: /Usuario/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Usuario usu)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                new UsuarioCP().BorrarUsuario(usu.id);
+                Membership.DeleteUser(User.Identity.Name);
+                WebSecurity.Logout();
                 return RedirectToAction("Index");
             }
             catch

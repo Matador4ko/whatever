@@ -1,11 +1,10 @@
 ﻿@model IEnumerable<WhateverGenNHibernate.EN.Whatever.GymkanaEN>
 
 @{
-    ViewBag.Title = "verPasos";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "List";
 }
 
-<h2>verPasos</h2>
+<h2>List</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -56,3 +55,6 @@
 }
 
 </table>
+<div>
+    @Html.ActionLink("Volver a Gymkanas", "Index")
+</div>

@@ -34,6 +34,7 @@ namespace MvcApplication1.Models
                 usu.Facebook = en.Facebook;
                 usu.Twitter = en.Twitter;
                 usu.Instagram = en.Instagram;
+                usu.sexo = en.Sexo;
 
                 usu.reto = en.Reto;
                 usu.evento = en.Evento;

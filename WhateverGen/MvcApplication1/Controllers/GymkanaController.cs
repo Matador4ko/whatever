@@ -71,11 +71,10 @@ namespace MvcApplication1.Controllers
                 en.Usuario = gym.usuario;
                 en.Precio = gym.Precio;
 
-                //Esto hay que ver como se hace
-                en.NumPasos = gym.Numeropasos;
+                en.NumPasos = 1;
 
                 cp.CrearGymkana(en, gym.Mapa.Latitud, gym.Mapa.Longitud, gym.Mapa.Zoom);
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             catch
             {
@@ -148,6 +147,22 @@ namespace MvcApplication1.Controllers
             {
                 return View();
             }
+        }
+
+        //
+        // GET: /Gymkana/List
+
+        public ActionResult List()
+        {
+            SessionInitialize();
+            GymkanaCAD cad = new GymkanaCAD(session);
+            UsuarioCAD usucad = new UsuarioCAD(session);
+            UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
+            var aux = cad.FiltrarGymkanaPorUsuario(usuen.ID);
+
+            SessionClose();
+
+            return View(aux);
         }
     }
 }

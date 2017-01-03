@@ -234,6 +234,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\AssemblerAdmin.cs" />
     <Compile Include="Models\AssemblerComentario.cs" />
     <Compile Include="Models\AssemblerEvento.cs" />
     <Compile Include="Models\AssemblerGymkana.cs" />
@@ -371,12 +372,6 @@
     <Content Include="Views\Evento\Index.cshtml" />
     <Content Include="Views\Usuario\hacerAdmin.cshtml" />
     <Content Include="Views\Usuario\recuperarContrasena.cshtml" />
-    <Content Include="Views\Gymkana\anadirPaso.cshtml" />
-    <Content Include="Views\Gymkana\borrarGymkana.cshtml" />
-    <Content Include="Views\Gymkana\crearGymkana.cshtml" />
-    <Content Include="Views\Gymkana\Index.cshtml" />
-    <Content Include="Views\Gymkana\modificarGymkana.cshtml" />
-    <Content Include="Views\Gymkana\verPasos.cshtml" />
     <Content Include="Views\Admin\borrarAdmin.cshtml" />
     <Content Include="Views\Admin\borrarEvento.cshtml" />
     <Content Include="Views\Admin\borrarReto.cshtml" />
@@ -412,6 +407,9 @@
     <Content Include="Views\Usuario\Details.cshtml" />
     <Content Include="Views\Reto\Delete.cshtml" />
     <Content Include="Views\Evento\Delete.cshtml" />
+    <Content Include="Views\Gymkana\List.cshtml" />
+    <Content Include="Views\Usuario\Delete.cshtml" />
+    <Content Include="Views\Gymkana\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
