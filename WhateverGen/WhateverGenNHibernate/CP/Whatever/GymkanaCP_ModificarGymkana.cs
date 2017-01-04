@@ -20,7 +20,7 @@ namespace WhateverGenNHibernate.CP.Whatever
 {
 public partial class GymkanaCP : BasicCP
 {
-public void ModificarGymkana (WhateverGenNHibernate.EN.Whatever.GymkanaEN gym, WhateverGenNHibernate.EN.Whatever.MapaEN mapa)
+public void ModificarGymkana (WhateverGenNHibernate.EN.Whatever.GymkanaEN gym)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CP.Whatever_Gymkana_modificarGymkana) ENABLED START*/
 
@@ -36,15 +36,8 @@ public void ModificarGymkana (WhateverGenNHibernate.EN.Whatever.GymkanaEN gym, W
                 gymkanaCEN = new  GymkanaCEN (gymkanaCAD);
 
 
-                MapaCAD map = new MapaCAD (session);
-
-                MapaEN mapen = gym.Mapa;
-                mapen.Latitud = mapa.Latitud;
-                mapen.Longitud = mapa.Longitud;
-                mapen.Zoom = mapa.Zoom;
 
                 gymkanaCAD.Modify (gym);
-                map.Modify (mapen);
 
 
                 SessionCommit ();

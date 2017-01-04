@@ -410,6 +410,10 @@
     <Content Include="Views\Gymkana\List.cshtml" />
     <Content Include="Views\Usuario\Delete.cshtml" />
     <Content Include="Views\Gymkana\Index.cshtml" />
+    <Content Include="Views\Gymkana\Create.cshtml" />
+    <Content Include="Views\Gymkana\Edit.cshtml" />
+    <Content Include="Views\Gymkana\Details.cshtml" />
+    <Content Include="Views\Gymkana\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -40,6 +40,13 @@ private int puntuacion;
 
 
 
+/**
+ *	Atributo gymkana
+ */
+private WhateverGenNHibernate.EN.Whatever.GymkanaEN gymkana;
+
+
+
 
 
 
@@ -73,6 +80,12 @@ public virtual int Puntuacion {
 
 
 
+public virtual WhateverGenNHibernate.EN.Whatever.GymkanaEN Gymkana {
+        get { return gymkana; } set { gymkana = value;  }
+}
+
+
+
 
 
 public PuntuacionEN()
@@ -81,20 +94,20 @@ public PuntuacionEN()
 
 
 
-public PuntuacionEN(int id, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, WhateverGenNHibernate.EN.Whatever.RetoEN reto, WhateverGenNHibernate.EN.Whatever.EventoEN evento, int puntuacion
+public PuntuacionEN(int id, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, WhateverGenNHibernate.EN.Whatever.RetoEN reto, WhateverGenNHibernate.EN.Whatever.EventoEN evento, int puntuacion, WhateverGenNHibernate.EN.Whatever.GymkanaEN gymkana
                     )
 {
-        this.init (Id, usuario, reto, evento, puntuacion);
+        this.init (Id, usuario, reto, evento, puntuacion, gymkana);
 }
 
 
 public PuntuacionEN(PuntuacionEN puntuacion)
 {
-        this.init (Id, puntuacion.Usuario, puntuacion.Reto, puntuacion.Evento, puntuacion.Puntuacion);
+        this.init (Id, puntuacion.Usuario, puntuacion.Reto, puntuacion.Evento, puntuacion.Puntuacion, puntuacion.Gymkana);
 }
 
 private void init (int id
-                   , WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, WhateverGenNHibernate.EN.Whatever.RetoEN reto, WhateverGenNHibernate.EN.Whatever.EventoEN evento, int puntuacion)
+                   , WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, WhateverGenNHibernate.EN.Whatever.RetoEN reto, WhateverGenNHibernate.EN.Whatever.EventoEN evento, int puntuacion, WhateverGenNHibernate.EN.Whatever.GymkanaEN gymkana)
 {
         this.Id = id;
 
@@ -106,6 +119,8 @@ private void init (int id
         this.Evento = evento;
 
         this.Puntuacion = puntuacion;
+
+        this.Gymkana = gymkana;
 }
 
 public override bool Equals (object obj)

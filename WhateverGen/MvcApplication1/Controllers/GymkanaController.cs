@@ -21,7 +21,7 @@ namespace MvcApplication1.Controllers
             
             SessionInitialize();
             GymkanaCAD cad = new GymkanaCAD(session);
-            var aux = cad.ReadAllDefault(0, -1).ToList();
+            var aux = cad.ReadAllDefault(0, 0);
 
             SessionClose();
 
@@ -46,8 +46,14 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Create()
         {
+            SessionInitialize();
+
             Gymkana gym = new Gymkana();
             gym.Creador = User.Identity.Name;
+            gym.Puntuaciones = null;
+
+            SessionClose();
+
             return View(gym);
         }
 
@@ -63,17 +69,15 @@ namespace MvcApplication1.Controllers
                 GymkanaEN en = new GymkanaEN();
                 UsuarioCAD cad = new UsuarioCAD();
 
-                cad.FiltrarUsuarioPorNombre(User.Identity.Name);
 
                 en.Titulo = gym.Titulo;
                 en.Descripcion = gym.Descripcion;
                 en.Fecha = gym.Fecha;
-                en.Usuario = gym.usuario;
+                en.Usuario = cad.FiltrarUsuarioPorNombre(User.Identity.Name);
                 en.Precio = gym.Precio;
-
                 en.NumPasos = 1;
 
-                cp.CrearGymkana(en, gym.Mapa.Latitud, gym.Mapa.Longitud, gym.Mapa.Zoom);
+                cp.CrearGymkana(en, gym.Latitud, gym.Longitud, gym.Zoom);
                 return RedirectToAction("List");
             }
             catch
@@ -105,7 +109,7 @@ namespace MvcApplication1.Controllers
             try
             {
                 GymkanaCEN cen = new GymkanaCEN();
-                cen.Modify(gym.id, gym.Titulo, gym.Descripcion, gym.Fecha, gym.Precio, gym.Numeropasos);
+                cen.Modify(gym.id,gym.Numeropasos,gym.Titulo,gym.Descripcion,gym.Fecha,gym.Precio);
                 return RedirectToAction("Index");
             }
             catch
@@ -119,29 +123,27 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Delete(int id)
         {
+            Gymkana gym = null;
             SessionInitialize();
-            GymkanaCAD cad = new GymkanaCAD(session);
-            GymkanaCEN cen = new GymkanaCEN(cad);
-            GymkanaEN en = cen.GetID(id);
-            Gymkana gym = new AssemblerGymkana().ConvertENToModelUI(en);
+            GymkanaEN gymen = new GymkanaCAD(session).ReadOIDDefault(id);
+            gym = new AssemblerGymkana().ConvertENToModelUI(gymen);
             SessionClose();
-
-
-            new GymkanaCEN().Destroy(id);
-            return RedirectToAction("Index");
+            return View(gym);
         }
 
         //
         // POST: /Gymkana/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Gymkana gym)
         {
             try
             {
-                // TODO: Add delete logic here
+                GymkanaCP cp = new GymkanaCP();
+                cp.BorrarGymkana(gym.id);
 
-                return RedirectToAction("Index");
+
+                return RedirectToAction("List");
             }
             catch
             {

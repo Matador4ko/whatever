@@ -50,5 +50,15 @@ void RelationerComentarioReto (int p_Comentario_OID, int p_reto_OID);
 void UnrelationerComentarioEvento (int p_Comentario_OID, int p_evento_OID);
 
 void UnrelationerComentarioReto (int p_Comentario_OID, int p_reto_OID);
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> FiltrarComentarioPorGymkana (int ? id_gym);
+
+
+
+
+void RelationerComentarioGymkana (int p_Comentario_OID, int p_gymkana_OID);
+
+void UnrelationerComentarioGymkana (int p_Comentario_OID, int p_gymkana_OID);
 }
 }

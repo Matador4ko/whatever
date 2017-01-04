@@ -47,6 +47,13 @@ private WhateverGenNHibernate.EN.Whatever.RetoEN reto;
 
 
 
+/**
+ *	Atributo gymkana
+ */
+private WhateverGenNHibernate.EN.Whatever.GymkanaEN gymkana;
+
+
+
 
 
 
@@ -86,6 +93,12 @@ public virtual WhateverGenNHibernate.EN.Whatever.RetoEN Reto {
 
 
 
+public virtual WhateverGenNHibernate.EN.Whatever.GymkanaEN Gymkana {
+        get { return gymkana; } set { gymkana = value;  }
+}
+
+
+
 
 
 public ComentarioEN()
@@ -94,20 +107,20 @@ public ComentarioEN()
 
 
 
-public ComentarioEN(int iD, string texto, string creador, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, WhateverGenNHibernate.EN.Whatever.EventoEN evento, WhateverGenNHibernate.EN.Whatever.RetoEN reto
+public ComentarioEN(int iD, string texto, string creador, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, WhateverGenNHibernate.EN.Whatever.EventoEN evento, WhateverGenNHibernate.EN.Whatever.RetoEN reto, WhateverGenNHibernate.EN.Whatever.GymkanaEN gymkana
                     )
 {
-        this.init (ID, texto, creador, usuario, evento, reto);
+        this.init (ID, texto, creador, usuario, evento, reto, gymkana);
 }
 
 
 public ComentarioEN(ComentarioEN comentario)
 {
-        this.init (ID, comentario.Texto, comentario.Creador, comentario.Usuario, comentario.Evento, comentario.Reto);
+        this.init (ID, comentario.Texto, comentario.Creador, comentario.Usuario, comentario.Evento, comentario.Reto, comentario.Gymkana);
 }
 
 private void init (int ID
-                   , string texto, string creador, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, WhateverGenNHibernate.EN.Whatever.EventoEN evento, WhateverGenNHibernate.EN.Whatever.RetoEN reto)
+                   , string texto, string creador, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, WhateverGenNHibernate.EN.Whatever.EventoEN evento, WhateverGenNHibernate.EN.Whatever.RetoEN reto, WhateverGenNHibernate.EN.Whatever.GymkanaEN gymkana)
 {
         this.ID = ID;
 
@@ -121,6 +134,8 @@ private void init (int ID
         this.Evento = evento;
 
         this.Reto = reto;
+
+        this.Gymkana = gymkana;
 }
 
 public override bool Equals (object obj)

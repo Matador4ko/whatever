@@ -135,5 +135,21 @@ public void UnrelationerComentarioReto (int p_Comentario_OID, int p_reto_OID)
 
         _IComentarioCAD.UnrelationerComentarioReto (p_Comentario_OID, p_reto_OID);
 }
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> FiltrarComentarioPorGymkana (int ? id_gym)
+{
+        return _IComentarioCAD.FiltrarComentarioPorGymkana (id_gym);
+}
+public void RelationerComentarioGymkana (int p_Comentario_OID, int p_gymkana_OID)
+{
+        //Call to ComentarioCAD
+
+        _IComentarioCAD.RelationerComentarioGymkana (p_Comentario_OID, p_gymkana_OID);
+}
+public void UnrelationerComentarioGymkana (int p_Comentario_OID, int p_gymkana_OID)
+{
+        //Call to ComentarioCAD
+
+        _IComentarioCAD.UnrelationerComentarioGymkana (p_Comentario_OID, p_gymkana_OID);
+}
 }
 }

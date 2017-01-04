@@ -43,7 +43,7 @@ namespace MvcApplication1.Models
 
         //Fecha
         [Display(Prompt = "Fecha del evento", Description = "Fecha del evento", Name = "Fecha")]
-        [DataType(DataType.Date, ErrorMessage = "La latitud debe ser numerica")]
+        [DataType(DataType.Date, ErrorMessage = "La fecha debe ser valida")]
         [Required(ErrorMessage = "Debe indicar una fecha para el evento")]
         public Nullable<DateTime> Fecha { get; set; }
 

@@ -36,6 +36,13 @@
 								<column name="FK_ID_idEvento"/> 
 						</many-to-one>
 											 					
+			
+		  			
+						<many-to-one name="Gymkana" class="WhateverGenNHibernate.EN.Whatever.GymkanaEN" >	
+								<column name="FK_IDGymkana_idGymkana"/> 
+						</many-to-one>
+											 					
+					
 					
 					
 					
@@ -50,5 +57,7 @@
 		  <query name="ReporteENfiltrarReportesPorEventoHQL"><![CDATA[FROM ReporteEN as rep WHERE rep.Evento.ID=:id_evento]]></query>
 		  <query name="ReporteENfiltrarReportesPorRetoHQL"><![CDATA[FROM ReporteEN as rep WHERE rep.Reto.ID=:id_reto]]></query>
 		  <query name="ReporteENfiltrarReportesPorUsuarioHQL"><![CDATA[FROM ReporteEN as rep WHERE rep.Usuario.ID=:id_usuario]]></query>
+		  <query name="ReporteENfiltrarReportePorGymkanaYUsuarioHQL"><![CDATA[FROM ReporteEN as rep WHERE rep.Gymkana.ID=:id_gym and rep.Usuario.ID=:id_usuario]]></query>
+		  <query name="ReporteENfiltrarReportesPorGymkanaHQL"><![CDATA[FROM ReporteEN as rep WHERE rep.Gymkana.ID=:id_gym]]></query>
 		</hibernate-mapping>
 	

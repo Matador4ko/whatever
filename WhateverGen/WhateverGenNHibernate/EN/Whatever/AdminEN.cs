@@ -14,20 +14,20 @@ public AdminEN() : base ()
 
 
 public AdminEN(int iD,
-               string nombre, int edad, string sexo, string facebook, string instagram, string twitter, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> reto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> evento, String contrasena, string email, string foto
+               string nombre, int edad, string sexo, string facebook, string instagram, string twitter, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> reto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> evento, String contrasena, string email, string foto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.GymkanaEN> gymkana
                )
 {
-        this.init (ID, nombre, edad, sexo, facebook, instagram, twitter, reto, reporte, puntuacion, comentario, evento, contrasena, email, foto);
+        this.init (ID, nombre, edad, sexo, facebook, instagram, twitter, reto, reporte, puntuacion, comentario, evento, contrasena, email, foto, gymkana);
 }
 
 
 public AdminEN(AdminEN admin)
 {
-        this.init (ID, admin.Nombre, admin.Edad, admin.Sexo, admin.Facebook, admin.Instagram, admin.Twitter, admin.Reto, admin.Reporte, admin.Puntuacion, admin.Comentario, admin.Evento, admin.Contrasena, admin.Email, admin.Foto);
+        this.init (ID, admin.Nombre, admin.Edad, admin.Sexo, admin.Facebook, admin.Instagram, admin.Twitter, admin.Reto, admin.Reporte, admin.Puntuacion, admin.Comentario, admin.Evento, admin.Contrasena, admin.Email, admin.Foto, admin.Gymkana);
 }
 
 private void init (int ID
-                   , string nombre, int edad, string sexo, string facebook, string instagram, string twitter, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> reto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> evento, String contrasena, string email, string foto)
+                   , string nombre, int edad, string sexo, string facebook, string instagram, string twitter, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> reto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> evento, String contrasena, string email, string foto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.GymkanaEN> gymkana)
 {
         this.ID = ID;
 
@@ -59,6 +59,8 @@ private void init (int ID
         this.Email = email;
 
         this.Foto = foto;
+
+        this.Gymkana = gymkana;
 }
 
 public override bool Equals (object obj)

@@ -44,9 +44,10 @@ public void CrearGymkana (WhateverGenNHibernate.EN.Whatever.GymkanaEN gym, doubl
                 mapen.Longitud = lon;
                 mapen.Zoom = zoom;
 
+                gym.NumPasos = 1;
+
                 int id_gym = gymkanaCAD.New_ (gym);
 
-                mapa.CrearMapaParaEvento (id_gym, lat, lon, zoom);
                 AnadirPaso (paso, mapen, gym);
                 SessionCommit ();
         }

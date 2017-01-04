@@ -14,15 +14,6 @@ void ModifyDefault (GymkanaEN gymkana);
 
 
 
-int New_ (GymkanaEN gymkana);
-
-
-void Modify (GymkanaEN gymkana);
-
-
-void Destroy (int ID
-              );
-
 
 System.Collections.Generic.IList<GymkanaEN> GetAll (int first, int size);
 
@@ -35,5 +26,14 @@ GymkanaEN GetID (int ID
 
 
 System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.GymkanaEN> FiltrarGymkanaPorUsuario (int ? id_usu);
+
+
+int New_ (GymkanaEN gymkana);
+
+void Modify (GymkanaEN gymkana);
+
+
+void Destroy (int ID
+              );
 }
 }

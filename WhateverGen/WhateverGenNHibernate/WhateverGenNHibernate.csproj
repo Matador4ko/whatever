@@ -161,10 +161,7 @@
 	<Compile Include="CP\Whatever\GymkanaCP.cs" />
 			<Compile Include="CP\Whatever\GymkanaCP_AnadirPaso.cs" />
 			
-			
 			<Compile Include="CEN\Whatever\GymkanaCEN_VerPasos.cs" />
-			
-			
 			
 			
 			
@@ -173,6 +170,9 @@
 			<Compile Include="CP\Whatever\GymkanaCP_ModificarGymkana.cs" />
 			
 			<Compile Include="CP\Whatever\GymkanaCP_BorrarGymkana.cs" />
+			
+			
+			
 			
 			
 	<Compile Include="EN\Whatever\ComentarioEN.cs" />
@@ -203,6 +203,13 @@
 			
 			
 			<Compile Include="CP\Whatever\ComentarioCP_BorrarComentariosEvento.cs" />
+			
+			
+			<Compile Include="CP\Whatever\ComentarioCP_CrearComentarioParaGymkana.cs" />
+			
+			<Compile Include="CP\Whatever\ComentarioCP_BorrarComentariosGymkana.cs" />
+			
+			
 			
 	<Compile Include="EN\Whatever\AdminEN.cs" />
 	<Compile Include="CEN\Whatever\AdminCEN.cs" />
@@ -245,6 +252,14 @@
 			
 			
 			<Compile Include="CP\Whatever\ReporteCP_BorrarUnReporte.cs" />
+			
+			
+			
+			<Compile Include="CP\Whatever\ReporteCP_ReportarGymkana.cs" />
+			
+			
+			<Compile Include="CP\Whatever\ReporteCP_BorrarReportesGymkana.cs" />
+			
 			
 	<Compile Include="EN\Whatever\EventoEN.cs" />
 	<Compile Include="CEN\Whatever\EventoCEN.cs" />
@@ -317,6 +332,16 @@
 			<Compile Include="CP\Whatever\PuntuacionCP_BorrarPuntuacionReto.cs" />
 			
 			
+			
+			
+			
+			
+			<Compile Include="CEN\Whatever\PuntuacionCEN_VerMediaGymkana.cs" />
+			
+			<Compile Include="CP\Whatever\PuntuacionCP_CrearPuntuacionParaGymkana.cs" />
+			
+			
+			<Compile Include="CP\Whatever\PuntuacionCP_BorrarPuntuacionGymkana.cs" />
 			
 			
 	<Compile Include="EN\Whatever\MapaEN.cs" />

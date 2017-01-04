@@ -103,29 +103,49 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Report
 {
         return _IReporteCAD.FiltrarReportesPorUsuario (id_usuario);
 }
-public void RelationerReporteReto (int id_reporte, int id_reto)
+public void RelationerReporteReto (int p_Reporte_OID, int p_reto_OID)
 {
         //Call to ReporteCAD
 
-        _IReporteCAD.RelationerReporteReto (id_reporte, id_reto);
+        _IReporteCAD.RelationerReporteReto (p_Reporte_OID, p_reto_OID);
 }
-public void RelationerReporteEvento (int id_reporte, int id_evento)
+public void RelationerReporteEvento (int p_Reporte_OID, int p_evento_OID)
 {
         //Call to ReporteCAD
 
-        _IReporteCAD.RelationerReporteEvento (id_reporte, id_evento);
+        _IReporteCAD.RelationerReporteEvento (p_Reporte_OID, p_evento_OID);
 }
-public void UnrelationerReporteReto (int id_reporte, int id_reto)
+public void UnrelationerReporteReto (int p_Reporte_OID, int p_reto_OID)
 {
         //Call to ReporteCAD
 
-        _IReporteCAD.UnrelationerReporteReto (id_reporte, id_reto);
+        _IReporteCAD.UnrelationerReporteReto (p_Reporte_OID, p_reto_OID);
 }
-public void UnrelationerReporteEvento (int id_reporte, int id_evento)
+public void UnrelationerReporteEvento (int p_Reporte_OID, int p_evento_OID)
 {
         //Call to ReporteCAD
 
-        _IReporteCAD.UnrelationerReporteEvento (id_reporte, id_evento);
+        _IReporteCAD.UnrelationerReporteEvento (p_Reporte_OID, p_evento_OID);
+}
+public WhateverGenNHibernate.EN.Whatever.ReporteEN FiltrarReportePorGymkanaYUsuario (int? id_gym, int ? id_usuario)
+{
+        return _IReporteCAD.FiltrarReportePorGymkanaYUsuario (id_gym, id_usuario);
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarReportesPorGymkana (int ? id_gym)
+{
+        return _IReporteCAD.FiltrarReportesPorGymkana (id_gym);
+}
+public void RelationerReporteGymkana (int p_Reporte_OID, int p_gymkana_OID)
+{
+        //Call to ReporteCAD
+
+        _IReporteCAD.RelationerReporteGymkana (p_Reporte_OID, p_gymkana_OID);
+}
+public void UnrelationerReporteGymkana (int p_Reporte_OID, int p_gymkana_OID)
+{
+        //Call to ReporteCAD
+
+        _IReporteCAD.UnrelationerReporteGymkana (p_Reporte_OID, p_gymkana_OID);
 }
 }
 }

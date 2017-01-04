@@ -43,12 +43,19 @@ public void BorrarUnReporte (int p_oid)
                 even = reporteCAD.GetID (p_oid).Evento;
                 RetoEN reten = new RetoEN ();
                 reten = reporteCAD.GetID (p_oid).Reto;
+                GymkanaEN gymen = new GymkanaEN ();
+                gymen = reporteCAD.GetID (p_oid).Gymkana;
+
                 if (even != null) {
                         reporteCAD.UnrelationerReporteEvento (p_oid, even.ID);
                         reporteCAD.Destroy (p_oid);
                 }
-                else{
+                else if (reten != null) {
                         reporteCAD.UnrelationerReporteReto (p_oid, reten.ID);
+                        reporteCAD.Destroy (p_oid);
+                }
+                else if (gymen != null) {
+                        reporteCAD.UnrelationerReporteGymkana (p_oid, gymen.ID);
                         reporteCAD.Destroy (p_oid);
                 }
 

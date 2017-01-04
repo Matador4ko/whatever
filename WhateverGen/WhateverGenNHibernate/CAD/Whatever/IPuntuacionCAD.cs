@@ -57,5 +57,19 @@ void UnrelationerPuntuacionEvento (int p_Puntuacion_OID, int p_evento_OID);
 void UnrelationerPuntuacionReto (int p_Puntuacion_OID, int p_reto_OID);
 
 System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarComentarioPorUsuario (int ? id_usuario);
+
+
+WhateverGenNHibernate.EN.Whatever.PuntuacionEN FiltrarPuntuacionPorUsuarioYGymkana (int? id_gym, int ? id_usuario);
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarPuntuacionPorGymkana (int ? id_gym);
+
+
+
+
+void RelationerPuntuacionGymkana (int p_Puntuacion_OID, int p_gymkana_OID);
+
+
+void UnrelationerPuntuacionGymkana (int p_Puntuacion_OID, int p_gymkana_OID);
 }
 }

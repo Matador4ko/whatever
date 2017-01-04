@@ -40,6 +40,13 @@
 								<column name="FK_id_idComentario_0"/> 
 						</many-to-one>
 											 					
+			
+		  			
+						<many-to-one name="Gymkana" class="WhateverGenNHibernate.EN.Whatever.GymkanaEN" >	
+								<column name="FK_IDGymkana_idGymkana"/> 
+						</many-to-one>
+											 					
+					
 					
 					
 					
@@ -53,5 +60,6 @@
 		  <query name="ComentarioENfiltrarComentarioPorUsuarioHQL"><![CDATA[FROM ComentarioEN as com WHERE com.Usuario.ID=:id_usuario]]></query>
 		  <query name="ComentarioENfiltrarComentarioPorRetoHQL"><![CDATA[FROM ComentarioEN as com WHERE com.Reto.ID=:id_reto]]></query>
 		  <query name="ComentarioENFiltrarComentarioPorEventoHQL"><![CDATA[FROM ComentarioEN as com WHERE com.Evento.ID=:id_evento]]></query>
+		  <query name="ComentarioENFiltrarComentarioPorGymkanaHQL"><![CDATA[FROM ComentarioEN as com WHERE com.Gymkana.ID=:id_gym]]></query>
 		</hibernate-mapping>
 	

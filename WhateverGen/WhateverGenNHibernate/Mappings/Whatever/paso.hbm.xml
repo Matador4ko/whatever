@@ -21,7 +21,7 @@
 			
 		  			
 						<many-to-one name="Gymkana" class="WhateverGenNHibernate.EN.Whatever.GymkanaEN" >	
-								<column name="FK_ID_idGymkana"/> 
+								<column name="FK_IDGymkana_idGymkana"/> 
 						</many-to-one>
 											 					
 			

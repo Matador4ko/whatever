@@ -96,6 +96,7 @@ public void ModifyDefault (ReporteEN reporte)
 
 
 
+
                 session.Update (reporteEN);
                 SessionCommit ();
         }
@@ -387,14 +388,14 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Report
 
         return result;
 }
-public void RelationerReporteReto (int id_reporte, int id_reto)
+public void RelationerReporteReto (int p_Reporte_OID, int p_reto_OID)
 {
         WhateverGenNHibernate.EN.Whatever.ReporteEN reporteEN = null;
         try
         {
                 SessionInitializeTransaction ();
-                reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), id_reporte);
-                reporteEN.Reto = (WhateverGenNHibernate.EN.Whatever.RetoEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.RetoEN), id_reto);
+                reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), p_Reporte_OID);
+                reporteEN.Reto = (WhateverGenNHibernate.EN.Whatever.RetoEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.RetoEN), p_reto_OID);
 
                 reporteEN.Reto.Reporte.Add (reporteEN);
 
@@ -418,14 +419,14 @@ public void RelationerReporteReto (int id_reporte, int id_reto)
         }
 }
 
-public void RelationerReporteEvento (int id_reporte, int id_evento)
+public void RelationerReporteEvento (int p_Reporte_OID, int p_evento_OID)
 {
         WhateverGenNHibernate.EN.Whatever.ReporteEN reporteEN = null;
         try
         {
                 SessionInitializeTransaction ();
-                reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), id_reporte);
-                reporteEN.Evento = (WhateverGenNHibernate.EN.Whatever.EventoEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.EventoEN), id_evento);
+                reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), p_Reporte_OID);
+                reporteEN.Evento = (WhateverGenNHibernate.EN.Whatever.EventoEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.EventoEN), p_evento_OID);
 
                 reporteEN.Evento.Reporte.Add (reporteEN);
 
@@ -449,19 +450,19 @@ public void RelationerReporteEvento (int id_reporte, int id_evento)
         }
 }
 
-public void UnrelationerReporteReto (int id_reporte, int id_reto)
+public void UnrelationerReporteReto (int p_Reporte_OID, int p_reto_OID)
 {
         try
         {
                 SessionInitializeTransaction ();
                 WhateverGenNHibernate.EN.Whatever.ReporteEN reporteEN = null;
-                reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), id_reporte);
+                reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), p_Reporte_OID);
 
-                if (reporteEN.Reto.ID == id_reto) {
+                if (reporteEN.Reto.ID == p_reto_OID) {
                         reporteEN.Reto = null;
                 }
                 else
-                        throw new ModelException ("The identifier " + id_reto + " in id_reto you are trying to unrelationer, doesn't exist in ReporteEN");
+                        throw new ModelException ("The identifier " + p_reto_OID + " in p_reto_OID you are trying to unrelationer, doesn't exist in ReporteEN");
 
                 session.Update (reporteEN);
                 SessionCommit ();
@@ -480,19 +481,143 @@ public void UnrelationerReporteReto (int id_reporte, int id_reto)
                 SessionClose ();
         }
 }
-public void UnrelationerReporteEvento (int id_reporte, int id_evento)
+public void UnrelationerReporteEvento (int p_Reporte_OID, int p_evento_OID)
 {
         try
         {
                 SessionInitializeTransaction ();
                 WhateverGenNHibernate.EN.Whatever.ReporteEN reporteEN = null;
-                reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), id_reporte);
+                reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), p_Reporte_OID);
 
-                if (reporteEN.Evento.ID == id_evento) {
+                if (reporteEN.Evento.ID == p_evento_OID) {
                         reporteEN.Evento = null;
                 }
                 else
-                        throw new ModelException ("The identifier " + id_evento + " in id_evento you are trying to unrelationer, doesn't exist in ReporteEN");
+                        throw new ModelException ("The identifier " + p_evento_OID + " in p_evento_OID you are trying to unrelationer, doesn't exist in ReporteEN");
+
+                session.Update (reporteEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in ReporteCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public WhateverGenNHibernate.EN.Whatever.ReporteEN FiltrarReportePorGymkanaYUsuario (int? id_gym, int ? id_usuario)
+{
+        WhateverGenNHibernate.EN.Whatever.ReporteEN result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ReporteEN self where FROM ReporteEN as rep WHERE rep.Gymkana.ID=:id_gym and rep.Usuario.ID=:id_usuario";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ReporteENfiltrarReportePorGymkanaYUsuarioHQL");
+                query.SetParameter ("id_gym", id_gym);
+                query.SetParameter ("id_usuario", id_usuario);
+
+
+                result = query.UniqueResult<WhateverGenNHibernate.EN.Whatever.ReporteEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in ReporteCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarReportesPorGymkana (int ? id_gym)
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ReporteEN self where FROM ReporteEN as rep WHERE rep.Gymkana.ID=:id_gym";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ReporteENfiltrarReportesPorGymkanaHQL");
+                query.SetParameter ("id_gym", id_gym);
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.ReporteEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in ReporteCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public void RelationerReporteGymkana (int p_Reporte_OID, int p_gymkana_OID)
+{
+        WhateverGenNHibernate.EN.Whatever.ReporteEN reporteEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), p_Reporte_OID);
+                reporteEN.Gymkana = (WhateverGenNHibernate.EN.Whatever.GymkanaEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.GymkanaEN), p_gymkana_OID);
+
+                reporteEN.Gymkana.Reporte.Add (reporteEN);
+
+
+
+                session.Update (reporteEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in ReporteCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void UnrelationerReporteGymkana (int p_Reporte_OID, int p_gymkana_OID)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                WhateverGenNHibernate.EN.Whatever.ReporteEN reporteEN = null;
+                reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), p_Reporte_OID);
+
+                if (reporteEN.Gymkana.ID == p_gymkana_OID) {
+                        reporteEN.Gymkana = null;
+                }
+                else
+                        throw new ModelException ("The identifier " + p_gymkana_OID + " in p_gymkana_OID you are trying to unrelationer, doesn't exist in ReporteEN");
 
                 session.Update (reporteEN);
                 SessionCommit ();

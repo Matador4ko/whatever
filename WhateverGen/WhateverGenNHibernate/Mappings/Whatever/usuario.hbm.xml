@@ -105,6 +105,18 @@
 			
 			
 			
+			
+		  			
+						<bag name="Gymkana" >
+							<key>
+							
+								
+								<column name="FK_ID_idUsuario"/>
+					      	</key>
+							<one-to-many class="WhateverGenNHibernate.EN.Whatever.GymkanaEN"/>
+					    </bag>
+					
+					
 					
 					
 					

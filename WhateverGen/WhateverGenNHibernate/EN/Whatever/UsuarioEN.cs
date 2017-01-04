@@ -110,6 +110,13 @@ private string foto;
 
 
 
+/**
+ *	Atributo gymkana
+ */
+private System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.GymkanaEN> gymkana;
+
+
+
 
 
 
@@ -203,6 +210,12 @@ public virtual string Foto {
 
 
 
+public virtual System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.GymkanaEN> Gymkana {
+        get { return gymkana; } set { gymkana = value;  }
+}
+
+
+
 
 
 public UsuarioEN()
@@ -212,24 +225,25 @@ public UsuarioEN()
         puntuacion = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.PuntuacionEN>();
         comentario = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.ComentarioEN>();
         evento = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.EventoEN>();
+        gymkana = new System.Collections.Generic.List<WhateverGenNHibernate.EN.Whatever.GymkanaEN>();
 }
 
 
 
-public UsuarioEN(int iD, string nombre, int edad, string sexo, string facebook, string instagram, string twitter, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> reto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> evento, String contrasena, string email, string foto
+public UsuarioEN(int iD, string nombre, int edad, string sexo, string facebook, string instagram, string twitter, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> reto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> evento, String contrasena, string email, string foto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.GymkanaEN> gymkana
                  )
 {
-        this.init (ID, nombre, edad, sexo, facebook, instagram, twitter, reto, reporte, puntuacion, comentario, evento, contrasena, email, foto);
+        this.init (ID, nombre, edad, sexo, facebook, instagram, twitter, reto, reporte, puntuacion, comentario, evento, contrasena, email, foto, gymkana);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (ID, usuario.Nombre, usuario.Edad, usuario.Sexo, usuario.Facebook, usuario.Instagram, usuario.Twitter, usuario.Reto, usuario.Reporte, usuario.Puntuacion, usuario.Comentario, usuario.Evento, usuario.Contrasena, usuario.Email, usuario.Foto);
+        this.init (ID, usuario.Nombre, usuario.Edad, usuario.Sexo, usuario.Facebook, usuario.Instagram, usuario.Twitter, usuario.Reto, usuario.Reporte, usuario.Puntuacion, usuario.Comentario, usuario.Evento, usuario.Contrasena, usuario.Email, usuario.Foto, usuario.Gymkana);
 }
 
 private void init (int ID
-                   , string nombre, int edad, string sexo, string facebook, string instagram, string twitter, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> reto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> evento, String contrasena, string email, string foto)
+                   , string nombre, int edad, string sexo, string facebook, string instagram, string twitter, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> reto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> evento, String contrasena, string email, string foto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.GymkanaEN> gymkana)
 {
         this.ID = ID;
 
@@ -261,6 +275,8 @@ private void init (int ID
         this.Email = email;
 
         this.Foto = foto;
+
+        this.Gymkana = gymkana;
 }
 
 public override bool Equals (object obj)

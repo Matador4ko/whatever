@@ -15,7 +15,7 @@ namespace MvcApplication1.Models
         private Nullable<DateTime> fecha;
         private int precio;
         private UsuarioEN usuario;
-        private IList<PuntuacionEN> puntuacion;
+        private IList<PuntuacionEN> puntuaciones;
         private IList<MapaEN> evento_mapa;
         private IList<ComentarioEN> comentario;
         private int numPasos;
@@ -30,18 +30,19 @@ namespace MvcApplication1.Models
 
         //Titulo
         [Display(Prompt = "Titulo de la gymkana", Description = "Titulo de la gymkana", Name = "Titulo")]
-        [Required(ErrorMessage = "Debe indicar un titulo para el evento")]
+        [Required(ErrorMessage = "Debe indicar un titulo para la gymkana")]
         [StringLength(maximumLength: 100, ErrorMessage = "El titulo no puede tener más de 100 caracteres")]
         public string Titulo { get; set; }
 
         //Descripcion
         [Display(Prompt = "Descripción de la gymkana", Description = "Descripción de la gymkana", Name = "Descripcion")]
-        [Required(ErrorMessage = "Debe indicar una descripción para el evento")]
+        [Required(ErrorMessage = "Debe indicar una descripción para la gymkana")]
         [StringLength(maximumLength: 200, ErrorMessage = "La descripción no puede tener más de 200 caracteres")]
         public string Descripcion { get; set; }
 
         //Fecha
         [Display(Prompt = "Fecha de la gymkana", Description = "Fecha de la gymkana", Name = "Fecha")]
+        [DataType(DataType.Date, ErrorMessage = "La fecha debe ser valida")]
         [Required(ErrorMessage = "Debe indicar una fecha para el evento")]
         public Nullable<DateTime> Fecha { get; set; }
 
@@ -49,23 +50,36 @@ namespace MvcApplication1.Models
         [Display(Prompt = "Precio de la gymkana", Description = "Precio de la gymkana", Name = "Precio")]
         [Required(ErrorMessage = "Debe indicar un precio para el evento")]
         [DataType(DataType.Currency, ErrorMessage = "El precio debe ser un valor numérico")]
-        [Range(minimum: 0, maximum: 10000, ErrorMessage = "El precio debe ser mayor que cero y menor de 10000")]
+        [Range(minimum: 0.0, maximum: 10000.0, ErrorMessage = "El precio debe ser mayor que cero y menor de 10000")]
         public double Precio { get; set; }
 
         //Creador
         [Display(Prompt = "Creador", Description = "Nombre del creador de la gymkana", Name = "Creador")]
-        [Required(ErrorMessage = "Debe indicar el nombre del creador de la gymkana")]
         public string Creador { get; set; }
 
-        //private IList<PuntuacionEN> puntuacion;
-        [Display(Prompt = "Puntuacion", Description = "Puntuacion de la gymkana", Name = "Puntuacion")]
-        [Required(ErrorMessage = "Debe indicar la puntuacion de la gymkana")]
-        public double Puntuacion { get; set; }
+        //Latitud
+        [Display(Prompt = "Latitud del primer paso", Description = "Latitud del primer paso", Name = "Latitud")]
+        [Required(ErrorMessage = "Debe indicar una latitud para el primer paso")]
+        //[DataType(DataType.Custom, ErrorMessage = "La latitud debe ser numerica")]
+        [Range(-90.00000000, 90.00000000, ErrorMessage = "El valor de {0} tiene que ser correcto e ir entre {1} y {2}")]
+        public double Latitud { get; set; }
 
-        //private IList<MapaEN> evento_mapa;
-        [Display(Prompt = "Mapa", Description = "Mapa de la gymkana", Name = "Mapa")]
-        [Required(ErrorMessage = "Debe indicar un mapa")]
-        public Mapa Mapa { get; set; }
+        //Longitud
+        [Display(Prompt = "Longitud del primer paso", Description = "Longitud del primer paso", Name = "Longitud")]
+        [Required(ErrorMessage = "Debe indicar una longitud para el primer paso")]
+        //[DataType(DataType.Currency, ErrorMessage = "La longitud debe ser numerica")]
+        [Range(-180.00000000, 180.00000000, ErrorMessage = "El valor de {0} tiene que ser correcto e ir entre {1} y {2}")]
+        public double Longitud { get; set; }
+
+        //Zoom
+        [Display(Prompt = "Zoom para el mapa", Description = "Zoom para el mapa", Name = "Zoom")]
+        [Required(ErrorMessage = "Debe indicar un zoom para el mapa")]
+        [Range(minimum: 2, maximum: 20, ErrorMessage = "El zoom debe ser mayor que 2 y menor de 20")]
+        public int Zoom { get; set; }
+
+        //private IList<PuntuacionEN> puntuaciones;
+        [Display(Prompt = "Puntuacion", Description = "Puntuacion de la gymkana", Name = "Puntuaciones")]
+        public IList<Puntuacion> Puntuaciones { get; set; }
 
         //private IList<ComentarioEN> comentario;
         [Display(Prompt = "Comentarios", Description = "Comentarios de la gymkana", Name = "Comentario")]
@@ -73,8 +87,6 @@ namespace MvcApplication1.Models
 
         //numero de pasos
         [Display(Prompt = "Numero de pasos", Description = "Numero de los pasos de la gymkana", Name = "Numeropasos")]
-        [DataType(DataType.Currency, ErrorMessage = "El nuermo de pasos debe ser un valor numérico")]
-        [Required(ErrorMessage = "Debe indicar un numero de pasos")]
         public int Numeropasos { get; set; }
 
         //Paso

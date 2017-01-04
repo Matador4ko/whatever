@@ -36,16 +36,15 @@ public void BorrarGymkana (int p_oid)
                 gymkanaCEN = new  GymkanaCEN (gymkanaCAD);
 
                 System.Collections.Generic.IList<PasoEN> pasos;
-                PasoCAD paso = new PasoCAD ();
+                PasoCAD paso = new PasoCAD (session);
                 MapaCP mapa = new MapaCP (session);
                 PuntuacionCP punt = new PuntuacionCP (session);
                 ReporteCP rep = new ReporteCP (session);
                 ComentarioCP com = new ComentarioCP (session);
 
-                mapa.BorrarMapaParaEvento (p_oid);
-                punt.BorrarPuntuacionEvento (p_oid);
-                rep.BorrarReportesEvento (p_oid);
-                com.BorrarComentariosEvento (p_oid);
+                punt.BorrarPuntuacionGymkana (p_oid);
+                rep.BorrarReportesGymkana (p_oid);
+                com.BorrarComentariosGymkana (p_oid);
 
                 pasos = paso.FiltrarPasoPorGymkana (p_oid);
                 foreach (PasoEN element in pasos) {

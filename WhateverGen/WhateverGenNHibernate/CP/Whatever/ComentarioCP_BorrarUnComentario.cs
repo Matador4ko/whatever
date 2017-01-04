@@ -43,12 +43,18 @@ public void BorrarUnComentario (int id_comentario)
                 even = comentarioCAD.GetID (id_comentario).Evento;
                 RetoEN reten = new RetoEN ();
                 reten = comentarioCAD.GetID (id_comentario).Reto;
+                GymkanaEN gymen = new GymkanaEN ();
+                gymen = comentarioCAD.GetID (id_comentario).Gymkana;
                 if (even != null) {
                         comentarioCAD.UnrelationerComentarioEvento (id_comentario, even.ID);
                         comentarioCAD.Destroy (id_comentario);
                 }
-                else{
+                else if (reten != null) {
                         comentarioCAD.UnrelationerComentarioReto (id_comentario, reten.ID);
+                        comentarioCAD.Destroy (id_comentario);
+                }
+                else if (gymen != null) {
+                        comentarioCAD.UnrelationerComentarioGymkana (id_comentario, gymen.ID);
                         comentarioCAD.Destroy (id_comentario);
                 }
 

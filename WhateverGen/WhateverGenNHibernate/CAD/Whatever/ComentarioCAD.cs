@@ -99,6 +99,7 @@ public void ModifyDefault (ComentarioEN comentario)
 
 
 
+
                 session.Update (comentarioEN);
                 SessionCommit ();
         }
@@ -461,6 +462,98 @@ public void UnrelationerComentarioReto (int p_Comentario_OID, int p_reto_OID)
                 }
                 else
                         throw new ModelException ("The identifier " + p_reto_OID + " in p_reto_OID you are trying to unrelationer, doesn't exist in ComentarioEN");
+
+                session.Update (comentarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> FiltrarComentarioPorGymkana (int ? id_gym)
+{
+        System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ComentarioEN self where FROM ComentarioEN as com WHERE com.Gymkana.ID=:id_gym";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ComentarioENFiltrarComentarioPorGymkanaHQL");
+                query.SetParameter ("id_gym", id_gym);
+
+                result = query.List<WhateverGenNHibernate.EN.Whatever.ComentarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public void RelationerComentarioGymkana (int p_Comentario_OID, int p_gymkana_OID)
+{
+        WhateverGenNHibernate.EN.Whatever.ComentarioEN comentarioEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                comentarioEN = (ComentarioEN)session.Load (typeof(ComentarioEN), p_Comentario_OID);
+                comentarioEN.Gymkana = (WhateverGenNHibernate.EN.Whatever.GymkanaEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.GymkanaEN), p_gymkana_OID);
+
+                comentarioEN.Gymkana.Comentario.Add (comentarioEN);
+
+
+
+                session.Update (comentarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void UnrelationerComentarioGymkana (int p_Comentario_OID, int p_gymkana_OID)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                WhateverGenNHibernate.EN.Whatever.ComentarioEN comentarioEN = null;
+                comentarioEN = (ComentarioEN)session.Load (typeof(ComentarioEN), p_Comentario_OID);
+
+                if (comentarioEN.Gymkana.ID == p_gymkana_OID) {
+                        comentarioEN.Gymkana = null;
+                }
+                else
+                        throw new ModelException ("The identifier " + p_gymkana_OID + " in p_gymkana_OID you are trying to unrelationer, doesn't exist in ComentarioEN");
 
                 session.Update (comentarioEN);
                 SessionCommit ();

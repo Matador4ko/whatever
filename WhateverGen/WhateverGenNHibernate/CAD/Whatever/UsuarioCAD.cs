@@ -122,6 +122,7 @@ public void ModifyDefault (UsuarioEN usuario)
 
                 usuarioEN.Foto = usuario.Foto;
 
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }

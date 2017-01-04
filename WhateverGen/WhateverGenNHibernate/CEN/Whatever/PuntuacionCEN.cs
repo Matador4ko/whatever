@@ -140,5 +140,25 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Puntua
 {
         return _IPuntuacionCAD.FiltrarComentarioPorUsuario (id_usuario);
 }
+public WhateverGenNHibernate.EN.Whatever.PuntuacionEN FiltrarPuntuacionPorUsuarioYGymkana (int? id_gym, int ? id_usuario)
+{
+        return _IPuntuacionCAD.FiltrarPuntuacionPorUsuarioYGymkana (id_gym, id_usuario);
+}
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> FiltrarPuntuacionPorGymkana (int ? id_gym)
+{
+        return _IPuntuacionCAD.FiltrarPuntuacionPorGymkana (id_gym);
+}
+public void RelationerPuntuacionGymkana (int p_Puntuacion_OID, int p_gymkana_OID)
+{
+        //Call to PuntuacionCAD
+
+        _IPuntuacionCAD.RelationerPuntuacionGymkana (p_Puntuacion_OID, p_gymkana_OID);
+}
+public void UnrelationerPuntuacionGymkana (int p_Puntuacion_OID, int p_gymkana_OID)
+{
+        //Call to PuntuacionCAD
+
+        _IPuntuacionCAD.UnrelationerPuntuacionGymkana (p_Puntuacion_OID, p_gymkana_OID);
+}
 }
 }

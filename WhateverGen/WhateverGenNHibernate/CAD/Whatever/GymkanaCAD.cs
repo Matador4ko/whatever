@@ -94,64 +94,9 @@ public void ModifyDefault (GymkanaEN gymkana)
                 gymkanaEN.NumPasos = gymkana.NumPasos;
 
 
-                session.Update (gymkanaEN);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in GymkanaCAD.", ex);
-        }
 
 
-        finally
-        {
-                SessionClose ();
-        }
-}
 
-
-public int New_ (GymkanaEN gymkana)
-{
-        try
-        {
-                SessionInitializeTransaction ();
-                if (gymkana.Usuario != null) {
-                        // Argumento OID y no colección.
-                        gymkana.Usuario = (WhateverGenNHibernate.EN.Whatever.UsuarioEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.UsuarioEN), gymkana.Usuario.ID);
-
-                        gymkana.Usuario.Evento
-                        .Add (gymkana);
-                }
-
-                session.Save (gymkana);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in GymkanaCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return gymkana.ID;
-}
-
-public void Modify (GymkanaEN gymkana)
-{
-        try
-        {
-                SessionInitializeTransaction ();
-                GymkanaEN gymkanaEN = (GymkanaEN)session.Load (typeof(GymkanaEN), gymkana.ID);
 
                 gymkanaEN.Titulo = gymkana.Titulo;
 
@@ -165,8 +110,6 @@ public void Modify (GymkanaEN gymkana)
                 gymkanaEN.Precio = gymkana.Precio;
 
 
-                gymkanaEN.NumPasos = gymkana.NumPasos;
-
                 session.Update (gymkanaEN);
                 SessionCommit ();
         }
@@ -184,30 +127,7 @@ public void Modify (GymkanaEN gymkana)
                 SessionClose ();
         }
 }
-public void Destroy (int ID
-                     )
-{
-        try
-        {
-                SessionInitializeTransaction ();
-                GymkanaEN gymkanaEN = (GymkanaEN)session.Load (typeof(GymkanaEN), ID);
-                session.Delete (gymkanaEN);
-                SessionCommit ();
-        }
 
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in GymkanaCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-}
 
 public System.Collections.Generic.IList<GymkanaEN> GetAll (int first, int size)
 {
@@ -298,6 +218,101 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.Gymkan
         }
 
         return result;
+}
+public int New_ (GymkanaEN gymkana)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                if (gymkana.Usuario != null) {
+                        // Argumento OID y no colección.
+                        gymkana.Usuario = (WhateverGenNHibernate.EN.Whatever.UsuarioEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.UsuarioEN), gymkana.Usuario.ID);
+
+                        gymkana.Usuario.Gymkana
+                        .Add (gymkana);
+                }
+
+                session.Save (gymkana);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in GymkanaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return gymkana.ID;
+}
+
+public void Modify (GymkanaEN gymkana)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                GymkanaEN gymkanaEN = (GymkanaEN)session.Load (typeof(GymkanaEN), gymkana.ID);
+
+                gymkanaEN.NumPasos = gymkana.NumPasos;
+
+
+                gymkanaEN.Titulo = gymkana.Titulo;
+
+
+                gymkanaEN.Descripcion = gymkana.Descripcion;
+
+
+                gymkanaEN.Fecha = gymkana.Fecha;
+
+
+                gymkanaEN.Precio = gymkana.Precio;
+
+                session.Update (gymkanaEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in GymkanaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void Destroy (int ID
+                     )
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                GymkanaEN gymkanaEN = (GymkanaEN)session.Load (typeof(GymkanaEN), ID);
+                session.Delete (gymkanaEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WhateverGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new WhateverGenNHibernate.Exceptions.DataLayerException ("Error in GymkanaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }

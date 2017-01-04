@@ -36,6 +36,13 @@
 											 					
 			
 			
+			
+		  			
+						<many-to-one name="Gymkana" class="WhateverGenNHibernate.EN.Whatever.GymkanaEN" >	
+								<column name="FK_IDGymkana_idGymkana"/> 
+						</many-to-one>
+											 					
+					
 					
 					
 					
@@ -50,5 +57,7 @@
 		  <query name="PuntuacionENfiltrarPuntuacionPorEventoHQL"><![CDATA[FROM PuntuacionEN as pun WHERE pun.Evento.ID=:id_evento]]></query>
 		  <query name="PuntuacionENfiltrarPuntuacionPorRetoHQL"><![CDATA[FROM PuntuacionEN as pun WHERE pun.Reto.ID=:id_reto]]></query>
 		  <query name="PuntuacionENfiltrarComentarioPorUsuarioHQL"><![CDATA[FROM PuntuacionEN as pun WHERE pun.Usuario.ID=:id_usuario]]></query>
+		  <query name="PuntuacionENfiltrarPuntuacionPorUsuarioYGymkanaHQL"><![CDATA[FROM PuntuacionEN as pun WHERE pun.Gymkana.ID=:id_gym and pun.Usuario.ID=:id_usuario]]></query>
+		  <query name="PuntuacionENfiltrarPuntuacionPorGymkanaHQL"><![CDATA[FROM PuntuacionEN as pun WHERE pun.Gymkana.ID=:id_gym]]></query>
 		</hibernate-mapping>
 	

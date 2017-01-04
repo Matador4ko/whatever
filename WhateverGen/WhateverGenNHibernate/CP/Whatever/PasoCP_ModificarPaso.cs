@@ -38,13 +38,9 @@ public void ModificarPaso (WhateverGenNHibernate.EN.Whatever.PasoEN paso, Whatev
 
                 MapaCAD map = new MapaCAD (session);
 
-                MapaEN mapen = paso.Mapa;
-                mapen.Latitud = mapa.Latitud;
-                mapen.Longitud = mapa.Longitud;
-                mapen.Zoom = mapa.Zoom;
 
                 pasoCAD.Modify (paso);
-                map.Modify (mapen);
+                map.Modify (mapa);
 
                 SessionCommit ();
         }

@@ -19,6 +19,7 @@ namespace MvcApplication1.Models
                 AssemblerMapa assM = new AssemblerMapa();
                 AssemblerComentario assC = new AssemblerComentario();
                 AssemblerPaso assP = new AssemblerPaso();
+                AssemblerPuntuacion assPu = new AssemblerPuntuacion();
                 PuntuacionCEN p = new PuntuacionCEN();
                 Gymkana gymkana = new Gymkana();
 
@@ -28,21 +29,22 @@ namespace MvcApplication1.Models
                 gymkana.Fecha = gymen.Fecha;
                 gymkana.Precio = gymen.Precio;
                 gymkana.Creador = gymen.Usuario.Nombre;
-                gymkana.Puntuacion = p.VerMediaEvento(gymen.ID);
 
-                //mapa
-                gymkana.Mapa = null;
-                if (gymen.Mapa != null)
-                    gymkana.Mapa = assM.ConvertENToModelUI(gymen.Mapa);
+                //Puntuaciones
+                gymkana.Puntuaciones = null;
+                if (gymen.Puntuacion != null )
+                {
+                    gymkana.Puntuaciones = assPu.ConvertListENToModel(gymen.Puntuacion);
+                }
+
                 //comentarios
                 gymkana.Comentarios = null;
                 if (gymen.Comentario != null)
                     gymkana.Comentarios = assC.ConvertListENToModel(gymen.Comentario);
 
                 //numero de pasos
-                gymkana.Numeropasos = 0;
-                if (gymen.Paso != null)
-                    gymkana.Numeropasos = gymen.Paso.Count;
+                gymkana.Numeropasos = gymen.NumPasos;
+                
 
                 //pasos
                 IList<Paso> auxPasos = null;
@@ -57,6 +59,7 @@ namespace MvcApplication1.Models
                 }
 
                 gymkana.Pasos = auxPasos;
+                
 
                 //reportes
                 IList<Reporte> aux1 = new List<Reporte>();

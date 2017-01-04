@@ -19,22 +19,27 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class ReporteCEN
 {
-public string ConsultarReporte (int id_usuario, int id_reto, int id_gym)
+public string ConsultarReporte (int id_usuario, int id_reto, int id_gym, int id_evento)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Reporte_consultarReporte) ENABLED START*/
 
         // Write here your custom code...
-        if (id_gym != -1 && id_reto == -1) {
+        if (id_gym != -1 && id_reto == -1 && id_evento == -1) {
                 ReporteCEN report = new ReporteCEN ();
                 ReporteEN reporen = new ReporteEN ();
-                reporen = FiltrarReportePorEventoYUsuario (id_gym, id_usuario);
-                var debugpoint = reporen.Motivo;
+                reporen = FiltrarReportePorGymkanaYUsuario (id_gym, id_usuario);
                 return reporen.Motivo;
         }
-        else if (id_gym == -1 && id_reto != -1) {
+        else if (id_gym == -1 && id_reto != -1 && id_evento == -1) {
                 ReporteCEN report = new ReporteCEN ();
                 ReporteEN reporen = new ReporteEN ();
                 reporen = FiltrarReportePorRetoYUsuario (id_reto, id_usuario);
+                return reporen.Motivo;
+        }
+        else if (id_gym == -1 && id_reto == -1 && id_evento != -1) {
+                ReporteCEN report = new ReporteCEN ();
+                ReporteEN reporen = new ReporteEN ();
+                reporen = FiltrarReportePorEventoYUsuario (id_gym, id_usuario);
                 return reporen.Motivo;
         }
         return null;

@@ -44,14 +44,27 @@ System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> Fi
 
 
 
-void RelationerReporteReto (int id_reporte, int id_reto);
+void RelationerReporteReto (int p_Reporte_OID, int p_reto_OID);
 
-void RelationerReporteEvento (int id_reporte, int id_evento);
+void RelationerReporteEvento (int p_Reporte_OID, int p_evento_OID);
 
 
 
-void UnrelationerReporteReto (int id_reporte, int id_reto);
+void UnrelationerReporteReto (int p_Reporte_OID, int p_reto_OID);
 
-void UnrelationerReporteEvento (int id_reporte, int id_evento);
+void UnrelationerReporteEvento (int p_Reporte_OID, int p_evento_OID);
+
+
+WhateverGenNHibernate.EN.Whatever.ReporteEN FiltrarReportePorGymkanaYUsuario (int? id_gym, int ? id_usuario);
+
+
+System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> FiltrarReportesPorGymkana (int ? id_gym);
+
+
+
+void RelationerReporteGymkana (int p_Reporte_OID, int p_gymkana_OID);
+
+
+void UnrelationerReporteGymkana (int p_Reporte_OID, int p_gymkana_OID);
 }
 }
