@@ -61,7 +61,7 @@ namespace MvcApplication1.Controllers
             {
                 GymkanaCP cp = new GymkanaCP();
                 GymkanaEN en = new GymkanaEN();
-                UsuarioCAD cad = new UsuarioCAD(session);
+                UsuarioCAD cad = new UsuarioCAD();
 
                 cad.FiltrarUsuarioPorNombre(User.Identity.Name);
 

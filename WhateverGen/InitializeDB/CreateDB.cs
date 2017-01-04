@@ -161,7 +161,7 @@ public static void InitializeData ()
                 GymkanaEN gymen = new GymkanaEN ();
                 GymkanaCP gymcp = new GymkanaCP ();
 
-
+            /*
 
                 //insertamos valores en el usuarioEN
                 usuen.Nombre = "Pedro";
@@ -426,7 +426,7 @@ public static void InitializeData ()
                 retcp.BorrarReto (repen.ID);
                 var k = retcen.GetAll (0, 0);
             
-
+            */
 
                 /*PROTECTED REGION END*/
         }

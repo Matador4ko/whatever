@@ -62,20 +62,16 @@ namespace MvcApplication1.Controllers
         {            
             try
             {
-                UsuarioCAD cad = new UsuarioCAD(session);
-                EventoCP cp = new EventoCP(session);
-                EventoCEN cen = new EventoCEN();
+                UsuarioCAD cad = new UsuarioCAD();
+                EventoCP cp = new EventoCP();
                 EventoEN even = new EventoEN();
-                MapaCP mapa = new MapaCP(session);
                 even.Descripcion = ev.Descripcion;
                 even.Fecha = ev.Fecha;
                 even.Precio = ev.Precio;
                 even.Titulo = ev.Titulo;
                 even.Usuario = cad.FiltrarUsuarioPorNombre(User.Identity.Name);
-                //cp.CrearEvento(even, ev.Latitud,ev.Longitud,ev.Zoom);
-                int id = cen.New_(ev.Titulo, ev.Descripcion, ev.Fecha, ev.Precio, cad.FiltrarUsuarioPorNombre(User.Identity.Name).ID);
-                mapa.CrearMapaParaEvento(id, ev.Latitud, ev.Longitud, ev.Zoom);
-               
+                cp.CrearEvento(even, ev.Latitud,ev.Longitud,ev.Zoom);
+
                 return RedirectToAction("List");
             }
             catch
@@ -139,7 +135,7 @@ namespace MvcApplication1.Controllers
             try
             {
 
-                EventoCP cp = new EventoCP(session);
+                EventoCP cp = new EventoCP();
                 cp.BorrarEvento(ev.id);
 
 

@@ -75,7 +75,7 @@ namespace MvcApplication1.Controllers
             try
             {
                 RetoCEN cen = new RetoCEN();
-                UsuarioCAD cad = new UsuarioCAD(session);
+                UsuarioCAD cad = new UsuarioCAD();
                 RetoEN reten = new RetoEN();
                 reten.Descripcion = ret.Descripcion;
                 fileName = "/Images/Uploads/" + fileName;
@@ -84,8 +84,8 @@ namespace MvcApplication1.Controllers
                 reten.Tipo = ret.Tipo;
                 reten.Titulo = ret.Titulo;
                 reten.Usuario = cad.FiltrarUsuarioPorNombre(User.Identity.Name);
-                cen.New_(reten.Titulo, reten.Descripcion, reten.Tipo, reten.Precio, reten.Imagen, reten.Usuario.ID);
-                //cen.CrearReto(reten);
+                //cen.New_(reten.Titulo, reten.Descripcion, reten.Tipo, reten.Precio, reten.Imagen, reten.Usuario.ID);
+                cen.CrearReto(reten);
 
                 return RedirectToAction("List");
             }
@@ -178,7 +178,7 @@ namespace MvcApplication1.Controllers
         {
             try
             {
-                RetoCP cp = new RetoCP(session);
+                RetoCP cp = new RetoCP();
                 cp.BorrarReto(ret.id);
 
 
@@ -201,7 +201,7 @@ namespace MvcApplication1.Controllers
             UsuarioCAD usucad = new UsuarioCAD(session);
             UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
             var aux = cad.FiltrarRetoPorUsuario(usuen.ID);
-
+            SessionClose();
 
             return View(aux);
 
