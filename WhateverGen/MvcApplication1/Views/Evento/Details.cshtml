@@ -43,10 +43,10 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Creador)
     </div>
-
-    <div class="display-label">
+    <div id="map"></div>
+    <!--div class="display-label">
          @Html.DisplayNameFor(model => model.Latitud)
-    </div>
+    <div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Latitud)
     </div>
@@ -59,13 +59,25 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Zoom)
+         tml.DisplayNameFor(model => model.Zoom)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Zoom)
-    </div>
+    </div>-->
 </fieldset>
 <p>
     @Html.ActionLink("Editar", "Edit", new { id=Model.id }) |
     @Html.ActionLink("Volver a Eventos", "Index")
 </p>
+
+
+<script>
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 40, lng: 2},
+            zoom: 8
+        })
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADpOER-sITi0xLLrLoPhAMdIB3w1-GG_E&callback=initMap" async defer></script>

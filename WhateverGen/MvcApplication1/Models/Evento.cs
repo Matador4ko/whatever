@@ -43,6 +43,7 @@ namespace MvcApplication1.Models
 
         //Fecha
         [Display(Prompt = "Fecha del evento", Description = "Fecha del evento", Name = "Fecha")]
+        [DataType(DataType.Date, ErrorMessage = "La latitud debe ser numerica")]
         [Required(ErrorMessage = "Debe indicar una fecha para el evento")]
         public Nullable<DateTime> Fecha { get; set; }
 
@@ -61,21 +62,20 @@ namespace MvcApplication1.Models
         //Latitud
         [Display(Prompt = "Latitud del evento", Description = "Latitud del evento", Name = "Latitud")]
         [Required(ErrorMessage = "Debe indicar una latitud para el evento")]
-        [DataType(DataType.Currency, ErrorMessage = "La latitud debe ser numerica")]
-        [Range(minimum: -90.0, maximum: 90.0, ErrorMessage = "La latitud debe ser mayor que -90 y menor de 90")]
+        //[DataType(DataType.Custom, ErrorMessage = "La latitud debe ser numerica")]
+        [Range(-90.00000000, 90.00000000, ErrorMessage = "El valor de {0} tiene que ser correcto e ir entre {1} y {2}")]
         public double Latitud { get; set; }
 
         //Longitud
         [Display(Prompt = "Longitud del evento", Description = "Longitud del evento", Name = "Longitud")]
         [Required(ErrorMessage = "Debe indicar una longitud para el evento")]
-        [DataType(DataType.Currency, ErrorMessage = "La longitud debe ser numerica")]
-        [Range(minimum: -180.0, maximum: 180.0, ErrorMessage = "La longitud debe ser mayor que -180 y menor de 180")]
+        //[DataType(DataType.Currency, ErrorMessage = "La longitud debe ser numerica")]
+        [Range(-180.00000000, 180.00000000, ErrorMessage = "El valor de {0} tiene que ser correcto e ir entre {1} y {2}")]
         public double Longitud { get; set; }
 
         //Zoom
         [Display(Prompt = "Zoom para el mapa", Description = "Zoom para el mapa", Name = "Zoom")]
         [Required(ErrorMessage = "Debe indicar un zoom para el mapa")]
-        [DataType(DataType.Currency, ErrorMessage = "El zoom debe ser numerico")]
         [Range(minimum: 2, maximum: 20, ErrorMessage = "El zoom debe ser mayor que 2 y menor de 20")]
         public int Zoom { get; set; }
 
