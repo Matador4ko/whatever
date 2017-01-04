@@ -382,11 +382,6 @@
     <Content Include="Views\Comentario\modificarComentario.cshtml" />
     <Content Include="Views\Mapa\filtrarMapa.cshtml" />
     <Content Include="Views\Mapa\Index.cshtml" />
-    <Content Include="Views\Paso\borrarEvento.cshtml" />
-    <Content Include="Views\Paso\Index.cshtml" />
-    <Content Include="Views\Paso\modificarPaso.cshtml" />
-    <Content Include="Views\Paso\verPaso.cshtml" />
-    <Content Include="Views\Paso\verPasos.cshtml" />
     <Content Include="Views\Puntuacion\crearPuntuacion.cshtml" />
     <Content Include="Views\Puntuacion\Index.cshtml" />
     <Content Include="Views\Puntuacion\modificarPuntuacion.cshtml" />
@@ -414,6 +409,8 @@
     <Content Include="Views\Gymkana\Edit.cshtml" />
     <Content Include="Views\Gymkana\Details.cshtml" />
     <Content Include="Views\Gymkana\Delete.cshtml" />
+    <Content Include="Views\Paso\Index.cshtml" />
+    <Content Include="Views\Paso\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

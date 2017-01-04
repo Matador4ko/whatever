@@ -15,13 +15,20 @@ namespace MvcApplication1.Models
             if (pasen != null)
             {
 
-                AssemblerMapa ass = new AssemblerMapa();
+                AssemblerMapa assM = new AssemblerMapa();
                 Paso paso = new Paso();
-                paso.Numero = -1;
+                paso.Numero = pasen.Gymkana.NumPasos+1;
                 paso.Descripcion = pasen.Descripcion;
 
                 //atributos ocultos
-                paso.Mapa = ass.ConvertENToModelUI(pasen.Mapa);
+                paso.Mapa = null;
+                if (pasen.Mapa != null)
+                {
+                    paso.Latitud = pasen.Mapa.Latitud;
+                    paso.Longitud = pasen.Mapa.Longitud;
+                    paso.Zoom = pasen.Mapa.Zoom;
+                    paso.Mapa = assM.ConvertENToModelUI(pasen.Mapa);
+                } 
                 paso.idGymkana = pasen.Gymkana.ID;
                 paso.id = pasen.ID;
 

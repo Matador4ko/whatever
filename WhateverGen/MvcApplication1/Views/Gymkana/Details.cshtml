@@ -4,7 +4,11 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Paso", "Create", "Paso", new { id = Model.id })
+</p>
 
 <fieldset>
     <legend>Gymkana</legend>
@@ -51,6 +55,9 @@
         @Html.DisplayFor(model => model.Numeropasos)
     </div>
 </fieldset>
+<p>
+    @Html.ActionLink("Pasos", "Index", "Paso", new { id = Model.id })
+</p>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
     @Html.ActionLink("Back to List", "Index")

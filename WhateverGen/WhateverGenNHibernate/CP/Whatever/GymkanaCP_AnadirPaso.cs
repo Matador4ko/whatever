@@ -41,7 +41,7 @@ public void AnadirPaso (WhateverGenNHibernate.EN.Whatever.PasoEN paso, WhateverG
                 paso.Gymkana = gym;
                 int id_paso = paso2.New_ (paso);
                 mapa2.CrearMapaParaPaso (id_paso, mapa.Latitud, mapa.Longitud, mapa.Zoom);
-
+                gym.NumPasos = gym.NumPasos + 1;
 
                 SessionCommit ();
         }
