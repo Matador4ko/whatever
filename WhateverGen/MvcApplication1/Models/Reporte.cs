@@ -37,7 +37,11 @@ namespace MvcApplication1.Models
 
         //private WhateverGenNHibernate.EN.Whatever.EventoEN evento;
         [ScaffoldColumn(false)]
-        public int idEvento { get; set; }       
+        public int idEvento { get; set; }
+
+        //id gymkana
+        [ScaffoldColumn(false)]
+        public int idGymkana { get; set; }
 
     }
 }

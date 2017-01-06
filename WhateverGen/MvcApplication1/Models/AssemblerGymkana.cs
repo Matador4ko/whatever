@@ -59,20 +59,17 @@ namespace MvcApplication1.Models
                 }
 
                 gymkana.Pasos = auxPasos;
-                
-
-                //reportes
-                IList<Reporte> aux1 = new List<Reporte>();
-                ReporteCEN reportecen = new ReporteCEN();
-                aux1 = assR.ConvertListENToModel(reportecen.FiltrarReportesPorEvento(gymen.ID));
-                gymkana.Reportes = aux1;
 
                 //atributos ocultos
                 gymkana.id = gymen.ID;
                 gymkana.usuario = gymen.Usuario;
 
-                return gymkana;
+                //reportes
+                gymkana.Reportes = null;
+                if (gymen.Reporte != null)
+                    gymkana.Reportes = assR.ConvertListENToModel(gymen.Reporte);
 
+                return gymkana;       
             }
             else
             {

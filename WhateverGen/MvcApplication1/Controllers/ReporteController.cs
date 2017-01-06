@@ -1,8 +1,12 @@
-﻿using System;
+﻿using MvcApplication1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WhateverGenNHibernate.CAD.Whatever;
+using WhateverGenNHibernate.CP.Whatever;
+using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Controllers
 {
@@ -10,10 +14,48 @@ namespace MvcApplication1.Controllers
     {
         //
         // GET: /Reporte/
-
         public ActionResult Index()
         {
-            return View();
+            SessionInitialize();
+            ReporteCAD cad = new ReporteCAD(session);
+            var aux = cad.GetAll(0,0);
+
+            SessionClose();
+
+            return View(aux);
+        }
+
+        public ActionResult IndexEvento(int id)
+        {
+            SessionInitialize();
+            ReporteCAD cad = new ReporteCAD(session);
+            var aux = cad.FiltrarReportesPorEvento(id);
+
+            SessionClose();
+
+            return View(aux);
+        }
+
+        public ActionResult IndexGymkana(int id)
+        {
+            SessionInitialize();
+            ReporteCAD cad = new ReporteCAD(session);
+            var aux = cad.FiltrarReportesPorGymkana(id);
+
+            SessionClose();
+
+            return View(aux);
+        }
+
+        public ActionResult IndexReto(int id)
+        {
+            SessionInitialize();
+            ReporteCAD cad = new ReporteCAD(session);
+            var aux = cad.FiltrarReportesPorReto(id);
+
+            SessionClose();
+
+            return View(aux);
         }
 
         //
@@ -21,28 +63,75 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            Reporte rep = null;
+            SessionInitialize();
+            ReporteEN pasEN = new ReporteCAD(session).ReadOIDDefault(id);
+            rep = new AssemblerReporte().ConvertENToModelUI(pasEN);
+            SessionClose();
+            return View(rep);
         }
 
         //
         // GET: /Reporte/Create
 
-        public ActionResult Create()
+        public ActionResult CreateGymkana(int id)
         {
-            return View();
+            SessionInitialize();
+
+            Reporte rep = new Reporte();
+
+            rep.idGymkana = id;
+            
+            SessionClose();
+            return View(rep);
         }
 
         //
-        // POST: /Reporte/Create
+        // GET: /Reporte/Create
+        public ActionResult CreateEvento(int id)
+        {
+            SessionInitialize();
+
+            Reporte rep = new Reporte();
+
+            rep.idEvento = id;
+
+            SessionClose();
+            return View(rep);
+        }
+
+        //
+        // GET: /Reporte/Create
+        public ActionResult CreateReto(int id)
+        {
+            SessionInitialize();
+
+            Reporte rep = new Reporte();
+
+            rep.idReto = id;
+
+            SessionClose();
+            return View(rep);
+        }
+
+        //
+        // POST: /Reporte/CreateEvento
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult CreateEvento(Reporte rep)
         {
             try
             {
-                // TODO: Add insert logic here
+                UsuarioCAD usucad = new UsuarioCAD();
+                UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
+                ReporteCP repcp = new ReporteCP();
+                EventoCAD evcad = new EventoCAD();
+                EventoEN even = evcad.GetID(rep.idEvento);
 
-                return RedirectToAction("Index");
+                repcp.ReportarEvento(usuen.ID, even.ID, rep.Motivo);
+                
+                return RedirectToAction("IndexEvento", new { id = rep.idEvento });
+
             }
             catch
             {
@@ -51,24 +140,48 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // GET: /Reporte/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Reporte/Edit/5
+        // POST: /Reporte/CreateGymkana
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult CreateGymkana(Reporte rep)
         {
             try
             {
-                // TODO: Add update logic here
+                UsuarioCAD usucad = new UsuarioCAD();
+                UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
+                ReporteCP repcp = new ReporteCP();
+                GymkanaCAD gymcad = new GymkanaCAD();
+                GymkanaEN gymen = gymcad.GetID(rep.idGymkana);
 
-                return RedirectToAction("Index");
+                repcp.ReportarGymkana(usuen.ID, gymen.ID, rep.Motivo);
+
+                return RedirectToAction("IndexGymkana", new { id = rep.idGymkana });
+
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //
+        // POST: /Reporte/CreateReto
+
+        [HttpPost]
+        public ActionResult CreateReto(Reporte rep)
+        {
+            try
+            {
+                UsuarioCAD usucad = new UsuarioCAD();
+                UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
+                ReporteCP repcp = new ReporteCP();
+                RetoCAD retcad = new RetoCAD();
+                RetoEN reten = retcad.GetID(rep.idReto);
+
+                repcp.ReportarReto(usuen.ID, reten.ID, rep.Motivo);
+
+                return RedirectToAction("IndexReto", new { id = rep.idReto });
+
             }
             catch
             {
@@ -81,18 +194,25 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View();
+            Reporte rep = null;
+            SessionInitialize();
+            ReporteEN repen = new ReporteCAD(session).ReadOIDDefault(id);
+            rep = new AssemblerReporte().ConvertENToModelUI(repen);
+            SessionClose();
+            return View(rep);
         }
 
         //
         // POST: /Reporte/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Reporte rep)
         {
             try
             {
-                // TODO: Add delete logic here
+
+                ReporteCP cp = new ReporteCP();
+                cp.BorrarUnReporte(rep.id);
 
                 return RedirectToAction("Index");
             }

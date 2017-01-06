@@ -25,9 +25,13 @@ namespace MvcApplication1.Models
                 {
                     rep.idEvento = en.Evento.ID;
                 }
-                else
+                else if(en.Reto != null)
                 {
                     rep.idReto = en.Reto.ID;
+                }
+                else if(en.Gymkana !=null)
+                {
+                    rep.idGymkana = en.Gymkana.ID;
                 }
 
                 return rep;

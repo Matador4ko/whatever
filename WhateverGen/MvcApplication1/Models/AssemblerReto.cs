@@ -49,12 +49,11 @@ namespace MvcApplication1.Models
                 reto.usuario = reten.Usuario;
 
                 //reportes
-                IList<Reporte> aux3 = new List<Reporte>();
-                ReporteCEN reportecen = new ReporteCEN();
-                aux3 = assR.ConvertListENToModel(reportecen.FiltrarReportesPorReto(reten.ID));
-                reto.Reportes = aux3;
+                reto.Reportes = null;
+                if (reten.Reporte != null)
+                    reto.Reportes = assR.ConvertListENToModel(reten.Reporte);
 
-                return reto;
+                return reto; 
             }
             else
             {

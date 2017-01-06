@@ -41,7 +41,7 @@ public int ReportarGymkana (int id_usuario, int id_gym, string motivo)
                 // Write here your custom transaction ...
 
                 int id = reporteCEN.New_ (motivo, id_usuario);
-                reporteCAD.RelationerReporteEvento (id, id_gym);
+                reporteCAD.RelationerReporteGymkana (id, id_gym);
 
 
                 SessionCommit ();

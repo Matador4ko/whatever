@@ -55,11 +55,9 @@ namespace MvcApplication1.Models
                 evento.usuario = even.Usuario;
 
                 //reportes
-                IList<Reporte> aux1 = new List<Reporte>();
-                ReporteCEN reportecen = new ReporteCEN();
-                aux1 = assR.ConvertListENToModel(reportecen.FiltrarReportesPorEvento(even.ID));
-                evento.Reportes = aux1;
-
+                evento.Reportes = null;
+                if (even.Reporte != null)
+                    evento.Reportes = assR.ConvertListENToModel(even.Reporte);
 
                 return evento;
             }

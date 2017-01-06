@@ -368,7 +368,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Reporte\Index.cshtml" />
     <Content Include="Views\Evento\Index.cshtml" />
     <Content Include="Views\Usuario\hacerAdmin.cshtml" />
     <Content Include="Views\Usuario\recuperarContrasena.cshtml" />
@@ -411,6 +410,15 @@
     <Content Include="Views\Gymkana\Delete.cshtml" />
     <Content Include="Views\Paso\Index.cshtml" />
     <Content Include="Views\Paso\Create.cshtml" />
+    <Content Include="Views\Reporte\IndexEvento.cshtml" />
+    <Content Include="Views\Reporte\Index.cshtml" />
+    <Content Include="Views\Reporte\IndexGymkana.cshtml" />
+    <Content Include="Views\Reporte\IndexReto.cshtml" />
+    <Content Include="Views\Reporte\Details.cshtml" />
+    <Content Include="Views\Reporte\CreateEvento.cshtml" />
+    <Content Include="Views\Reporte\CreateGymkana.cshtml" />
+    <Content Include="Views\Reporte\CreateReto.cshtml" />
+    <Content Include="Views\Reporte\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
