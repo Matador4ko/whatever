@@ -6,6 +6,7 @@
 
 <h2>IndexEvento</h2>
 
+
 <table>
     <tr>
         <th>
@@ -19,9 +20,13 @@
         <td>
             @Html.DisplayFor(modelItem => item.Motivo)
         </td>
+        
         <td>
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }) |
+            @Html.ActionLink("Volver al Evento", "Details", "Evento", new { id = item.Evento.ID },"null")
+
+
         </td>
     </tr>
 }

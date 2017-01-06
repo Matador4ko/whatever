@@ -6,9 +6,6 @@
 
 <h2>IndexReto</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table>
     <tr>
         <th>
@@ -24,7 +21,8 @@
         </td>
         <td>
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
+            @Html.ActionLink("Volver al Reto", "Details", "Reto", new { id = item.Reto.ID }, "null")
         </td>
     </tr>
 }

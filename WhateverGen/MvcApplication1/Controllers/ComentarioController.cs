@@ -109,11 +109,11 @@ namespace MvcApplication1.Controllers
                 UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
                 ComentarioCP comcp = new ComentarioCP();
                 EventoCAD evcad = new EventoCAD();
-                EventoEN even = evcad.GetID(com.idEvento);
+                EventoEN even = evcad.GetID(com.id);
 
                 comcp.CrearComentarioParaEvento(even.ID, com.Texto, usuen.ID);
 
-                return RedirectToAction("ComentarioEvento", new { id = com.idEvento });
+                return RedirectToAction("ComentarioEvento", new { id = com.id });
 
             }
             catch
@@ -134,11 +134,11 @@ namespace MvcApplication1.Controllers
                 UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
                 ComentarioCP comcp = new ComentarioCP();
                 GymkanaCAD gymcad = new GymkanaCAD();
-                GymkanaEN gymen = gymcad.GetID(com.idGymkana);
+                GymkanaEN gymen = gymcad.GetID(com.id);
 
                 comcp.CrearComentarioParaGymkana(gymen.ID, com.Texto, usuen.ID);
 
-                return RedirectToAction("ComentarioGymkana", new { id = com.idGymkana });
+                return RedirectToAction("ComentarioGymkana", new { id = com.id });
 
             }
             catch
@@ -159,11 +159,11 @@ namespace MvcApplication1.Controllers
                 UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
                 ComentarioCP comcp = new ComentarioCP();
                 RetoCAD retcad = new RetoCAD();
-                RetoEN reten = retcad.GetID(com.idReto);
+                RetoEN reten = retcad.GetID(com.id);
 
                 comcp.CrearComentarioParaReto(reten.ID, com.Texto, usuen.ID);
 
-                return RedirectToAction("ComentarioReto", new { id = com.idReto });
+                return RedirectToAction("ComentarioReto", new { id = com.id });
 
             }
             catch
@@ -194,9 +194,15 @@ namespace MvcApplication1.Controllers
            try
             {
                 ComentarioCP cp = new ComentarioCP();
+                ComentarioEN comen = new ComentarioCAD().GetID(com.id);
                 cp.BorrarUnComentario(com.id);
+                if (comen.Evento != null)
+                    return RedirectToAction("ComentarioEvento", new { id = comen.Evento.ID });
+                else if (comen.Gymkana != null)
+                    return RedirectToAction("ComentarioGymkana", new { id = comen.Gymkana.ID });
+                else 
+                    return RedirectToAction("ComentarioReto", new { id = comen.Reto.ID });
 
-                return RedirectToAction("Index");
             }
             catch
             {

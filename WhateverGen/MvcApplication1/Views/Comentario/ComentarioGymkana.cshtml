@@ -6,9 +6,6 @@
 
 <h2>ComentarioGymkana</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table>
     <tr>
         <th>
@@ -29,8 +26,8 @@
             @Html.DisplayFor(modelItem => item.Creador)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
+            @Html.ActionLink("Volver a la Gymkana", "Details", "Gymkana", new { id = item.Gymkana.ID }, "null")
         </td>
     </tr>
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WhateverGenNHibernate.CAD.Whatever;
+using WhateverGenNHibernate.CEN.Whatever;
 using WhateverGenNHibernate.CP.Whatever;
 using WhateverGenNHibernate.EN.Whatever;
 
@@ -19,8 +20,9 @@ namespace MvcApplication1.Controllers
         {
             SessionInitialize();
             PasoCAD cad = new PasoCAD(session);
+
             var aux = cad.FiltrarPasoPorGymkana(id);
-             
+            
             SessionClose();
 
             return View(aux);
@@ -74,9 +76,8 @@ namespace MvcApplication1.Controllers
                 mapen.Zoom=pas.Zoom;
                 
                 en.Descripcion = pas.Descripcion;
-
-                cp.AnadirPaso(en, mapen, gymcad.GetID(pas.id));
-                return RedirectToAction("Index", new { id = pas.id });
+                cp.AnadirPaso(en, mapen,gymen);
+                return RedirectToAction("Index", new { id = gymen.ID });
             }
             catch
             {
@@ -89,20 +90,34 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            Paso pas = null;
+            SessionInitialize();
+            PasoEN pasen = new PasoCAD(session).ReadOIDDefault(id);
+            pas = new AssemblerPaso().ConvertENToModelUI(pasen);
+            SessionClose();
+            return View(pas);
         }
 
         //
         // POST: /Paso/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Paso pas)
         {
             try
             {
-                // TODO: Add update logic here
+                PasoCP cp = new PasoCP();
+                PasoEN en = new PasoCAD().GetID(pas.id);
+                MapaEN mapen = new MapaCAD().FiltrarMapaPorPaso(pas.id);
 
-                return RedirectToAction("Index");
+                mapen.Latitud = pas.Latitud;
+                mapen.Longitud = pas.Longitud;
+                mapen.Zoom = pas.Zoom;
+                en.Descripcion = pas.Descripcion;
+
+                cp.ModificarPaso(en,mapen);
+
+                return RedirectToAction("Index", new { id = pas.idGymkana });
             }
             catch
             {
@@ -115,20 +130,27 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View();
+            Paso pas = null;
+            SessionInitialize();
+            PasoEN pasen = new PasoCAD(session).ReadOIDDefault(id);
+            pas = new AssemblerPaso().ConvertENToModelUI(pasen);
+            SessionClose();
+            return View(pas);
         }
 
         //
         // POST: /Paso/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Paso pas)
         {
             try
             {
-                // TODO: Add delete logic here
+                PasoCP cp = new PasoCP();
+                cp.BorrarPaso(pas.id);
 
-                return RedirectToAction("Index");
+
+                return RedirectToAction("List", "Gymkana");
             }
             catch
             {

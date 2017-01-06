@@ -53,7 +53,9 @@
 </fieldset>
 <p>
     @Html.ActionLink("Editar", "Edit", new { id=Model.id }) |
-    @Html.ActionLink("Reportar", "CreateReto", "Reporte", new { id = Model.id }, "null") |
     @Html.ActionLink("Comentar", "CreateReto", "Comentario", new { id = Model.id }, "null") |
-    @Html.ActionLink("Volver a Retos", "Index")
+    @Html.ActionLink("Ver Comentarios", "ComentarioReto", "Comentario", new { id = Model.id }, "null") |
+    @Html.ActionLink("Reportar", "CreateReto", "Reporte", new { id = Model.id }, "null") |
+    @Html.ActionLink("Ver reportes", "IndexReto", "Reporte", new { id = Model.id }, "null") |
+    @Html.ActionLink("Volver a Retos", "List")
 </p>

@@ -75,7 +75,7 @@ namespace MvcApplication1.Controllers
                 en.Fecha = gym.Fecha;
                 en.Usuario = cad.FiltrarUsuarioPorNombre(User.Identity.Name);
                 en.Precio = gym.Precio;
-                en.NumPasos = 1;
+                en.NumPasos = 0;
 
                 cp.CrearGymkana(en, gym.Latitud, gym.Longitud, gym.Zoom);
                 return RedirectToAction("List");

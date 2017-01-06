@@ -404,9 +404,7 @@
     <Content Include="Views\Gymkana\Edit.cshtml" />
     <Content Include="Views\Gymkana\Details.cshtml" />
     <Content Include="Views\Gymkana\Delete.cshtml" />
-    <Content Include="Views\Paso\Index.cshtml" />
     <Content Include="Views\Paso\Create.cshtml" />
-    <Content Include="Views\Reporte\IndexEvento.cshtml" />
     <Content Include="Views\Reporte\Index.cshtml" />
     <Content Include="Views\Reporte\IndexGymkana.cshtml" />
     <Content Include="Views\Reporte\IndexReto.cshtml" />
@@ -422,6 +420,10 @@
     <Content Include="Views\Comentario\CreateEvento.cshtml" />
     <Content Include="Views\Comentario\CreateReto.cshtml" />
     <Content Include="Views\Comentario\Delete.cshtml" />
+    <Content Include="Views\Paso\Edit.cshtml" />
+    <Content Include="Views\Paso\Delete.cshtml" />
+    <Content Include="Views\Paso\Index.cshtml" />
+    <Content Include="Views\Reporte\IndexEvento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

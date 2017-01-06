@@ -41,7 +41,7 @@
             @Html.DisplayFor(modelItem => item.Tipo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Precio)
+            @Html.DisplayFor(modelItem => item.Precio) €
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Imagen)
@@ -49,7 +49,9 @@
         <td>
             @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Detalles", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Borrar", "Delete", new { id=item.ID })
+            @Html.ActionLink("Borrar", "Delete", new { id = item.ID }) |
+            @Html.ActionLink("Ver Comentarios", "ComentarioReto", "Comentario", new { id = item.ID }, "null") |
+            @Html.ActionLink("Ver reportes", "IndexReto", "Reporte", new { id = item.ID }, "null")
         </td>
     </tr>
 }

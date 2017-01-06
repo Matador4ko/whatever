@@ -211,7 +211,14 @@ namespace MvcApplication1.Controllers
             try
             {
                 ReporteCP cp = new ReporteCP();
+                ReporteEN repen = new ReporteCAD().GetID(rep.id);
                 cp.BorrarUnReporte(rep.id);
+                if (repen.Evento != null)
+                    return RedirectToAction("IndexEvento", new { id = repen.Evento.ID });
+                else if (repen.Gymkana != null)
+                    return RedirectToAction("IndexGymkana", new { id = repen.Gymkana.ID });
+                else if (repen.Reto != null)
+                    return RedirectToAction("IndexReto", new { id = repen.Reto.ID });
 
                 return RedirectToAction("Index");
             }

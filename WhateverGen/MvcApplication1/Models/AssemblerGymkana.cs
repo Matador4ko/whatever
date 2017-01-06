@@ -32,7 +32,7 @@ namespace MvcApplication1.Models
 
                 //Puntuaciones
                 gymkana.Puntuaciones = null;
-                if (gymen.Puntuacion != null )
+                if (gymen.Puntuacion != null)
                 {
                     gymkana.Puntuaciones = assPu.ConvertListENToModel(gymen.Puntuacion);
                 }
@@ -44,21 +44,14 @@ namespace MvcApplication1.Models
 
                 //numero de pasos
                 gymkana.Numeropasos = gymen.NumPasos;
-                
+
 
                 //pasos
-                IList<Paso> auxPasos = null;
+                gymkana.Pasos = null;
                 if (gymen.Paso != null)
-                    auxPasos = assP.ConvertListENToModel(gymen.Paso);
+                    gymkana.Pasos = assP.ConvertListENToModel(gymen.Paso);
 
-                int numeroanterior = 0;
-                foreach (var pasoactual in auxPasos)
-                {
-                    pasoactual.Numero = ++numeroanterior;
-                    gymkana.ultimoPaso = numeroanterior;
-                }
 
-                gymkana.Pasos = auxPasos;
 
                 //atributos ocultos
                 gymkana.id = gymen.ID;
@@ -69,7 +62,7 @@ namespace MvcApplication1.Models
                 if (gymen.Reporte != null)
                     gymkana.Reportes = assR.ConvertListENToModel(gymen.Reporte);
 
-                return gymkana;       
+                return gymkana;
             }
             else
             {

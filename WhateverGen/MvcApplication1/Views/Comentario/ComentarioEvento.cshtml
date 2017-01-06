@@ -6,9 +6,6 @@
 
 <h2>ComentarioEvento</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table>
     <tr>
         <th>
@@ -29,8 +26,9 @@
             @Html.DisplayFor(modelItem => item.Creador)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }) |
+            @Html.ActionLink("Volver al Evento", "Details","Evento", new { id = item.Evento.ID },"null")
+
         </td>
     </tr>
 }

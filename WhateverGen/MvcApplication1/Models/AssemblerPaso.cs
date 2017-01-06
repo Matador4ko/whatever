@@ -17,7 +17,7 @@ namespace MvcApplication1.Models
 
                 AssemblerMapa assM = new AssemblerMapa();
                 Paso paso = new Paso();
-                paso.Numero = pasen.Gymkana.NumPasos+1;
+                paso.Numero = pasen.Gymkana.NumPasos;
                 paso.Descripcion = pasen.Descripcion;
 
                 //atributos ocultos
