@@ -24,9 +24,13 @@ namespace MvcApplication1.Models
                 {
                     comentario.idEvento = comen.Evento.ID;
                 }
-                else
+                else if (comen.Reto != null)
                 {
                     comentario.idReto = comen.Reto.ID;
+                }
+                else if (comen.Gymkana != null)
+                {
+                    comentario.idGymkana = comen.Gymkana.ID;
                 }
 
                 return comentario;

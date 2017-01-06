@@ -72,7 +72,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // GET: /Reporte/Create
+        // GET: /Reporte/CreateGymkana
 
         public ActionResult CreateGymkana(int id)
         {
@@ -87,7 +87,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // GET: /Reporte/Create
+        // GET: /Reporte/CreateEvento
         public ActionResult CreateEvento(int id)
         {
             SessionInitialize();
@@ -101,7 +101,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // GET: /Reporte/Create
+        // GET: /Reporte/CreateReto
         public ActionResult CreateReto(int id)
         {
             SessionInitialize();
@@ -210,7 +210,6 @@ namespace MvcApplication1.Controllers
         {
             try
             {
-
                 ReporteCP cp = new ReporteCP();
                 cp.BorrarUnReporte(rep.id);
 

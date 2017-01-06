@@ -375,10 +375,6 @@
     <Content Include="Views\Admin\borrarEvento.cshtml" />
     <Content Include="Views\Admin\borrarReto.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Comentario\borrarComentario.cshtml" />
-    <Content Include="Views\Comentario\crearComentario.cshtml" />
-    <Content Include="Views\Comentario\Index.cshtml" />
-    <Content Include="Views\Comentario\modificarComentario.cshtml" />
     <Content Include="Views\Mapa\filtrarMapa.cshtml" />
     <Content Include="Views\Mapa\Index.cshtml" />
     <Content Include="Views\Puntuacion\crearPuntuacion.cshtml" />
@@ -419,6 +415,13 @@
     <Content Include="Views\Reporte\CreateGymkana.cshtml" />
     <Content Include="Views\Reporte\CreateReto.cshtml" />
     <Content Include="Views\Reporte\Delete.cshtml" />
+    <Content Include="Views\Comentario\ComentarioEvento.cshtml" />
+    <Content Include="Views\Comentario\ComentarioGymkana.cshtml" />
+    <Content Include="Views\Comentario\ComentarioReto.cshtml" />
+    <Content Include="Views\Comentario\CreateGymkana.cshtml" />
+    <Content Include="Views\Comentario\CreateEvento.cshtml" />
+    <Content Include="Views\Comentario\CreateReto.cshtml" />
+    <Content Include="Views\Comentario\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

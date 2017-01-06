@@ -1,9 +1,12 @@
-﻿using System;
+﻿using MvcApplication1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WhateverGenNHibernate.CAD.Whatever;
 using WhateverGenNHibernate.CEN.Whatever;
+using WhateverGenNHibernate.CP.Whatever;
 using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Controllers
@@ -13,43 +16,105 @@ namespace MvcApplication1.Controllers
         //
         // GET: /Comentario/
 
-        public ActionResult Index()
+        public ActionResult ComentarioEvento(int id)
         {
             SessionInitialize();
-            ComentarioCEN comcen = new ComentarioCEN();
-            IEnumerable<ComentarioEN> list = comcen.GetAll(0, -1).ToList();
+            ComentarioCAD cad = new ComentarioCAD(session);
+            var aux = cad.FiltrarComentarioPorEvento(id);
+
             SessionClose();
 
-            return View();
+            return View(aux);
         }
 
-        //
-        // GET: /Comentario/Details/5
-
-        public ActionResult Details(int id)
+        public ActionResult ComentarioGymkana(int id)
         {
-            return View();
+            SessionInitialize();
+            ComentarioCAD cad = new ComentarioCAD(session);
+            var aux = cad.FiltrarComentarioPorGymkana(id);
+
+            SessionClose();
+
+            return View(aux);
         }
 
-        //
-        // GET: /Comentario/Create
-
-        public ActionResult Create()
+        public ActionResult ComentarioReto(int id)
         {
-            return View();
+            SessionInitialize();
+            ComentarioCAD cad = new ComentarioCAD(session);
+            var aux = cad.FiltrarComentarioPorReto(id);
+
+            SessionClose();
+
+            return View(aux);
         }
 
         //
-        // POST: /Comentario/Create
+        // GET: /Comentario/CreateGymkana
+
+        public ActionResult CreateGymkana(int id)
+        {
+            SessionInitialize();
+
+            Comentario com = new Comentario();
+
+            com.Creador = User.Identity.Name;
+            com.idGymkana = id;
+
+            SessionClose();
+            return View(com);
+        }
+
+        //
+        // GET: /Comentario/CreateEvento
+
+        public ActionResult CreateEvento(int id)
+        {
+            SessionInitialize();
+
+            Comentario com = new Comentario();
+
+            com.Creador = User.Identity.Name;
+            com.idEvento = id;
+
+            SessionClose();
+            return View(com);
+        }
+
+        //
+        // GET: /Comentario/CreateReto
+
+        public ActionResult CreateReto(int id)
+        {
+            SessionInitialize();
+
+            Comentario com = new Comentario();
+
+            com.Creador = User.Identity.Name;
+            com.idReto = id;
+
+            SessionClose();
+            return View(com);
+        }
+
+        //
+        // POST: /Comentario/CreateEvento
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult CreateEvento(Comentario com)
         {
             try
             {
-                // TODO: Add insert logic here
+                UsuarioCAD usucad = new UsuarioCAD();
+                UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
+                ComentarioCP comcp = new ComentarioCP();
+                EventoCAD evcad = new EventoCAD();
+                EventoEN even = evcad.GetID(com.idEvento);
 
-                return RedirectToAction("Index");
+                comcp.CrearComentarioParaEvento(even.ID, com.Texto, usuen.ID);
+
+                return RedirectToAction("ComentarioEvento", new { id = com.idEvento });
+
             }
             catch
             {
@@ -58,24 +123,48 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // GET: /Comentario/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Comentario/Edit/5
+        // POST: /Comentario/CreateGymkana
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult CreateGymkana(Comentario com)
         {
             try
             {
-                // TODO: Add update logic here
+                UsuarioCAD usucad = new UsuarioCAD();
+                UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
+                ComentarioCP comcp = new ComentarioCP();
+                GymkanaCAD gymcad = new GymkanaCAD();
+                GymkanaEN gymen = gymcad.GetID(com.idGymkana);
 
-                return RedirectToAction("Index");
+                comcp.CrearComentarioParaGymkana(gymen.ID, com.Texto, usuen.ID);
+
+                return RedirectToAction("ComentarioGymkana", new { id = com.idGymkana });
+
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //
+        // POST: /Comentario/CreateReto
+
+        [HttpPost]
+        public ActionResult CreateReto(Comentario com)
+        {
+            try
+            {
+                UsuarioCAD usucad = new UsuarioCAD();
+                UsuarioEN usuen = usucad.FiltrarUsuarioPorNombre(User.Identity.Name);
+                ComentarioCP comcp = new ComentarioCP();
+                RetoCAD retcad = new RetoCAD();
+                RetoEN reten = retcad.GetID(com.idReto);
+
+                comcp.CrearComentarioParaReto(reten.ID, com.Texto, usuen.ID);
+
+                return RedirectToAction("ComentarioReto", new { id = com.idReto });
+
             }
             catch
             {
@@ -88,18 +177,24 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View();
+            Comentario com = null;
+            SessionInitialize();
+            ComentarioEN comen = new ComentarioCAD(session).ReadOIDDefault(id);
+            com = new AssemblerComentario().ConvertENToModelUI(comen);
+            SessionClose();
+            return View(com);
         }
 
         //
-        // POST: /Comentario/Delete/5
+        // POST: /Comentario/DeleteEvento/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Comentario com)
         {
-            try
+           try
             {
-                // TODO: Add delete logic here
+                ComentarioCP cp = new ComentarioCP();
+                cp.BorrarUnComentario(com.id);
 
                 return RedirectToAction("Index");
             }

@@ -40,6 +40,9 @@ namespace MvcApplication1.Models
         [ScaffoldColumn(false)]
         public int id { get; set; }
 
+        [ScaffoldColumn(false)]
+        public int idGymkana { get; set; }
+
         //private WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario;
         [Required(ErrorMessage = "Debe indicar un creador para el comentario")]
         public UsuarioEN usuario;
