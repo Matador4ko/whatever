@@ -377,11 +377,6 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Mapa\filtrarMapa.cshtml" />
     <Content Include="Views\Mapa\Index.cshtml" />
-    <Content Include="Views\Puntuacion\crearPuntuacion.cshtml" />
-    <Content Include="Views\Puntuacion\Index.cshtml" />
-    <Content Include="Views\Puntuacion\modificarPuntuacion.cshtml" />
-    <Content Include="Views\Puntuacion\verMedia.cshtml" />
-    <Content Include="Views\Puntuacion\verVoto.cshtml" />
     <Content Include="Views\Usuario\Create.cshtml" />
     <Content Include="Views\Usuario\Edit.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
@@ -424,6 +419,14 @@
     <Content Include="Views\Paso\Delete.cshtml" />
     <Content Include="Views\Paso\Index.cshtml" />
     <Content Include="Views\Reporte\IndexEvento.cshtml" />
+    <Content Include="Views\Puntuacion\PuntuacionEvento.cshtml" />
+    <Content Include="Views\Puntuacion\PuntuacionGymkana.cshtml" />
+    <Content Include="Views\Puntuacion\PuntuacionReto.cshtml" />
+    <Content Include="Views\Puntuacion\Details.cshtml" />
+    <Content Include="Views\Puntuacion\CreateGymkana.cshtml" />
+    <Content Include="Views\Puntuacion\CreateEvento.cshtml" />
+    <Content Include="Views\Puntuacion\CreateReto.cshtml" />
+    <Content Include="Views\Puntuacion\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

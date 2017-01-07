@@ -24,11 +24,17 @@ namespace MvcApplication1.Models
                     punt.idActividad = punt.idReto;
                     punt.Actividad = punten.Reto.Titulo;
                 }
-                else
+                else if (punten.Evento != null)
                 {
                     punt.idEvento = punten.Evento.ID;
                     punt.idActividad = punt.idEvento;
                     punt.Actividad = punten.Evento.Titulo;
+                }
+                else if (punten.Gymkana != null)
+                {
+                    punt.idGymkana = punten.Gymkana.ID;
+                    punt.idActividad = punt.idGymkana;
+                    punt.Actividad = punten.Gymkana.Titulo;
                 }
 
                 return punt;

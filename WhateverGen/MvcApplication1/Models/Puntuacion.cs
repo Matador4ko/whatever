@@ -16,6 +16,9 @@ namespace MvcApplication1.Models
         [ScaffoldColumn(false)]
         public int id{ get; set; }
 
+        [ScaffoldColumn(false)]
+        public int idGymkana { get; set; }
+
         //public WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario;
         [ScaffoldColumn(false)]
         public int idUsuario { get; set; }
