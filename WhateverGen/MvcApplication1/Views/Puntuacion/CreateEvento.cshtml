@@ -14,10 +14,10 @@
         <legend>Puntuacion</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Actividad)
+            <h6>Nombre Evento</h6>
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Actividad)
+            @Html.DisplayFor(model => model.Actividad)
             @Html.ValidationMessageFor(model => model.Actividad)
         </div>
 

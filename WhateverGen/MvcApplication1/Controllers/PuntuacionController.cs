@@ -70,6 +70,7 @@ namespace MvcApplication1.Controllers
             Puntuacion punt = new Puntuacion();
 
             punt.idGymkana = id;
+            punt.Actividad = new GymkanaCAD().GetID(id).Titulo;
 
             SessionClose();
             return View(punt);
@@ -85,6 +86,7 @@ namespace MvcApplication1.Controllers
             Puntuacion punt = new Puntuacion();
 
             punt.idEvento = id;
+            punt.Actividad = new EventoCAD().GetID(id).Titulo;
 
             SessionClose();
             return View(punt);
@@ -100,6 +102,7 @@ namespace MvcApplication1.Controllers
             Puntuacion punt = new Puntuacion();
 
             punt.idReto = id;
+            punt.Actividad = new RetoCAD().GetID(id).Titulo;
 
             SessionClose();
             return View(punt);

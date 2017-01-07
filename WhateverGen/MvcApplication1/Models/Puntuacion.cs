@@ -42,8 +42,7 @@ namespace MvcApplication1.Models
         //public int puntuacion;
         [Display(Prompt = "Puntuacion", Description = "Puntuacion", Name = "Puntuacion")]
         [Required(ErrorMessage="Debe añadir una puntuación")]
-        [DataType(DataType.Currency, ErrorMessage = "La puntuación debe ser un valor numérico")]
-        [Range(minimum: 0, maximum: 10, ErrorMessage = "La puntuación debe ir de 0 a 10")]
-        public int Puntos{ get; set; }
+        [Range(0, 5, ErrorMessage = "El valor de {0} tiene que ser correcto e ir entre {1} y {2}")]
+        public int Puntos { get; set; }
     }
 }
