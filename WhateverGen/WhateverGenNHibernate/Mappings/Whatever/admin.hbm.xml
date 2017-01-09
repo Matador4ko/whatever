@@ -5,21 +5,27 @@
 		    
 		    
 			
-				
-<joined-subclass name="AdminEN" extends="WhateverGenNHibernate.EN.Whatever.UsuarioEN" table="Admin"> 
-	<key>
-    	
-				<column name="ID"/>
-		
-    	
-   	</key>
-
+				<class name="AdminEN" table="Admin"> 
+						<id name="ID" column="ID"/> 
 			
 					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
 			
+			
+		  			
+					
+							   <one-to-one name="Usuario" class="WhateverGenNHibernate.EN.Whatever.UsuarioEN" property-ref="Admin" />							
+					 
+						
+			
+			
+					
+					
+					
 		
- 	  
-		 </joined-subclass>
+		 </class>	
 		  
 		  <query name="AdminENReadAllHQL">from AdminEN</query>
 		</hibernate-mapping>

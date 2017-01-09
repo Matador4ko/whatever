@@ -20,7 +20,7 @@ namespace WhateverGenNHibernate.CP.Whatever
 {
 public partial class MapaCP : BasicCP
 {
-public int CrearMapaParaPaso (int id_paso, double latitud, double longitud, int zoom)
+public int CrearMapaParaPaso (int id_paso, string latitud, string longitud, int zoom)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CP.Whatever_Mapa_crearMapaParaPaso) ENABLED START*/
 

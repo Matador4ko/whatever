@@ -20,14 +20,14 @@ namespace WhateverGenNHibernate.CP.Whatever
 {
 public partial class UsuarioCP : BasicCP
 {
-public void HacerAdmin (int p_oid)
+public bool HacerAdmin (int p_oid, string nombre)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CP.Whatever_Usuario_hacerAdmin) ENABLED START*/
 
         IUsuarioCAD usuarioCAD = null;
         UsuarioCEN usuarioCEN = null;
 
-
+        return true;
 
         try
         {
@@ -41,22 +41,6 @@ public void HacerAdmin (int p_oid)
                 AdminEN admin = new AdminEN ();
                 usuen = usuarioCAD.GetID (p_oid);
                 usuarioCAD.Destroy (p_oid);
-                admin.Contrasena = usuen.Contrasena;
-                admin.Edad = usuen.Edad;
-                admin.Email = usuen.Email;
-                admin.Facebook = usuen.Facebook;
-                admin.Foto = usuen.Foto;
-                admin.Twitter = usuen.Twitter;
-                admin.Instagram = usuen.Instagram;
-                admin.Nombre = usuen.Nombre;
-                admin.Sexo = usuen.Sexo;
-                admin.ID = usuen.ID;
-                admin.Comentario = usuen.Comentario;
-                admin.Evento = usuen.Evento;
-                admin.Puntuacion = usuen.Puntuacion;
-                admin.Reporte = usuen.Reporte;
-                admin.Reto = usuen.Reto;
-                admincad.New_ (admin);
 
                 SessionCommit ();
         }

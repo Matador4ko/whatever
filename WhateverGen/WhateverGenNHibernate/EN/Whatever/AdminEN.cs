@@ -3,64 +3,79 @@ using System;
 // Definición clase AdminEN
 namespace WhateverGenNHibernate.EN.Whatever
 {
-public partial class AdminEN                                                                        : WhateverGenNHibernate.EN.Whatever.UsuarioEN
-
-
+public partial class AdminEN
 {
-public AdminEN() : base ()
+/**
+ *	Atributo usuario
+ */
+private WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario;
+
+
+
+/**
+ *	Atributo nombre
+ */
+private string nombre;
+
+
+
+/**
+ *	Atributo iD
+ */
+private int iD;
+
+
+
+
+
+
+public virtual WhateverGenNHibernate.EN.Whatever.UsuarioEN Usuario {
+        get { return usuario; } set { usuario = value;  }
+}
+
+
+
+public virtual string Nombre {
+        get { return nombre; } set { nombre = value;  }
+}
+
+
+
+public virtual int ID {
+        get { return iD; } set { iD = value;  }
+}
+
+
+
+
+
+public AdminEN()
 {
 }
 
 
 
-public AdminEN(int iD,
-               string nombre, int edad, string sexo, string facebook, string instagram, string twitter, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> reto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> evento, String contrasena, string email, string foto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.GymkanaEN> gymkana
+public AdminEN(int iD, WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, string nombre
                )
 {
-        this.init (ID, nombre, edad, sexo, facebook, instagram, twitter, reto, reporte, puntuacion, comentario, evento, contrasena, email, foto, gymkana);
+        this.init (ID, usuario, nombre);
 }
 
 
 public AdminEN(AdminEN admin)
 {
-        this.init (ID, admin.Nombre, admin.Edad, admin.Sexo, admin.Facebook, admin.Instagram, admin.Twitter, admin.Reto, admin.Reporte, admin.Puntuacion, admin.Comentario, admin.Evento, admin.Contrasena, admin.Email, admin.Foto, admin.Gymkana);
+        this.init (ID, admin.Usuario, admin.Nombre);
 }
 
 private void init (int ID
-                   , string nombre, int edad, string sexo, string facebook, string instagram, string twitter, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.RetoEN> reto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ReporteEN> reporte, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.PuntuacionEN> puntuacion, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.ComentarioEN> comentario, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.EventoEN> evento, String contrasena, string email, string foto, System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.GymkanaEN> gymkana)
+                   , WhateverGenNHibernate.EN.Whatever.UsuarioEN usuario, string nombre)
 {
         this.ID = ID;
 
 
+        this.Usuario = usuario;
+
         this.Nombre = nombre;
-
-        this.Edad = edad;
-
-        this.Sexo = sexo;
-
-        this.Facebook = facebook;
-
-        this.Instagram = instagram;
-
-        this.Twitter = twitter;
-
-        this.Reto = reto;
-
-        this.Reporte = reporte;
-
-        this.Puntuacion = puntuacion;
-
-        this.Comentario = comentario;
-
-        this.Evento = evento;
-
-        this.Contrasena = contrasena;
-
-        this.Email = email;
-
-        this.Foto = foto;
-
-        this.Gymkana = gymkana;
 }
 
 public override bool Equals (object obj)

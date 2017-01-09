@@ -20,14 +20,14 @@ namespace WhateverGenNHibernate.CP.Whatever
 {
 public partial class UsuarioCP : BasicCP
 {
-public void DeshacerAdmin (int p_oid)
+public bool DeshacerAdmin (string nombre)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CP.Whatever_Usuario_deshacerAdmin) ENABLED START*/
 
         IUsuarioCAD usuarioCAD = null;
         UsuarioCEN usuarioCEN = null;
 
-
+        return true;
 
         try
         {
@@ -36,23 +36,11 @@ public void DeshacerAdmin (int p_oid)
                 usuarioCEN = new  UsuarioCEN (usuarioCAD);
 
 
-                AdminCAD admincad = new AdminCAD();
-                UsuarioEN usuen = new UsuarioEN();
-                AdminEN admin = new AdminEN();
-                usuen = usuarioCAD.GetID(p_oid);
-                usuarioCAD.Destroy(p_oid);
-                admin.Contrasena = usuen.Contrasena;
-                admin.Edad = usuen.Edad;
-                admin.Email = usuen.Email;
-                admin.Facebook = usuen.Facebook;
-                admin.Foto = usuen.Foto;
-                admin.Twitter = usuen.Twitter;
-                admin.ID = usuen.ID;
-                admin.Instagram = usuen.Instagram;
-                admin.Nombre = usuen.Nombre;
-                admin.Sexo = usuen.Sexo;
+                AdminCAD admincad = new AdminCAD ();
+                UsuarioEN usuen = new UsuarioEN ();
+                AdminEN admin = new AdminEN ();
 
-                admincad.New_(admin);
+                admincad.New_ (admin);
 
 
                 SessionCommit ();

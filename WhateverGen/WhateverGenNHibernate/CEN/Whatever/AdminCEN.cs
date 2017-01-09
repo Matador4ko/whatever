@@ -38,30 +38,24 @@ public IAdminCAD get_IAdminCAD ()
         return this._IAdminCAD;
 }
 
-public int New_ (string p_nombre, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Twitter, String p_contrasena, string p_email, string p_foto)
+public int New_ (int p_usuario, string p_nombre, int p_ID)
 {
         AdminEN adminEN = null;
         int oid;
 
         //Initialized AdminEN
         adminEN = new AdminEN ();
+
+        if (p_usuario != -1) {
+                // El argumento p_usuario -> Property usuario es oid = false
+                // Lista de oids ID
+                adminEN.Usuario = new WhateverGenNHibernate.EN.Whatever.UsuarioEN ();
+                adminEN.Usuario.ID = p_usuario;
+        }
+
         adminEN.Nombre = p_nombre;
 
-        adminEN.Edad = p_edad;
-
-        adminEN.Sexo = p_sexo;
-
-        adminEN.Facebook = p_Facebook;
-
-        adminEN.Instagram = p_Instagram;
-
-        adminEN.Twitter = p_Twitter;
-
-        adminEN.Contrasena = Utils.Util.GetEncondeMD5 (p_contrasena);
-
-        adminEN.Email = p_email;
-
-        adminEN.Foto = p_foto;
+        adminEN.ID = p_ID;
 
         //Call to AdminCAD
 
@@ -69,7 +63,7 @@ public int New_ (string p_nombre, int p_edad, string p_sexo, string p_Facebook, 
         return oid;
 }
 
-public void Modify (int p_Admin_OID, string p_nombre, int p_edad, string p_sexo, string p_Facebook, string p_Instagram, string p_Twitter, String p_contrasena, string p_email, string p_foto)
+public void Modify (int p_Admin_OID, string p_nombre)
 {
         AdminEN adminEN = null;
 
@@ -77,14 +71,6 @@ public void Modify (int p_Admin_OID, string p_nombre, int p_edad, string p_sexo,
         adminEN = new AdminEN ();
         adminEN.ID = p_Admin_OID;
         adminEN.Nombre = p_nombre;
-        adminEN.Edad = p_edad;
-        adminEN.Sexo = p_sexo;
-        adminEN.Facebook = p_Facebook;
-        adminEN.Instagram = p_Instagram;
-        adminEN.Twitter = p_Twitter;
-        adminEN.Contrasena = Utils.Util.GetEncondeMD5 (p_contrasena);
-        adminEN.Email = p_email;
-        adminEN.Foto = p_foto;
         //Call to AdminCAD
 
         _IAdminCAD.Modify (adminEN);

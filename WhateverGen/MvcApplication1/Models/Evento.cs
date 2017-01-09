@@ -64,14 +64,14 @@ namespace MvcApplication1.Models
         [Required(ErrorMessage = "Debe indicar una latitud para el evento")]
         //[DataType(DataType.Custom, ErrorMessage = "La latitud debe ser numerica")]
         [Range(-90.00000000, 90.00000000, ErrorMessage = "El valor de {0} tiene que ser correcto e ir entre {1} y {2}")]
-        public double Latitud { get; set; }
+        public string Latitud { get; set; }
 
         //Longitud
         [Display(Prompt = "Longitud del evento", Description = "Longitud del evento", Name = "Longitud")]
         [Required(ErrorMessage = "Debe indicar una longitud para el evento")]
         //[DataType(DataType.Currency, ErrorMessage = "La longitud debe ser numerica")]
         [Range(-180.00000000, 180.00000000, ErrorMessage = "El valor de {0} tiene que ser correcto e ir entre {1} y {2}")]
-        public double Longitud { get; set; }
+        public string Longitud { get; set; }
 
         //Zoom
         [Display(Prompt = "Zoom para el mapa", Description = "Zoom para el mapa", Name = "Zoom")]

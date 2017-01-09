@@ -90,6 +90,10 @@ public void ModifyDefault (AdminEN admin)
         {
                 SessionInitializeTransaction ();
                 AdminEN adminEN = (AdminEN)session.Load (typeof(AdminEN), admin.ID);
+
+
+                adminEN.Nombre = admin.Nombre;
+
                 session.Update (adminEN);
                 SessionCommit ();
         }
@@ -114,6 +118,13 @@ public int New_ (AdminEN admin)
         try
         {
                 SessionInitializeTransaction ();
+                if (admin.Usuario != null) {
+                        // Argumento OID y no colección.
+                        admin.Usuario = (WhateverGenNHibernate.EN.Whatever.UsuarioEN)session.Load (typeof(WhateverGenNHibernate.EN.Whatever.UsuarioEN), admin.Usuario.ID);
+
+                        admin.Usuario.Admin
+                                = admin;
+                }
 
                 session.Save (admin);
                 SessionCommit ();
@@ -143,30 +154,6 @@ public void Modify (AdminEN admin)
                 AdminEN adminEN = (AdminEN)session.Load (typeof(AdminEN), admin.ID);
 
                 adminEN.Nombre = admin.Nombre;
-
-
-                adminEN.Edad = admin.Edad;
-
-
-                adminEN.Sexo = admin.Sexo;
-
-
-                adminEN.Facebook = admin.Facebook;
-
-
-                adminEN.Instagram = admin.Instagram;
-
-
-                adminEN.Twitter = admin.Twitter;
-
-
-                adminEN.Contrasena = admin.Contrasena;
-
-
-                adminEN.Email = admin.Email;
-
-
-                adminEN.Foto = admin.Foto;
 
                 session.Update (adminEN);
                 SessionCommit ();

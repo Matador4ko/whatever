@@ -20,7 +20,7 @@ namespace WhateverGenNHibernate.CP.Whatever
 {
 public partial class GymkanaCP : BasicCP
 {
-public void CrearGymkana (WhateverGenNHibernate.EN.Whatever.GymkanaEN gym, double lat, double lon, int zoom)
+public void CrearGymkana (WhateverGenNHibernate.EN.Whatever.GymkanaEN gym, string lat, string lon, int zoom)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CP.Whatever_Gymkana_crearGymkana) ENABLED START*/
 

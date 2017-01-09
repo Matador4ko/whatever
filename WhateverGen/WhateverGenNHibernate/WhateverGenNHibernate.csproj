@@ -135,6 +135,8 @@
 			<Compile Include="CP\Whatever\UsuarioCP_BorrarUsuario.cs" />
 			
 			
+			<Compile Include="CP\Whatever\UsuarioCP_DeshacerAdmin.cs" />
+			
 	<Compile Include="EN\Whatever\RetoEN.cs" />
 	<Compile Include="CEN\Whatever\RetoCEN.cs" />
 	<Compile Include="CAD\Whatever\IRetoCAD.cs" />
@@ -220,8 +222,6 @@
 			
 			
 			
-			
-			<Compile Include="CP\Whatever\AdminCP_DeshacerAdmin.cs" />
 			
 	<Compile Include="EN\Whatever\ReporteEN.cs" />
 	<Compile Include="CEN\Whatever\ReporteCEN.cs" />

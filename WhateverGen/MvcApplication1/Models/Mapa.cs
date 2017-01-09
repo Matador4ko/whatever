@@ -15,26 +15,26 @@ namespace MvcApplication1.Models
         private WhateverGenNHibernate.EN.Whatever.EventoEN evento;
         private int id;
         private WhateverGenNHibernate.EN.Whatever.PasoEN paso_0;
-        private double latitud;
-        private double longitud;
+        private string latitud;
+        private string longitud;
         private int zoom;
         */
 
-        //public void CrearMapaParaEvento (int id_evento, double latitud, double longitud, int zoom)
-        //public void CrearMapaParaPaso (int id_paso, double latitud, double longitud, int zoom)
+        //public void CrearMapaParaEvento (int id_evento, string latitud, string longitud, int zoom)
+        //public void CrearMapaParaPaso (int id_paso, string latitud, string longitud, int zoom)
          
 
         //Latitud
         [Display(Prompt = "Latitud del mapa", Description = "Latitud del mapa", Name = "Latitud ")]
         [Required(ErrorMessage = "Debe indicar una latitud para el mapa")]
         [Range(minimum: -90, maximum: 90, ErrorMessage = "La latitud debe ser mayor que -90 y menor que 90")]
-        public double Latitud { get; set; }
+        public string Latitud { get; set; }
 
         //Longitud
         [Display(Prompt = "Longitud del mapa", Description = "Longitud del mapa", Name = "Longitud ")]
         [Required(ErrorMessage = "Debe indicar una longitud para el mapa")]
         [Range(minimum: -180, maximum: 180, ErrorMessage = "La longitud debe ser mayor que -180 y menor que 180")]
-        public double Longitud { get; set; }
+        public string Longitud { get; set; }
 
         //Zoom
         [Display(Prompt = "Zoom del mapa", Description = "Zoom del mapa", Name = "Zoom ")]

@@ -116,6 +116,15 @@
 							<one-to-many class="WhateverGenNHibernate.EN.Whatever.GymkanaEN"/>
 					    </bag>
 					
+			
+		  			
+					
+							<many-to-one name="Admin" class="WhateverGenNHibernate.EN.Whatever.AdminEN" >
+								<column name="FK_ID_idAdmin"/> 
+        					</many-to-one>
+					 
+						
+					
 					
 					
 					

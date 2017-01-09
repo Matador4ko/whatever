@@ -38,7 +38,7 @@ public IMapaCAD get_IMapaCAD ()
         return this._IMapaCAD;
 }
 
-public int New_ (double p_latitud, double p_longitud, int p_zoom)
+public int New_ (string p_latitud, string p_longitud, int p_zoom)
 {
         MapaEN mapaEN = null;
         int oid;
@@ -73,7 +73,7 @@ public MapaEN GetID (int id
         return mapaEN;
 }
 
-public void Modify (int p_Mapa_OID, double p_latitud, double p_longitud, int p_zoom)
+public void Modify (int p_Mapa_OID, string p_latitud, string p_longitud, int p_zoom)
 {
         MapaEN mapaEN = null;
 

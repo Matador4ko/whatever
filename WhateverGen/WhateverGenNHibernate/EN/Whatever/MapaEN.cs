@@ -29,14 +29,14 @@ private WhateverGenNHibernate.EN.Whatever.PasoEN paso;
 /**
  *	Atributo latitud
  */
-private double latitud;
+private string latitud;
 
 
 
 /**
  *	Atributo longitud
  */
-private double longitud;
+private string longitud;
 
 
 
@@ -68,13 +68,13 @@ public virtual WhateverGenNHibernate.EN.Whatever.PasoEN Paso {
 
 
 
-public virtual double Latitud {
+public virtual string Latitud {
         get { return latitud; } set { latitud = value;  }
 }
 
 
 
-public virtual double Longitud {
+public virtual string Longitud {
         get { return longitud; } set { longitud = value;  }
 }
 
@@ -94,7 +94,7 @@ public MapaEN()
 
 
 
-public MapaEN(int id, WhateverGenNHibernate.EN.Whatever.EventoEN evento, WhateverGenNHibernate.EN.Whatever.PasoEN paso, double latitud, double longitud, int zoom
+public MapaEN(int id, WhateverGenNHibernate.EN.Whatever.EventoEN evento, WhateverGenNHibernate.EN.Whatever.PasoEN paso, string latitud, string longitud, int zoom
               )
 {
         this.init (Id, evento, paso, latitud, longitud, zoom);
@@ -107,7 +107,7 @@ public MapaEN(MapaEN mapa)
 }
 
 private void init (int id
-                   , WhateverGenNHibernate.EN.Whatever.EventoEN evento, WhateverGenNHibernate.EN.Whatever.PasoEN paso, double latitud, double longitud, int zoom)
+                   , WhateverGenNHibernate.EN.Whatever.EventoEN evento, WhateverGenNHibernate.EN.Whatever.PasoEN paso, string latitud, string longitud, int zoom)
 {
         this.Id = id;
 

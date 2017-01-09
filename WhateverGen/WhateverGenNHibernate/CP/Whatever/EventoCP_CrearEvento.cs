@@ -20,7 +20,7 @@ namespace WhateverGenNHibernate.CP.Whatever
 {
 public partial class EventoCP : BasicCP
 {
-public void CrearEvento (WhateverGenNHibernate.EN.Whatever.EventoEN evento, double lat, double long_, int zoom)
+public void CrearEvento (WhateverGenNHibernate.EN.Whatever.EventoEN evento, string lat, string long_, int zoom)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CP.Whatever_Evento_crearEvento) ENABLED START*/
 

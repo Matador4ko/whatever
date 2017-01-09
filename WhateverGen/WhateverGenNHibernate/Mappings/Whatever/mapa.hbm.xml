@@ -12,10 +12,10 @@
 						</id>
 			
 					
-					<property name="Latitud" type="double"> 
+					<property name="Latitud" type="string"> 
 						<column name="latitud"  not-null="true"/>
 					</property>
-					<property name="Longitud" type="double"> 
+					<property name="Longitud" type="string"> 
 						<column name="longitud"  not-null="true"/>
 					</property>
 					<property name="Zoom" type="integer"> 

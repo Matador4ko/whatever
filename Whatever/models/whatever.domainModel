@@ -164,8 +164,8 @@
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_gM2FkKgzEeaxF6S11qxksw" name="crearGymkana" operationType="CustomTransaction" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_vegtQKg9EeaxF6S11qxksw" name="gym" type="Object" typeObject="_Ex6nsJrQEeaXV6V0n0sD3w"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_vho5wKg9EeaxF6S11qxksw" name="lat" type="Double"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_vknVQKg9EeaxF6S11qxksw" name="lon" type="Double"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_vho5wKg9EeaxF6S11qxksw" name="lat"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_vknVQKg9EeaxF6S11qxksw" name="lon"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_vncm0Kg9EeaxF6S11qxksw" name="zoom" type="Integer"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_s_0BwKgzEeaxF6S11qxksw" name="modificarGymkana" operationType="CustomTransaction" type="Void">
@@ -452,8 +452,8 @@
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_aCQyoKgzEeaxF6S11qxksw" name="crearEvento" operationType="CustomTransaction" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_iK-z8Kg4EeaxF6S11qxksw" name="evento" type="Object" typeObject="_-eKfwJrREeaXV6V0n0sD3w"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_taI-kKg5EeaxF6S11qxksw" name="lat" type="Double"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_teUT8Kg5EeaxF6S11qxksw" name="long" type="Double"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_taI-kKg5EeaxF6S11qxksw" name="lat"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_teUT8Kg5EeaxF6S11qxksw" name="long"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_tiykQKg5EeaxF6S11qxksw" name="zoom" type="Integer"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_b02xoKgzEeaxF6S11qxksw" name="borrarEvento" operationType="CustomTransaction" type="Void">
@@ -634,20 +634,22 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_xgo8EKXXEeaxF6S11qxksw" name="radio" type="Integer"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_JWkDsKKIEeaxF6S11qxksw" name="new" operationType="New" type="Object" typeObject="_bTkS4JrUEeaXV6V0n0sD3w">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5suB8NaFEeaz3K-DnKqCgA" name="p_latitud"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5suB8daFEeaz3K-DnKqCgA" name="p_longitud"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk1-8NaLEeags_lXaFeQjg" name="p_latitud"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk2mANaLEeags_lXaFeQjg" name="p_longitud"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk2mAdaLEeags_lXaFeQjg" name="p_zoom" type="Integer"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_Bwty0KTcEeaxF6S11qxksw" name="getAll" operationType="ReadAll" type="Object" collectionType="List" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_B_UPgKTcEeaxF6S11qxksw" name="getID" operationType="ReadOID" type="Object" typeObject="_bTkS4JrUEeaXV6V0n0sD3w">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5suB8taFEeaz3K-DnKqCgA" name="p_Mapa_OID" type="OID" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk2mAtaLEeags_lXaFeQjg" name="p_Mapa_OID" type="OID" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_6G6DwKXWEeaxF6S11qxksw" name="modify" operationType="Modifier" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5suB89aFEeaz3K-DnKqCgA" name="p_Mapa_OID" type="OID" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5suB9NaFEeaz3K-DnKqCgA" name="p_latitud"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5suB9daFEeaz3K-DnKqCgA" name="p_longitud"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk30INaLEeags_lXaFeQjg" name="p_Mapa_OID" type="OID" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk30IdaLEeags_lXaFeQjg" name="p_latitud"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk30ItaLEeags_lXaFeQjg" name="p_longitud"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk30I9aLEeags_lXaFeQjg" name="p_zoom" type="Integer"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_6HDNtKXWEeaxF6S11qxksw" name="destroy" operationType="Destroy" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5suB9taFEeaz3K-DnKqCgA" name="p_Mapa_OID" type="OID" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk4bMNaLEeags_lXaFeQjg" name="p_Mapa_OID" type="OID" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="__BDxwKgUEeaxF6S11qxksw" name="filtrarTodosMapasParaEventos" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_bTkS4JrUEeaXV6V0n0sD3w" filter="FROM MapaEN as map WHERE map.Evento.ID!=-1" automaticSynchronize="false"/>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_N57RYKg_EeaxF6S11qxksw" name="FiltrarMapaPorPaso" operationType="ReadFilter" type="Object" typeObject="_bTkS4JrUEeaXV6V0n0sD3w" filter="FROM MapaEN as map WHERE map.Paso.ID=:id_paso" automaticSynchronize="false">
@@ -658,14 +660,14 @@
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_CED2sMwaEeaYjMhWYjwxYw" name="crearMapaParaPaso" operationType="CustomTransaction" type="Integer">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_CED2scwaEeaYjMhWYjwxYw" name="id_paso" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_H9gWUMwaEeaYjMhWYjwxYw" name="latitud" type="Double"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_IEDqQMwaEeaYjMhWYjwxYw" name="longitud" type="Double"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_H9gWUMwaEeaYjMhWYjwxYw" name="latitud"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_IEDqQMwaEeaYjMhWYjwxYw" name="longitud"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ITje0MwaEeaYjMhWYjwxYw" name="zoom" type="Integer"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_V2NLgMwaEeaYjMhWYjwxYw" name="crearMapaParaEvento" operationType="CustomTransaction" type="Integer">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_V2NLgcwaEeaYjMhWYjwxYw" name="id_evento" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_V2NLgswaEeaYjMhWYjwxYw" name="latitud" type="Double"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_V2NLg8waEeaYjMhWYjwxYw" name="longitud" type="Double"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_V2NLgswaEeaYjMhWYjwxYw" name="latitud"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_V2NLg8waEeaYjMhWYjwxYw" name="longitud"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_V2NLhMwaEeaYjMhWYjwxYw" name="zoom" type="Integer"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_cd2N4MwaEeaYjMhWYjwxYw" name="borrarMapaParaPaso" operationType="CustomTransaction" type="Void">
@@ -675,26 +677,27 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_mVEKocwaEeaYjMhWYjwxYw" name="id_evento" type="Integer"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_7XO84MwaEeaYjMhWYjwxYw" name="relationerMapaPaso" operationType="Relationer" type="Void" relatedRol="_8F5voqTcEeaxF6S11qxksw">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5suB99aFEeaz3K-DnKqCgA" name="p_Mapa_OID" type="OID" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5suB-NaFEeaz3K-DnKqCgA" name="p_paso_OID" type="OID" typeObject="_1z2lkJrSEeaXV6V0n0sD3w"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk4bMdaLEeags_lXaFeQjg" name="p_Mapa_OID" type="OID" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk5CQNaLEeags_lXaFeQjg" name="p_paso_OID" type="OID" typeObject="_1z2lkJrSEeaXV6V0n0sD3w"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_BYk0QMwbEeaYjMhWYjwxYw" name="relationerMapaEvento" operationType="Relationer" type="Void" relatedRol="_zKkegaHKEeaxF6S11qxksw">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5suB-daFEeaz3K-DnKqCgA" name="p_Mapa_OID" type="OID" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5suB-taFEeaz3K-DnKqCgA" name="p_evento_OID" type="OID" typeObject="_-eKfwJrREeaXV6V0n0sD3w"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk5CQdaLEeags_lXaFeQjg" name="p_Mapa_OID" type="OID" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk5CQtaLEeags_lXaFeQjg" name="p_evento_OID" type="OID" typeObject="_-eKfwJrREeaXV6V0n0sD3w"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_FnoOoMwbEeaYjMhWYjwxYw" name="unrelationerMapaPaso" operationType="Unrelationer" type="Void" relatedRol="_8F5voqTcEeaxF6S11qxksw">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5suB-9aFEeaz3K-DnKqCgA" name="p_Mapa_OID" type="OID" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5suB_NaFEeaz3K-DnKqCgA" name="p_paso_OID" type="OID" typeObject="_1z2lkJrSEeaXV6V0n0sD3w"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk5pUNaLEeags_lXaFeQjg" name="p_Mapa_OID" type="OID" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk5pUdaLEeags_lXaFeQjg" name="p_paso_OID" type="OID" typeObject="_1z2lkJrSEeaXV6V0n0sD3w"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_NflpYMwbEeaYjMhWYjwxYw" name="unrelationerMapaEvento" operationType="Unrelationer" type="Void" relatedRol="_zKkegaHKEeaxF6S11qxksw">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5s5BENaFEeaz3K-DnKqCgA" name="p_Mapa_OID" type="OID" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_5s5BEdaFEeaz3K-DnKqCgA" name="p_evento_OID" type="OID" typeObject="_-eKfwJrREeaXV6V0n0sD3w"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk5pUtaLEeags_lXaFeQjg" name="p_Mapa_OID" type="OID" typeObject="_bTkS4JrUEeaXV6V0n0sD3w"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Jk5pU9aLEeags_lXaFeQjg" name="p_evento_OID" type="OID" typeObject="_-eKfwJrREeaXV6V0n0sD3w"/>
       </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_zKkegaHKEeaxF6S11qxksw" alias="idEvento" lower="0" associationOrigin="_zKkegKHKEeaxF6S11qxksw" name="evento" type="Object"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_81ZvoKHLEeaxF6S11qxksw" alias="idMapa" name="id" type="Autogenerated" isOID="true" unique="true"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_8F5voqTcEeaxF6S11qxksw" alias="paso_mapa" lower="0" associationTarget="_8F5voKTcEeaxF6S11qxksw" name="paso" type="Object"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_YnpwoKXUEeaxF6S11qxksw" alias="latitud" name="latitud"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_Z9CPMKXUEeaxF6S11qxksw" alias="longitud" name="longitud"/>
+      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_I9hgQNaLEeags_lXaFeQjg" alias="zoom" name="zoom" type="Integer"/>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Association" xmi:id="_WRgXkKHBEeaxF6S11qxksw" name="reto_reto_0" alias="reto_reto_0" rolOrigin="_WRgXkaHBEeaxF6S11qxksw" rolTarget="_WRgXkqHBEeaxF6S11qxksw" classTarget="_H-VV0JrPEeaXV6V0n0sD3w" classOrigin="_7YlywJrNEeaXV6V0n0sD3w" rolOriginName="reto" rolTargetName="usuario" rolOriginMultiplicity="0..*" rolTargetMultiplicity="1..1"/>
     <elements xmi:type="es.ua.dlsi.ooh:Association" xmi:id="_UTeIIKHCEeaxF6S11qxksw" name="reporte_reporte_0" alias="reporte_reporte_0" rolOrigin="_UTeIIaHCEeaxF6S11qxksw" rolTarget="_UTeIIqHCEeaxF6S11qxksw" classTarget="_tnnZYJrREeaXV6V0n0sD3w" classOrigin="_7YlywJrNEeaXV6V0n0sD3w" rolOriginName="reporte" rolTargetName="usuario" rolOriginMultiplicity="0..*" rolTargetMultiplicity="1..1"/>
@@ -2095,6 +2098,10 @@
         <children xmi:type="notation:Shape" xmi:id="_Z9CPOKXUEeaxF6S11qxksw" type="3003" element="_Z9CPMKXUEeaxF6S11qxksw" fontName="Segoe UI">
           <children xmi:type="notation:DecorationNode" xmi:id="_Z9CPOqXUEeaxF6S11qxksw" type="5007"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z9CPOaXUEeaxF6S11qxksw"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_JEUr0NaLEeags_lXaFeQjg" type="3003" element="_I9hgQNaLEeags_lXaFeQjg" fontName="Segoe UI">
+          <children xmi:type="notation:DecorationNode" xmi:id="_JEV58NaLEeags_lXaFeQjg" type="5007"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JEUr0daLEeags_lXaFeQjg"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_bTuD55rUEeaXV6V0n0sD3w"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_bTuD6JrUEeaXV6V0n0sD3w"/>
