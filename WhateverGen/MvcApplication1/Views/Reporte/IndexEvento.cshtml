@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<WhateverGenNHibernate.EN.Whatever.ReporteEN>
 
 @{
-    ViewBag.Title = "IndexEvento";
+    ViewBag.Title = "Ver reportes de Evento";
 }
 
-<h2>IndexEvento</h2>
+<h2>Ver reportes de Evento</h2>
 
 
 <table>
@@ -22,9 +22,9 @@
         </td>
         
         <td>
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID }) |
-            @Html.ActionLink("Volver al Evento", "Details", "Evento", new { id = item.Evento.ID },"null")
+            @Html.ActionLink("Detalles", "Details", "Reporte", new { id=item.ID }, new { @class = "waves-effect waves-light white-text btn marme" }) 
+            @Html.ActionLink("Delete", "Delete", "Reporte", new { id=item.ID }, new { @class = "waves-effect waves-light white-text btn marme" }) 
+            @Html.ActionLink("Volver al Evento", "Details", "Evento", new { id = item.Evento.ID }, new { @class = "waves-effect waves-light white-text btn marme" })
 
 
         </td>

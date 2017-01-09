@@ -1,20 +1,22 @@
 ﻿@model MvcApplication1.Models.Puntuacion
 
 @{
-    ViewBag.Title = "CreateEvento";
+    ViewBag.Title = "Puntuar Evento";
 }
 
-<h2>CreateEvento</h2>
+<h2>Puntuar Evento</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>Puntuacion</legend>
+    
 
         <div class="editor-label">
             <h6>Nombre Evento</h6>
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Actividad)
+            @Html.ValidationMessageFor(model => model.Actividad)
         </div>
 
         <div class="editor-label">
@@ -30,13 +32,12 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Create" class="waves-effect waves-light btn"  />
         </p>
-    </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Volver al Evento", "Details", "Evento", new { id = Model.idEvento }, "null")
+    @Html.ActionLink("Volver a la lista", "Index", "Reto", new { }, new { @class = "waves-effect waves-light white-text btn marme" })
 </div>
 
 @section Scripts {

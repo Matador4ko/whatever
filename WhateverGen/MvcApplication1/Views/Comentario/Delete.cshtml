@@ -4,9 +4,9 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Borrar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>¿Deseas borrar el evento @Html.DisplayFor(model => model.Texto)?</h3>
 <fieldset>
     <legend>Comentario</legend>
 
@@ -27,6 +27,6 @@
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     <p>
-        <input type="submit" value="Delete" /> 
+        <input type="submit" value="Borrar" class="waves-effect waves-light white-text btn" /> 
     </p>
 }

@@ -10,9 +10,7 @@
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>Reto</legend>
+    
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Titulo)
@@ -53,18 +51,25 @@
             @Html.HiddenFor(model => model.Imagen)
             @Html.ValidationMessageFor(model => model.Imagen)
         </div>
-        <div>
-            <input type="file" name="file" />
+        <div class="file-field input-field">
+            <div class="btn">
+                <span>Seleccionar archivo</span>
+                <input type="file">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+            </div>
         </div>
 
+
+
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Editar" class="waves-effect waves-light btn" />
         </p>
-    </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Volver a Retos", "List")
+    @Html.ActionLink("Volver a Retos", "Index", "Reto", new { }, new { @class = "waves-effect waves-light white-text btn marme" })
 </div>
 
 @section Scripts {

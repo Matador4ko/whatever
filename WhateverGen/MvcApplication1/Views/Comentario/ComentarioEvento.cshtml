@@ -4,7 +4,7 @@
     ViewBag.Title = "ComentarioEvento";
 }
 
-<h2>ComentarioEvento</h2>
+<h2>Comentarios en Eventos</h2>
 
 <table>
     <tr>
@@ -26,9 +26,9 @@
             @Html.DisplayFor(modelItem => item.Creador)
         </td>
         <td>
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID }) |
-            @Html.ActionLink("Volver al Evento", "Details","Evento", new { id = item.Evento.ID },"null")
-
+            @Html.ActionLink("Borrar", "Delete", "Comentario", new { id=item.ID }, new { @class = "waves-effect waves-light white-text btn marme" }) 
+            @Html.ActionLink("Volver al Evento", "Details","Evento", new { id = item.Evento.ID }, new { @class = "waves-effect waves-light white-text btn marme" })
+            
         </td>
     </tr>
 }

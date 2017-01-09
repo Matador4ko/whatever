@@ -6,72 +6,67 @@
 
 <h2>Details</h2>
 
-<fieldset>
-    <legend>Usuario</legend>
-
+<div class="display-field" style="display: inline-block; vertical-align: top; margin-right: 10px;">
+    @if (Model.Foto != "/Images/Uploads/")
+    {
+        <img src="@Html.DisplayFor(model => model.Foto)" height="180" />
+    }
+    else
+    {
+        <img src="~/Images/retos.jpg" height="200" />
+    }
+</div>
+<div style="display: inline-block; vertical-align: top; margin-right: 10px;">
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nombre)
+        <b>@Html.DisplayNameFor(model => model.Nombre)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Nombre)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Edad)
+        <b>@Html.DisplayNameFor(model => model.Edad)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Edad) años
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.sexo)
+        <b>@Html.DisplayNameFor(model => model.sexo)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.sexo)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Contrasena)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Contrasena)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Email)
+        <b>@Html.DisplayNameFor(model => model.Email)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Email)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Foto)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Foto)
-    </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Facebook)
+        <b>@Html.DisplayNameFor(model => model.Facebook)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Facebook)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Instagram)
+        <b>@Html.DisplayNameFor(model => model.Instagram)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Instagram)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Twitter)
+        <b>@Html.DisplayNameFor(model => model.Twitter)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Twitter)
     </div>
-</fieldset>
+</div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id= Model.id }) 
+    @Html.ActionLink("Editar", "Edit", new { id= Model.id }, new { @class = "waves-effect waves-light white-text btn marme" }) 
 </p>

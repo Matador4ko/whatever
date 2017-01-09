@@ -1,19 +1,16 @@
 ﻿@model MvcApplication1.Models.Usuario
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar";
 }
 
-<h2>Edit</h2>
+<h2>Editar</h2>
 
 @using (Html.BeginForm("Edit", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>Usuario</legend>
-
+    
         <div class="editor-label">
             @Html.LabelFor(model => model.Nombre)
         </div>
@@ -62,7 +59,15 @@
             @Html.ValidationMessageFor(model => model.Foto)
         </div>
         <div>
-            <input type="file" name="file" />
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>Seleccionar archivo</span>
+                    <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
         </div>
 
         <div class="editor-label">
@@ -91,13 +96,12 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Save" class="waves-effect waves-light btn" />
         </p>
-    </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Details", new { id = Model.id })
+    @Html.ActionLink("Back to List", "Details", new { id = Model.id }, new { @class = "waves-effect waves-light white-text btn marme" })
 </div>
 
 @section Scripts {

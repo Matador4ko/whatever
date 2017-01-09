@@ -9,14 +9,12 @@
 </hgroup>
 
 <section id="loginForm">
-<h2>Utilice una cuenta local para iniciar sesión.</h2>
 @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Formulario de inicio de sesión</legend>
-        <ol>
+
+        <ul>
             <li>
                 @Html.LabelFor(m => m.UserName)
                 @Html.TextBoxFor(m => m.UserName)
@@ -31,17 +29,18 @@
                 @Html.CheckBoxFor(m => m.RememberMe)
                 @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
             </li>
-        </ol>
-        <input type="submit" value="Iniciar sesión" />
-    </fieldset>
+        </ul>
+        <input type="submit" value="Iniciar sesión" class="waves-effect waves-light btn" />
     <p>
-        @Html.ActionLink("Regístrese", "Register") si no tiene ninguna cuenta.
+        <b>@Html.ActionLink("Regístrese", "Register", "Account", new { }, new { @class = "waves-effect waves-light white-text btn" })</b> si no tiene ninguna cuenta.
     </p>
 }
 </section>
 
 <section class="social" id="socialLoginForm">
-    <h2>Usar otro servicio para iniciar sesión.</h2>
+    <h4>Utilice una cuenta local para iniciar sesión.</h4>
+    <h4>Formulario de inicio de sesión</h4>
+    <h4>Usar otro servicio para iniciar sesión.</h4>
     @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
 </section>
 

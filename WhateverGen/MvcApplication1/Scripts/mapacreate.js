@@ -1,11 +1,19 @@
-﻿var clickMarker = null;
-var infoWindow;
+﻿var titulo = document.getElementById("tit").innerHTML;
+var latitud = parseInt(document.getElementById("lat").innerHTML);
+var longitud = parseInt(document.getElementById("lon").innerHTML);
+var zoomv = parseInt(document.getElementById("zoom").innerHTML);
 
+latitud = 40.420377;
+longitud = -3.703494;
+
+var map;
+var marker;
+
+var clickMarker = null;
 function initMap() {
-    document.getElementById("Zoom").value = 15;
 
     map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -34.397, lng: 150.644 },
+        center: { lat: latitud, lng: longitud },
         zoom: 15
         , styles: [
             {
@@ -30,25 +38,10 @@ function initMap() {
         ]
     });
 
-    infoWindow = new google.maps.InfoWindow({ map: map });
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            map.setCenter(pos);
-        });
-    } else {
-        // Browser doesn't support Geolocation
-    }
+    marker = new google.maps.Marker({ position: { lat: latitud, lng: longitud }, map: map, title: titulo });
 
     map.addListener('click', function (e) {
         placeMarkerAndPanTo(e.latLng, map);
-
-        document.getElementById("Latitud").value = e.latLng.lat();
-        document.getElementById("Longitud").value = e.latLng.lng();
     });
 }
 
@@ -60,12 +53,7 @@ function placeMarkerAndPanTo(latLng, map) {
         map: map
     });
     map.panTo(latLng);
-
-    infoWindow.open(map, clickMarker);
-    infoWindow.setContent("Lat: " + latLng.lat() + '</br>' + "Lon: " + latLng.lng());
 }
-
-
 
 $(document).ready(function () {
     initMap();

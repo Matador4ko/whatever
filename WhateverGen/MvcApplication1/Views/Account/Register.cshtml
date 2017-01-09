@@ -1,6 +1,6 @@
 ﻿@model MvcApplication1.Models.RegisterModel
 @{
-    ViewBag.Title = "Registrarse";
+    ViewBag.Title = "Registrese";
 }
 
 <hgroup class="title">
@@ -12,10 +12,8 @@
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
-
-    <fieldset>
-        <legend>Formulario de registro</legend>
-        <ol>
+    
+        <ul>
             <li>
                 @Html.LabelFor(m => m.UserName)
                 @Html.TextBoxFor(m => m.UserName)
@@ -42,7 +40,15 @@
             </li>
             <li>
                 @Html.LabelFor(m => m.Foto)
-                <input type="file" name="file" />
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Seleccionar archivo</span>
+                        <input type="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
             </li>
             <li>
                 @Html.LabelFor(m => m.Facebook)
@@ -56,9 +62,8 @@
                 @Html.LabelFor(m => m.Twitter)
                 @Html.TextBoxFor(m => m.Twitter)
             </li>
-        </ol>
-        <input type="submit" value="Registrarse" />
-    </fieldset>
+        </ul>
+        <input type="submit" value="Registrarse" class="waves-effect waves-light btn"  />
 }
 
 @section Scripts {
