@@ -12,7 +12,7 @@
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Titulo)
     </div>
-    <div class="display-field" id="tit">
+    <div class="display-field">
         @Html.DisplayFor(model => model.Titulo)
     </div>
 
@@ -43,26 +43,7 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Creador)
     </div>
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Latitud)
-    </div>
-    <div class="display-field" id="lat">
-        @Html.DisplayFor(model => model.Latitud)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Longitud)
-    </div>
-    <div class="display-field" id="lon">
-        @Html.DisplayFor(model => model.Longitud)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Zoom)
-    </div>
-    <div class="display-field" id="zoom">
-        @Html.DisplayFor(model => model.Zoom)
-    </div>
+    
 </fieldset>
 
 <h3>Mapa</h3>
@@ -78,6 +59,17 @@
     @Html.ActionLink("Volver a Eventos", "List") 
 </p>
 
+
+<script>
+    //var titulo = document.getElementById("lat").innerHTML;
+    //var latitud = parseFloat(document.getElementById("lat").innerHTML);
+    //var longitud = parseFloat(document.getElementById("lon").innerHTML);
+
+    var titulo = "@Html.DisplayFor(model => model.Titulo)";
+    var descripcion = "@Html.DisplayFor(model => model.Descripcion)";
+    var latitud = parseFloat("@Html.DisplayFor(model => model.Latitud)");
+    var longitud = parseFloat("@Html.DisplayFor(model => model.Longitud)");
+</script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/mapadetail")

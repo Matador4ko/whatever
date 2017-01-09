@@ -161,21 +161,30 @@ public static void InitializeData ()
                 GymkanaEN gymen = new GymkanaEN ();
                 GymkanaCP gymcp = new GymkanaCP ();
 
+
+
+
+                //insertamos valores en el usuarioEN
+                usuen.Nombre = "Admin";
+                usuen.Edad = 20;
+                usuen.Sexo = "Hombre";
+                usuen.Facebook = "face";
+                usuen.Instagram = "insta";
+                usuen.Twitter = "twitter";
+                usuen.Contrasena = "123456";
+                usuen.Email = "pa@gmail.com";
+                usuen.Foto = "si";
+
+                usucen.Registro(usuen);
+
+            
+                   //creamos admin
+                var aux = usucp.HacerAdmin(usuen.ID, usuen.Nombre);
+                
                 /*
-                 *
-                 *  //insertamos valores en el usuarioEN
-                 *  usuen.Nombre = "Pedro";
-                 *  usuen.Edad = 10;
-                 *  usuen.Sexo = "Hombre";
-                 *  usuen.Facebook = "face";
-                 *  usuen.Instagram = "insta";
-                 *  usuen.Twitter = "twitter";
-                 *  usuen.Contrasena = "123";
-                 *  usuen.Email = "pa@gmail.com";
-                 *  usuen.Foto = "si";
-                 *
-                 *  usucen.Registro (usuen);
-                 *
+                 
+                   
+                 
                  *
                  *
                  *  //insertamos valores en el usuarioEN
@@ -192,8 +201,6 @@ public static void InitializeData ()
                  *  usucen2.Registro (usuen2);
                  *
                  *
-                 *  //creamos admin
-                 *  //usucp2.HacerAdmin (usuen2.ID);
                  *
                  *
                  *  //creamos el evento

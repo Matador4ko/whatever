@@ -31,17 +31,18 @@ public bool HacerAdmin (int p_oid, string nombre)
 
         try
         {
-                SessionInitializeTransaction ();
-                usuarioCAD = new UsuarioCAD (session);
-                usuarioCEN = new  UsuarioCEN (usuarioCAD);
+            SessionInitializeTransaction();
+            usuarioCAD = new UsuarioCAD(session);
+            usuarioCEN = new UsuarioCEN(usuarioCAD);
 
-
-                AdminCAD admincad = new AdminCAD (session);
-                UsuarioEN usuen = new UsuarioEN ();
-                AdminEN admin = new AdminEN ();
+            AdminCEN adminCEN = new AdminCEN();
+            int id = adminCEN.New_(p_oid, nombre, p_oid);
+            SessionCommit();
+            if (id != 0)
+            {
                 return true;
-
-                SessionCommit ();
+            }
+            return false;
         }
         catch (Exception ex)
         {

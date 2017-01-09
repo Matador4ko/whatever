@@ -15,6 +15,8 @@ using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Controllers
 {
+    [Authorize(Roles = "usuario")]
+
     public class UsuarioController : BasicController
     {
         //
@@ -22,13 +24,45 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Index()
         {
-            SessionInitialize();
-            UsuarioCAD cad = new UsuarioCAD(session);
-            var aux = cad.ReadAllDefault(0, -1).ToList();
+            if (Roles.IsUserInRole("usuario"))
+            {
+                SessionInitialize();
+                UsuarioCAD cad = new UsuarioCAD(session);
+                var aux = cad.ReadAllDefault(0, -1).ToList();
+                var aux2 = new List<UsuarioEN>();
+                foreach(UsuarioEN element in aux){
+                    if (!Roles.IsUserInRole("admin"))
+                    {
+                        aux2.Add(element);
+                    }
+                }
+                SessionClose();
 
-            SessionClose();
-            
-            return View(aux);
+                return View(aux2);
+            }
+            return RedirectToAction("Index","Home");
+
+        }
+        public ActionResult Index2()
+        {
+            if (Roles.IsUserInRole("usuario"))
+            {
+                SessionInitialize();
+                UsuarioCAD cad = new UsuarioCAD(session);
+                var aux = cad.ReadAllDefault(0, -1).ToList();
+                var aux2 = new List<UsuarioEN>();
+                foreach(UsuarioEN element in aux){
+                    if (Roles.IsUserInRole("admin"))
+                    {
+                        aux2.Add(element);
+                    }
+                }
+                SessionClose();
+
+                return View(aux2);
+            }
+            return RedirectToAction("Index","Home");
+
         }
 
         //
@@ -47,7 +81,12 @@ namespace MvcApplication1.Controllers
             {
                 usuEN = new UsuarioCAD(session).ReadOIDDefault(id);
             }
-            usu = new AssemblerUsuario().ConvertENToModelUI(usuEN);
+            usu = new AssemblerUsuario().ConvertENToModelUI(usuEN); 
+
+            if (User.Identity.Name != usu.Nombre && !Roles.IsUserInRole("admin"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             SessionClose();
             return View(usu);
             
@@ -58,38 +97,71 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Create()
         {
-            Usuario usu = new Usuario();
+            if (Roles.IsUserInRole("admin"))
+            {
+                Usuario usu = new Usuario();
             
-            return View(usu);
+                return View(usu);
+            }
+            return RedirectToAction("Index","Home");
         }
 
         //
         // POST: /Usuario/Create
 
         [HttpPost]
-        public ActionResult Create(Usuario usu, HttpPostedFileBase file)
+        public ActionResult Create(Usuario model, HttpPostedFileBase file)
         {
-            string fileName = "", path = "";
-            if (file != null && file.ContentLength > 0)
+            WebSecurity.CreateUserAndAccount(model.Nombre, model.Contrasena);
+            if (!Roles.RoleExists("usuario"))
             {
-                // extract only the fielname
-                fileName = Path.GetFileName(file.FileName);
-                // store the file inside ~/App_Data/uploads folder
-                path = Path.Combine(Server.MapPath("~/Images/Uploads"), fileName);
-                //string pathDef = path.Replace(@"\\", @"\");
-                file.SaveAs(path);
+                Roles.CreateRole("usuario");
             }
-            try
+            if (!Roles.RoleExists("admin"))
             {
-                UsuarioCEN cen = new UsuarioCEN();
-                fileName = "/Images/Uploads/" + fileName;
-                cen.New_(usu.Nombre,usu.Edad, usu.sexo, usu.Facebook, usu.Instagram, usu.Twitter, usu.Contrasena, usu.Email, fileName);
-                return RedirectToAction("Index");
+                Roles.CreateRole("admin");
             }
-            catch
+            if (ModelState.IsValid)
             {
-                return View();
+
+                string fileName = "", path = "";
+                if (file != null && file.ContentLength > 0)
+                {
+                    fileName = Path.GetFileName(file.FileName);
+                    path = Path.Combine(Server.MapPath("~/Images/Uploads"), fileName);
+                    file.SaveAs(path);
+                }
+
+                try
+                {
+                    UsuarioCEN usu = new UsuarioCEN();
+                    UsuarioEN usuen = new UsuarioEN();
+                    usuen.Contrasena = model.Contrasena;
+                    usuen.Edad = model.Edad;
+                    usuen.Email = model.Email;
+                    if (model.Facebook == null) model.Facebook = ""; 
+                    fileName = "/Images/Uploads/" + fileName;
+                    usuen.Foto = fileName;
+                    if (model.Instagram == null) model.Instagram = ""; 
+                    usuen.Nombre = model.Nombre;
+                    usuen.Sexo = model.sexo;
+                    if (model.Twitter == null) model.Twitter = "";
+
+                    usu.Registro(usuen);
+                    Roles.AddUserToRole(model.Nombre, "usuario");
+                    WebSecurity.Login(model.Nombre, model.Contrasena);
+
+
+                    return RedirectToAction("Index");
+                }
+                catch 
+                {
+                    return View();
+                }
             }
+
+            // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
+            return View(model);
         }
 
         //
@@ -101,7 +173,11 @@ namespace MvcApplication1.Controllers
             SessionInitialize();
             UsuarioEN usuen = new UsuarioCAD(session).ReadOIDDefault(id);
             usu = new AssemblerUsuario().ConvertENToModelUI(usuen);
-            
+
+            if (User.Identity.Name != usu.Nombre && !Roles.IsUserInRole("admin"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             SessionClose();
             return View(usu);
         }
@@ -112,10 +188,11 @@ namespace MvcApplication1.Controllers
         [HttpPost]
         public ActionResult Edit(Usuario usu, HttpPostedFileBase file)
         {
-            string fileName = "", path = "";
+            
+                string fileName = "", path = "";
             // Verify that the user selected a file
-            if (file != null && file.ContentLength > 0)
-            {
+                if (file != null && file.ContentLength > 0)
+                {
                 // extract only the fielname
                 fileName = Path.GetFileName(file.FileName);
                 // store the file inside ~/App_Data/uploads folder
@@ -131,15 +208,16 @@ namespace MvcApplication1.Controllers
                 {
                     usu.Foto = fileName;
                 }
-                
                 cen.Modify(usu.id, usu.Nombre, usu.Edad, usu.sexo, usu.Facebook, usu.Instagram, usu.Twitter, usu.Contrasena, usu.Email, usu.Foto);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = usu.id });
             }
-            catch
-            {
-                return View();
+                catch
+                {
+                    return View();
+                }
             }
-        }
+            
+        
 
         //
         // GET: /Usuario/Delete/5
@@ -153,8 +231,10 @@ namespace MvcApplication1.Controllers
             Usuario usu = new AssemblerUsuario().ConvertENToModelUI(usuEN);
             SessionClose();
 
-
-            return View(usu);
+            if (User.Identity.Name == usuEN.Nombre || Roles.IsUserInRole("admin")) {
+                return View(usu);
+            }
+            return RedirectToAction("Index", "Home");
 
         }
 

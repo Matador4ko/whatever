@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WhateverGenNHibernate.CAD.Whatever;
 using WhateverGenNHibernate.CP.Whatever;
 using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Controllers
 {
+    [Authorize(Roles = "usuario")]
+
     public class ReporteController : BasicController
     {
         //
@@ -67,6 +70,10 @@ namespace MvcApplication1.Controllers
             SessionInitialize();
             ReporteEN pasEN = new ReporteCAD(session).ReadOIDDefault(id);
             rep = new AssemblerReporte().ConvertENToModelUI(pasEN);
+            if (!Roles.IsUserInRole("admin"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             SessionClose();
             return View(rep);
         }
@@ -198,6 +205,10 @@ namespace MvcApplication1.Controllers
             SessionInitialize();
             ReporteEN repen = new ReporteCAD(session).ReadOIDDefault(id);
             rep = new AssemblerReporte().ConvertENToModelUI(repen);
+            if (!Roles.IsUserInRole("admin"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             SessionClose();
             return View(rep);
         }

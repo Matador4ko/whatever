@@ -31,18 +31,16 @@ public bool DeshacerAdmin (string nombre)
 
         try
         {
-                SessionInitializeTransaction ();
-                usuarioCAD = new UsuarioCAD (session);
-                usuarioCEN = new  UsuarioCEN (usuarioCAD);
+            SessionInitializeTransaction();
+            usuarioCAD = new UsuarioCAD(session);
+            usuarioCEN = new UsuarioCEN(usuarioCAD);
 
-
-                AdminCAD admincad = new AdminCAD ();
-                UsuarioEN usuen = new UsuarioEN ();
-                AdminEN admin = new AdminEN ();
-                return true;
-
-
-                SessionCommit ();
+            UsuarioEN usuen = usuarioCAD.FiltrarUsuarioPorNombre(nombre);
+            int id_admin = usuen.Admin.ID;
+            AdminCEN adminCEN = new AdminCEN();
+            adminCEN.Destroy(id_admin);
+            SessionCommit();
+            return true;
         }
         catch (Exception ex)
         {

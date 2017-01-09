@@ -9,6 +9,9 @@
 <p>
     @Html.ActionLink("Crear Nuevo Usuario", "Create")
 </p>
+<p>
+    @Html.ActionLink("Ir a los Administradores", "Index2")
+</p>
 <table>
     <tr>
         <th>
@@ -73,7 +76,8 @@
         <td>
             @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Detalles", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Borrar", "Delete", new { id=item.ID })
+            @Html.ActionLink("Borrar", "Delete", new { id=item.ID }) |
+            @Html.ActionLink("Hacer Administrador", "UpGrade","Admin", new { Name = item.Nombre },"null")
         </td>
     </tr>
 }

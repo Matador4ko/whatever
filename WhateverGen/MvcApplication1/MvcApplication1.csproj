@@ -369,8 +369,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Evento\Index.cshtml" />
-    <Content Include="Views\Usuario\hacerAdmin.cshtml" />
-    <Content Include="Views\Usuario\recuperarContrasena.cshtml" />
     <Content Include="Views\Admin\borrarAdmin.cshtml" />
     <Content Include="Views\Admin\borrarEvento.cshtml" />
     <Content Include="Views\Admin\borrarReto.cshtml" />
@@ -425,6 +423,8 @@
     <Content Include="Views\Puntuacion\CreateGymkana.cshtml" />
     <Content Include="Views\Puntuacion\CreateEvento.cshtml" />
     <Content Include="Views\Puntuacion\CreateReto.cshtml" />
+    <Content Include="Views\Usuario\Index2.cshtml" />
+    <Content Include="Views\Paso\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

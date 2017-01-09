@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WhateverGenNHibernate.CAD.Whatever;
 using WhateverGenNHibernate.CEN.Whatever;
 using WhateverGenNHibernate.CP.Whatever;
@@ -13,6 +14,8 @@ using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Controllers
 {
+    [Authorize(Roles = "usuario")]
+
     public class RetoController : BasicController
     {
         //
@@ -103,7 +106,12 @@ namespace MvcApplication1.Controllers
             Reto ret = null;
             SessionInitialize();
             RetoEN reten = new RetoCAD(session).ReadOIDDefault(id);
+            UsuarioEN usu = reten.Usuario;
             ret = new AssemblerReto().ConvertENToModelUI(reten);
+            if (User.Identity.Name != usu.Nombre && !Roles.IsUserInRole("admin"))
+            {
+                return RedirectToAction("Details", new { id = id });
+            }
             SessionClose();
             return View(ret);
         }
@@ -166,6 +174,12 @@ namespace MvcApplication1.Controllers
             SessionInitialize();
             RetoEN reten = new RetoCAD(session).ReadOIDDefault(id);
             ret = new AssemblerReto().ConvertENToModelUI(reten);
+            UsuarioEN usu = reten.Usuario;
+            ret = new AssemblerReto().ConvertENToModelUI(reten);
+            if (User.Identity.Name != usu.Nombre && !Roles.IsUserInRole("admin"))
+            {
+                return RedirectToAction("Details", new { id = id });
+            }
             SessionClose();
             return View(ret);
         }

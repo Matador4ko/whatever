@@ -83,20 +83,23 @@ namespace MvcApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model, HttpPostedFileBase file)
         {
-            
+            WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+            if (!Roles.RoleExists("usuario"))
+            {
+                Roles.CreateRole("usuario");
+            }
+            if (!Roles.RoleExists("admin"))
+            {
+                Roles.CreateRole("admin");
+            }
             if (ModelState.IsValid)
             {
-                // Intento de registrar al usuario
 
                 string fileName = "", path = "";
-                // Verify that the user selected a file
                 if (file != null && file.ContentLength > 0)
                 {
-                    // extract only the fielname
                     fileName = Path.GetFileName(file.FileName);
-                    // store the file inside ~/App_Data/uploads folder
                     path = Path.Combine(Server.MapPath("~/Images/Uploads"), fileName);
-                    //string pathDef = path.Replace(@"\\", @"\");
                     file.SaveAs(path);
                 }
 
@@ -116,8 +119,7 @@ namespace MvcApplication1.Controllers
                     usuen.Twitter = model.Twitter;
 
                     usu.Registro(usuen);
-
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    Roles.AddUserToRole(model.UserName, "usuario");
                     WebSecurity.Login(model.UserName, model.Password);
                     
 

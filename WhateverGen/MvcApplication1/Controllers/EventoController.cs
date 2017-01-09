@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WhateverGenNHibernate.CAD.Whatever;
 using WhateverGenNHibernate.CEN.Whatever;
 using WhateverGenNHibernate.CP.Whatever;
@@ -11,6 +12,7 @@ using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Controllers
 {
+    [Authorize(Roles = "usuario")]
     public class EventoController : BasicController
     {
         //
@@ -89,6 +91,11 @@ namespace MvcApplication1.Controllers
             SessionInitialize();
             EventoEN even = new EventoCAD(session).ReadOIDDefault(id);
             ev = new AssemblerEvento().ConvertENToModelUI(even);
+            UsuarioEN usu = ev.usuario;
+            if (User.Identity.Name != usu.Nombre && !Roles.IsUserInRole("admin"))
+            {
+                return RedirectToAction("Details", new { id = id });
+            }
             SessionClose();
             return View(ev);
 
@@ -122,6 +129,11 @@ namespace MvcApplication1.Controllers
             SessionInitialize();
             EventoEN even = new EventoCAD(session).ReadOIDDefault(id);
             ev = new AssemblerEvento().ConvertENToModelUI(even);
+            UsuarioEN usu = ev.usuario;
+            if (User.Identity.Name != usu.Nombre && !Roles.IsUserInRole("admin"))
+            {
+                return RedirectToAction("Details", new { id = id });
+            }
             SessionClose();
             return View(ev);
         }

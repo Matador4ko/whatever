@@ -10,6 +10,8 @@ using WhateverGenNHibernate.EN.Whatever;
 
 namespace MvcApplication1.Controllers
 {
+    [Authorize(Roles = "usuario")]
+
     public class PuntuacionController : BasicController
     {
         //
