@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WhateverGenNHibernate.EN.Whatever.RetoEN>
+
+@{
+    ViewBag.Title = "Mis Retos";
+}
+
+<h2>Mis Retos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Reto", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Imagen)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio) €
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Imagen)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Borrar", "Delete", new { id = item.ID }) |
+            @Html.ActionLink("Ver Comentarios", "ComentarioReto", "Comentario", new { id = item.ID }, "null") |
+            @Html.ActionLink("Ver reportes", "IndexReto", "Reporte", new { id = item.ID }, "null")
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Volver a Retos", "Index")
+</div>
