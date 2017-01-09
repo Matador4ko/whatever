@@ -15,13 +15,13 @@ namespace MvcApplication1.Models
         private WhateverGenNHibernate.EN.Whatever.EventoEN evento;
         private int id;
         private WhateverGenNHibernate.EN.Whatever.PasoEN paso_0;
-        private string latitud;
-        private string longitud;
+        private double latitud;
+        private double longitud;
         private int zoom;
         */
 
-        //public void CrearMapaParaEvento (int id_evento, string latitud, string longitud, int zoom)
-        //public void CrearMapaParaPaso (int id_paso, string latitud, string longitud, int zoom)
+        //public void CrearMapaParaEvento (int id_evento, double latitud, double longitud, int zoom)
+        //public void CrearMapaParaPaso (int id_paso, double latitud, double longitud, int zoom)
          
 
         //Latitud

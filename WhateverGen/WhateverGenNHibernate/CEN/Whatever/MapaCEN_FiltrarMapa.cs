@@ -19,7 +19,7 @@ namespace WhateverGenNHibernate.CEN.Whatever
 {
 public partial class MapaCEN
 {
-public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> FiltrarMapa (int latitud, int longitud, int radio)
+public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN> FiltrarMapa (string latitud, string longitud, int radio)
 {
         /*PROTECTED REGION ID(WhateverGenNHibernate.CEN.Whatever_Mapa_filtrarMapa) ENABLED START*/
 
@@ -29,15 +29,17 @@ public System.Collections.Generic.IList<WhateverGenNHibernate.EN.Whatever.MapaEN
 
         foreach (MapaEN map in listaM) {
                 if (map.Evento.ID != 0) {
-                        double lat = map.Latitud;
-                        double lon = map.Longitud;
+                        double lati = double.Parse(latitud);
+                        double longi = double.Parse(longitud);
+                        double lat = double.Parse(map.Latitud);
+                        double lon = double.Parse(map.Longitud);
 
                         double EarthRadius = 6371;
 
                         double distance = 0;
-                        double Lat = (lat - latitud) * (Math.PI / 180);
-                        double Lon = (lon - longitud) * (Math.PI / 180);
-                        double a = Math.Sin (Lat / 2) * Math.Sin (Lat / 2) + Math.Cos (latitud * (Math.PI / 180)) * Math.Cos (lat * (Math.PI / 180)) * Math.Sin (Lon / 2) * Math.Sin (Lon / 2);
+                        double Lat = (lat - lati) * (Math.PI / 180);
+                        double Lon = (lon - longi) * (Math.PI / 180);
+                        double a = Math.Sin (Lat / 2) * Math.Sin (Lat / 2) + Math.Cos (lati * (Math.PI / 180)) * Math.Cos (lat * (Math.PI / 180)) * Math.Sin (Lon / 2) * Math.Sin (Lon / 2);
                         double c = 2 * Math.Atan2 (Math.Sqrt (a), Math.Sqrt (1 - a));
                         distance = EarthRadius * c;
 

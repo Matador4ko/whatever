@@ -629,8 +629,8 @@
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_bTkS4JrUEeaXV6V0n0sD3w" name="Mapa" alias="Mapa" asociationTarget="_8F5voKTcEeaxF6S11qxksw" associationOrigin="_zKkegKHKEeaxF6S11qxksw">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_lDCB0JrUEeaXV6V0n0sD3w" name="filtrarMapa" type="Object" collectionType="List" typeObject="_bTkS4JrUEeaXV6V0n0sD3w">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_xa0n8KXXEeaxF6S11qxksw" name="latitud" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_xdW-kKXXEeaxF6S11qxksw" name="longitud" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_xa0n8KXXEeaxF6S11qxksw" name="latitud"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_xdW-kKXXEeaxF6S11qxksw" name="longitud"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_xgo8EKXXEeaxF6S11qxksw" name="radio" type="Integer"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_JWkDsKKIEeaxF6S11qxksw" name="new" operationType="New" type="Object" typeObject="_bTkS4JrUEeaXV6V0n0sD3w">

@@ -77,9 +77,7 @@ namespace MvcApplication1.Controllers
                 en.Precio = gym.Precio;
                 en.NumPasos = 0;
 
-                
                 cp.CrearGymkana(en, gym.Latitud, gym.Longitud, gym.Zoom);
-
                 return RedirectToAction("List");
             }
             catch

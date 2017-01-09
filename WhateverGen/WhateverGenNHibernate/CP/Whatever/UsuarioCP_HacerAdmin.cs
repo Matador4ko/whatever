@@ -27,7 +27,7 @@ public bool HacerAdmin (int p_oid, string nombre)
         IUsuarioCAD usuarioCAD = null;
         UsuarioCEN usuarioCEN = null;
 
-        return true;
+
 
         try
         {
@@ -39,8 +39,7 @@ public bool HacerAdmin (int p_oid, string nombre)
                 AdminCAD admincad = new AdminCAD (session);
                 UsuarioEN usuen = new UsuarioEN ();
                 AdminEN admin = new AdminEN ();
-                usuen = usuarioCAD.GetID (p_oid);
-                usuarioCAD.Destroy (p_oid);
+                return true;
 
                 SessionCommit ();
         }

@@ -27,7 +27,7 @@ public bool DeshacerAdmin (string nombre)
         IUsuarioCAD usuarioCAD = null;
         UsuarioCEN usuarioCEN = null;
 
-        return true;
+
 
         try
         {
@@ -39,8 +39,7 @@ public bool DeshacerAdmin (string nombre)
                 AdminCAD admincad = new AdminCAD ();
                 UsuarioEN usuen = new UsuarioEN ();
                 AdminEN admin = new AdminEN ();
-
-                admincad.New_ (admin);
+                return true;
 
 
                 SessionCommit ();

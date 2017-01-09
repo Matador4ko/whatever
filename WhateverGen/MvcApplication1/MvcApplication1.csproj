@@ -233,8 +233,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\Admin.cs" />
-    <Compile Include="Models\AssemblerAdmin.cs" />
     <Compile Include="Models\AssemblerComentario.cs" />
     <Compile Include="Models\AssemblerEvento.cs" />
     <Compile Include="Models\AssemblerGymkana.cs" />
