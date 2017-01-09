@@ -68,12 +68,13 @@
 <h3>Mapa</h3>
 <div id="map" style="height: 600px; "></div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id=Model.id }) |    
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
     @Html.ActionLink("Comentar", "CreateEvento", "Comentario", new { id = Model.id }, "null") |
     @Html.ActionLink("Ver Comentarios", "ComentarioEvento", "Comentario", new { id = Model.id }, "null") |
     @Html.ActionLink("Puntuar", "CreateEvento", "Puntuacion", new { id = Model.id }, "null") |
     @Html.ActionLink("Reportar", "CreateEvento", "Reporte", new { id = Model.id }, "null") |
     @Html.ActionLink("Ver reportes", "IndexEvento", "Reporte", new { id = Model.id }, "null") |
+    @Html.ActionLink("Ver puntuaciones", "PuntuacionEvento", "Puntuacion", new { id = Model.id }, "null") |
     @Html.ActionLink("Volver a Eventos", "List") 
 </p>
 

@@ -16,10 +16,6 @@
         <div class="editor-label">
             <h6>Nombre Evento</h6>
         </div>
-        <div class="editor-field">
-            @Html.DisplayFor(model => model.Actividad)
-            @Html.ValidationMessageFor(model => model.Actividad)
-        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Puntos)
@@ -40,7 +36,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver al Evento", "Details", "Evento", new { id = Model.idEvento }, "null")
 </div>
 
 @section Scripts {

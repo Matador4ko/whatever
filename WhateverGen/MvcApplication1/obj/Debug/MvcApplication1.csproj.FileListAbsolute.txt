@@ -420,13 +420,3 @@ C:\Users\OIDEWin7\Desktop\Proyecto para git\whatever\whatever\WhateverGen\MvcApp
 C:\Users\OIDEWin7\Desktop\Proyecto para git\whatever\whatever\WhateverGen\MvcApplication1\obj\Debug\MvcApplication1.csprojResolveAssemblyReference.cache
 C:\Users\OIDEWin7\Desktop\Proyecto para git\whatever\whatever\WhateverGen\MvcApplication1\obj\Debug\MvcApplication1.dll
 C:\Users\OIDEWin7\Desktop\Proyecto para git\whatever\whatever\WhateverGen\MvcApplication1\obj\Debug\MvcApplication1.pdb
-C:\Users\OIDEWin7\Documents\Workspace\whatever\WhateverGen\MvcApplication1\bin\Antlr3.Runtime.dll
-C:\Users\OIDEWin7\Documents\Workspace\whatever\WhateverGen\MvcApplication1\bin\Castle.DynamicProxy2.dll
-C:\Users\OIDEWin7\Documents\Workspace\whatever\WhateverGen\MvcApplication1\bin\Iesi.Collections.dll
-C:\Users\OIDEWin7\Documents\Workspace\whatever\WhateverGen\MvcApplication1\bin\LinFu.DynamicProxy.dll
-C:\Users\OIDEWin7\Documents\Workspace\whatever\WhateverGen\MvcApplication1\bin\log4net.dll
-C:\Users\OIDEWin7\Documents\Workspace\whatever\WhateverGen\MvcApplication1\bin\NHibernate.ByteCode.Castle.dll
-C:\Users\OIDEWin7\Documents\Workspace\whatever\WhateverGen\MvcApplication1\bin\NHibernate.ByteCode.LinFu.dll
-C:\Users\OIDEWin7\Documents\Workspace\whatever\WhateverGen\MvcApplication1\bin\NHibernate.dll
-C:\Users\OIDEWin7\Documents\Workspace\whatever\WhateverGen\MvcApplication1\bin\nunit.core.dll
-C:\Users\OIDEWin7\Documents\Workspace\whatever\WhateverGen\MvcApplication1\bin\nunit.framework.dll

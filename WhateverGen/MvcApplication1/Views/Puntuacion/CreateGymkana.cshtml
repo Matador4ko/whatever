@@ -11,16 +11,12 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Puntuacion</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Actividad)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Actividad)
-            @Html.ValidationMessageFor(model => model.Actividad)
+            <h6>Nombre Gymkana</h6>
         </div>
 
+        <legend>Puntuacion</legend>   
         <div class="editor-label">
             @Html.LabelFor(model => model.Puntos)
         </div>
@@ -40,7 +36,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver a la Gymkana", "Details", "Gymkana", new { id = Model.idGymkana }, "null")
 </div>
 
 @section Scripts {

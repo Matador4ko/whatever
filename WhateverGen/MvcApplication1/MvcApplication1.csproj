@@ -424,11 +424,9 @@
     <Content Include="Views\Puntuacion\PuntuacionEvento.cshtml" />
     <Content Include="Views\Puntuacion\PuntuacionGymkana.cshtml" />
     <Content Include="Views\Puntuacion\PuntuacionReto.cshtml" />
-    <Content Include="Views\Puntuacion\Details.cshtml" />
     <Content Include="Views\Puntuacion\CreateGymkana.cshtml" />
     <Content Include="Views\Puntuacion\CreateEvento.cshtml" />
     <Content Include="Views\Puntuacion\CreateReto.cshtml" />
-    <Content Include="Views\Puntuacion\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

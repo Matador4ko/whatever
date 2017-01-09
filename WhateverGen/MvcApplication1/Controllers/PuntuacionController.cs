@@ -47,18 +47,6 @@ namespace MvcApplication1.Controllers
 
             return View(aux);
         }
-        //
-        // GET: /Puntuacion/Details/5
-
-        public ActionResult Details(int id)
-        {
-            Puntuacion punt = null;
-            SessionInitialize();
-            PuntuacionEN puntEN = new PuntuacionCAD(session).ReadOIDDefault(id);
-            punt = new AssemblerPuntuacion().ConvertENToModelUI(puntEN);
-            SessionClose();
-            return View(punt);
-        }
 
         //
         // GET: /Puntuacion/CreateGymkana
@@ -176,53 +164,6 @@ namespace MvcApplication1.Controllers
 
                 return RedirectToAction("PuntuacionReto", new { id = punt.id });
 
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: /Puntuacion/Delete/5
-
-        public ActionResult Delete(int id)
-        {
-            Puntuacion punt = null;
-            SessionInitialize();
-            PuntuacionEN punten = new PuntuacionCAD(session).ReadOIDDefault(id);
-            punt = new AssemblerPuntuacion().ConvertENToModelUI(punten);
-            SessionClose();
-            return View(punt);
-        }
-
-        //
-        // POST: /Puntuacion/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(Puntuacion punt)
-        {
-            try
-            {
-                PuntuacionCP cp = new PuntuacionCP();
-                PuntuacionEN punten = new PuntuacionCAD().GetID(punt.id);
-
-                if (punten.Evento != null)
-                {
-                    cp.BorrarPuntuacionEvento(punt.idEvento);
-                    return RedirectToAction("IndexEvento", new { id = punten.Evento.ID });
-                }
-                else if (punten.Gymkana != null)
-                {
-                    cp.BorrarPuntuacionGymkana(punt.idGymkana);
-                    return RedirectToAction("IndexGymkana", new { id = punten.Gymkana.ID });
-                }
-                else if (punten.Reto != null)
-                {
-                    cp.BorrarPuntuacionReto(punt.idReto);
-                    return RedirectToAction("IndexReto", new { id = punten.Reto.ID });
-                }
-
-                return RedirectToAction("Index");
             }
             catch
             {
