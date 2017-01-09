@@ -12,7 +12,7 @@
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Titulo)
     </div>
-    <div class="display-field">
+    <div class="display-field" id="tit">
         @Html.DisplayFor(model => model.Titulo)
     </div>
 
@@ -43,28 +43,30 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Creador)
     </div>
-    <div id="map"></div>
-    <!--div class="display-label">
+    <div class="display-label">
          @Html.DisplayNameFor(model => model.Latitud)
-    <div>
-    <div class="display-field">
+    </div>
+    <div class="display-field" id="lat">
         @Html.DisplayFor(model => model.Latitud)
     </div>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Longitud)
     </div>
-    <div class="display-field">
+    <div class="display-field" id="lon">
         @Html.DisplayFor(model => model.Longitud)
     </div>
 
     <div class="display-label">
-         tml.DisplayNameFor(model => model.Zoom)
+         @Html.DisplayNameFor(model => model.Zoom)
     </div>
-    <div class="display-field">
+    <div class="display-field" id="zoom">
         @Html.DisplayFor(model => model.Zoom)
-    </div>-->
+    </div>
 </fieldset>
+
+<h3>Mapa</h3>
+<div id="map" style="height: 600px; "></div>
 <p>
     @Html.ActionLink("Editar", "Edit", new { id=Model.id }) |    
     @Html.ActionLink("Comentar", "CreateEvento", "Comentario", new { id = Model.id }, "null") |
@@ -76,13 +78,7 @@
 </p>
 
 
-<script>
-    var map;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: 40, lng: 2},
-            zoom: 8
-        })
-    }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADpOER-sITi0xLLrLoPhAMdIB3w1-GG_E&callback=initMap" async defer></script>
+@section Scripts {
+    @Scripts.Render("~/bundles/mapadetail")
+}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQw5mBOiJP88UP8TbwysOHmKg0NFRS2Rg"></script>
